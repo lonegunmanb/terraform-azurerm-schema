@@ -7,7 +7,6 @@ import (
 	"os"
 
 	"github.com/gruntwork-io/terratest/modules/files"
-	"github.com/hashicorp/go-version"
 	"github.com/hashicorp/hc-install/product"
 	"github.com/hashicorp/hc-install/releases"
 	"github.com/hashicorp/terraform-exec/tfexec"
@@ -16,16 +15,16 @@ import (
 
 type ProviderSchema struct {
 	*tfjson.ProviderSchema
-	Version *version.Version
+	Version string `json:"version"`
 }
 
-func RefreshAzureRMSchema() error {
+func RefreshAzureRMSchema(path string) error {
 	s, err := ExtractAzureRMProviderSchema()
 
 	if err != nil {
 		return err
 	}
-	return Save(s, "azurerm.json")
+	return Save(s, path)
 }
 
 func ExtractAzureRMProviderSchema() (*ProviderSchema, error) {
@@ -68,10 +67,14 @@ func ExtractAzureRMProviderSchema() (*ProviderSchema, error) {
 		return nil, fmt.Errorf("error running version: %s", err)
 	}
 
-	return &ProviderSchema{
+	r := &ProviderSchema{
 		ProviderSchema: schema.Schemas["registry.terraform.io/hashicorp/azurerm"],
-		Version:        providerVersions["registry.terraform.io/hashicorp/azurerm"],
-	}, nil
+	}
+	v := providerVersions["registry.terraform.io/hashicorp/azurerm"]
+	if v != nil {
+		r.Version = v.String()
+	}
+	return r, nil
 }
 
 func Save(s *ProviderSchema, path string) error {
@@ -84,7 +87,6 @@ func Save(s *ProviderSchema, path string) error {
 
 	err = save(path, bytes, false)
 	return err
-	//return save(fmt.Sprintf(path, version), bytes, true)
 }
 
 func save(path string, bytes []byte, skipIfExisted bool) error {
@@ -109,8 +111,7 @@ func save(path string, bytes []byte, skipIfExisted bool) error {
 }
 
 // Given such go function which takes `path` as file path that contains JSON bytes of `tfjson.ProviderSchema`, read the file content, unmarshal it to `tfjson.ProviderSchema` and return it.
-func LoadSchema() (*tfjson.ProviderSchema, error) {
-	path := "azurerm.json"
+func LoadSchema(path string) (*tfjson.ProviderSchema, error) {
 	// Read file contents
 	bytes, err := os.ReadFile(path)
 	if err != nil {
