@@ -1,76 +1,55 @@
-package schema_test
+package schema
 
 import (
-	"encoding/json"
-	"fmt"
 	"os"
 	"path/filepath"
 	"testing"
 
-	"github.com/gruntwork-io/terratest/modules/random"
-	tfjson "github.com/hashicorp/terraform-json"
-	"github.com/lonegunmanb/azurermSchema/schema"
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/require"
 )
 
 func Test_RefreshAzureRMSchema(t *testing.T) {
-	tmpFile := filepath.Join(os.TempDir(), fmt.Sprintf("temp%d.json", random.Random(0, 1000)))
-	defer func() {
-		_ = os.Remove(tmpFile)
-	}()
-	err := schema.RefreshAzureRMSchema(tmpFile)
+	err := RefreshAzureRMSchema()
 	require.NoError(t, err)
-	s, err := schema.LoadSchema(tmpFile)
-	require.NoError(t, err)
-	assert.Contains(t, s.ResourceSchemas, "azurerm_kubernetes_cluster")
 }
 
 func Test_ExtractAzureRMSchema(t *testing.T) {
-	schema, err := schema.ExtractAzureRMProviderSchema()
+	schema, err := ExtractAzureRMProviderSchema()
 	require.NoError(t, err)
 	assert.Contains(t, schema.ResourceSchemas, "azurerm_kubernetes_cluster")
 }
 
-func Test_SaveSchema(t *testing.T) {
-	s := &schema.ProviderSchema{ProviderSchema: &tfjson.ProviderSchema{}}
-
-	tmpFile := filepath.Join(os.TempDir(), fmt.Sprintf("temp%d.json", random.Random(0, 1000)))
-	defer func() {
-		_ = os.Remove(tmpFile)
-	}()
-	err := schema.Save(s, tmpFile)
-	require.NoError(t, err)
-	defer func() {
-		_ = os.Remove(tmpFile)
-	}()
-	if _, err := os.Stat(tmpFile); os.IsNotExist(err) {
-		assert.Failf(t, "file does not exist: %s", err.Error())
+func TestSave(t *testing.T) {
+	// Create a temporary directory
+	tmpDir, err := os.MkdirTemp("", "save_test")
+	if err != nil {
+		t.Fatalf("Unable to create temporary directory: %v", err)
 	}
-}
-
-func Test_Save_OverwriteExistingFile(t *testing.T) {
-	// Create a temporary file
-	tmpFile, err := os.CreateTemp(os.TempDir(), "tmp.json")
-	require.NoError(t, err)
 	defer func() {
-		_ = os.Remove(tmpFile.Name())
+		_ = os.RemoveAll(tmpDir) // Clean up after the test
 	}()
 
-	// Write some data to the file
-	_, err = tmpFile.WriteString("existing data")
-	require.NoError(t, err)
+	// Generate a file path with non-existing subfolders
+	filePath := filepath.Join(tmpDir, "non_existing_folder", "test_file.txt")
 
-	// Extract AzureRM provider schema and save it to the file
-	s, err := schema.LoadSchema("./azure.json")
-	require.NoError(t, err)
-	err = schema.Save(&schema.ProviderSchema{ProviderSchema: s}, tmpFile.Name())
-	require.NoError(t, err)
+	// Content to write to the file
+	content := []byte("This is a test")
 
-	// Read the file contents and check that they match the expected JSON
-	bytes, err := os.ReadFile(tmpFile.Name())
-	require.NoError(t, err)
-	expectedJSON, err := json.Marshal(schema.ProviderSchema{ProviderSchema: s})
-	require.NoError(t, err)
-	require.JSONEq(t, string(expectedJSON), string(bytes))
+	// Call the save function to save the content to the file
+	err = save(filePath, content)
+	assert.NoError(t, err, "save function should not return an error")
+
+	// Read the content back from the file and verify if it matches the original content
+	readContent, err := os.ReadFile(filePath)
+	assert.NoError(t, err, "Reading saved file should not return an error")
+	assert.Equal(t, content, readContent, "Content read from the file should match the original content")
+	content = []byte("This is another test")
+	err = save(filePath, content)
+	assert.NoError(t, err, "save function should not return an error")
+
+	// Read the content back from the file and verify if it matches the original content
+	readContent, err = os.ReadFile(filePath)
+	assert.NoError(t, err, "Reading saved file should not return an error")
+	assert.Equal(t, content, readContent, "Content read from the file should match the original content")
 }

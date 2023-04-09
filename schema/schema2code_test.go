@@ -1,7 +1,8 @@
-package schema_test
+package schema
 
 import (
-	"github.com/lonegunmanb/azurermSchema/schema"
+	"encoding/json"
+	"fmt"
 	"go/format"
 	"go/parser"
 	"go/token"
@@ -9,26 +10,36 @@ import (
 	"testing"
 
 	"github.com/stretchr/testify/assert"
+	"github.com/stretchr/testify/require"
 )
 
 func TestGenerateGoFileContent(t *testing.T) {
 	resourceName := "azurerm_kubernetes_cluster"
 	resourceSchema := `{"type":"object","properties":{"name":{"type":"string"},"age":{"type":"integer"}}}`
 
-	goFileContent, err := schema.GenerateGoFileContent(resourceName, resourceSchema)
+	goFileContent, err := GenerateGoFileContent(resourceName, resourceSchema, PackageResource)
 	assert.NoError(t, err, "GenerateGoFileContent should not return an error")
 
 	formattedSource, err := format.Source([]byte(goFileContent))
 	assert.NoError(t, err, "Generated Go file content should be formatted correctly")
 
-	expectedOutput := `package generated  
+	expectedSchema := `{"type":"object","properties":{"name":{"type":"string"},"age":{"type":"integer"}}}`
+	var schemaMap map[string]interface{}
+	if err := json.Unmarshal([]byte(expectedSchema), &schemaMap); err != nil {
+		t.Fatal(err.Error())
+	}
+	// Marshal the schema map back to a well-formatted JSON string
+	formattedSchemaBytes, err := json.MarshalIndent(schemaMap, "", "  ")
+	require.NoError(t, err)
+	formattedSchema := string(formattedSchemaBytes)
+	expectedOutput := `package resource  
   
 import (  
 	"encoding/json"  
 	tfjson "github.com/hashicorp/terraform-json"  
 )  
   
-const azurermKubernetesCluster = ` + "`{\"type\":\"object\",\"properties\":{\"name\":{\"type\":\"string\"},\"age\":{\"type\":\"integer\"}}}`" + `  
+const azurermKubernetesCluster = ` + fmt.Sprintf("`%s`", formattedSchema) + `  
   
 func AzurermKubernetesClusterSchema() *tfjson.Schema {  
 	var result tfjson.Schema  
