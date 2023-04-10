@@ -75,13 +75,16 @@ func commitSchema(schemaVersion string) {
 		},
 	})
 	if err != nil {
-		log.Fatalf("Failed to commit changes: %w", err)
+		log.Fatalf("Failed to commit changes: %v", err)
 	}
 	obj, err := repo.CommitObject(commit)
 	if err != nil {
-		log.Fatalf("Failed to get the commit object: %w", err)
+		log.Fatalf("Failed to get the commit object: %v", err)
 	}
 	remoteURL, err := convertToHttpsUrl(repo)
+	if err != nil {
+		log.Fatalf("Failed to convert remote URL to HTTPS: %v", err)
+	}
 	err = repo.Push(&git.PushOptions{
 		RemoteName: "origin",
 		Auth:       auth,
@@ -116,7 +119,7 @@ func commitSchema(schemaVersion string) {
 		}
 
 		if err != nil {
-			log.Fatalf("Failed to convert remote URL to HTTPS: %w", err)
+			log.Fatalf("Failed to convert remote URL to HTTPS: %v", err)
 		}
 		tagRef := plumbing.ReferenceName("refs/tags/" + tag)
 		pushOptions := &git.PushOptions{
