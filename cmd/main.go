@@ -101,7 +101,7 @@ func main() {
 			}
 			auth = &githttp.BasicAuth{
 				Username: "lonegunmanb",
-				Password: "pat",
+				Password: pat,
 			}
 		}
 		tagRef := plumbing.ReferenceName("refs/tags/" + tag)
