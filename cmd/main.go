@@ -48,59 +48,57 @@ func commitSchema(schemaVersion string) {
 		Username: "github-actions[bot]",
 		Password: pat,
 	}
-
-	tag := fmt.Sprintf("v%s", schemaVersion)
-	commitMsg := fmt.Sprintf("update schema to version %s", schemaVersion)
-
-	repo, err := git.PlainOpen(".")
-	if err != nil {
-		log.Fatalf("Failed to open the git repository: %v", err)
-	}
-
-	w, err := repo.Worktree()
-	if err != nil {
-		log.Fatalf("Failed to get the worktree: %v", err)
-	}
-
-	_, err = w.Add(".")
-	if err != nil {
-		log.Fatalf("Failed to add changes to the staging area: %v", err)
-	}
-
-	commit, err := w.Commit(commitMsg, &git.CommitOptions{
-		Author: &object.Signature{
-			Name:  "github-actions[bot]",
-			Email: "github-actions[bot]@users.noreply.github.com",
-			When:  time.Now(),
-		},
-	})
-	if err != nil {
-		log.Fatalf("Failed to commit changes: %v", err)
-	}
-	obj, err := repo.CommitObject(commit)
-	if err != nil {
-		log.Fatalf("Failed to get the commit object: %v", err)
-	}
-	remoteURL, err := convertToHttpsUrl(repo)
-	if err != nil {
-		log.Fatalf("Failed to convert remote URL to HTTPS: %v", err)
-	}
-	err = repo.Push(&git.PushOptions{
-		RemoteName: "origin",
-		Auth:       auth,
-		Progress:   os.Stdout,
-		RemoteURL:  remoteURL,
-	})
-	if err != nil {
-		log.Fatalf("Failed to push changes: %v", err)
-	}
-
 	tagExists, err := checkGitHubTag(schemaVersion)
 	if err != nil {
 		log.Fatalf("Failed to check GitHub tag: %v", err)
 	}
 
 	if !tagExists {
+		commitMsg := fmt.Sprintf("update schema to version %s", schemaVersion)
+
+		repo, err := git.PlainOpen(".")
+		if err != nil {
+			log.Fatalf("Failed to open the git repository: %v", err)
+		}
+
+		w, err := repo.Worktree()
+		if err != nil {
+			log.Fatalf("Failed to get the worktree: %v", err)
+		}
+
+		_, err = w.Add(".")
+		if err != nil {
+			log.Fatalf("Failed to add changes to the staging area: %v", err)
+		}
+
+		commit, err := w.Commit(commitMsg, &git.CommitOptions{
+			Author: &object.Signature{
+				Name:  "github-actions[bot]",
+				Email: "github-actions[bot]@users.noreply.github.com",
+				When:  time.Now(),
+			},
+		})
+		if err != nil {
+			log.Fatalf("Failed to commit changes: %v", err)
+		}
+		obj, err := repo.CommitObject(commit)
+		if err != nil {
+			log.Fatalf("Failed to get the commit object: %v", err)
+		}
+		remoteURL, err := convertToHttpsUrl(repo)
+		if err != nil {
+			log.Fatalf("Failed to convert remote URL to HTTPS: %v", err)
+		}
+		err = repo.Push(&git.PushOptions{
+			RemoteName: "origin",
+			Auth:       auth,
+			Progress:   os.Stdout,
+			RemoteURL:  remoteURL,
+		})
+		if err != nil {
+			log.Fatalf("Failed to push changes: %v", err)
+		}
+		tag := fmt.Sprintf("v%s", schemaVersion)
 		// Check if the local tag exists and delete it
 		_, err = repo.Tag(tag)
 		if err == nil {
