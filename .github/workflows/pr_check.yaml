@@ -1,0 +1,44 @@
+name: pr-check
+  
+on:
+  workflow_dispatch:
+  pull_request:  
+  push:  
+    branches:  
+      - main  
+  
+jobs:  
+  build:  
+    runs-on: ubuntu-latest  
+  
+    steps:  
+    - name: Checkout code  
+      uses: actions/checkout@v2  
+    - name: Install Go
+      uses: actions/setup-go@v2  
+      with:  
+        go-version: 1.20
+    - name: Setup latest Terraform  
+      uses: hashicorp/setup-terraform@v2
+    - name: Remove generated directory  
+      run: rm -rf generated
+    - name: Run tests for schema package  
+      run: go test github.com/lonegunmanb/azurerm-provider-schema/schema/...
+    - name: Run tests for generated package  
+      run: go test github.com/lonegunmanb/azurerm-provider-schema/generated/...
+    - name: Run Gosec Security Scanner
+      uses: securego/gosec@master
+      with:
+        args: ./...
+    - name: Run GolangCI-Lint
+      uses: golangci/golangci-lint-action@v3
+      with:
+        version: latest
+    - name: Initialize CodeQL
+      uses: github/codeql-action/init@v2
+      with:
+        languages: "go"
+    - name: Autobuild
+      uses: github/codeql-action/autobuild@v2
+    - name: Perform CodeQL Analysis
+      uses: github/codeql-action/analyze@v2
