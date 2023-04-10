@@ -7,7 +7,6 @@ import (
 	"github.com/go-git/go-git/v5/plumbing/transport"
 	"log"
 	"net/http"
-	"net/url"
 	"os"
 	"strings"
 	"time"
@@ -159,16 +158,6 @@ func convertToHttpsUrl(repo *git.Repository) (string, error) {
 		return httpsURL, nil
 	}
 	return "", fmt.Errorf("remote URL is not in the expected format")
-}
-
-func addTokenToRemoteURL(remoteURL, token string) (string, error) {
-	u, err := url.Parse(remoteURL)
-	if err != nil {
-		return "", fmt.Errorf("failed to parse remote URL: %v", err)
-	}
-
-	u.User = url.UserPassword("git", token)
-	return u.String(), nil
 }
 
 func deleteLocalTag(repo *git.Repository, tagName string) error {
