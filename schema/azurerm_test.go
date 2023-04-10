@@ -11,7 +11,7 @@ import (
 )
 
 func Test_RefreshAzureRMSchema(t *testing.T) {
-	v, err := RefreshAzureRMSchema()
+	v, err := RefreshAzureRMSchema("../generated")
 	require.NoError(t, err)
 	assert.NotNil(t, v)
 	assert.True(t, semver.IsValid("v"+v.String()))

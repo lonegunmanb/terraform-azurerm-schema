@@ -88,12 +88,12 @@ type ProviderSchema struct {
 	Version *version.Version
 }
 
-func RefreshAzureRMSchema() (version *version.Version, err error) {
+func RefreshAzureRMSchema(folder string) (version *version.Version, err error) {
 	s, err := ExtractAzureRMProviderSchema()
 	if err != nil {
 		return nil, err
 	}
-	return s.Version, SaveProviderSchema(s.ProviderSchema)
+	return s.Version, SaveProviderSchema(folder, s.ProviderSchema)
 }
 
 func ExtractAzureRMProviderSchema() (*ProviderSchema, error) {
@@ -194,29 +194,29 @@ func findTerraformExecPath() (*string, error) {
 	return nil, nil
 }
 
-func SaveProviderSchema(s *tfjson.ProviderSchema) error {
-	err := saveResourceSchemas(s)
+func SaveProviderSchema(folder string, s *tfjson.ProviderSchema) error {
+	err := saveResourceSchemas(folder, s)
 	if err != nil {
 		return fmt.Errorf("error saving resource schemas: %w", err)
 	}
-	err = saveDataSourceSchemas(s)
+	err = saveDataSourceSchemas(folder, s)
 	if err != nil {
 		return fmt.Errorf("error saving data source schemas: %w", err)
 	}
-	err = saveRegisterCode(s)
+	err = saveRegisterCode(folder, s)
 	if err != nil {
 		return fmt.Errorf("error saving register code: %w", err)
 	}
 	return nil
 }
 
-func saveRegisterCode(s *tfjson.ProviderSchema) error {
+func saveRegisterCode(folder string, s *tfjson.ProviderSchema) error {
 	parameter := buildRegisterParameter(s)
-	err := saveRegister(registerTemplate, parameter, "../generated/register.go")
+	err := saveRegister(registerTemplate, parameter, filepath.Join(folder, "register.go"))
 	if err != nil {
 		return fmt.Errorf("error saving register code: %w", err)
 	}
-	err = saveRegister(registerTestTemplate, parameter, "../generated/register_test.go")
+	err = saveRegister(registerTestTemplate, parameter, filepath.Join(folder, "register_test.go"))
 	if err != nil {
 		return fmt.Errorf("error saving register test code: %w", err)
 	}
@@ -259,9 +259,9 @@ func saveRegister(registerTemplate string, parameter RegisterParameter, destFile
 	return nil
 }
 
-func saveDataSourceSchemas(s *tfjson.ProviderSchema) error {
+func saveDataSourceSchemas(folder string, s *tfjson.ProviderSchema) error {
 	for dataName, schema := range s.DataSourceSchemas {
-		err := SaveDataSourceSchema(dataName, schema)
+		err := SaveDataSourceSchema(dataName, folder, schema)
 		if err != nil {
 			return fmt.Errorf("error saving data source schema: %s", err)
 		}
@@ -269,9 +269,9 @@ func saveDataSourceSchemas(s *tfjson.ProviderSchema) error {
 	return nil
 }
 
-func saveResourceSchemas(s *tfjson.ProviderSchema) error {
+func saveResourceSchemas(folder string, s *tfjson.ProviderSchema) error {
 	for resourceName, schema := range s.ResourceSchemas {
-		err := SaveResourceSchema(resourceName, schema)
+		err := SaveResourceSchema(resourceName, folder, schema)
 		if err != nil {
 			return fmt.Errorf("error saving resource schema: %s", err)
 		}
@@ -279,15 +279,15 @@ func saveResourceSchemas(s *tfjson.ProviderSchema) error {
 	return nil
 }
 
-func SaveDataSourceSchema(name string, s *tfjson.Schema) error {
-	return saveSchema(name, s, PackageData)
+func SaveDataSourceSchema(name, folder string, s *tfjson.Schema) error {
+	return saveSchema(name, folder, s, PackageData)
 }
 
-func SaveResourceSchema(name string, s *tfjson.Schema) error {
-	return saveSchema(name, s, PackageResource)
+func SaveResourceSchema(name, folder string, s *tfjson.Schema) error {
+	return saveSchema(name, folder, s, PackageResource)
 }
 
-func saveSchema(name string, s *tfjson.Schema, pkg Package) error {
+func saveSchema(name, folder string, s *tfjson.Schema, pkg Package) error {
 	jsonSchema, err := json.Marshal(s)
 	if err != nil {
 		return fmt.Errorf("error marshalling schema: %s", err)
@@ -297,7 +297,7 @@ func saveSchema(name string, s *tfjson.Schema, pkg Package) error {
 		return fmt.Errorf("error generating go file content: %s", err)
 	}
 	fileName := strcase.ToLowerCamel(name)
-	err = save(fmt.Sprintf("../generated/%s/%s.go", pkg, fileName), []byte(content))
+	err = save(filepath.Join(folder, "generated", string(pkg), fmt.Sprintf("%s.go", fileName)), []byte(content))
 	if err != nil {
 		return fmt.Errorf("error saving file generated/%s/%s.go: %s", pkg, fileName, err)
 	}
@@ -305,7 +305,7 @@ func saveSchema(name string, s *tfjson.Schema, pkg Package) error {
 	if err != nil {
 		return fmt.Errorf("error generating go test file content: %w", err)
 	}
-	err = save(fmt.Sprintf("../generated/%s/%s_test.go", pkg, fileName), []byte(content))
+	err = save(filepath.Join(folder, "generated", string(pkg), fmt.Sprintf("%s_test.go", fileName)), []byte(content))
 	if err != nil {
 		return fmt.Errorf("error saving file generated/%s/%s_test.go: %w", pkg, fileName, err)
 	}

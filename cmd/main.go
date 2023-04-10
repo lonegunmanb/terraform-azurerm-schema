@@ -3,10 +3,12 @@ package main
 import (
 	"context"
 	"fmt"
+	"github.com/go-git/go-git/v5/plumbing/transport"
 	"log"
 	"net/http"
 	"net/url"
 	"os"
+	"runtime"
 	"strings"
 	"time"
 
@@ -27,7 +29,7 @@ func main() {
 		log.Fatalf("Failed to remove 'generated' folder: %v", err)
 	}
 
-	azureVersion, err := schema.RefreshAzureRMSchema()
+	azureVersion, err := schema.RefreshAzureRMSchema("generated")
 	if err != nil {
 		log.Fatalf("Failed to refresh AzureRM schema: %v", err)
 	}
@@ -89,19 +91,25 @@ func main() {
 			log.Fatalf("Failed to create a new tag: %v", err)
 		}
 
-		//remoteURL := ""
-		//if runtime.GOOS == "windows" {
-		//	remoteURL, err = convertToHttpsUrl(repo)
-		//	if err != nil {
-		//		log.Fatalf("Failed to convert remote URL to HTTPS: %w", err)
-		//	}
-		//}
+		remoteURL := ""
+		pat := os.Getenv("GITHUB_TOKEN")
+		var auth transport.AuthMethod = &githttp.TokenAuth{Token: pat}
+		if runtime.GOOS == "windows" {
+			remoteURL, err = convertToHttpsUrl(repo)
+			if err != nil {
+				log.Fatalf("Failed to convert remote URL to HTTPS: %w", err)
+			}
+			auth = &githttp.BasicAuth{
+				Username: "lonegunmanb",
+				Password: "pat",
+			}
+		}
 		tagRef := plumbing.ReferenceName("refs/tags/" + tag)
 		pushOptions := &git.PushOptions{
 			RemoteName: "origin",
-			Auth:       &githttp.TokenAuth{Token: os.Getenv("GITHUB_TOKEN")},
+			Auth:       auth,
 			RefSpecs:   []config.RefSpec{config.RefSpec(tagRef + ":" + tagRef)},
-			//RemoteURL:  remoteURL,
+			RemoteURL:  remoteURL,
 		}
 		err = repo.Push(pushOptions)
 		if err != nil {
