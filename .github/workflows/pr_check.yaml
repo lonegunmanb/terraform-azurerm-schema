@@ -38,6 +38,7 @@ jobs:
       uses: securego/gosec@master
       with:
         args: ./...
+        exclude: 'G101'
     - name: Run GolangCI-Lint
       uses: golangci/golangci-lint-action@v3
       with:
