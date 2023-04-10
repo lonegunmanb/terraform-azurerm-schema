@@ -100,7 +100,7 @@ func main() {
 				log.Fatalf("Failed to convert remote URL to HTTPS: %w", err)
 			}
 			auth = &githttp.BasicAuth{
-				Username: "lonegunmanb",
+				Username: "github-actions[bot]",
 				Password: pat,
 			}
 		}
