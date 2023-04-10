@@ -272,7 +272,7 @@ func saveSchema(name string, s *tfjson.Schema, pkg Package) error {
 func save(path string, bytes []byte) error {
 	dir := filepath.Dir(path)
 	// Create all folders in the path if they don't exist
-	err := os.MkdirAll(dir, 0755)
+	err := os.MkdirAll(dir, 0750)
 	if err != nil {
 		return err
 	}
@@ -285,7 +285,7 @@ func save(path string, bytes []byte) error {
 	}
 
 	// Write JSON bytes to file
-	err = os.WriteFile(path, bytes, 0644)
+	err = os.WriteFile(path, bytes, 0600)
 	if err != nil {
 		return err
 	}
