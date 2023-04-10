@@ -26,11 +26,6 @@ const azurermSnapshot = `{
         "optional": true,
         "type": "string"
       },
-      "incremental_enabled": {
-        "description_kind": "plain",
-        "optional": true,
-        "type": "bool"
-      },
       "location": {
         "description_kind": "plain",
         "required": true,

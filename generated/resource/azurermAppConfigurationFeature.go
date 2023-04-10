@@ -36,12 +36,6 @@ const azurermAppConfigurationFeature = `{
         "optional": true,
         "type": "string"
       },
-      "key": {
-        "computed": true,
-        "description_kind": "plain",
-        "optional": true,
-        "type": "string"
-      },
       "label": {
         "description_kind": "plain",
         "optional": true,

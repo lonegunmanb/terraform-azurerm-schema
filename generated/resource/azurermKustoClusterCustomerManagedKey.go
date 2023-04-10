@@ -73,7 +73,7 @@ const azurermKustoClusterCustomerManagedKey = `{
     },
     "description_kind": "plain"
   },
-  "version": 1
+  "version": 0
 }`
 
 func AzurermKustoClusterCustomerManagedKeySchema() *tfjson.Schema {

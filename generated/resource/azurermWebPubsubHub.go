@@ -74,40 +74,6 @@ const azurermWebPubsubHub = `{
         },
         "nesting_mode": "list"
       },
-      "event_listener": {
-        "block": {
-          "attributes": {
-            "eventhub_name": {
-              "description_kind": "plain",
-              "required": true,
-              "type": "string"
-            },
-            "eventhub_namespace_name": {
-              "description_kind": "plain",
-              "required": true,
-              "type": "string"
-            },
-            "system_event_name_filter": {
-              "description_kind": "plain",
-              "optional": true,
-              "type": [
-                "list",
-                "string"
-              ]
-            },
-            "user_event_name_filter": {
-              "description_kind": "plain",
-              "optional": true,
-              "type": [
-                "list",
-                "string"
-              ]
-            }
-          },
-          "description_kind": "plain"
-        },
-        "nesting_mode": "list"
-      },
       "timeouts": {
         "block": {
           "attributes": {

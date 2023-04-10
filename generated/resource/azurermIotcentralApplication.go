@@ -122,7 +122,7 @@ const azurermIotcentralApplication = `{
     },
     "description_kind": "plain"
   },
-  "version": 2
+  "version": 1
 }`
 
 func AzurermIotcentralApplicationSchema() *tfjson.Schema {
