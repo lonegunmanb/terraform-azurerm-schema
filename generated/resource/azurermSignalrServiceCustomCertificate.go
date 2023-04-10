@@ -6,10 +6,15 @@ import (
 	tfjson "github.com/hashicorp/terraform-json"
 )
 
-const azurermKustoClusterCustomerManagedKey = `{
+const azurermSignalrServiceCustomCertificate = `{
   "block": {
     "attributes": {
-      "cluster_id": {
+      "certificate_version": {
+        "computed": true,
+        "description_kind": "plain",
+        "type": "string"
+      },
+      "custom_certificate_id": {
         "description_kind": "plain",
         "required": true,
         "type": "string"
@@ -20,24 +25,14 @@ const azurermKustoClusterCustomerManagedKey = `{
         "optional": true,
         "type": "string"
       },
-      "key_name": {
+      "name": {
         "description_kind": "plain",
         "required": true,
         "type": "string"
       },
-      "key_vault_id": {
+      "signalr_service_id": {
         "description_kind": "plain",
         "required": true,
-        "type": "string"
-      },
-      "key_version": {
-        "description_kind": "plain",
-        "optional": true,
-        "type": "string"
-      },
-      "user_identity": {
-        "description_kind": "plain",
-        "optional": true,
         "type": "string"
       }
     },
@@ -59,11 +54,6 @@ const azurermKustoClusterCustomerManagedKey = `{
               "description_kind": "plain",
               "optional": true,
               "type": "string"
-            },
-            "update": {
-              "description_kind": "plain",
-              "optional": true,
-              "type": "string"
             }
           },
           "description_kind": "plain"
@@ -73,11 +63,11 @@ const azurermKustoClusterCustomerManagedKey = `{
     },
     "description_kind": "plain"
   },
-  "version": 1
+  "version": 0
 }`
 
-func AzurermKustoClusterCustomerManagedKeySchema() *tfjson.Schema {
+func AzurermSignalrServiceCustomCertificateSchema() *tfjson.Schema {
 	var result tfjson.Schema
-	_ = json.Unmarshal([]byte(azurermKustoClusterCustomerManagedKey), &result)
+	_ = json.Unmarshal([]byte(azurermSignalrServiceCustomCertificate), &result)
 	return &result
 }

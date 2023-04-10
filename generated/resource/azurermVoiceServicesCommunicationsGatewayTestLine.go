@@ -6,15 +6,9 @@ import (
 	tfjson "github.com/hashicorp/terraform-json"
 )
 
-const azurermIotcentralApplication = `{
+const azurermVoiceServicesCommunicationsGatewayTestLine = `{
   "block": {
     "attributes": {
-      "display_name": {
-        "computed": true,
-        "description_kind": "plain",
-        "optional": true,
-        "type": "string"
-      },
       "id": {
         "computed": true,
         "description_kind": "plain",
@@ -31,22 +25,12 @@ const azurermIotcentralApplication = `{
         "required": true,
         "type": "string"
       },
-      "public_network_access_enabled": {
-        "description_kind": "plain",
-        "optional": true,
-        "type": "bool"
-      },
-      "resource_group_name": {
+      "phone_number": {
         "description_kind": "plain",
         "required": true,
         "type": "string"
       },
-      "sku": {
-        "description_kind": "plain",
-        "optional": true,
-        "type": "string"
-      },
-      "sub_domain": {
+      "purpose": {
         "description_kind": "plain",
         "required": true,
         "type": "string"
@@ -59,38 +43,13 @@ const azurermIotcentralApplication = `{
           "string"
         ]
       },
-      "template": {
-        "computed": true,
+      "voice_services_communications_gateway_id": {
         "description_kind": "plain",
-        "optional": true,
+        "required": true,
         "type": "string"
       }
     },
     "block_types": {
-      "identity": {
-        "block": {
-          "attributes": {
-            "principal_id": {
-              "computed": true,
-              "description_kind": "plain",
-              "type": "string"
-            },
-            "tenant_id": {
-              "computed": true,
-              "description_kind": "plain",
-              "type": "string"
-            },
-            "type": {
-              "description_kind": "plain",
-              "required": true,
-              "type": "string"
-            }
-          },
-          "description_kind": "plain"
-        },
-        "max_items": 1,
-        "nesting_mode": "list"
-      },
       "timeouts": {
         "block": {
           "attributes": {
@@ -122,11 +81,11 @@ const azurermIotcentralApplication = `{
     },
     "description_kind": "plain"
   },
-  "version": 2
+  "version": 0
 }`
 
-func AzurermIotcentralApplicationSchema() *tfjson.Schema {
+func AzurermVoiceServicesCommunicationsGatewayTestLineSchema() *tfjson.Schema {
 	var result tfjson.Schema
-	_ = json.Unmarshal([]byte(azurermIotcentralApplication), &result)
+	_ = json.Unmarshal([]byte(azurermVoiceServicesCommunicationsGatewayTestLine), &result)
 	return &result
 }

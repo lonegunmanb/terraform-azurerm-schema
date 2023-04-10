@@ -6,19 +6,23 @@ import (
 	tfjson "github.com/hashicorp/terraform-json"
 )
 
-const azurermSnapshot = `{
+const azurermSubscriptionCostManagementView = `{
   "block": {
     "attributes": {
-      "create_option": {
+      "accumulated": {
+        "description_kind": "plain",
+        "required": true,
+        "type": "bool"
+      },
+      "chart_type": {
         "description_kind": "plain",
         "required": true,
         "type": "string"
       },
-      "disk_size_gb": {
-        "computed": true,
+      "display_name": {
         "description_kind": "plain",
-        "optional": true,
-        "type": "number"
+        "required": true,
+        "type": "string"
       },
       "id": {
         "computed": true,
@@ -26,76 +30,47 @@ const azurermSnapshot = `{
         "optional": true,
         "type": "string"
       },
-      "incremental_enabled": {
-        "description_kind": "plain",
-        "optional": true,
-        "type": "bool"
-      },
-      "location": {
-        "description_kind": "plain",
-        "required": true,
-        "type": "string"
-      },
       "name": {
         "description_kind": "plain",
         "required": true,
         "type": "string"
       },
-      "resource_group_name": {
+      "report_type": {
         "description_kind": "plain",
         "required": true,
         "type": "string"
       },
-      "source_resource_id": {
+      "subscription_id": {
         "description_kind": "plain",
-        "optional": true,
+        "required": true,
         "type": "string"
       },
-      "source_uri": {
+      "timeframe": {
         "description_kind": "plain",
-        "optional": true,
+        "required": true,
         "type": "string"
-      },
-      "storage_account_id": {
-        "description_kind": "plain",
-        "optional": true,
-        "type": "string"
-      },
-      "tags": {
-        "description_kind": "plain",
-        "optional": true,
-        "type": [
-          "map",
-          "string"
-        ]
-      },
-      "trusted_launch_enabled": {
-        "computed": true,
-        "description_kind": "plain",
-        "type": "bool"
       }
     },
     "block_types": {
-      "encryption_settings": {
+      "dataset": {
         "block": {
           "attributes": {
-            "enabled": {
-              "deprecated": true,
+            "granularity": {
               "description_kind": "plain",
-              "optional": true,
-              "type": "bool"
+              "required": true,
+              "type": "string"
             }
           },
           "block_types": {
-            "disk_encryption_key": {
+            "aggregation": {
               "block": {
                 "attributes": {
-                  "secret_url": {
+                  "column_name": {
                     "description_kind": "plain",
                     "required": true,
                     "type": "string"
                   },
-                  "source_vault_id": {
+                  "name": {
                     "description_kind": "plain",
                     "required": true,
                     "type": "string"
@@ -103,18 +78,36 @@ const azurermSnapshot = `{
                 },
                 "description_kind": "plain"
               },
-              "max_items": 1,
+              "min_items": 1,
+              "nesting_mode": "set"
+            },
+            "grouping": {
+              "block": {
+                "attributes": {
+                  "name": {
+                    "description_kind": "plain",
+                    "required": true,
+                    "type": "string"
+                  },
+                  "type": {
+                    "description_kind": "plain",
+                    "required": true,
+                    "type": "string"
+                  }
+                },
+                "description_kind": "plain"
+              },
               "nesting_mode": "list"
             },
-            "key_encryption_key": {
+            "sorting": {
               "block": {
                 "attributes": {
-                  "key_url": {
+                  "direction": {
                     "description_kind": "plain",
                     "required": true,
                     "type": "string"
                   },
-                  "source_vault_id": {
+                  "name": {
                     "description_kind": "plain",
                     "required": true,
                     "type": "string"
@@ -122,13 +115,44 @@ const azurermSnapshot = `{
                 },
                 "description_kind": "plain"
               },
-              "max_items": 1,
               "nesting_mode": "list"
             }
           },
           "description_kind": "plain"
         },
         "max_items": 1,
+        "min_items": 1,
+        "nesting_mode": "list"
+      },
+      "kpi": {
+        "block": {
+          "attributes": {
+            "type": {
+              "description_kind": "plain",
+              "required": true,
+              "type": "string"
+            }
+          },
+          "description_kind": "plain"
+        },
+        "nesting_mode": "list"
+      },
+      "pivot": {
+        "block": {
+          "attributes": {
+            "name": {
+              "description_kind": "plain",
+              "required": true,
+              "type": "string"
+            },
+            "type": {
+              "description_kind": "plain",
+              "required": true,
+              "type": "string"
+            }
+          },
+          "description_kind": "plain"
+        },
         "nesting_mode": "list"
       },
       "timeouts": {
@@ -162,11 +186,11 @@ const azurermSnapshot = `{
     },
     "description_kind": "plain"
   },
-  "version": 1
+  "version": 0
 }`
 
-func AzurermSnapshotSchema() *tfjson.Schema {
+func AzurermSubscriptionCostManagementViewSchema() *tfjson.Schema {
 	var result tfjson.Schema
-	_ = json.Unmarshal([]byte(azurermSnapshot), &result)
+	_ = json.Unmarshal([]byte(azurermSubscriptionCostManagementView), &result)
 	return &result
 }

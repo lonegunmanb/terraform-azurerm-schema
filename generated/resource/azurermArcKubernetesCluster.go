@@ -6,28 +6,22 @@ import (
 	tfjson "github.com/hashicorp/terraform-json"
 )
 
-const azurermAppConfigurationFeature = `{
+const azurermArcKubernetesCluster = `{
   "block": {
     "attributes": {
-      "configuration_store_id": {
+      "agent_public_key_certificate": {
         "description_kind": "plain",
         "required": true,
         "type": "string"
       },
-      "description": {
-        "description_kind": "plain",
-        "optional": true,
-        "type": "string"
-      },
-      "enabled": {
-        "description_kind": "plain",
-        "optional": true,
-        "type": "bool"
-      },
-      "etag": {
+      "agent_version": {
         "computed": true,
         "description_kind": "plain",
-        "optional": true,
+        "type": "string"
+      },
+      "distribution": {
+        "computed": true,
+        "description_kind": "plain",
         "type": "string"
       },
       "id": {
@@ -36,31 +30,35 @@ const azurermAppConfigurationFeature = `{
         "optional": true,
         "type": "string"
       },
-      "key": {
+      "infrastructure": {
         "computed": true,
         "description_kind": "plain",
-        "optional": true,
         "type": "string"
       },
-      "label": {
+      "kubernetes_version": {
+        "computed": true,
         "description_kind": "plain",
-        "optional": true,
         "type": "string"
       },
-      "locked": {
+      "location": {
         "description_kind": "plain",
-        "optional": true,
-        "type": "bool"
+        "required": true,
+        "type": "string"
       },
       "name": {
         "description_kind": "plain",
         "required": true,
         "type": "string"
       },
-      "percentage_filter_value": {
+      "offering": {
+        "computed": true,
         "description_kind": "plain",
-        "optional": true,
-        "type": "number"
+        "type": "string"
+      },
+      "resource_group_name": {
+        "description_kind": "plain",
+        "required": true,
+        "type": "string"
       },
       "tags": {
         "description_kind": "plain",
@@ -69,48 +67,42 @@ const azurermAppConfigurationFeature = `{
           "map",
           "string"
         ]
+      },
+      "total_core_count": {
+        "computed": true,
+        "description_kind": "plain",
+        "type": "number"
+      },
+      "total_node_count": {
+        "computed": true,
+        "description_kind": "plain",
+        "type": "number"
       }
     },
     "block_types": {
-      "targeting_filter": {
+      "identity": {
         "block": {
           "attributes": {
-            "default_rollout_percentage": {
+            "principal_id": {
+              "computed": true,
+              "description_kind": "plain",
+              "type": "string"
+            },
+            "tenant_id": {
+              "computed": true,
+              "description_kind": "plain",
+              "type": "string"
+            },
+            "type": {
               "description_kind": "plain",
               "required": true,
-              "type": "number"
-            },
-            "users": {
-              "description_kind": "plain",
-              "optional": true,
-              "type": [
-                "list",
-                "string"
-              ]
-            }
-          },
-          "block_types": {
-            "groups": {
-              "block": {
-                "attributes": {
-                  "name": {
-                    "description_kind": "plain",
-                    "required": true,
-                    "type": "string"
-                  },
-                  "rollout_percentage": {
-                    "description_kind": "plain",
-                    "required": true,
-                    "type": "number"
-                  }
-                },
-                "description_kind": "plain"
-              },
-              "nesting_mode": "list"
+              "type": "string"
             }
           },
           "description_kind": "plain"
         },
+        "max_items": 1,
+        "min_items": 1,
         "nesting_mode": "list"
       },
       "timeouts": {
@@ -140,33 +132,15 @@ const azurermAppConfigurationFeature = `{
           "description_kind": "plain"
         },
         "nesting_mode": "single"
-      },
-      "timewindow_filter": {
-        "block": {
-          "attributes": {
-            "end": {
-              "description_kind": "plain",
-              "optional": true,
-              "type": "string"
-            },
-            "start": {
-              "description_kind": "plain",
-              "optional": true,
-              "type": "string"
-            }
-          },
-          "description_kind": "plain"
-        },
-        "nesting_mode": "list"
       }
     },
     "description_kind": "plain"
   },
-  "version": 1
+  "version": 0
 }`
 
-func AzurermAppConfigurationFeatureSchema() *tfjson.Schema {
+func AzurermArcKubernetesClusterSchema() *tfjson.Schema {
 	var result tfjson.Schema
-	_ = json.Unmarshal([]byte(azurermAppConfigurationFeature), &result)
+	_ = json.Unmarshal([]byte(azurermArcKubernetesCluster), &result)
 	return &result
 }

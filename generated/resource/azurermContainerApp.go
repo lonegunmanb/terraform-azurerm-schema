@@ -91,7 +91,7 @@ const azurermContainerApp = `{
             "app_port": {
               "description": "The port which the application is listening on. This is the same as the ` + "`" + `ingress` + "`" + ` port.",
               "description_kind": "plain",
-              "required": true,
+              "optional": true,
               "type": "number"
             },
             "app_protocol": {
