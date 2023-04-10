@@ -5,7 +5,11 @@ on:
   pull_request:  
   push:  
     branches:  
-      - main  
+      - main
+
+permissions:
+  contents: write
+  pull-requests: read
   
 jobs:  
   build:  
@@ -22,10 +26,12 @@ jobs:
       uses: hashicorp/setup-terraform@v2
     - name: Remove generated directory  
       run: rm -rf generated
+    - name: Run go mod tidy
+      run: go mod tidy
     - name: Run tests for schema package  
-      run: go test github.com/lonegunmanb/azurerm-provider-schema/schema/...
+      run: go test ${{ github.repository }}/schema/...
     - name: Run tests for generated package  
-      run: go test github.com/lonegunmanb/azurerm-provider-schema/generated/...
+      run: go test ${{ github.repository }}/generated/...
     - name: Run Gosec Security Scanner
       uses: securego/gosec@master
       with:
