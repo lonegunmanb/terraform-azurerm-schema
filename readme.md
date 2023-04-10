@@ -11,7 +11,7 @@ Each tag version of the Terraform AzureRM Provider has a corresponding tag in th
 e.g.: to use `azurerm`'s `3.51.0` schema, you could:
 
 ```shell
-$ go get github.com/lonegunmanb/terraform-azurerm-schema@v3.51.0
+$ go get github.com/lonegunmanb/terraform-azurerm-schema/v3@v3.51.0
 ```
 
 Then you can read schemas like this:
@@ -20,7 +20,7 @@ Then you can read schemas like this:
 import (
 "testing"
 
-"github.com/lonegunmanb/terraform-azurerm-schema/generated"
+"github.com/lonegunmanb/terraform-azurerm-schema/v3/generated"
 "github.com/stretchr/testify/assert"
 )
 
