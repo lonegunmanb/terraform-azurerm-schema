@@ -7,7 +7,6 @@ import (
 	"net/http"
 	"net/url"
 	"os"
-	"runtime"
 	"strings"
 	"time"
 
@@ -90,19 +89,19 @@ func main() {
 			log.Fatalf("Failed to create a new tag: %v", err)
 		}
 
-		remoteURL := ""
-		if runtime.GOOS == "windows" {
-			remoteURL, err = convertToHttpsUrl(repo)
-			if err != nil {
-				log.Fatalf("Failed to convert remote URL to HTTPS: %w", err)
-			}
-		}
+		//remoteURL := ""
+		//if runtime.GOOS == "windows" {
+		//	remoteURL, err = convertToHttpsUrl(repo)
+		//	if err != nil {
+		//		log.Fatalf("Failed to convert remote URL to HTTPS: %w", err)
+		//	}
+		//}
 		tagRef := plumbing.ReferenceName("refs/tags/" + tag)
 		pushOptions := &git.PushOptions{
 			RemoteName: "origin",
 			Auth:       &githttp.TokenAuth{Token: os.Getenv("GITHUB_TOKEN")},
 			RefSpecs:   []config.RefSpec{config.RefSpec(tagRef + ":" + tagRef)},
-			RemoteURL:  remoteURL,
+			//RemoteURL:  remoteURL,
 		}
 		err = repo.Push(pushOptions)
 		if err != nil {
