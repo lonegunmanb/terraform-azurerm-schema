@@ -4,7 +4,6 @@ import (
 	"context"
 	"flag"
 	"fmt"
-	"github.com/go-git/go-git/v5/plumbing/transport"
 	"log"
 	"net/http"
 	"os"
@@ -15,10 +14,11 @@ import (
 	"github.com/go-git/go-git/v5/config"
 	"github.com/go-git/go-git/v5/plumbing"
 	"github.com/go-git/go-git/v5/plumbing/object"
+	"github.com/go-git/go-git/v5/plumbing/transport"
 	githttp "github.com/go-git/go-git/v5/plumbing/transport/http"
 	"github.com/google/go-github/v51/github"
 	"github.com/hashicorp/go-version"
-	"github.com/lonegunmanb/azurerm-provider-schema/schema"
+	"github.com/lonegunmanb/terraform-azurerm-schema/schema"
 	"golang.org/x/oauth2"
 )
 
@@ -185,7 +185,7 @@ func checkGitHubTag(schemaVersion string) (bool, error) {
 	options := &github.ListOptions{PerPage: 100}
 
 	for {
-		tags, resp, err := client.Repositories.ListTags(context.Background(), "lonegunmanb", "azurerm-provider-schema", options)
+		tags, resp, err := client.Repositories.ListTags(context.Background(), "lonegunmanb", "terraform-azurerm-schema", options)
 		if err != nil {
 			return false, err
 		}

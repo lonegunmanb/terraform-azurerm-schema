@@ -1,4 +1,4 @@
-module github.com/lonegunmanb/azurerm-provider-schema
+module github.com/lonegunmanb/terraform-azurerm-schema
 
 go 1.19
 

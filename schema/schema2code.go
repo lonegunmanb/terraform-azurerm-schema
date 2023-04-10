@@ -112,7 +112,7 @@ func buildTemplate(blockName string, schema *string, pkg Package) (*TemplateData
 		ResourceSchema:    escapedSchema,
 		ResourceNameCamel: strcase.ToCamel(blockName),
 		RepoOwner:         "lonegunmanb",
-		GoModule:          "azurerm-provider-schema",
+		GoModule:          "terraform-azurerm-schema",
 	}
 	return &data, nil
 }

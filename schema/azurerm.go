@@ -229,7 +229,7 @@ func buildRegisterParameter(s *tfjson.ProviderSchema) RegisterParameter {
 		ResourceSchemas:   make(map[string]string, 0),
 		DataSourceSchemas: make(map[string]string, 0),
 		RepoOwner:         "lonegunmanb",
-		GoModule:          "azurerm-provider-schema",
+		GoModule:          "terraform-azurerm-schema",
 	}
 	linq.From(s.ResourceSchemas).OrderBy(byKey).ToMapBy(&parameter.ResourceSchemas, byKey, func(i interface{}) interface{} {
 		pair := i.(linq.KeyValue)
