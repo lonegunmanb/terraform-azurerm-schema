@@ -6,6 +6,8 @@ import (
 	"log"
 	"net/http"
 	"os"
+	"runtime"
+	"strings"
 	"time"
 
 	"github.com/go-git/go-git/v5"
@@ -79,15 +81,39 @@ func main() {
 			log.Fatalf("Failed to create a new tag: %v", err)
 		}
 
+		remoteURL := ""
+		if runtime.GOOS == "windows" {
+			remoteURL, err = convertToHttpsUrl(repo)
+			if err != nil {
+				log.Fatalf("Failed to convert remote URL to HTTPS: %v", err)
+			}
+		}
 		err = repo.Push(&git.PushOptions{
 			RemoteName: "origin",
 			Auth:       &githttp.TokenAuth{Token: os.Getenv("GITHUB_TOKEN")},
 			RefSpecs:   []config.RefSpec{config.RefSpec(tagRef + ":" + tagRef)},
+			RemoteURL:  remoteURL,
 		})
 		if err != nil {
 			log.Fatalf("Failed to push tag: %v", err)
 		}
 	}
+}
+
+func convertToHttpsUrl(repo *git.Repository) (string, error) {
+	remote, err := repo.Remote("origin")
+	if err != nil {
+		return "", err
+	}
+	remoteURL := remote.Config().URLs[0]
+
+	if strings.HasPrefix(remoteURL, "git@") {
+		httpsURL := strings.Replace(remoteURL, ":", "/", 1)
+		httpsURL = strings.Replace(httpsURL, "git@", "https://", 1)
+		httpsURL = strings.Replace(httpsURL, ".git", "", 1)
+		return httpsURL, nil
+	}
+	return "", fmt.Errorf("remote URL is not in the expected format")
 }
 
 func checkGitHubTag(azureVersion *version.Version) (bool, error) {
