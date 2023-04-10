@@ -2,13 +2,13 @@ package main
 
 import (
 	"context"
+	"flag"
 	"fmt"
 	"github.com/go-git/go-git/v5/plumbing/transport"
 	"log"
 	"net/http"
 	"net/url"
 	"os"
-	"runtime"
 	"strings"
 	"time"
 
@@ -24,56 +24,81 @@ import (
 )
 
 func main() {
-	err := os.RemoveAll("generated")
-	if err != nil {
-		log.Fatalf("Failed to remove 'generated' folder: %v", err)
+	refreshFlag := flag.Bool("refresh", false, "Refresh AzureRM schema")
+	commitFlag := flag.String("commit", "", "Commit schema with specified version")
+
+	// Parse flags
+	flag.Parse()
+
+	if *refreshFlag {
+		azureVersion := refreshAzureRMSchema()
+		fmt.Println(azureVersion.String())
+	} else if *commitFlag != "" {
+		commitSchema(*commitFlag)
+	} else {
+		log.Fatal("No valid flag provided. Use -refresh or -commit=<schema_version>")
+	}
+}
+
+func commitSchema(schemaVersion string) {
+	pat := os.Getenv("GITHUB_TOKEN")
+	if pat == "" {
+		log.Fatal("GITHUB_TOKEN is not set")
+	}
+	var auth transport.AuthMethod = &githttp.BasicAuth{
+		Username: "github-actions[bot]",
+		Password: pat,
 	}
 
-	azureVersion, err := schema.RefreshAzureRMSchema("generated")
+	tag := fmt.Sprintf("v%s", schemaVersion)
+	commitMsg := fmt.Sprintf("update schema to version %s", schemaVersion)
+
+	repo, err := git.PlainOpen(".")
 	if err != nil {
-		log.Fatalf("Failed to refresh AzureRM schema: %v", err)
+		log.Fatalf("Failed to open the git repository: %v", err)
 	}
 
-	tagExists, err := checkGitHubTag(azureVersion)
+	w, err := repo.Worktree()
+	if err != nil {
+		log.Fatalf("Failed to get the worktree: %v", err)
+	}
+
+	_, err = w.Add(".")
+	if err != nil {
+		log.Fatalf("Failed to add changes to the staging area: %v", err)
+	}
+
+	commit, err := w.Commit(commitMsg, &git.CommitOptions{
+		Author: &object.Signature{
+			Name:  "github-actions[bot]",
+			Email: "github-actions[bot]@users.noreply.github.com",
+			When:  time.Now(),
+		},
+	})
+	if err != nil {
+		log.Fatalf("Failed to commit changes: %w", err)
+	}
+	obj, err := repo.CommitObject(commit)
+	if err != nil {
+		log.Fatalf("Failed to get the commit object: %w", err)
+	}
+	remoteURL, err := convertToHttpsUrl(repo)
+	err = repo.Push(&git.PushOptions{
+		RemoteName: "origin",
+		Auth:       auth,
+		Progress:   os.Stdout,
+		RemoteURL:  remoteURL,
+	})
+	if err != nil {
+		log.Fatalf("Failed to push changes: %v", err)
+	}
+
+	tagExists, err := checkGitHubTag(schemaVersion)
 	if err != nil {
 		log.Fatalf("Failed to check GitHub tag: %v", err)
 	}
 
 	if !tagExists {
-		tag := fmt.Sprintf("v%s", azureVersion.String())
-		commitMsg := fmt.Sprintf("update schema to version %s", azureVersion.String())
-
-		repo, err := git.PlainOpen(".")
-		if err != nil {
-			log.Fatalf("Failed to open the git repository: %v", err)
-		}
-
-		w, err := repo.Worktree()
-		if err != nil {
-			log.Fatalf("Failed to get the worktree: %v", err)
-		}
-
-		_, err = w.Add(".")
-		if err != nil {
-			log.Fatalf("Failed to add changes to the staging area: %v", err)
-		}
-
-		commit, err := w.Commit(commitMsg, &git.CommitOptions{
-			Author: &object.Signature{
-				Name:  "github-actions[bot]",
-				Email: "github-actions[bot]@users.noreply.github.com",
-				When:  time.Now(),
-			},
-		})
-		if err != nil {
-			log.Fatalf("Failed to commit changes: %w", err)
-		}
-		obj, err := repo.CommitObject(commit)
-		if err != nil {
-			log.Fatalf("Failed to get the commit object: %w", err)
-		}
-		fmt.Println(obj)
-
 		// Check if the local tag exists and delete it
 		_, err = repo.Tag(tag)
 		if err == nil {
@@ -91,18 +116,8 @@ func main() {
 			log.Fatalf("Failed to create a new tag: %v", err)
 		}
 
-		remoteURL := ""
-		pat := os.Getenv("GITHUB_TOKEN")
-		var auth transport.AuthMethod = &githttp.TokenAuth{Token: pat}
-		if runtime.GOOS == "windows" {
-			remoteURL, err = convertToHttpsUrl(repo)
-			if err != nil {
-				log.Fatalf("Failed to convert remote URL to HTTPS: %w", err)
-			}
-			auth = &githttp.BasicAuth{
-				Username: "github-actions[bot]",
-				Password: pat,
-			}
+		if err != nil {
+			log.Fatalf("Failed to convert remote URL to HTTPS: %w", err)
 		}
 		tagRef := plumbing.ReferenceName("refs/tags/" + tag)
 		pushOptions := &git.PushOptions{
@@ -110,12 +125,25 @@ func main() {
 			Auth:       auth,
 			RefSpecs:   []config.RefSpec{config.RefSpec(tagRef + ":" + tagRef)},
 			RemoteURL:  remoteURL,
+			Progress:   os.Stdout,
 		}
 		err = repo.Push(pushOptions)
 		if err != nil {
 			log.Fatalf("Failed to push tag: %v", err)
 		}
 	}
+}
+
+func refreshAzureRMSchema() *version.Version {
+	err := os.RemoveAll("./generated")
+	if err != nil {
+		log.Fatalf("Failed to remove 'generated' folder: %v", err)
+	}
+	azureVersion, err := schema.RefreshAzureRMSchema("generated")
+	if err != nil {
+		log.Fatalf("Failed to refresh AzureRM schema: %v", err)
+	}
+	return azureVersion
 }
 
 func convertToHttpsUrl(repo *git.Repository) (string, error) {
@@ -150,7 +178,7 @@ func deleteLocalTag(repo *git.Repository, tagName string) error {
 	return nil
 }
 
-func checkGitHubTag(azureVersion *version.Version) (bool, error) {
+func checkGitHubTag(schemaVersion string) (bool, error) {
 	var tc *http.Client
 	githubToken := os.Getenv("GITHUB_TOKEN")
 	if githubToken != "" {
@@ -169,11 +197,11 @@ func checkGitHubTag(azureVersion *version.Version) (bool, error) {
 			return false, err
 		}
 		for _, tag := range tags {
-			tagVersion, err := version.NewVersion(*tag.Name)
+			_, err := version.NewVersion(*tag.Name)
 			if err != nil {
 				continue
 			}
-			if tagVersion.Equal(azureVersion) {
+			if *tag.Name == fmt.Sprintf("v%s", schemaVersion) || *tag.Name == schemaVersion {
 				return true, nil
 			}
 		}
