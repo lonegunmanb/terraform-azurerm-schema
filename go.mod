@@ -1,4 +1,4 @@
-module github.com/lonegunmanb/terraform-azurerm-schema
+module github.com/lonegunmanb/terraform-azurerm-schema/v3
 
 go 1.19
 
