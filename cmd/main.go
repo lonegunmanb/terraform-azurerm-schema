@@ -97,12 +97,13 @@ func main() {
 			}
 		}
 		tagRef := plumbing.ReferenceName("refs/tags/" + tag)
-		err = repo.Push(&git.PushOptions{
+		pushOptions := &git.PushOptions{
 			RemoteName: "origin",
 			Auth:       &githttp.TokenAuth{Token: os.Getenv("GITHUB_TOKEN")},
 			RefSpecs:   []config.RefSpec{config.RefSpec(tagRef + ":" + tagRef)},
 			RemoteURL:  remoteURL,
-		})
+		}
+		err = repo.Push(pushOptions)
 		if err != nil {
 			log.Fatalf("Failed to push tag: %v", err)
 		}
