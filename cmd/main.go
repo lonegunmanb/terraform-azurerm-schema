@@ -2,6 +2,7 @@ package main
 
 import (
 	"context"
+	"encoding/base64"
 	"fmt"
 	"log"
 	"net/http"
@@ -100,7 +101,7 @@ func main() {
 		tagRef := plumbing.ReferenceName("refs/tags/" + tag)
 		pushOptions := &git.PushOptions{
 			RemoteName: "origin",
-			Auth:       &githttp.TokenAuth{Token: os.Getenv("GITHUB_TOKEN")},
+			Auth:       &githttp.TokenAuth{Token: base64.StdEncoding.EncodeToString([]byte(os.Getenv("GITHUB_TOKEN")))},
 			RefSpecs:   []config.RefSpec{config.RefSpec(tagRef + ":" + tagRef)},
 			RemoteURL:  remoteURL,
 		}
