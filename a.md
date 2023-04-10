@@ -1,39 +1,85 @@
-Given the following go function:
+Given the following go main function:
 
 ```go
-package schema
-
-import (
-"bytes"
-"context"
-"encoding/json"
-"fmt"
-"os"
-"path/filepath"
-"strings"
-"text/template"
-
-"github.com/ahmetb/go-linq/v3"
-"github.com/hashicorp/go-version"
-"github.com/hashicorp/hc-install/product"
-"github.com/hashicorp/hc-install/releases"
-"github.com/hashicorp/terraform-exec/tfexec"
-tfjson "github.com/hashicorp/terraform-json"
-"github.com/iancoleman/strcase"
-)
-
-func RefreshAzureRMSchema() (version *version.Version, err error) {
-s, err := ExtractAzureRMProviderSchema()
+func main() {
+err := os.RemoveAll("generated")
 if err != nil {
-return nil, err
+log.Fatalf("Failed to remove 'generated' folder: %v", err)
 }
-return s.Version, SaveProviderSchema(s.ProviderSchema)
+
+azureVersion, err := schema.RefreshAzureRMSchema()
+if err != nil {
+log.Fatalf("Failed to refresh AzureRM schema: %v", err)
+}
+
+tagExists, err := checkGitHubTag(azureVersion)
+if err != nil {
+log.Fatalf("Failed to check GitHub tag: %v", err)
+}
+
+if !tagExists {
+tag := fmt.Sprintf("v%s", azureVersion.String())
+commitMsg := fmt.Sprintf("update schema to version %s", azureVersion.String())
+
+repo, err := git.PlainOpen(".")
+if err != nil {
+log.Fatalf("Failed to open the git repository: %v", err)
+}
+
+w, err := repo.Worktree()
+if err != nil {
+log.Fatalf("Failed to get the worktree: %v", err)
+}
+
+_, err = w.Add(".")
+if err != nil {
+log.Fatalf("Failed to add changes to the staging area: %v", err)
+}
+
+commit, err := w.Commit(commitMsg, &git.CommitOptions{
+Author: &object.Signature{
+Name:  "github-actions[bot]",
+Email: "github-actions[bot]@users.noreply.github.com",
+When:  time.Now(),
+},
+})
+if err != nil {
+log.Fatalf("Failed to commit changes: %w", err)
+}
+obj, err := repo.CommitObject(commit)
+if err != nil {
+log.Fatalf("Failed to get the commit object: %w", err)
+}
+fmt.Println(obj)
+
+tagRef := plumbing.ReferenceName("refs/tags/" + tag)
+_, err = repo.CreateTag(tag, obj.Hash, &git.CreateTagOptions{
+Tagger:  &obj.Author,
+Message: commitMsg,
+})
+if err != nil {
+log.Fatalf("Failed to create a new tag: %v", err)
+}
+
+remoteURL := ""
+if runtime.GOOS == "windows" {
+remoteURL, err = convertToHttpsUrl(repo)
+if err != nil {
+log.Fatalf("Failed to convert remote URL to HTTPS: %v", err)
+}
+}
+err = repo.Push(&git.PushOptions{
+RemoteName: "origin",
+Auth:       &githttp.TokenAuth{Token: os.Getenv("GITHUB_TOKEN")},
+RefSpecs:   []config.RefSpec{config.RefSpec(tagRef + ":" + tagRef)},
+RemoteURL:  remoteURL,
+})
+if err != nil {
+log.Fatalf("Failed to push tag: %v", err)
+}
+}
 }
 ```
 
-I'd like to have a main function which could:
+Sometimes the tag is already existed in the local machine, in that case, recreate the tag then continue to push the tag to the remote repository.
 
-1. Remove folder `generated`
-2. run `schema.RefreshAzureRMSchema()`
-3. use `go-github` package to check whether `github.com/lonegunmanb/azurerm-provider-schema` repo has a tag with the same version as the one returned by `schema.RefreshAzureRMSchema()`
-4. if the tag doesn't exist, execute `git commit -am "update schema to version X.Y.Z"` and `git push -u origin $tag`

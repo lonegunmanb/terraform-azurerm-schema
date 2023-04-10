@@ -72,7 +72,15 @@ func main() {
 		}
 		fmt.Println(obj)
 
-		tagRef := plumbing.ReferenceName("refs/tags/" + tag)
+		// Check if the local tag exists and delete it
+		_, err = repo.Tag(tag)
+		if err == nil {
+			err = deleteLocalTag(repo, tag)
+			if err != nil {
+				log.Fatalf("Failed to delete existing local tag: %v", err)
+			}
+		}
+
 		_, err = repo.CreateTag(tag, obj.Hash, &git.CreateTagOptions{
 			Tagger:  &obj.Author,
 			Message: commitMsg,
@@ -88,6 +96,7 @@ func main() {
 				log.Fatalf("Failed to convert remote URL to HTTPS: %v", err)
 			}
 		}
+		tagRef := plumbing.ReferenceName("refs/tags/" + tag)
 		err = repo.Push(&git.PushOptions{
 			RemoteName: "origin",
 			Auth:       &githttp.TokenAuth{Token: os.Getenv("GITHUB_TOKEN")},
@@ -114,6 +123,13 @@ func convertToHttpsUrl(repo *git.Repository) (string, error) {
 		return httpsURL, nil
 	}
 	return "", fmt.Errorf("remote URL is not in the expected format")
+}
+
+func deleteLocalTag(repo *git.Repository, tagName string) error {
+	if err := repo.DeleteTag(tagName); err != nil {
+		return fmt.Errorf("failed to delete local tag: %w", err)
+	}
+	return nil
 }
 
 func checkGitHubTag(azureVersion *version.Version) (bool, error) {
