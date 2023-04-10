@@ -157,14 +157,14 @@ func findTerraformExecPath() (*string, error) {
 func SaveProviderSchema(s *tfjson.ProviderSchema) error {
 	err := saveResourceSchemas(s)
 	if err != nil {
-		return err
+		return fmt.Errorf("error saving resource schemas: %w", err)
 	}
 	err = saveDataSourceSchemas(s)
 	if err != nil {
-		return err
+		return fmt.Errorf("error saving data source schemas: %w", err)
 	}
 	err = saveRegisterCode(s)
-	return nil
+	return fmt.Errorf("error saving register code: %w", err)
 }
 
 func saveRegisterCode(s *tfjson.ProviderSchema) error {
