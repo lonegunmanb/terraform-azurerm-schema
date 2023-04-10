@@ -153,6 +153,9 @@ func convertToHttpsUrl(repo *git.Repository) (string, error) {
 	}
 	remoteURL := remote.Config().URLs[0]
 
+	if strings.HasPrefix(remoteURL, "https://") {
+		return remoteURL, nil
+	}
 	if strings.HasPrefix(remoteURL, "git@") {
 		httpsURL := strings.Replace(remoteURL, ":", "/", 1)
 		httpsURL = strings.Replace(httpsURL, "git@", "https://", 1)
