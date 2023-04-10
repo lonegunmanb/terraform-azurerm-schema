@@ -5,6 +5,7 @@ import (
 	"fmt"
 	"log"
 	"net/http"
+	"net/url"
 	"os"
 	"runtime"
 	"strings"
@@ -93,7 +94,11 @@ func main() {
 		if runtime.GOOS == "windows" {
 			remoteURL, err = convertToHttpsUrl(repo)
 			if err != nil {
-				log.Fatalf("Failed to convert remote URL to HTTPS: %v", err)
+				log.Fatalf("Failed to convert remote URL to HTTPS: %w", err)
+			}
+			remoteURL, err = addTokenToRemoteURL(remoteURL, os.Getenv("GITHUB_TOKEN"))
+			if err != nil {
+				log.Fatalf("Failed to add token to remote URL: %w", err)
 			}
 		}
 		tagRef := plumbing.ReferenceName("refs/tags/" + tag)
@@ -124,6 +129,16 @@ func convertToHttpsUrl(repo *git.Repository) (string, error) {
 		return httpsURL, nil
 	}
 	return "", fmt.Errorf("remote URL is not in the expected format")
+}
+
+func addTokenToRemoteURL(remoteURL, token string) (string, error) {
+	u, err := url.Parse(remoteURL)
+	if err != nil {
+		return "", fmt.Errorf("failed to parse remote URL: %v", err)
+	}
+
+	u.User = url.UserPassword("git", token)
+	return u.String(), nil
 }
 
 func deleteLocalTag(repo *git.Repository, tagName string) error {
