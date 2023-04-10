@@ -1,6 +1,7 @@
 package schema
 
 import (
+	"golang.org/x/mod/semver"
 	"os"
 	"path/filepath"
 	"testing"
@@ -10,8 +11,10 @@ import (
 )
 
 func Test_RefreshAzureRMSchema(t *testing.T) {
-	err := RefreshAzureRMSchema()
+	v, err := RefreshAzureRMSchema()
 	require.NoError(t, err)
+	assert.NotNil(t, v)
+	assert.True(t, semver.IsValid("v"+v.String()))
 }
 
 func Test_ExtractAzureRMSchema(t *testing.T) {

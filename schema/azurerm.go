@@ -5,19 +5,38 @@ import (
 	"context"
 	"encoding/json"
 	"fmt"
-	"github.com/ahmetb/go-linq/v3"
-	"github.com/iancoleman/strcase"
 	"os"
 	"path/filepath"
 	"strings"
 	"text/template"
 
-	"github.com/gruntwork-io/terratest/modules/files"
+	"github.com/ahmetb/go-linq/v3"
+	"github.com/hashicorp/go-version"
 	"github.com/hashicorp/hc-install/product"
 	"github.com/hashicorp/hc-install/releases"
 	"github.com/hashicorp/terraform-exec/tfexec"
 	tfjson "github.com/hashicorp/terraform-json"
+	"github.com/iancoleman/strcase"
 )
+
+const tfProviderCode = `terraform {
+  required_providers {
+    azurerm = {
+      source = "hashicorp/azurerm"
+      version = "~> 3.0"
+    }
+  }
+}
+
+provider "azurerm" {
+  features {}
+}
+
+resource "azurerm_resource_group" "example" {
+  name     = "example"
+  location = "West Europe"
+}
+`
 
 const registerTemplate = `package generated
 
@@ -64,23 +83,32 @@ type RegisterParameter struct {
 	GoModule          string
 }
 
-func RefreshAzureRMSchema() error {
-	s, err := ExtractAzureRMProviderSchema()
-
-	if err != nil {
-		return err
-	}
-	return SaveProviderSchema(s)
+type ProviderSchema struct {
+	*tfjson.ProviderSchema
+	Version *version.Version
 }
 
-func ExtractAzureRMProviderSchema() (*tfjson.ProviderSchema, error) {
-	tmpFolder, err := files.CopyTerraformFolderToTemp("./", "azurermPrettier")
+func RefreshAzureRMSchema() (version *version.Version, err error) {
+	s, err := ExtractAzureRMProviderSchema()
+	if err != nil {
+		return nil, err
+	}
+	return s.Version, SaveProviderSchema(s.ProviderSchema)
+}
+
+func ExtractAzureRMProviderSchema() (*ProviderSchema, error) {
+	tmpFolder, err := os.MkdirTemp("", "*")
 	if err != nil {
 		return nil, fmt.Errorf("error creating temp TF code folder: %s", err)
 	}
 	defer func() {
 		_ = os.RemoveAll(tmpFolder)
 	}()
+
+	err = os.WriteFile(filepath.Join(tmpFolder, "main.tf"), []byte(tfProviderCode), 0600)
+	if err != nil {
+		return nil, fmt.Errorf("error writing temp TF code file: %s", err)
+	}
 
 	execPath, teardown, err := terraformExecPath()
 	if err != nil {
@@ -92,7 +120,7 @@ func ExtractAzureRMProviderSchema() (*tfjson.ProviderSchema, error) {
 	workingDir := tmpFolder
 	tf, err := tfexec.NewTerraform(workingDir, *execPath)
 	if err != nil {
-		return nil, fmt.Errorf("error running NewTerraform: %s", err)
+		return nil, fmt.Errorf("error running NewTerraform: %w", err)
 	}
 
 	err = tf.Init(context.Background(), tfexec.Upgrade(true))
@@ -101,11 +129,23 @@ func ExtractAzureRMProviderSchema() (*tfjson.ProviderSchema, error) {
 	}
 	schema, err := tf.ProvidersSchema(context.Background())
 	if err != nil {
-		return nil, fmt.Errorf("error running providers: %s", err)
+		return nil, fmt.Errorf("error running providers: %w", err)
 	}
 	r := schema.Schemas["registry.terraform.io/hashicorp/azurerm"]
 
-	return r, nil
+	_, versions, err := tf.Version(context.Background(), true)
+	if err != nil {
+		return nil, fmt.Errorf("error running version: %w", err)
+	}
+	v, ok := versions["registry.terraform.io/hashicorp/azurerm"]
+	if !ok {
+		return nil, fmt.Errorf("error getting azurerm version")
+	}
+
+	return &ProviderSchema{
+		ProviderSchema: r,
+		Version:        v,
+	}, nil
 }
 
 func terraformExecPath() (*string, func(), error) {
