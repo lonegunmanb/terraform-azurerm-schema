@@ -2,8 +2,8 @@ package generated
 
 import (
 	tfjson "github.com/hashicorp/terraform-json"
-	"github.com/lonegunmanb/azurerm-provider-schema/generated/data"
-	"github.com/lonegunmanb/azurerm-provider-schema/generated/resource"
+	"github.com/lonegunmanb/terraform-azurerm-schema/generated/data"
+	"github.com/lonegunmanb/terraform-azurerm-schema/generated/resource"
 )
 
 var Resources map[string]*tfjson.Schema

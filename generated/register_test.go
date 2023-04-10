@@ -3,7 +3,7 @@ package generated_test
 import (
 	"testing"
 
-	"github.com/lonegunmanb/azurerm-provider-schema/generated"
+	"github.com/lonegunmanb/terraform-azurerm-schema/generated"
 	"github.com/stretchr/testify/assert"
 )
 

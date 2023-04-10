@@ -4,7 +4,7 @@ import (
 	"testing"
 
 	tfjson "github.com/hashicorp/terraform-json"
-	"github.com/lonegunmanb/azurerm-provider-schema/generated/resource"
+	"github.com/lonegunmanb/terraform-azurerm-schema/generated/resource"
 	"github.com/stretchr/testify/assert"
 )
 
