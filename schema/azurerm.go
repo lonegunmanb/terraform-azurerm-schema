@@ -164,7 +164,10 @@ func SaveProviderSchema(s *tfjson.ProviderSchema) error {
 		return fmt.Errorf("error saving data source schemas: %w", err)
 	}
 	err = saveRegisterCode(s)
-	return fmt.Errorf("error saving register code: %w", err)
+	if err != nil {
+		return fmt.Errorf("error saving register code: %w", err)
+	}
+	return nil
 }
 
 func saveRegisterCode(s *tfjson.ProviderSchema) error {
