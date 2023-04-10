@@ -96,10 +96,6 @@ func main() {
 			if err != nil {
 				log.Fatalf("Failed to convert remote URL to HTTPS: %w", err)
 			}
-			remoteURL, err = addTokenToRemoteURL(remoteURL, os.Getenv("GITHUB_TOKEN"))
-			if err != nil {
-				log.Fatalf("Failed to add token to remote URL: %w", err)
-			}
 		}
 		tagRef := plumbing.ReferenceName("refs/tags/" + tag)
 		pushOptions := &git.PushOptions{
