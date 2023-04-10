@@ -2,7 +2,8 @@ name: pr-check
   
 on:
   workflow_dispatch:
-  pull_request:  
+  pull_request:
+    types: [ 'opened', 'synchronize' ]
   push:  
     branches:  
       - main
@@ -10,6 +11,9 @@ on:
 permissions:
   contents: write
   pull-requests: read
+  statuses: write
+  security-events: write
+
   
 jobs:  
   build:  
