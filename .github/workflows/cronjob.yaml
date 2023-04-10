@@ -30,7 +30,10 @@ jobs:
     - name: refresh and test
       run: | 
         export VERSION=$(go run cmd/main.go -refresh)
+        export GITHUB_TOKEN=${{ secrets.GITHUB_TOKEN }}
         go test github.com/${{ github.repository }}/generated/...
         echo "VERSION=$VERSION" >> $GITHUB_ENV
     - name: git commit
-      run: go run cmd/main.go -commit=$VERSION
+      run: |
+        export GITHUB_TOKEN=${{ secrets.GITHUB_TOKEN }}
+        go run cmd/main.go -commit=$VERSION
