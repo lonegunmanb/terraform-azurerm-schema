@@ -297,7 +297,7 @@ func saveSchema(name, folder string, s *tfjson.Schema, pkg Package) error {
 		return fmt.Errorf("error generating go file content: %s", err)
 	}
 	fileName := strcase.ToLowerCamel(name)
-	err = save(filepath.Join(folder, "generated", string(pkg), fmt.Sprintf("%s.go", fileName)), []byte(content))
+	err = save(filepath.Join(folder, string(pkg), fmt.Sprintf("%s.go", fileName)), []byte(content))
 	if err != nil {
 		return fmt.Errorf("error saving file generated/%s/%s.go: %s", pkg, fileName, err)
 	}
@@ -305,7 +305,7 @@ func saveSchema(name, folder string, s *tfjson.Schema, pkg Package) error {
 	if err != nil {
 		return fmt.Errorf("error generating go test file content: %w", err)
 	}
-	err = save(filepath.Join(folder, "generated", string(pkg), fmt.Sprintf("%s_test.go", fileName)), []byte(content))
+	err = save(filepath.Join(folder, string(pkg), fmt.Sprintf("%s_test.go", fileName)), []byte(content))
 	if err != nil {
 		return fmt.Errorf("error saving file generated/%s/%s_test.go: %w", pkg, fileName, err)
 	}
