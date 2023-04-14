@@ -14,6 +14,11 @@ const azurermKeyVaultSecret = `{
         "description_kind": "plain",
         "type": "string"
       },
+      "expiration_date": {
+        "computed": true,
+        "description_kind": "plain",
+        "type": "string"
+      },
       "id": {
         "computed": true,
         "description_kind": "plain",
@@ -28,6 +33,11 @@ const azurermKeyVaultSecret = `{
       "name": {
         "description_kind": "plain",
         "required": true,
+        "type": "string"
+      },
+      "not_before_date": {
+        "computed": true,
+        "description_kind": "plain",
         "type": "string"
       },
       "resource_id": {
@@ -55,8 +65,8 @@ const azurermKeyVaultSecret = `{
         "type": "string"
       },
       "version": {
-        "computed": true,
         "description_kind": "plain",
+        "optional": true,
         "type": "string"
       },
       "versionless_id": {

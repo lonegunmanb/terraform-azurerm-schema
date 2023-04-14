@@ -815,6 +815,7 @@ const azurermWindowsWebApp = `{
       "site_credential": {
         "computed": true,
         "description_kind": "plain",
+        "sensitive": true,
         "type": [
           "list",
           [
