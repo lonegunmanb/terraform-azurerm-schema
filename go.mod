@@ -12,7 +12,7 @@ require (
 	github.com/hashicorp/terraform-json v0.16.0
 	github.com/iancoleman/strcase v0.2.0
 	github.com/stretchr/testify v1.8.1
-	golang.org/x/mod v0.9.0
+	golang.org/x/mod v0.10.0
 	golang.org/x/oauth2 v0.6.0
 )
 
