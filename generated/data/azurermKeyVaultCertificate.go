@@ -153,6 +153,16 @@ const azurermKeyVaultCertificate = `{
         "description_kind": "plain",
         "type": "string"
       },
+      "resource_manager_id": {
+        "computed": true,
+        "description_kind": "plain",
+        "type": "string"
+      },
+      "resource_manager_versionless_id": {
+        "computed": true,
+        "description_kind": "plain",
+        "type": "string"
+      },
       "secret_id": {
         "computed": true,
         "description_kind": "plain",
