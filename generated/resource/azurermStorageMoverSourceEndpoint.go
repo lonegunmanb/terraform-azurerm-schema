@@ -6,25 +6,20 @@ import (
 	tfjson "github.com/hashicorp/terraform-json"
 )
 
-const azurermHealthcareMedtechService = `{
+const azurermStorageMoverSourceEndpoint = `{
   "block": {
     "attributes": {
-      "device_mapping_json": {
+      "description": {
         "description_kind": "plain",
-        "required": true,
+        "optional": true,
         "type": "string"
       },
-      "eventhub_consumer_group_name": {
+      "export": {
         "description_kind": "plain",
-        "required": true,
+        "optional": true,
         "type": "string"
       },
-      "eventhub_name": {
-        "description_kind": "plain",
-        "required": true,
-        "type": "string"
-      },
-      "eventhub_namespace_name": {
+      "host": {
         "description_kind": "plain",
         "required": true,
         "type": "string"
@@ -35,63 +30,23 @@ const azurermHealthcareMedtechService = `{
         "optional": true,
         "type": "string"
       },
-      "location": {
-        "description_kind": "plain",
-        "required": true,
-        "type": "string"
-      },
       "name": {
         "description_kind": "plain",
         "required": true,
         "type": "string"
       },
-      "tags": {
+      "nfs_version": {
         "description_kind": "plain",
         "optional": true,
-        "type": [
-          "map",
-          "string"
-        ]
+        "type": "string"
       },
-      "workspace_id": {
+      "storage_mover_id": {
         "description_kind": "plain",
         "required": true,
         "type": "string"
       }
     },
     "block_types": {
-      "identity": {
-        "block": {
-          "attributes": {
-            "identity_ids": {
-              "description_kind": "plain",
-              "optional": true,
-              "type": [
-                "set",
-                "string"
-              ]
-            },
-            "principal_id": {
-              "computed": true,
-              "description_kind": "plain",
-              "type": "string"
-            },
-            "tenant_id": {
-              "computed": true,
-              "description_kind": "plain",
-              "type": "string"
-            },
-            "type": {
-              "description_kind": "plain",
-              "required": true,
-              "type": "string"
-            }
-          },
-          "description_kind": "plain"
-        },
-        "max_items": 1,
-        "nesting_mode": "list"
-      },
       "timeouts": {
         "block": {
           "attributes": {
@@ -123,11 +78,11 @@ const azurermHealthcareMedtechService = `{
     },
     "description_kind": "plain"
   },
-  "version": 1
+  "version": 0
 }`
 
-func AzurermHealthcareMedtechServiceSchema() *tfjson.Schema {
+func AzurermStorageMoverSourceEndpointSchema() *tfjson.Schema {
 	var result tfjson.Schema
-	_ = json.Unmarshal([]byte(azurermHealthcareMedtechService), &result)
+	_ = json.Unmarshal([]byte(azurermStorageMoverSourceEndpoint), &result)
 	return &result
 }

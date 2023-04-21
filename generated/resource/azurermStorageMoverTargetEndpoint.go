@@ -6,12 +6,12 @@ import (
 	tfjson "github.com/hashicorp/terraform-json"
 )
 
-const azurermAttestationProvider = `{
+const azurermStorageMoverTargetEndpoint = `{
   "block": {
     "attributes": {
-      "attestation_uri": {
-        "computed": true,
+      "description": {
         "description_kind": "plain",
+        "optional": true,
         "type": "string"
       },
       "id": {
@@ -20,59 +20,28 @@ const azurermAttestationProvider = `{
         "optional": true,
         "type": "string"
       },
-      "location": {
-        "description_kind": "plain",
-        "required": true,
-        "type": "string"
-      },
       "name": {
         "description_kind": "plain",
         "required": true,
         "type": "string"
       },
-      "policy_signing_certificate_data": {
-        "description_kind": "plain",
-        "optional": true,
-        "type": "string"
-      },
-      "resource_group_name": {
+      "storage_account_id": {
         "description_kind": "plain",
         "required": true,
         "type": "string"
       },
-      "tags": {
+      "storage_container_name": {
         "description_kind": "plain",
-        "optional": true,
-        "type": [
-          "map",
-          "string"
-        ]
+        "required": true,
+        "type": "string"
       },
-      "trust_model": {
-        "computed": true,
+      "storage_mover_id": {
         "description_kind": "plain",
+        "required": true,
         "type": "string"
       }
     },
     "block_types": {
-      "policy": {
-        "block": {
-          "attributes": {
-            "data": {
-              "description_kind": "plain",
-              "required": true,
-              "type": "string"
-            },
-            "environment_type": {
-              "description_kind": "plain",
-              "required": true,
-              "type": "string"
-            }
-          },
-          "description_kind": "plain"
-        },
-        "nesting_mode": "list"
-      },
       "timeouts": {
         "block": {
           "attributes": {
@@ -107,8 +76,8 @@ const azurermAttestationProvider = `{
   "version": 0
 }`
 
-func AzurermAttestationProviderSchema() *tfjson.Schema {
+func AzurermStorageMoverTargetEndpointSchema() *tfjson.Schema {
 	var result tfjson.Schema
-	_ = json.Unmarshal([]byte(azurermAttestationProvider), &result)
+	_ = json.Unmarshal([]byte(azurermStorageMoverTargetEndpoint), &result)
 	return &result
 }

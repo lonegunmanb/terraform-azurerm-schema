@@ -6,28 +6,59 @@ import (
 	tfjson "github.com/hashicorp/terraform-json"
 )
 
-const azurermHealthcareMedtechService = `{
+const azurermCostManagementScheduledAction = `{
   "block": {
     "attributes": {
-      "device_mapping_json": {
+      "day_of_month": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "number"
+      },
+      "days_of_week": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": [
+          "list",
+          "string"
+        ]
+      },
+      "display_name": {
         "description_kind": "plain",
         "required": true,
         "type": "string"
       },
-      "eventhub_consumer_group_name": {
+      "email_address_sender": {
         "description_kind": "plain",
         "required": true,
         "type": "string"
       },
-      "eventhub_name": {
+      "email_addresses": {
+        "description_kind": "plain",
+        "required": true,
+        "type": [
+          "list",
+          "string"
+        ]
+      },
+      "email_subject": {
         "description_kind": "plain",
         "required": true,
         "type": "string"
       },
-      "eventhub_namespace_name": {
+      "end_date": {
         "description_kind": "plain",
         "required": true,
         "type": "string"
+      },
+      "frequency": {
+        "description_kind": "plain",
+        "required": true,
+        "type": "string"
+      },
+      "hour_of_day": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "number"
       },
       "id": {
         "computed": true,
@@ -35,9 +66,9 @@ const azurermHealthcareMedtechService = `{
         "optional": true,
         "type": "string"
       },
-      "location": {
+      "message": {
         "description_kind": "plain",
-        "required": true,
+        "optional": true,
         "type": "string"
       },
       "name": {
@@ -45,53 +76,26 @@ const azurermHealthcareMedtechService = `{
         "required": true,
         "type": "string"
       },
-      "tags": {
-        "description_kind": "plain",
-        "optional": true,
-        "type": [
-          "map",
-          "string"
-        ]
-      },
-      "workspace_id": {
+      "start_date": {
         "description_kind": "plain",
         "required": true,
         "type": "string"
+      },
+      "view_id": {
+        "description_kind": "plain",
+        "required": true,
+        "type": "string"
+      },
+      "weeks_of_month": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": [
+          "list",
+          "string"
+        ]
       }
     },
     "block_types": {
-      "identity": {
-        "block": {
-          "attributes": {
-            "identity_ids": {
-              "description_kind": "plain",
-              "optional": true,
-              "type": [
-                "set",
-                "string"
-              ]
-            },
-            "principal_id": {
-              "computed": true,
-              "description_kind": "plain",
-              "type": "string"
-            },
-            "tenant_id": {
-              "computed": true,
-              "description_kind": "plain",
-              "type": "string"
-            },
-            "type": {
-              "description_kind": "plain",
-              "required": true,
-              "type": "string"
-            }
-          },
-          "description_kind": "plain"
-        },
-        "max_items": 1,
-        "nesting_mode": "list"
-      },
       "timeouts": {
         "block": {
           "attributes": {
@@ -123,11 +127,11 @@ const azurermHealthcareMedtechService = `{
     },
     "description_kind": "plain"
   },
-  "version": 1
+  "version": 0
 }`
 
-func AzurermHealthcareMedtechServiceSchema() *tfjson.Schema {
+func AzurermCostManagementScheduledActionSchema() *tfjson.Schema {
 	var result tfjson.Schema
-	_ = json.Unmarshal([]byte(azurermHealthcareMedtechService), &result)
+	_ = json.Unmarshal([]byte(azurermCostManagementScheduledAction), &result)
 	return &result
 }

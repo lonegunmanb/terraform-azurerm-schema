@@ -421,6 +421,11 @@ const azurermWindowsWebApp = `{
         "description_kind": "plain",
         "type": "bool"
       },
+      "hosting_environment_id": {
+        "computed": true,
+        "description_kind": "plain",
+        "type": "string"
+      },
       "https_only": {
         "computed": true,
         "description_kind": "plain",

@@ -77,6 +77,11 @@ const azurermWindowsFunctionApp = `{
         "optional": true,
         "type": "string"
       },
+      "hosting_environment_id": {
+        "computed": true,
+        "description_kind": "plain",
+        "type": "string"
+      },
       "https_only": {
         "computed": true,
         "description": "Can the Function App only be accessed via HTTPS?",

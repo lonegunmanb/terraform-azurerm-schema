@@ -17,6 +17,7 @@ const azurermCognitiveAccount = `{
       "custom_question_answering_search_service_key": {
         "description_kind": "plain",
         "optional": true,
+        "sensitive": true,
         "type": "string"
       },
       "custom_subdomain_name": {

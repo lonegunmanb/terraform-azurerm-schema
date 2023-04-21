@@ -42,6 +42,7 @@ const azurermSearchService = `{
       "primary_key": {
         "computed": true,
         "description_kind": "plain",
+        "sensitive": true,
         "type": "string"
       },
       "public_network_access_enabled": {
@@ -77,6 +78,7 @@ const azurermSearchService = `{
       "secondary_key": {
         "computed": true,
         "description_kind": "plain",
+        "sensitive": true,
         "type": "string"
       },
       "sku": {

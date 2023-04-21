@@ -59,6 +59,11 @@ const azurermWindowsWebAppSlot = `{
         "optional": true,
         "type": "bool"
       },
+      "hosting_environment_id": {
+        "computed": true,
+        "description_kind": "plain",
+        "type": "string"
+      },
       "https_only": {
         "description_kind": "plain",
         "optional": true,

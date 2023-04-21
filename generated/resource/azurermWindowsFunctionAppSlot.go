@@ -85,6 +85,11 @@ const azurermWindowsFunctionAppSlot = `{
         "optional": true,
         "type": "string"
       },
+      "hosting_environment_id": {
+        "computed": true,
+        "description_kind": "plain",
+        "type": "string"
+      },
       "https_only": {
         "description": "Can the Function App Slot only be accessed via HTTPS?",
         "description_kind": "plain",
