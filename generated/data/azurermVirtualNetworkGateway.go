@@ -76,6 +76,7 @@ const azurermVirtualNetworkGateway = `{
             {
               "id": "string",
               "name": "string",
+              "private_ip_address": "string",
               "private_ip_address_allocation": "string",
               "public_ip_address_id": "string",
               "subnet_id": "string"

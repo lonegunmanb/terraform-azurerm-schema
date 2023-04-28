@@ -6,12 +6,22 @@ import (
 	tfjson "github.com/hashicorp/terraform-json"
 )
 
-const azurermAttestationProvider = `{
+const azurermStorageMoverJobDefinition = `{
   "block": {
     "attributes": {
-      "attestation_uri": {
-        "computed": true,
+      "agent_name": {
         "description_kind": "plain",
+        "optional": true,
+        "type": "string"
+      },
+      "copy_mode": {
+        "description_kind": "plain",
+        "required": true,
+        "type": "string"
+      },
+      "description": {
+        "description_kind": "plain",
+        "optional": true,
         "type": "string"
       },
       "id": {
@@ -20,75 +30,38 @@ const azurermAttestationProvider = `{
         "optional": true,
         "type": "string"
       },
-      "location": {
-        "description_kind": "plain",
-        "required": true,
-        "type": "string"
-      },
       "name": {
         "description_kind": "plain",
         "required": true,
         "type": "string"
       },
-      "open_enclave_policy_base64": {
-        "description_kind": "plain",
-        "optional": true,
-        "type": "string"
-      },
-      "policy_signing_certificate_data": {
-        "description_kind": "plain",
-        "optional": true,
-        "type": "string"
-      },
-      "resource_group_name": {
+      "source_name": {
         "description_kind": "plain",
         "required": true,
         "type": "string"
       },
-      "sgx_enclave_policy_base64": {
+      "source_sub_path": {
         "description_kind": "plain",
         "optional": true,
         "type": "string"
       },
-      "tags": {
+      "storage_mover_project_id": {
         "description_kind": "plain",
-        "optional": true,
-        "type": [
-          "map",
-          "string"
-        ]
-      },
-      "tpm_policy_base64": {
-        "description_kind": "plain",
-        "optional": true,
+        "required": true,
         "type": "string"
       },
-      "trust_model": {
-        "computed": true,
+      "target_name": {
         "description_kind": "plain",
+        "required": true,
+        "type": "string"
+      },
+      "target_sub_path": {
+        "description_kind": "plain",
+        "optional": true,
         "type": "string"
       }
     },
     "block_types": {
-      "policy": {
-        "block": {
-          "attributes": {
-            "data": {
-              "description_kind": "plain",
-              "optional": true,
-              "type": "string"
-            },
-            "environment_type": {
-              "description_kind": "plain",
-              "optional": true,
-              "type": "string"
-            }
-          },
-          "deprecated": true,
-          "description_kind": "plain"
-        },
-        "nesting_mode": "list"
-      },
       "timeouts": {
         "block": {
           "attributes": {
@@ -123,8 +96,8 @@ const azurermAttestationProvider = `{
   "version": 0
 }`
 
-func AzurermAttestationProviderSchema() *tfjson.Schema {
+func AzurermStorageMoverJobDefinitionSchema() *tfjson.Schema {
 	var result tfjson.Schema
-	_ = json.Unmarshal([]byte(azurermAttestationProvider), &result)
+	_ = json.Unmarshal([]byte(azurermStorageMoverJobDefinition), &result)
 	return &result
 }

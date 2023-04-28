@@ -6,12 +6,12 @@ import (
 	tfjson "github.com/hashicorp/terraform-json"
 )
 
-const azurermAttestationProvider = `{
+const azurermEmailCommunicationService = `{
   "block": {
     "attributes": {
-      "attestation_uri": {
-        "computed": true,
+      "data_location": {
         "description_kind": "plain",
+        "required": true,
         "type": "string"
       },
       "id": {
@@ -20,34 +20,14 @@ const azurermAttestationProvider = `{
         "optional": true,
         "type": "string"
       },
-      "location": {
-        "description_kind": "plain",
-        "required": true,
-        "type": "string"
-      },
       "name": {
         "description_kind": "plain",
         "required": true,
         "type": "string"
       },
-      "open_enclave_policy_base64": {
-        "description_kind": "plain",
-        "optional": true,
-        "type": "string"
-      },
-      "policy_signing_certificate_data": {
-        "description_kind": "plain",
-        "optional": true,
-        "type": "string"
-      },
       "resource_group_name": {
         "description_kind": "plain",
         "required": true,
-        "type": "string"
-      },
-      "sgx_enclave_policy_base64": {
-        "description_kind": "plain",
-        "optional": true,
         "type": "string"
       },
       "tags": {
@@ -57,38 +37,9 @@ const azurermAttestationProvider = `{
           "map",
           "string"
         ]
-      },
-      "tpm_policy_base64": {
-        "description_kind": "plain",
-        "optional": true,
-        "type": "string"
-      },
-      "trust_model": {
-        "computed": true,
-        "description_kind": "plain",
-        "type": "string"
       }
     },
     "block_types": {
-      "policy": {
-        "block": {
-          "attributes": {
-            "data": {
-              "description_kind": "plain",
-              "optional": true,
-              "type": "string"
-            },
-            "environment_type": {
-              "description_kind": "plain",
-              "optional": true,
-              "type": "string"
-            }
-          },
-          "deprecated": true,
-          "description_kind": "plain"
-        },
-        "nesting_mode": "list"
-      },
       "timeouts": {
         "block": {
           "attributes": {
@@ -123,8 +74,8 @@ const azurermAttestationProvider = `{
   "version": 0
 }`
 
-func AzurermAttestationProviderSchema() *tfjson.Schema {
+func AzurermEmailCommunicationServiceSchema() *tfjson.Schema {
 	var result tfjson.Schema
-	_ = json.Unmarshal([]byte(azurermAttestationProvider), &result)
+	_ = json.Unmarshal([]byte(azurermEmailCommunicationService), &result)
 	return &result
 }

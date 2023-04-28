@@ -1468,6 +1468,20 @@ const azurermKubernetesCluster = `{
         "max_items": 1,
         "nesting_mode": "list"
       },
+      "service_mesh_profile": {
+        "block": {
+          "attributes": {
+            "mode": {
+              "description_kind": "plain",
+              "required": true,
+              "type": "string"
+            }
+          },
+          "description_kind": "plain"
+        },
+        "max_items": 1,
+        "nesting_mode": "list"
+      },
       "service_principal": {
         "block": {
           "attributes": {

@@ -6,30 +6,53 @@ import (
 	tfjson "github.com/hashicorp/terraform-json"
 )
 
-const azurermSearchService = `{
+const azurermKubernetesClusterExtension = `{
   "block": {
     "attributes": {
-      "allowed_ips": {
+      "aks_assigned_identity": {
+        "computed": true,
+        "description_kind": "plain",
+        "type": [
+          "list",
+          [
+            "object",
+            {
+              "principal_id": "string",
+              "tenant_id": "string",
+              "type": "string"
+            }
+          ]
+        ]
+      },
+      "cluster_id": {
+        "description_kind": "plain",
+        "required": true,
+        "type": "string"
+      },
+      "configuration_protected_settings": {
         "description_kind": "plain",
         "optional": true,
         "type": [
-          "set",
+          "map",
           "string"
         ]
       },
-      "authentication_failure_mode": {
+      "configuration_settings": {
         "description_kind": "plain",
         "optional": true,
+        "type": [
+          "map",
+          "string"
+        ]
+      },
+      "current_version": {
+        "computed": true,
+        "description_kind": "plain",
         "type": "string"
       },
-      "customer_managed_key_enforcement_enabled": {
+      "extension_type": {
         "description_kind": "plain",
-        "optional": true,
-        "type": "bool"
-      },
-      "hosting_mode": {
-        "description_kind": "plain",
-        "optional": true,
+        "required": true,
         "type": "string"
       },
       "id": {
@@ -38,98 +61,62 @@ const azurermSearchService = `{
         "optional": true,
         "type": "string"
       },
-      "local_authentication_enabled": {
-        "description_kind": "plain",
-        "optional": true,
-        "type": "bool"
-      },
-      "location": {
-        "description_kind": "plain",
-        "required": true,
-        "type": "string"
-      },
       "name": {
         "description_kind": "plain",
         "required": true,
         "type": "string"
       },
-      "partition_count": {
-        "description_kind": "plain",
-        "optional": true,
-        "type": "number"
-      },
-      "primary_key": {
+      "release_namespace": {
         "computed": true,
         "description_kind": "plain",
-        "sensitive": true,
+        "optional": true,
         "type": "string"
       },
-      "public_network_access_enabled": {
-        "description_kind": "plain",
-        "optional": true,
-        "type": "bool"
-      },
-      "query_keys": {
+      "release_train": {
         "computed": true,
         "description_kind": "plain",
-        "type": [
-          "list",
-          [
-            "object",
-            {
-              "key": "string",
-              "name": "string"
-            }
-          ]
-        ]
-      },
-      "replica_count": {
-        "description_kind": "plain",
         "optional": true,
-        "type": "number"
-      },
-      "resource_group_name": {
-        "description_kind": "plain",
-        "required": true,
         "type": "string"
       },
-      "secondary_key": {
+      "target_namespace": {
         "computed": true,
         "description_kind": "plain",
-        "sensitive": true,
+        "optional": true,
         "type": "string"
       },
-      "sku": {
-        "description_kind": "plain",
-        "required": true,
-        "type": "string"
-      },
-      "tags": {
+      "version": {
         "description_kind": "plain",
         "optional": true,
-        "type": [
-          "map",
-          "string"
-        ]
+        "type": "string"
       }
     },
     "block_types": {
-      "identity": {
+      "plan": {
         "block": {
           "attributes": {
-            "principal_id": {
-              "computed": true,
-              "description_kind": "plain",
-              "type": "string"
-            },
-            "tenant_id": {
-              "computed": true,
-              "description_kind": "plain",
-              "type": "string"
-            },
-            "type": {
+            "name": {
               "description_kind": "plain",
               "required": true,
+              "type": "string"
+            },
+            "product": {
+              "description_kind": "plain",
+              "required": true,
+              "type": "string"
+            },
+            "promotion_code": {
+              "description_kind": "plain",
+              "optional": true,
+              "type": "string"
+            },
+            "publisher": {
+              "description_kind": "plain",
+              "required": true,
+              "type": "string"
+            },
+            "version": {
+              "description_kind": "plain",
+              "optional": true,
               "type": "string"
             }
           },
@@ -172,8 +159,8 @@ const azurermSearchService = `{
   "version": 0
 }`
 
-func AzurermSearchServiceSchema() *tfjson.Schema {
+func AzurermKubernetesClusterExtensionSchema() *tfjson.Schema {
 	var result tfjson.Schema
-	_ = json.Unmarshal([]byte(azurermSearchService), &result)
+	_ = json.Unmarshal([]byte(azurermKubernetesClusterExtension), &result)
 	return &result
 }

@@ -6,42 +6,56 @@ import (
 	tfjson "github.com/hashicorp/terraform-json"
 )
 
-const azurermSearchService = `{
+const azurermCosmosdbPostgresqlCluster = `{
   "block": {
     "attributes": {
-      "allowed_ips": {
+      "administrator_login_password": {
         "description_kind": "plain",
-        "optional": true,
-        "type": [
-          "set",
-          "string"
-        ]
+        "required": true,
+        "sensitive": true,
+        "type": "string"
       },
-      "authentication_failure_mode": {
+      "citus_version": {
+        "computed": true,
         "description_kind": "plain",
         "optional": true,
         "type": "string"
       },
-      "customer_managed_key_enforcement_enabled": {
+      "coordinator_public_ip_access_enabled": {
         "description_kind": "plain",
         "optional": true,
         "type": "bool"
       },
-      "hosting_mode": {
+      "coordinator_server_edition": {
         "description_kind": "plain",
         "optional": true,
         "type": "string"
+      },
+      "coordinator_storage_quota_in_mb": {
+        "description_kind": "plain",
+        "required": true,
+        "type": "number"
+      },
+      "coordinator_vcore_count": {
+        "description_kind": "plain",
+        "required": true,
+        "type": "number"
+      },
+      "earliest_restore_time": {
+        "computed": true,
+        "description_kind": "plain",
+        "type": "string"
+      },
+      "ha_enabled": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "bool"
       },
       "id": {
         "computed": true,
         "description_kind": "plain",
         "optional": true,
         "type": "string"
-      },
-      "local_authentication_enabled": {
-        "description_kind": "plain",
-        "optional": true,
-        "type": "bool"
       },
       "location": {
         "description_kind": "plain",
@@ -53,55 +67,68 @@ const azurermSearchService = `{
         "required": true,
         "type": "string"
       },
-      "partition_count": {
+      "node_count": {
         "description_kind": "plain",
-        "optional": true,
+        "required": true,
         "type": "number"
       },
-      "primary_key": {
-        "computed": true,
-        "description_kind": "plain",
-        "sensitive": true,
-        "type": "string"
-      },
-      "public_network_access_enabled": {
+      "node_public_ip_access_enabled": {
         "description_kind": "plain",
         "optional": true,
         "type": "bool"
       },
-      "query_keys": {
-        "computed": true,
+      "node_server_edition": {
         "description_kind": "plain",
-        "type": [
-          "list",
-          [
-            "object",
-            {
-              "key": "string",
-              "name": "string"
-            }
-          ]
-        ]
+        "optional": true,
+        "type": "string"
       },
-      "replica_count": {
+      "node_storage_quota_in_mb": {
+        "computed": true,
         "description_kind": "plain",
         "optional": true,
         "type": "number"
+      },
+      "node_vcores": {
+        "computed": true,
+        "description_kind": "plain",
+        "optional": true,
+        "type": "number"
+      },
+      "point_in_time_in_utc": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "string"
+      },
+      "preferred_primary_zone": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "string"
       },
       "resource_group_name": {
         "description_kind": "plain",
         "required": true,
         "type": "string"
       },
-      "secondary_key": {
+      "shards_on_coordinator_enabled": {
         "computed": true,
         "description_kind": "plain",
-        "sensitive": true,
+        "optional": true,
+        "type": "bool"
+      },
+      "source_location": {
+        "description_kind": "plain",
+        "optional": true,
         "type": "string"
       },
-      "sku": {
+      "source_resource_id": {
         "description_kind": "plain",
-        "required": true,
+        "optional": true,
+        "type": "string"
+      },
+      "sql_version": {
+        "computed": true,
+        "description_kind": "plain",
+        "optional": true,
         "type": "string"
       },
       "tags": {
@@ -114,23 +141,23 @@ const azurermSearchService = `{
       }
     },
     "block_types": {
-      "identity": {
+      "maintenance_window": {
         "block": {
           "attributes": {
-            "principal_id": {
-              "computed": true,
+            "day_of_week": {
               "description_kind": "plain",
-              "type": "string"
+              "optional": true,
+              "type": "number"
             },
-            "tenant_id": {
-              "computed": true,
+            "start_hour": {
               "description_kind": "plain",
-              "type": "string"
+              "optional": true,
+              "type": "number"
             },
-            "type": {
+            "start_minute": {
               "description_kind": "plain",
-              "required": true,
-              "type": "string"
+              "optional": true,
+              "type": "number"
             }
           },
           "description_kind": "plain"
@@ -172,8 +199,8 @@ const azurermSearchService = `{
   "version": 0
 }`
 
-func AzurermSearchServiceSchema() *tfjson.Schema {
+func AzurermCosmosdbPostgresqlClusterSchema() *tfjson.Schema {
 	var result tfjson.Schema
-	_ = json.Unmarshal([]byte(azurermSearchService), &result)
+	_ = json.Unmarshal([]byte(azurermCosmosdbPostgresqlCluster), &result)
 	return &result
 }
