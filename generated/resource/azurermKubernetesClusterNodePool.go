@@ -173,6 +173,11 @@ const azurermKubernetesClusterNodePool = `{
         "optional": true,
         "type": "string"
       },
+      "snapshot_id": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "string"
+      },
       "spot_max_price": {
         "description_kind": "plain",
         "optional": true,

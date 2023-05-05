@@ -1,4 +1,4 @@
-package data
+package resource
 
 import (
 	"encoding/json"
@@ -6,27 +6,17 @@ import (
 	tfjson "github.com/hashicorp/terraform-json"
 )
 
-const azurermHealthcareMedtechService = `{
+const azurermCosmosdbPostgresqlFirewallRule = `{
   "block": {
     "attributes": {
-      "device_mapping_json": {
-        "computed": true,
+      "cluster_id": {
         "description_kind": "plain",
+        "required": true,
         "type": "string"
       },
-      "eventhub_consumer_group_name": {
-        "computed": true,
+      "end_ip_address": {
         "description_kind": "plain",
-        "type": "string"
-      },
-      "eventhub_name": {
-        "computed": true,
-        "description_kind": "plain",
-        "type": "string"
-      },
-      "eventhub_namespace_name": {
-        "computed": true,
-        "description_kind": "plain",
+        "required": true,
         "type": "string"
       },
       "id": {
@@ -35,31 +25,12 @@ const azurermHealthcareMedtechService = `{
         "optional": true,
         "type": "string"
       },
-      "identity": {
-        "computed": true,
-        "description_kind": "plain",
-        "type": [
-          "list",
-          [
-            "object",
-            {
-              "identity_ids": [
-                "list",
-                "string"
-              ],
-              "principal_id": "string",
-              "tenant_id": "string",
-              "type": "string"
-            }
-          ]
-        ]
-      },
       "name": {
         "description_kind": "plain",
         "required": true,
         "type": "string"
       },
-      "workspace_id": {
+      "start_ip_address": {
         "description_kind": "plain",
         "required": true,
         "type": "string"
@@ -69,7 +40,22 @@ const azurermHealthcareMedtechService = `{
       "timeouts": {
         "block": {
           "attributes": {
+            "create": {
+              "description_kind": "plain",
+              "optional": true,
+              "type": "string"
+            },
+            "delete": {
+              "description_kind": "plain",
+              "optional": true,
+              "type": "string"
+            },
             "read": {
+              "description_kind": "plain",
+              "optional": true,
+              "type": "string"
+            },
+            "update": {
               "description_kind": "plain",
               "optional": true,
               "type": "string"
@@ -82,11 +68,11 @@ const azurermHealthcareMedtechService = `{
     },
     "description_kind": "plain"
   },
-  "version": 1
+  "version": 0
 }`
 
-func AzurermHealthcareMedtechServiceSchema() *tfjson.Schema {
+func AzurermCosmosdbPostgresqlFirewallRuleSchema() *tfjson.Schema {
 	var result tfjson.Schema
-	_ = json.Unmarshal([]byte(azurermHealthcareMedtechService), &result)
+	_ = json.Unmarshal([]byte(azurermCosmosdbPostgresqlFirewallRule), &result)
 	return &result
 }
