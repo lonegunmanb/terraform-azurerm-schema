@@ -109,6 +109,11 @@ const azurermMachineLearningWorkspace = `{
         "description_kind": "plain",
         "optional": true,
         "type": "bool"
+      },
+      "workspace_id": {
+        "computed": true,
+        "description_kind": "plain",
+        "type": "string"
       }
     },
     "block_types": {

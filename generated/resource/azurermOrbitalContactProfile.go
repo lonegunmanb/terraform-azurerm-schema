@@ -125,7 +125,7 @@ const azurermOrbitalContactProfile = `{
                         },
                         "ip_address": {
                           "description_kind": "plain",
-                          "required": true,
+                          "optional": true,
                           "type": "string"
                         },
                         "port": {

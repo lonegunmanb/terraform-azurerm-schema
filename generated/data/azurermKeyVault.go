@@ -87,11 +87,11 @@ const azurermKeyVault = `{
               "bypass": "string",
               "default_action": "string",
               "ip_rules": [
-                "set",
+                "list",
                 "string"
               ],
               "virtual_network_subnet_ids": [
-                "set",
+                "list",
                 "string"
               ]
             }

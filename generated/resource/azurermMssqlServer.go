@@ -89,6 +89,11 @@ const azurermMssqlServer = `{
           "string"
         ]
       },
+      "transparent_data_encryption_key_vault_key_id": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "string"
+      },
       "version": {
         "description_kind": "plain",
         "required": true,
