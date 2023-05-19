@@ -138,6 +138,25 @@ const azurermRecoveryServicesVault = `{
         "max_items": 1,
         "nesting_mode": "list"
       },
+      "monitoring": {
+        "block": {
+          "attributes": {
+            "alerts_for_all_job_failures_enabled": {
+              "description_kind": "plain",
+              "optional": true,
+              "type": "bool"
+            },
+            "alerts_for_critical_operation_failures_enabled": {
+              "description_kind": "plain",
+              "optional": true,
+              "type": "bool"
+            }
+          },
+          "description_kind": "plain"
+        },
+        "max_items": 1,
+        "nesting_mode": "list"
+      },
       "timeouts": {
         "block": {
           "attributes": {

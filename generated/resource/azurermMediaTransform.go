@@ -501,6 +501,154 @@ const azurermMediaTransform = `{
                           },
                           "max_items": 1,
                           "nesting_mode": "list"
+                        },
+                        "jpg_image": {
+                          "block": {
+                            "attributes": {
+                              "key_frame_interval": {
+                                "description_kind": "plain",
+                                "optional": true,
+                                "type": "string"
+                              },
+                              "label": {
+                                "description_kind": "plain",
+                                "optional": true,
+                                "type": "string"
+                              },
+                              "range": {
+                                "description_kind": "plain",
+                                "optional": true,
+                                "type": "string"
+                              },
+                              "sprite_column": {
+                                "description_kind": "plain",
+                                "optional": true,
+                                "type": "number"
+                              },
+                              "start": {
+                                "description_kind": "plain",
+                                "required": true,
+                                "type": "string"
+                              },
+                              "step": {
+                                "description_kind": "plain",
+                                "optional": true,
+                                "type": "string"
+                              },
+                              "stretch_mode": {
+                                "description_kind": "plain",
+                                "optional": true,
+                                "type": "string"
+                              },
+                              "sync_mode": {
+                                "description_kind": "plain",
+                                "optional": true,
+                                "type": "string"
+                              }
+                            },
+                            "block_types": {
+                              "layer": {
+                                "block": {
+                                  "attributes": {
+                                    "height": {
+                                      "description_kind": "plain",
+                                      "optional": true,
+                                      "type": "string"
+                                    },
+                                    "label": {
+                                      "description_kind": "plain",
+                                      "optional": true,
+                                      "type": "string"
+                                    },
+                                    "quality": {
+                                      "description_kind": "plain",
+                                      "optional": true,
+                                      "type": "number"
+                                    },
+                                    "width": {
+                                      "description_kind": "plain",
+                                      "optional": true,
+                                      "type": "string"
+                                    }
+                                  },
+                                  "description_kind": "plain"
+                                },
+                                "nesting_mode": "list"
+                              }
+                            },
+                            "description_kind": "plain"
+                          },
+                          "max_items": 1,
+                          "nesting_mode": "list"
+                        },
+                        "png_image": {
+                          "block": {
+                            "attributes": {
+                              "key_frame_interval": {
+                                "description_kind": "plain",
+                                "optional": true,
+                                "type": "string"
+                              },
+                              "label": {
+                                "description_kind": "plain",
+                                "optional": true,
+                                "type": "string"
+                              },
+                              "range": {
+                                "description_kind": "plain",
+                                "optional": true,
+                                "type": "string"
+                              },
+                              "start": {
+                                "description_kind": "plain",
+                                "required": true,
+                                "type": "string"
+                              },
+                              "step": {
+                                "description_kind": "plain",
+                                "optional": true,
+                                "type": "string"
+                              },
+                              "stretch_mode": {
+                                "description_kind": "plain",
+                                "optional": true,
+                                "type": "string"
+                              },
+                              "sync_mode": {
+                                "description_kind": "plain",
+                                "optional": true,
+                                "type": "string"
+                              }
+                            },
+                            "block_types": {
+                              "layer": {
+                                "block": {
+                                  "attributes": {
+                                    "height": {
+                                      "description_kind": "plain",
+                                      "optional": true,
+                                      "type": "string"
+                                    },
+                                    "label": {
+                                      "description_kind": "plain",
+                                      "optional": true,
+                                      "type": "string"
+                                    },
+                                    "width": {
+                                      "description_kind": "plain",
+                                      "optional": true,
+                                      "type": "string"
+                                    }
+                                  },
+                                  "description_kind": "plain"
+                                },
+                                "nesting_mode": "list"
+                              }
+                            },
+                            "description_kind": "plain"
+                          },
+                          "max_items": 1,
+                          "nesting_mode": "list"
                         }
                       },
                       "description_kind": "plain"
@@ -774,6 +922,20 @@ const azurermMediaTransform = `{
                   "format": {
                     "block": {
                       "block_types": {
+                        "jpg": {
+                          "block": {
+                            "attributes": {
+                              "filename_pattern": {
+                                "description_kind": "plain",
+                                "required": true,
+                                "type": "string"
+                              }
+                            },
+                            "description_kind": "plain"
+                          },
+                          "max_items": 1,
+                          "nesting_mode": "list"
+                        },
                         "mp4": {
                           "block": {
                             "attributes": {
@@ -799,6 +961,20 @@ const azurermMediaTransform = `{
                                   "description_kind": "plain"
                                 },
                                 "nesting_mode": "list"
+                              }
+                            },
+                            "description_kind": "plain"
+                          },
+                          "max_items": 1,
+                          "nesting_mode": "list"
+                        },
+                        "png": {
+                          "block": {
+                            "attributes": {
+                              "filename_pattern": {
+                                "description_kind": "plain",
+                                "required": true,
+                                "type": "string"
                               }
                             },
                             "description_kind": "plain"

@@ -1284,6 +1284,7 @@ func init() {
 	dataSources["azurerm_user_assigned_identity"] = data.AzurermUserAssignedIdentitySchema()  
 	dataSources["azurerm_virtual_desktop_host_pool"] = data.AzurermVirtualDesktopHostPoolSchema()  
 	dataSources["azurerm_virtual_hub"] = data.AzurermVirtualHubSchema()  
+	dataSources["azurerm_virtual_hub_connection"] = data.AzurermVirtualHubConnectionSchema()  
 	dataSources["azurerm_virtual_hub_route_table"] = data.AzurermVirtualHubRouteTableSchema()  
 	dataSources["azurerm_virtual_machine"] = data.AzurermVirtualMachineSchema()  
 	dataSources["azurerm_virtual_machine_scale_set"] = data.AzurermVirtualMachineScaleSetSchema()  
