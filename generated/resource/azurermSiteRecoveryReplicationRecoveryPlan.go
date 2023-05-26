@@ -37,6 +37,35 @@ const azurermSiteRecoveryReplicationRecoveryPlan = `{
       }
     },
     "block_types": {
+      "azure_to_azure_settings": {
+        "block": {
+          "attributes": {
+            "primary_edge_zone": {
+              "description_kind": "plain",
+              "optional": true,
+              "type": "string"
+            },
+            "primary_zone": {
+              "description_kind": "plain",
+              "optional": true,
+              "type": "string"
+            },
+            "recovery_edge_zone": {
+              "description_kind": "plain",
+              "optional": true,
+              "type": "string"
+            },
+            "recovery_zone": {
+              "description_kind": "plain",
+              "optional": true,
+              "type": "string"
+            }
+          },
+          "description_kind": "plain"
+        },
+        "max_items": 1,
+        "nesting_mode": "list"
+      },
       "recovery_group": {
         "block": {
           "attributes": {

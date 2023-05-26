@@ -35,7 +35,6 @@ const azurermCosmosdbAccount = `{
         "type": "string"
       },
       "default_identity_type": {
-        "computed": true,
         "description_kind": "plain",
         "optional": true,
         "type": "string"

@@ -92,6 +92,14 @@ const azurermMonitorActivityLogAlert = `{
               "optional": true,
               "type": "string"
             },
+            "levels": {
+              "description_kind": "plain",
+              "optional": true,
+              "type": [
+                "list",
+                "string"
+              ]
+            },
             "operation_name": {
               "description_kind": "plain",
               "optional": true,
@@ -117,30 +125,78 @@ const azurermMonitorActivityLogAlert = `{
               "optional": true,
               "type": "string"
             },
+            "resource_groups": {
+              "description_kind": "plain",
+              "optional": true,
+              "type": [
+                "list",
+                "string"
+              ]
+            },
             "resource_id": {
               "description_kind": "plain",
               "optional": true,
               "type": "string"
+            },
+            "resource_ids": {
+              "description_kind": "plain",
+              "optional": true,
+              "type": [
+                "list",
+                "string"
+              ]
             },
             "resource_provider": {
               "description_kind": "plain",
               "optional": true,
               "type": "string"
             },
+            "resource_providers": {
+              "description_kind": "plain",
+              "optional": true,
+              "type": [
+                "list",
+                "string"
+              ]
+            },
             "resource_type": {
               "description_kind": "plain",
               "optional": true,
               "type": "string"
+            },
+            "resource_types": {
+              "description_kind": "plain",
+              "optional": true,
+              "type": [
+                "list",
+                "string"
+              ]
             },
             "status": {
               "description_kind": "plain",
               "optional": true,
               "type": "string"
             },
+            "statuses": {
+              "description_kind": "plain",
+              "optional": true,
+              "type": [
+                "list",
+                "string"
+              ]
+            },
             "sub_status": {
               "description_kind": "plain",
               "optional": true,
               "type": "string"
+            },
+            "sub_statuses": {
+              "description_kind": "plain",
+              "optional": true,
+              "type": [
+                "list",
+                "string"
+              ]
             }
           },
           "block_types": {

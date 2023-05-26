@@ -6,7 +6,7 @@ import (
 	tfjson "github.com/hashicorp/terraform-json"
 )
 
-const azurermSubnetServiceEndpointStoragePolicy = `{
+const azurermMysqlFlexibleServerActiveDirectoryAdministrator = `{
   "block": {
     "attributes": {
       "id": {
@@ -15,63 +15,33 @@ const azurermSubnetServiceEndpointStoragePolicy = `{
         "optional": true,
         "type": "string"
       },
-      "location": {
+      "identity_id": {
         "description_kind": "plain",
         "required": true,
         "type": "string"
       },
-      "name": {
+      "login": {
         "description_kind": "plain",
         "required": true,
         "type": "string"
       },
-      "resource_group_name": {
+      "object_id": {
         "description_kind": "plain",
         "required": true,
         "type": "string"
       },
-      "tags": {
+      "server_id": {
         "description_kind": "plain",
-        "optional": true,
-        "type": [
-          "map",
-          "string"
-        ]
+        "required": true,
+        "type": "string"
+      },
+      "tenant_id": {
+        "description_kind": "plain",
+        "required": true,
+        "type": "string"
       }
     },
     "block_types": {
-      "definition": {
-        "block": {
-          "attributes": {
-            "description": {
-              "description_kind": "plain",
-              "optional": true,
-              "type": "string"
-            },
-            "name": {
-              "description_kind": "plain",
-              "required": true,
-              "type": "string"
-            },
-            "service": {
-              "description_kind": "plain",
-              "optional": true,
-              "type": "string"
-            },
-            "service_resources": {
-              "description_kind": "plain",
-              "required": true,
-              "type": [
-                "set",
-                "string"
-              ]
-            }
-          },
-          "description_kind": "plain"
-        },
-        "max_items": 2,
-        "nesting_mode": "list"
-      },
       "timeouts": {
         "block": {
           "attributes": {
@@ -106,8 +76,8 @@ const azurermSubnetServiceEndpointStoragePolicy = `{
   "version": 0
 }`
 
-func AzurermSubnetServiceEndpointStoragePolicySchema() *tfjson.Schema {
+func AzurermMysqlFlexibleServerActiveDirectoryAdministratorSchema() *tfjson.Schema {
 	var result tfjson.Schema
-	_ = json.Unmarshal([]byte(azurermSubnetServiceEndpointStoragePolicy), &result)
+	_ = json.Unmarshal([]byte(azurermMysqlFlexibleServerActiveDirectoryAdministrator), &result)
 	return &result
 }

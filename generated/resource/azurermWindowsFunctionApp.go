@@ -521,7 +521,7 @@ const azurermWindowsFunctionApp = `{
               "type": "string"
             },
             "default_provider": {
-              "description": "The Default Authentication Provider to use when the ` + "`" + `unauthenticated_action` + "`" + ` is set to ` + "`" + `RedirectToLoginPage` + "`" + `.",
+              "description": "The Default Authentication Provider to use when the ` + "`" + `unauthenticated_action` + "`" + ` is set to ` + "`" + `RedirectToLoginPage` + "`" + `. Possible values include: ` + "`" + `apple` + "`" + `, ` + "`" + `azureactivedirectory` + "`" + `, ` + "`" + `facebook` + "`" + `, ` + "`" + `github` + "`" + `, ` + "`" + `google` + "`" + `, ` + "`" + `twitter` + "`" + ` and the ` + "`" + `name` + "`" + ` of your ` + "`" + `custom_oidc_v2` + "`" + ` provider.",
               "description_kind": "plain",
               "optional": true,
               "type": "string"

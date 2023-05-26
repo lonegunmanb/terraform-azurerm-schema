@@ -6,70 +6,71 @@ import (
 	tfjson "github.com/hashicorp/terraform-json"
 )
 
-const azurermSubnetServiceEndpointStoragePolicy = `{
+const azurermCosmosdbMongoRoleDefinition = `{
   "block": {
     "attributes": {
+      "cosmos_mongo_database_id": {
+        "description_kind": "plain",
+        "required": true,
+        "type": "string"
+      },
       "id": {
         "computed": true,
         "description_kind": "plain",
         "optional": true,
         "type": "string"
       },
-      "location": {
-        "description_kind": "plain",
-        "required": true,
-        "type": "string"
-      },
-      "name": {
-        "description_kind": "plain",
-        "required": true,
-        "type": "string"
-      },
-      "resource_group_name": {
-        "description_kind": "plain",
-        "required": true,
-        "type": "string"
-      },
-      "tags": {
+      "inherited_role_names": {
         "description_kind": "plain",
         "optional": true,
         "type": [
-          "map",
+          "list",
           "string"
         ]
+      },
+      "role_name": {
+        "description_kind": "plain",
+        "required": true,
+        "type": "string"
       }
     },
     "block_types": {
-      "definition": {
+      "privilege": {
         "block": {
           "attributes": {
-            "description": {
-              "description_kind": "plain",
-              "optional": true,
-              "type": "string"
-            },
-            "name": {
-              "description_kind": "plain",
-              "required": true,
-              "type": "string"
-            },
-            "service": {
-              "description_kind": "plain",
-              "optional": true,
-              "type": "string"
-            },
-            "service_resources": {
+            "actions": {
               "description_kind": "plain",
               "required": true,
               "type": [
-                "set",
+                "list",
                 "string"
               ]
             }
           },
+          "block_types": {
+            "resource": {
+              "block": {
+                "attributes": {
+                  "collection_name": {
+                    "description_kind": "plain",
+                    "optional": true,
+                    "type": "string"
+                  },
+                  "db_name": {
+                    "description_kind": "plain",
+                    "optional": true,
+                    "type": "string"
+                  }
+                },
+                "description_kind": "plain"
+              },
+              "max_items": 1,
+              "min_items": 1,
+              "nesting_mode": "list"
+            }
+          },
           "description_kind": "plain"
         },
-        "max_items": 2,
         "nesting_mode": "list"
       },
       "timeouts": {
@@ -106,8 +107,8 @@ const azurermSubnetServiceEndpointStoragePolicy = `{
   "version": 0
 }`
 
-func AzurermSubnetServiceEndpointStoragePolicySchema() *tfjson.Schema {
+func AzurermCosmosdbMongoRoleDefinitionSchema() *tfjson.Schema {
 	var result tfjson.Schema
-	_ = json.Unmarshal([]byte(azurermSubnetServiceEndpointStoragePolicy), &result)
+	_ = json.Unmarshal([]byte(azurermCosmosdbMongoRoleDefinition), &result)
 	return &result
 }

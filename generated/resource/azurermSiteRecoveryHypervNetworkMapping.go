@@ -6,7 +6,7 @@ import (
 	tfjson "github.com/hashicorp/terraform-json"
 )
 
-const azurermSiteRecoveryProtectionContainerMapping = `{
+const azurermSiteRecoveryHypervNetworkMapping = `{
   "block": {
     "attributes": {
       "id": {
@@ -20,62 +20,28 @@ const azurermSiteRecoveryProtectionContainerMapping = `{
         "required": true,
         "type": "string"
       },
-      "recovery_fabric_name": {
+      "recovery_vault_id": {
         "description_kind": "plain",
         "required": true,
         "type": "string"
       },
-      "recovery_replication_policy_id": {
+      "source_network_name": {
         "description_kind": "plain",
         "required": true,
         "type": "string"
       },
-      "recovery_source_protection_container_name": {
+      "source_system_center_virtual_machine_manager_name": {
         "description_kind": "plain",
         "required": true,
         "type": "string"
       },
-      "recovery_target_protection_container_id": {
-        "description_kind": "plain",
-        "required": true,
-        "type": "string"
-      },
-      "recovery_vault_name": {
-        "description_kind": "plain",
-        "required": true,
-        "type": "string"
-      },
-      "resource_group_name": {
+      "target_network_id": {
         "description_kind": "plain",
         "required": true,
         "type": "string"
       }
     },
     "block_types": {
-      "automatic_update": {
-        "block": {
-          "attributes": {
-            "authentication_type": {
-              "description_kind": "plain",
-              "optional": true,
-              "type": "string"
-            },
-            "automation_account_id": {
-              "description_kind": "plain",
-              "optional": true,
-              "type": "string"
-            },
-            "enabled": {
-              "description_kind": "plain",
-              "optional": true,
-              "type": "bool"
-            }
-          },
-          "description_kind": "plain"
-        },
-        "max_items": 1,
-        "nesting_mode": "list"
-      },
       "timeouts": {
         "block": {
           "attributes": {
@@ -93,11 +59,6 @@ const azurermSiteRecoveryProtectionContainerMapping = `{
               "description_kind": "plain",
               "optional": true,
               "type": "string"
-            },
-            "update": {
-              "description_kind": "plain",
-              "optional": true,
-              "type": "string"
             }
           },
           "description_kind": "plain"
@@ -110,8 +71,8 @@ const azurermSiteRecoveryProtectionContainerMapping = `{
   "version": 0
 }`
 
-func AzurermSiteRecoveryProtectionContainerMappingSchema() *tfjson.Schema {
+func AzurermSiteRecoveryHypervNetworkMappingSchema() *tfjson.Schema {
 	var result tfjson.Schema
-	_ = json.Unmarshal([]byte(azurermSiteRecoveryProtectionContainerMapping), &result)
+	_ = json.Unmarshal([]byte(azurermSiteRecoveryHypervNetworkMapping), &result)
 	return &result
 }

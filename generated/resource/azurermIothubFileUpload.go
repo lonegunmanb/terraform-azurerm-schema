@@ -6,72 +6,68 @@ import (
 	tfjson "github.com/hashicorp/terraform-json"
 )
 
-const azurermSubnetServiceEndpointStoragePolicy = `{
+const azurermIothubFileUpload = `{
   "block": {
     "attributes": {
+      "authentication_type": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "string"
+      },
+      "connection_string": {
+        "description_kind": "plain",
+        "required": true,
+        "sensitive": true,
+        "type": "string"
+      },
+      "container_name": {
+        "description_kind": "plain",
+        "required": true,
+        "type": "string"
+      },
+      "default_ttl": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "string"
+      },
       "id": {
         "computed": true,
         "description_kind": "plain",
         "optional": true,
         "type": "string"
       },
-      "location": {
-        "description_kind": "plain",
-        "required": true,
-        "type": "string"
-      },
-      "name": {
-        "description_kind": "plain",
-        "required": true,
-        "type": "string"
-      },
-      "resource_group_name": {
-        "description_kind": "plain",
-        "required": true,
-        "type": "string"
-      },
-      "tags": {
+      "identity_id": {
         "description_kind": "plain",
         "optional": true,
-        "type": [
-          "map",
-          "string"
-        ]
+        "type": "string"
+      },
+      "iothub_id": {
+        "description_kind": "plain",
+        "required": true,
+        "type": "string"
+      },
+      "lock_duration": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "string"
+      },
+      "max_delivery_count": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "number"
+      },
+      "notifications_enabled": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "bool"
+      },
+      "sas_ttl": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "string"
       }
     },
     "block_types": {
-      "definition": {
-        "block": {
-          "attributes": {
-            "description": {
-              "description_kind": "plain",
-              "optional": true,
-              "type": "string"
-            },
-            "name": {
-              "description_kind": "plain",
-              "required": true,
-              "type": "string"
-            },
-            "service": {
-              "description_kind": "plain",
-              "optional": true,
-              "type": "string"
-            },
-            "service_resources": {
-              "description_kind": "plain",
-              "required": true,
-              "type": [
-                "set",
-                "string"
-              ]
-            }
-          },
-          "description_kind": "plain"
-        },
-        "max_items": 2,
-        "nesting_mode": "list"
-      },
       "timeouts": {
         "block": {
           "attributes": {
@@ -106,8 +102,8 @@ const azurermSubnetServiceEndpointStoragePolicy = `{
   "version": 0
 }`
 
-func AzurermSubnetServiceEndpointStoragePolicySchema() *tfjson.Schema {
+func AzurermIothubFileUploadSchema() *tfjson.Schema {
 	var result tfjson.Schema
-	_ = json.Unmarshal([]byte(azurermSubnetServiceEndpointStoragePolicy), &result)
+	_ = json.Unmarshal([]byte(azurermIothubFileUpload), &result)
 	return &result
 }

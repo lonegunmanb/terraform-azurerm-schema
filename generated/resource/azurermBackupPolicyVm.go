@@ -127,9 +127,22 @@ const azurermBackupPolicyVm = `{
               "required": true,
               "type": "number"
             },
+            "days": {
+              "description_kind": "plain",
+              "optional": true,
+              "type": [
+                "set",
+                "number"
+              ]
+            },
+            "include_last_days": {
+              "description_kind": "plain",
+              "optional": true,
+              "type": "bool"
+            },
             "weekdays": {
               "description_kind": "plain",
-              "required": true,
+              "optional": true,
               "type": [
                 "set",
                 "string"
@@ -137,7 +150,7 @@ const azurermBackupPolicyVm = `{
             },
             "weeks": {
               "description_kind": "plain",
-              "required": true,
+              "optional": true,
               "type": [
                 "set",
                 "string"
@@ -179,6 +192,19 @@ const azurermBackupPolicyVm = `{
               "required": true,
               "type": "number"
             },
+            "days": {
+              "description_kind": "plain",
+              "optional": true,
+              "type": [
+                "set",
+                "number"
+              ]
+            },
+            "include_last_days": {
+              "description_kind": "plain",
+              "optional": true,
+              "type": "bool"
+            },
             "months": {
               "description_kind": "plain",
               "required": true,
@@ -189,7 +215,7 @@ const azurermBackupPolicyVm = `{
             },
             "weekdays": {
               "description_kind": "plain",
-              "required": true,
+              "optional": true,
               "type": [
                 "set",
                 "string"
@@ -197,7 +223,7 @@ const azurermBackupPolicyVm = `{
             },
             "weeks": {
               "description_kind": "plain",
-              "required": true,
+              "optional": true,
               "type": [
                 "set",
                 "string"

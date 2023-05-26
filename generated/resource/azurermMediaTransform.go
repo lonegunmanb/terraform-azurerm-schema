@@ -146,6 +146,16 @@ const azurermMediaTransform = `{
             },
             "custom_preset": {
               "block": {
+                "attributes": {
+                  "experimental_options": {
+                    "description_kind": "plain",
+                    "optional": true,
+                    "type": [
+                      "map",
+                      "string"
+                    ]
+                  }
+                },
                 "block_types": {
                   "codec": {
                     "block": {
