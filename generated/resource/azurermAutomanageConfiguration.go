@@ -6,31 +6,28 @@ import (
 	tfjson "github.com/hashicorp/terraform-json"
 )
 
-const azurermSpringCloudCustomizedAccelerator = `{
+const azurermAutomanageConfiguration = `{
   "block": {
     "attributes": {
-      "accelerator_tags": {
+      "automation_account_enabled": {
         "description_kind": "plain",
         "optional": true,
-        "type": [
-          "list",
-          "string"
-        ]
+        "type": "bool"
       },
-      "description": {
+      "boot_diagnostics_enabled": {
         "description_kind": "plain",
         "optional": true,
-        "type": "string"
+        "type": "bool"
       },
-      "display_name": {
+      "defender_for_cloud_enabled": {
         "description_kind": "plain",
         "optional": true,
-        "type": "string"
+        "type": "bool"
       },
-      "icon_url": {
+      "guest_configuration_enabled": {
         "description_kind": "plain",
         "optional": true,
-        "type": "string"
+        "type": "bool"
       },
       "id": {
         "computed": true,
@@ -38,91 +35,82 @@ const azurermSpringCloudCustomizedAccelerator = `{
         "optional": true,
         "type": "string"
       },
+      "location": {
+        "description_kind": "plain",
+        "required": true,
+        "type": "string"
+      },
       "name": {
         "description_kind": "plain",
         "required": true,
         "type": "string"
       },
-      "spring_cloud_accelerator_id": {
+      "resource_group_name": {
         "description_kind": "plain",
         "required": true,
         "type": "string"
+      },
+      "status_change_alert_enabled": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "bool"
+      },
+      "tags": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": [
+          "map",
+          "string"
+        ]
       }
     },
     "block_types": {
-      "git_repository": {
+      "antimalware": {
         "block": {
           "attributes": {
-            "branch": {
+            "real_time_protection_enabled": {
               "description_kind": "plain",
               "optional": true,
-              "type": "string"
+              "type": "bool"
             },
-            "ca_certificate_id": {
-              "description_kind": "plain",
-              "optional": true,
-              "type": "string"
-            },
-            "commit": {
-              "description_kind": "plain",
-              "optional": true,
-              "type": "string"
-            },
-            "git_tag": {
-              "description_kind": "plain",
-              "optional": true,
-              "type": "string"
-            },
-            "interval_in_seconds": {
+            "scheduled_scan_day": {
               "description_kind": "plain",
               "optional": true,
               "type": "number"
             },
-            "url": {
+            "scheduled_scan_enabled": {
               "description_kind": "plain",
-              "required": true,
+              "optional": true,
+              "type": "bool"
+            },
+            "scheduled_scan_time_in_minutes": {
+              "description_kind": "plain",
+              "optional": true,
+              "type": "number"
+            },
+            "scheduled_scan_type": {
+              "description_kind": "plain",
+              "optional": true,
               "type": "string"
             }
           },
           "block_types": {
-            "basic_auth": {
+            "exclusions": {
               "block": {
                 "attributes": {
-                  "password": {
-                    "description_kind": "plain",
-                    "required": true,
-                    "sensitive": true,
-                    "type": "string"
-                  },
-                  "username": {
-                    "description_kind": "plain",
-                    "required": true,
-                    "type": "string"
-                  }
-                },
-                "description_kind": "plain"
-              },
-              "max_items": 1,
-              "nesting_mode": "list"
-            },
-            "ssh_auth": {
-              "block": {
-                "attributes": {
-                  "host_key": {
-                    "description_kind": "plain",
-                    "optional": true,
-                    "sensitive": true,
-                    "type": "string"
-                  },
-                  "host_key_algorithm": {
+                  "extensions": {
                     "description_kind": "plain",
                     "optional": true,
                     "type": "string"
                   },
-                  "private_key": {
+                  "paths": {
                     "description_kind": "plain",
-                    "required": true,
-                    "sensitive": true,
+                    "optional": true,
+                    "type": "string"
+                  },
+                  "processes": {
+                    "description_kind": "plain",
+                    "optional": true,
                     "type": "string"
                   }
                 },
@@ -135,7 +123,6 @@ const azurermSpringCloudCustomizedAccelerator = `{
           "description_kind": "plain"
         },
         "max_items": 1,
-        "min_items": 1,
         "nesting_mode": "list"
       },
       "timeouts": {
@@ -172,8 +159,8 @@ const azurermSpringCloudCustomizedAccelerator = `{
   "version": 0
 }`
 
-func AzurermSpringCloudCustomizedAcceleratorSchema() *tfjson.Schema {
+func AzurermAutomanageConfigurationSchema() *tfjson.Schema {
 	var result tfjson.Schema
-	_ = json.Unmarshal([]byte(azurermSpringCloudCustomizedAccelerator), &result)
+	_ = json.Unmarshal([]byte(azurermAutomanageConfiguration), &result)
 	return &result
 }

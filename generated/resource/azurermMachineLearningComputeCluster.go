@@ -40,6 +40,11 @@ const azurermMachineLearningComputeCluster = `{
         "required": true,
         "type": "string"
       },
+      "node_public_ip_enabled": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "bool"
+      },
       "ssh_public_access_enabled": {
         "computed": true,
         "description_kind": "plain",

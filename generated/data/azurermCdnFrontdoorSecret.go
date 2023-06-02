@@ -48,6 +48,7 @@ const azurermCdnFrontdoorSecret = `{
                 [
                   "object",
                   {
+                    "expiration_date": "string",
                     "key_vault_certificate_id": "string",
                     "subject_alternative_names": [
                       "list",

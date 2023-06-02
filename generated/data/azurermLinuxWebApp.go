@@ -348,6 +348,11 @@ const azurermLinuxWebApp = `{
           ]
         ]
       },
+      "availability": {
+        "computed": true,
+        "description_kind": "plain",
+        "type": "string"
+      },
       "backup": {
         "computed": true,
         "description_kind": "plain",
@@ -854,6 +859,11 @@ const azurermLinuxWebApp = `{
           "map",
           "string"
         ]
+      },
+      "usage": {
+        "computed": true,
+        "description_kind": "plain",
+        "type": "string"
       },
       "virtual_network_subnet_id": {
         "computed": true,

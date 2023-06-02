@@ -6,15 +6,15 @@ import (
 	tfjson "github.com/hashicorp/terraform-json"
 )
 
-const azurermHybridComputeMachine = `{
+const azurermArcMachine = `{
   "block": {
     "attributes": {
-      "ad_fqdn": {
+      "active_directory_fqdn": {
         "computed": true,
         "description_kind": "plain",
         "type": "string"
       },
-      "agent_configuration": {
+      "agent": {
         "computed": true,
         "description_kind": "plain",
         "type": [
@@ -103,31 +103,6 @@ const azurermHybridComputeMachine = `{
         "description_kind": "plain",
         "type": "string"
       },
-      "error_details": {
-        "computed": true,
-        "description_kind": "plain",
-        "type": [
-          "list",
-          [
-            "object",
-            {
-              "additional_info": [
-                "list",
-                [
-                  "object",
-                  {
-                    "info": "string",
-                    "type": "string"
-                  }
-                ]
-              ],
-              "code": "string",
-              "message": "string",
-              "target": "string"
-            }
-          ]
-        ]
-      },
       "id": {
         "computed": true,
         "description_kind": "plain",
@@ -149,7 +124,7 @@ const azurermHybridComputeMachine = `{
           ]
         ]
       },
-      "last_status_change": {
+      "last_status_change_time": {
         "computed": true,
         "description_kind": "plain",
         "type": "string"
@@ -204,12 +179,12 @@ const azurermHybridComputeMachine = `{
             "object",
             {
               "computer_name": "string",
-              "linux_configuration": [
+              "linux": [
                 "list",
                 [
                   "object",
                   {
-                    "patch_settings": [
+                    "patch": [
                       "list",
                       [
                         "object",
@@ -222,12 +197,12 @@ const azurermHybridComputeMachine = `{
                   }
                 ]
               ],
-              "windows_configuration": [
+              "windows": [
                 "list",
                 [
                   "object",
                   {
-                    "patch_settings": [
+                    "patch": [
                       "list",
                       [
                         "object",
@@ -345,14 +320,13 @@ const azurermHybridComputeMachine = `{
         "nesting_mode": "single"
       }
     },
-    "deprecated": true,
     "description_kind": "plain"
   },
   "version": 0
 }`
 
-func AzurermHybridComputeMachineSchema() *tfjson.Schema {
+func AzurermArcMachineSchema() *tfjson.Schema {
 	var result tfjson.Schema
-	_ = json.Unmarshal([]byte(azurermHybridComputeMachine), &result)
+	_ = json.Unmarshal([]byte(azurermArcMachine), &result)
 	return &result
 }

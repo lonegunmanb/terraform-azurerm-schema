@@ -44,6 +44,11 @@ const azurermVirtualMachine = `{
         "required": true,
         "type": "string"
       },
+      "power_state": {
+        "computed": true,
+        "description_kind": "plain",
+        "type": "string"
+      },
       "private_ip_address": {
         "computed": true,
         "description_kind": "plain",

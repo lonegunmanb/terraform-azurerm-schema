@@ -46,6 +46,7 @@ const azurermVirtualMachineScaleSet = `{
               "instance_id": "string",
               "latest_model_applied": "bool",
               "name": "string",
+              "power_state": "string",
               "private_ip_address": "string",
               "private_ip_addresses": [
                 "list",

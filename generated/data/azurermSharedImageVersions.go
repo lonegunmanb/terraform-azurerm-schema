@@ -34,6 +34,7 @@ const azurermSharedImageVersions = `{
             "object",
             {
               "exclude_from_latest": "bool",
+              "id": "string",
               "location": "string",
               "managed_image_id": "string",
               "name": "string",

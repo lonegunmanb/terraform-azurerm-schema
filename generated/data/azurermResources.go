@@ -46,6 +46,7 @@ const azurermResources = `{
               "id": "string",
               "location": "string",
               "name": "string",
+              "resource_group_name": "string",
               "tags": [
                 "map",
                 "string"
