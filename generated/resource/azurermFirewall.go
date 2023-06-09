@@ -100,7 +100,7 @@ const azurermFirewall = `{
             },
             "public_ip_address_id": {
               "description_kind": "plain",
-              "required": true,
+              "optional": true,
               "type": "string"
             },
             "subnet_id": {

@@ -47,8 +47,34 @@ const azurermBackupPolicyFileShare = `{
             },
             "time": {
               "description_kind": "plain",
-              "required": true,
+              "optional": true,
               "type": "string"
+            }
+          },
+          "block_types": {
+            "hourly": {
+              "block": {
+                "attributes": {
+                  "interval": {
+                    "description_kind": "plain",
+                    "required": true,
+                    "type": "number"
+                  },
+                  "start_time": {
+                    "description_kind": "plain",
+                    "required": true,
+                    "type": "string"
+                  },
+                  "window_duration": {
+                    "description_kind": "plain",
+                    "required": true,
+                    "type": "number"
+                  }
+                },
+                "description_kind": "plain"
+              },
+              "max_items": 1,
+              "nesting_mode": "list"
             }
           },
           "description_kind": "plain"
@@ -80,9 +106,22 @@ const azurermBackupPolicyFileShare = `{
               "required": true,
               "type": "number"
             },
+            "days": {
+              "description_kind": "plain",
+              "optional": true,
+              "type": [
+                "set",
+                "number"
+              ]
+            },
+            "include_last_days": {
+              "description_kind": "plain",
+              "optional": true,
+              "type": "bool"
+            },
             "weekdays": {
               "description_kind": "plain",
-              "required": true,
+              "optional": true,
               "type": [
                 "set",
                 "string"
@@ -90,7 +129,7 @@ const azurermBackupPolicyFileShare = `{
             },
             "weeks": {
               "description_kind": "plain",
-              "required": true,
+              "optional": true,
               "type": [
                 "set",
                 "string"
@@ -132,6 +171,19 @@ const azurermBackupPolicyFileShare = `{
               "required": true,
               "type": "number"
             },
+            "days": {
+              "description_kind": "plain",
+              "optional": true,
+              "type": [
+                "set",
+                "number"
+              ]
+            },
+            "include_last_days": {
+              "description_kind": "plain",
+              "optional": true,
+              "type": "bool"
+            },
             "months": {
               "description_kind": "plain",
               "required": true,
@@ -142,7 +194,7 @@ const azurermBackupPolicyFileShare = `{
             },
             "weekdays": {
               "description_kind": "plain",
-              "required": true,
+              "optional": true,
               "type": [
                 "set",
                 "string"
@@ -150,7 +202,7 @@ const azurermBackupPolicyFileShare = `{
             },
             "weeks": {
               "description_kind": "plain",
-              "required": true,
+              "optional": true,
               "type": [
                 "set",
                 "string"

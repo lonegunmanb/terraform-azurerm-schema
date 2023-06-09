@@ -10,6 +10,7 @@ const azurermSentinelDataConnectorMicrosoftThreatIntelligence = `{
   "block": {
     "attributes": {
       "bing_safety_phishing_url_lookback_date": {
+        "deprecated": true,
         "description_kind": "plain",
         "optional": true,
         "type": "string"

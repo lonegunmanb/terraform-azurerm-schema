@@ -273,6 +273,49 @@ const azurermSpringCloudService = `{
         "max_items": 1,
         "nesting_mode": "list"
       },
+      "container_registry": {
+        "block": {
+          "attributes": {
+            "name": {
+              "description_kind": "plain",
+              "required": true,
+              "type": "string"
+            },
+            "password": {
+              "description_kind": "plain",
+              "required": true,
+              "sensitive": true,
+              "type": "string"
+            },
+            "server": {
+              "description_kind": "plain",
+              "required": true,
+              "type": "string"
+            },
+            "username": {
+              "description_kind": "plain",
+              "required": true,
+              "type": "string"
+            }
+          },
+          "description_kind": "plain"
+        },
+        "nesting_mode": "list"
+      },
+      "default_build_service": {
+        "block": {
+          "attributes": {
+            "container_registry_name": {
+              "description_kind": "plain",
+              "optional": true,
+              "type": "string"
+            }
+          },
+          "description_kind": "plain"
+        },
+        "max_items": 1,
+        "nesting_mode": "list"
+      },
       "network": {
         "block": {
           "attributes": {

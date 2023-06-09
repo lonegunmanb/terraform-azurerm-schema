@@ -14,6 +14,12 @@ const azurermKeyVaultEncryptedValue = `{
         "required": true,
         "type": "string"
       },
+      "decoded_plain_text_value": {
+        "computed": true,
+        "description_kind": "plain",
+        "sensitive": true,
+        "type": "string"
+      },
       "encrypted_data": {
         "description_kind": "plain",
         "optional": true,

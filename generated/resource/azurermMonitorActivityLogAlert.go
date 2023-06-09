@@ -230,6 +230,7 @@ const azurermMonitorActivityLogAlert = `{
                 },
                 "description_kind": "plain"
               },
+              "max_items": 1,
               "nesting_mode": "list"
             },
             "service_health": {
@@ -262,6 +263,7 @@ const azurermMonitorActivityLogAlert = `{
                 },
                 "description_kind": "plain"
               },
+              "max_items": 1,
               "nesting_mode": "list"
             }
           },

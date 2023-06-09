@@ -53,6 +53,14 @@ const azurermLoadTest = `{
       "identity": {
         "block": {
           "attributes": {
+            "identity_ids": {
+              "description_kind": "plain",
+              "optional": true,
+              "type": [
+                "set",
+                "string"
+              ]
+            },
             "principal_id": {
               "computed": true,
               "description_kind": "plain",

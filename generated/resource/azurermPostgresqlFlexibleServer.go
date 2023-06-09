@@ -194,21 +194,11 @@ const azurermPostgresqlFlexibleServer = `{
           "attributes": {
             "identity_ids": {
               "description_kind": "plain",
-              "optional": true,
+              "required": true,
               "type": [
                 "set",
                 "string"
               ]
-            },
-            "principal_id": {
-              "computed": true,
-              "description_kind": "plain",
-              "type": "string"
-            },
-            "tenant_id": {
-              "computed": true,
-              "description_kind": "plain",
-              "type": "string"
             },
             "type": {
               "description_kind": "plain",

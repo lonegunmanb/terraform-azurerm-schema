@@ -125,6 +125,173 @@ const azurermAutomanageConfiguration = `{
         "max_items": 1,
         "nesting_mode": "list"
       },
+      "azure_security_baseline": {
+        "block": {
+          "attributes": {
+            "assignment_type": {
+              "description_kind": "plain",
+              "optional": true,
+              "type": "string"
+            }
+          },
+          "description_kind": "plain"
+        },
+        "max_items": 1,
+        "nesting_mode": "list"
+      },
+      "backup": {
+        "block": {
+          "attributes": {
+            "instant_rp_retention_range_in_days": {
+              "description_kind": "plain",
+              "optional": true,
+              "type": "number"
+            },
+            "policy_name": {
+              "description_kind": "plain",
+              "optional": true,
+              "type": "string"
+            },
+            "time_zone": {
+              "description_kind": "plain",
+              "optional": true,
+              "type": "string"
+            }
+          },
+          "block_types": {
+            "retention_policy": {
+              "block": {
+                "attributes": {
+                  "retention_policy_type": {
+                    "description_kind": "plain",
+                    "optional": true,
+                    "type": "string"
+                  }
+                },
+                "block_types": {
+                  "daily_schedule": {
+                    "block": {
+                      "attributes": {
+                        "retention_times": {
+                          "description_kind": "plain",
+                          "optional": true,
+                          "type": [
+                            "list",
+                            "string"
+                          ]
+                        }
+                      },
+                      "block_types": {
+                        "retention_duration": {
+                          "block": {
+                            "attributes": {
+                              "count": {
+                                "description_kind": "plain",
+                                "optional": true,
+                                "type": "number"
+                              },
+                              "duration_type": {
+                                "description_kind": "plain",
+                                "optional": true,
+                                "type": "string"
+                              }
+                            },
+                            "description_kind": "plain"
+                          },
+                          "max_items": 1,
+                          "nesting_mode": "list"
+                        }
+                      },
+                      "description_kind": "plain"
+                    },
+                    "max_items": 1,
+                    "nesting_mode": "list"
+                  },
+                  "weekly_schedule": {
+                    "block": {
+                      "attributes": {
+                        "retention_times": {
+                          "description_kind": "plain",
+                          "optional": true,
+                          "type": [
+                            "list",
+                            "string"
+                          ]
+                        }
+                      },
+                      "block_types": {
+                        "retention_duration": {
+                          "block": {
+                            "attributes": {
+                              "count": {
+                                "description_kind": "plain",
+                                "optional": true,
+                                "type": "number"
+                              },
+                              "duration_type": {
+                                "description_kind": "plain",
+                                "optional": true,
+                                "type": "string"
+                              }
+                            },
+                            "description_kind": "plain"
+                          },
+                          "max_items": 1,
+                          "nesting_mode": "list"
+                        }
+                      },
+                      "description_kind": "plain"
+                    },
+                    "max_items": 1,
+                    "nesting_mode": "list"
+                  }
+                },
+                "description_kind": "plain"
+              },
+              "max_items": 1,
+              "nesting_mode": "list"
+            },
+            "schedule_policy": {
+              "block": {
+                "attributes": {
+                  "schedule_policy_type": {
+                    "description_kind": "plain",
+                    "optional": true,
+                    "type": "string"
+                  },
+                  "schedule_run_days": {
+                    "description_kind": "plain",
+                    "optional": true,
+                    "type": [
+                      "list",
+                      "string"
+                    ]
+                  },
+                  "schedule_run_frequency": {
+                    "description_kind": "plain",
+                    "optional": true,
+                    "type": "string"
+                  },
+                  "schedule_run_times": {
+                    "description_kind": "plain",
+                    "optional": true,
+                    "type": [
+                      "list",
+                      "string"
+                    ]
+                  }
+                },
+                "description_kind": "plain"
+              },
+              "max_items": 1,
+              "nesting_mode": "list"
+            }
+          },
+          "description_kind": "plain"
+        },
+        "max_items": 1,
+        "nesting_mode": "list"
+      },
       "timeouts": {
         "block": {
           "attributes": {

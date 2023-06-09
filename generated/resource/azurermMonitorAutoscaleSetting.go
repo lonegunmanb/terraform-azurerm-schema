@@ -107,6 +107,25 @@ const azurermMonitorAutoscaleSetting = `{
         "max_items": 1,
         "nesting_mode": "list"
       },
+      "predictive": {
+        "block": {
+          "attributes": {
+            "look_ahead_time": {
+              "description_kind": "plain",
+              "optional": true,
+              "type": "string"
+            },
+            "scale_mode": {
+              "description_kind": "plain",
+              "required": true,
+              "type": "string"
+            }
+          },
+          "description_kind": "plain"
+        },
+        "max_items": 1,
+        "nesting_mode": "list"
+      },
       "profile": {
         "block": {
           "attributes": {

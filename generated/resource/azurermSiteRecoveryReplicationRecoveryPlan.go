@@ -136,7 +136,7 @@ const azurermSiteRecoveryReplicationRecoveryPlan = `{
                 },
                 "description_kind": "plain"
               },
-              "nesting_mode": "set"
+              "nesting_mode": "list"
             },
             "pre_action": {
               "block": {
@@ -190,7 +190,7 @@ const azurermSiteRecoveryReplicationRecoveryPlan = `{
                 },
                 "description_kind": "plain"
               },
-              "nesting_mode": "set"
+              "nesting_mode": "list"
             }
           },
           "description_kind": "plain"

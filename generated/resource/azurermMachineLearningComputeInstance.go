@@ -45,6 +45,11 @@ const azurermMachineLearningComputeInstance = `{
         "required": true,
         "type": "string"
       },
+      "node_public_ip_enabled": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "bool"
+      },
       "subnet_resource_id": {
         "description_kind": "plain",
         "optional": true,
