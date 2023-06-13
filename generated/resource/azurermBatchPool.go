@@ -73,6 +73,11 @@ const azurermBatchPool = `{
         "optional": true,
         "type": "bool"
       },
+      "target_node_communication_mode": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "string"
+      },
       "vm_size": {
         "description_kind": "plain",
         "required": true,

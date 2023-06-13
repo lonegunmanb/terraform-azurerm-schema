@@ -9,6 +9,22 @@ import (
 const azurermSiteRecoveryReplicationRecoveryPlan = `{
   "block": {
     "attributes": {
+      "azure_to_azure_settings": {
+        "computed": true,
+        "description_kind": "plain",
+        "type": [
+          "list",
+          [
+            "object",
+            {
+              "primary_edge_zone": "string",
+              "primary_zone": "string",
+              "recovery_edge_zone": "string",
+              "recovery_zone": "string"
+            }
+          ]
+        ]
+      },
       "failover_deployment_model": {
         "computed": true,
         "description_kind": "plain",

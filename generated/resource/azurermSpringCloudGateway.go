@@ -106,6 +106,28 @@ const azurermSpringCloudGateway = `{
         "max_items": 1,
         "nesting_mode": "list"
       },
+      "client_authorization": {
+        "block": {
+          "attributes": {
+            "certificate_ids": {
+              "description_kind": "plain",
+              "optional": true,
+              "type": [
+                "list",
+                "string"
+              ]
+            },
+            "verification_enabled": {
+              "description_kind": "plain",
+              "optional": true,
+              "type": "bool"
+            }
+          },
+          "description_kind": "plain"
+        },
+        "max_items": 1,
+        "nesting_mode": "list"
+      },
       "cors": {
         "block": {
           "attributes": {

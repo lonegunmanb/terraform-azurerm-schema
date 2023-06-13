@@ -11,7 +11,7 @@ const azurermBackupProtectedVm = `{
     "attributes": {
       "backup_policy_id": {
         "description_kind": "plain",
-        "required": true,
+        "optional": true,
         "type": "string"
       },
       "exclude_disk_luns": {
@@ -35,6 +35,12 @@ const azurermBackupProtectedVm = `{
           "set",
           "number"
         ]
+      },
+      "protection_state": {
+        "computed": true,
+        "description_kind": "plain",
+        "optional": true,
+        "type": "string"
       },
       "recovery_vault_name": {
         "description_kind": "plain",

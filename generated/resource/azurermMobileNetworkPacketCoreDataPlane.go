@@ -6,26 +6,21 @@ import (
 	tfjson "github.com/hashicorp/terraform-json"
 )
 
-const azurermNginxCertificate = `{
+const azurermMobileNetworkPacketCoreDataPlane = `{
   "block": {
     "attributes": {
-      "certificate_virtual_path": {
-        "description_kind": "plain",
-        "required": true,
-        "type": "string"
-      },
       "id": {
         "computed": true,
         "description_kind": "plain",
         "optional": true,
         "type": "string"
       },
-      "key_vault_secret_id": {
+      "location": {
         "description_kind": "plain",
         "required": true,
         "type": "string"
       },
-      "key_virtual_path": {
+      "mobile_network_packet_core_control_plane_id": {
         "description_kind": "plain",
         "required": true,
         "type": "string"
@@ -35,9 +30,32 @@ const azurermNginxCertificate = `{
         "required": true,
         "type": "string"
       },
-      "nginx_deployment_id": {
+      "tags": {
         "description_kind": "plain",
-        "required": true,
+        "optional": true,
+        "type": [
+          "map",
+          "string"
+        ]
+      },
+      "user_plane_access_ipv4_address": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "string"
+      },
+      "user_plane_access_ipv4_gateway": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "string"
+      },
+      "user_plane_access_ipv4_subnet": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "string"
+      },
+      "user_plane_access_name": {
+        "description_kind": "plain",
+        "optional": true,
         "type": "string"
       }
     },
@@ -76,8 +94,8 @@ const azurermNginxCertificate = `{
   "version": 0
 }`
 
-func AzurermNginxCertificateSchema() *tfjson.Schema {
+func AzurermMobileNetworkPacketCoreDataPlaneSchema() *tfjson.Schema {
 	var result tfjson.Schema
-	_ = json.Unmarshal([]byte(azurermNginxCertificate), &result)
+	_ = json.Unmarshal([]byte(azurermMobileNetworkPacketCoreDataPlane), &result)
 	return &result
 }

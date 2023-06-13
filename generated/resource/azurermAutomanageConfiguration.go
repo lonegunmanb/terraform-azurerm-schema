@@ -40,6 +40,11 @@ const azurermAutomanageConfiguration = `{
         "required": true,
         "type": "string"
       },
+      "log_analytics_enabled": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "bool"
+      },
       "name": {
         "description_kind": "plain",
         "required": true,

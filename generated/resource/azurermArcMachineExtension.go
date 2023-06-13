@@ -6,12 +6,22 @@ import (
 	tfjson "github.com/hashicorp/terraform-json"
 )
 
-const azurermNginxCertificate = `{
+const azurermArcMachineExtension = `{
   "block": {
     "attributes": {
-      "certificate_virtual_path": {
+      "arc_machine_id": {
         "description_kind": "plain",
         "required": true,
+        "type": "string"
+      },
+      "automatic_upgrade_enabled": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "bool"
+      },
+      "force_update_tag": {
+        "description_kind": "plain",
+        "optional": true,
         "type": "string"
       },
       "id": {
@@ -20,12 +30,7 @@ const azurermNginxCertificate = `{
         "optional": true,
         "type": "string"
       },
-      "key_vault_secret_id": {
-        "description_kind": "plain",
-        "required": true,
-        "type": "string"
-      },
-      "key_virtual_path": {
+      "location": {
         "description_kind": "plain",
         "required": true,
         "type": "string"
@@ -35,9 +40,38 @@ const azurermNginxCertificate = `{
         "required": true,
         "type": "string"
       },
-      "nginx_deployment_id": {
+      "protected_settings": {
+        "description_kind": "plain",
+        "optional": true,
+        "sensitive": true,
+        "type": "string"
+      },
+      "publisher": {
         "description_kind": "plain",
         "required": true,
+        "type": "string"
+      },
+      "settings": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "string"
+      },
+      "tags": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": [
+          "map",
+          "string"
+        ]
+      },
+      "type": {
+        "description_kind": "plain",
+        "required": true,
+        "type": "string"
+      },
+      "type_handler_version": {
+        "description_kind": "plain",
+        "optional": true,
         "type": "string"
       }
     },
@@ -76,8 +110,8 @@ const azurermNginxCertificate = `{
   "version": 0
 }`
 
-func AzurermNginxCertificateSchema() *tfjson.Schema {
+func AzurermArcMachineExtensionSchema() *tfjson.Schema {
 	var result tfjson.Schema
-	_ = json.Unmarshal([]byte(azurermNginxCertificate), &result)
+	_ = json.Unmarshal([]byte(azurermArcMachineExtension), &result)
 	return &result
 }
