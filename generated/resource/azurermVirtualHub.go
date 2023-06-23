@@ -63,6 +63,11 @@ const azurermVirtualHub = `{
         "description_kind": "plain",
         "type": "number"
       },
+      "virtual_router_auto_scale_min_capacity": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "number"
+      },
       "virtual_router_ips": {
         "computed": true,
         "description_kind": "plain",

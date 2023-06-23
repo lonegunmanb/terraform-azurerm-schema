@@ -14,6 +14,11 @@ const azurermCosmosdbGremlinGraph = `{
         "required": true,
         "type": "string"
       },
+      "analytical_storage_ttl": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "number"
+      },
       "database_name": {
         "description_kind": "plain",
         "required": true,

@@ -157,6 +157,11 @@ const azurermKubernetesCluster = `{
         "required": true,
         "type": "string"
       },
+      "node_os_channel_upgrade": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "string"
+      },
       "node_resource_group": {
         "computed": true,
         "description_kind": "plain",

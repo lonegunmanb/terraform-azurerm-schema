@@ -6,23 +6,19 @@ import (
 	tfjson "github.com/hashicorp/terraform-json"
 )
 
-const azurermBastionHost = `{
+const azurermNewRelicMonitor = `{
   "block": {
     "attributes": {
-      "copy_paste_enabled": {
+      "account_creation_source": {
         "description_kind": "plain",
         "optional": true,
-        "type": "bool"
-      },
-      "dns_name": {
-        "computed": true,
-        "description_kind": "plain",
         "type": "string"
       },
-      "file_copy_enabled": {
+      "account_id": {
+        "computed": true,
         "description_kind": "plain",
         "optional": true,
-        "type": "bool"
+        "type": "string"
       },
       "id": {
         "computed": true,
@@ -30,10 +26,11 @@ const azurermBastionHost = `{
         "optional": true,
         "type": "string"
       },
-      "ip_connect_enabled": {
+      "ingestion_key": {
         "description_kind": "plain",
         "optional": true,
-        "type": "bool"
+        "sensitive": true,
+        "type": "string"
       },
       "location": {
         "description_kind": "plain",
@@ -45,57 +42,50 @@ const azurermBastionHost = `{
         "required": true,
         "type": "string"
       },
+      "org_creation_source": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "string"
+      },
+      "organization_id": {
+        "computed": true,
+        "description_kind": "plain",
+        "optional": true,
+        "type": "string"
+      },
       "resource_group_name": {
         "description_kind": "plain",
         "required": true,
         "type": "string"
       },
-      "scale_units": {
-        "description_kind": "plain",
-        "optional": true,
-        "type": "number"
-      },
-      "shareable_link_enabled": {
-        "description_kind": "plain",
-        "optional": true,
-        "type": "bool"
-      },
-      "sku": {
+      "user_id": {
         "description_kind": "plain",
         "optional": true,
         "type": "string"
-      },
-      "tags": {
-        "description_kind": "plain",
-        "optional": true,
-        "type": [
-          "map",
-          "string"
-        ]
-      },
-      "tunneling_enabled": {
-        "description_kind": "plain",
-        "optional": true,
-        "type": "bool"
       }
     },
     "block_types": {
-      "ip_configuration": {
+      "plan": {
         "block": {
           "attributes": {
-            "name": {
+            "billing_cycle": {
+              "description_kind": "plain",
+              "optional": true,
+              "type": "string"
+            },
+            "effective_date": {
               "description_kind": "plain",
               "required": true,
               "type": "string"
             },
-            "public_ip_address_id": {
+            "plan_id": {
               "description_kind": "plain",
-              "required": true,
+              "optional": true,
               "type": "string"
             },
-            "subnet_id": {
+            "usage_type": {
               "description_kind": "plain",
-              "required": true,
+              "optional": true,
               "type": "string"
             }
           },
@@ -122,16 +112,41 @@ const azurermBastionHost = `{
               "description_kind": "plain",
               "optional": true,
               "type": "string"
-            },
-            "update": {
-              "description_kind": "plain",
-              "optional": true,
-              "type": "string"
             }
           },
           "description_kind": "plain"
         },
         "nesting_mode": "single"
+      },
+      "user": {
+        "block": {
+          "attributes": {
+            "email": {
+              "description_kind": "plain",
+              "required": true,
+              "type": "string"
+            },
+            "first_name": {
+              "description_kind": "plain",
+              "required": true,
+              "type": "string"
+            },
+            "last_name": {
+              "description_kind": "plain",
+              "required": true,
+              "type": "string"
+            },
+            "phone_number": {
+              "description_kind": "plain",
+              "required": true,
+              "type": "string"
+            }
+          },
+          "description_kind": "plain"
+        },
+        "max_items": 1,
+        "min_items": 1,
+        "nesting_mode": "list"
       }
     },
     "description_kind": "plain"
@@ -139,8 +154,8 @@ const azurermBastionHost = `{
   "version": 0
 }`
 
-func AzurermBastionHostSchema() *tfjson.Schema {
+func AzurermNewRelicMonitorSchema() *tfjson.Schema {
 	var result tfjson.Schema
-	_ = json.Unmarshal([]byte(azurermBastionHost), &result)
+	_ = json.Unmarshal([]byte(azurermNewRelicMonitor), &result)
 	return &result
 }

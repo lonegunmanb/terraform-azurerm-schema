@@ -650,6 +650,7 @@ func init() {
 	resources["azurerm_network_security_rule"] = resource.AzurermNetworkSecurityRuleSchema()  
 	resources["azurerm_network_watcher"] = resource.AzurermNetworkWatcherSchema()  
 	resources["azurerm_network_watcher_flow_log"] = resource.AzurermNetworkWatcherFlowLogSchema()  
+	resources["azurerm_new_relic_monitor"] = resource.AzurermNewRelicMonitorSchema()  
 	resources["azurerm_nginx_certificate"] = resource.AzurermNginxCertificateSchema()  
 	resources["azurerm_nginx_configuration"] = resource.AzurermNginxConfigurationSchema()  
 	resources["azurerm_nginx_deployment"] = resource.AzurermNginxDeploymentSchema()  
