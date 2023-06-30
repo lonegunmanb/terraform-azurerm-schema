@@ -590,6 +590,10 @@ const azurermWindowsWebApp = `{
                     "docker_container_name": "string",
                     "docker_container_registry": "string",
                     "docker_container_tag": "string",
+                    "docker_image_name": "string",
+                    "docker_registry_password": "string",
+                    "docker_registry_url": "string",
+                    "docker_registry_username": "string",
                     "dotnet_core_version": "string",
                     "dotnet_version": "string",
                     "java_container": "string",
@@ -668,7 +672,7 @@ const azurermWindowsWebApp = `{
                                 "path": "string",
                                 "status_code_range": "string",
                                 "sub_status": "number",
-                                "win32_status": "string"
+                                "win32_status": "number"
                               }
                             ]
                           ]

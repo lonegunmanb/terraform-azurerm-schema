@@ -55,8 +55,10 @@ const azurermAutomationSoftwareUpdateConfiguration = `{
         ]
       },
       "operating_system": {
+        "computed": true,
+        "deprecated": true,
         "description_kind": "plain",
-        "required": true,
+        "optional": true,
         "type": "string"
       },
       "virtual_machine_ids": {
@@ -73,9 +75,19 @@ const azurermAutomationSoftwareUpdateConfiguration = `{
         "block": {
           "attributes": {
             "classification_included": {
+              "computed": true,
               "description_kind": "plain",
               "optional": true,
               "type": "string"
+            },
+            "classifications_included": {
+              "computed": true,
+              "description_kind": "plain",
+              "optional": true,
+              "type": [
+                "list",
+                "string"
+              ]
             },
             "excluded_packages": {
               "description_kind": "plain",
@@ -101,6 +113,7 @@ const azurermAutomationSoftwareUpdateConfiguration = `{
           },
           "description_kind": "plain"
         },
+        "max_items": 1,
         "nesting_mode": "list"
       },
       "post_task": {
@@ -122,6 +135,7 @@ const azurermAutomationSoftwareUpdateConfiguration = `{
           },
           "description_kind": "plain"
         },
+        "max_items": 1,
         "nesting_mode": "list"
       },
       "pre_task": {
@@ -143,6 +157,7 @@ const azurermAutomationSoftwareUpdateConfiguration = `{
           },
           "description_kind": "plain"
         },
+        "max_items": 1,
         "nesting_mode": "list"
       },
       "schedule": {
@@ -188,7 +203,7 @@ const azurermAutomationSoftwareUpdateConfiguration = `{
             },
             "frequency": {
               "description_kind": "plain",
-              "optional": true,
+              "required": true,
               "type": "string"
             },
             "interval": {
@@ -219,6 +234,7 @@ const azurermAutomationSoftwareUpdateConfiguration = `{
               "type": "number"
             },
             "start_time": {
+              "computed": true,
               "description_kind": "plain",
               "optional": true,
               "type": "string"
@@ -252,11 +268,14 @@ const azurermAutomationSoftwareUpdateConfiguration = `{
                 },
                 "description_kind": "plain"
               },
+              "max_items": 1,
               "nesting_mode": "list"
             }
           },
           "description_kind": "plain"
         },
+        "max_items": 1,
+        "min_items": 1,
         "nesting_mode": "list"
       },
       "target": {

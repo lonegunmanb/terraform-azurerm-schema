@@ -42,6 +42,41 @@ const azurermMonitorAadDiagnosticSetting = `{
       }
     },
     "block_types": {
+      "enabled_log": {
+        "block": {
+          "attributes": {
+            "category": {
+              "description_kind": "plain",
+              "required": true,
+              "type": "string"
+            }
+          },
+          "block_types": {
+            "retention_policy": {
+              "block": {
+                "attributes": {
+                  "days": {
+                    "description_kind": "plain",
+                    "optional": true,
+                    "type": "number"
+                  },
+                  "enabled": {
+                    "description_kind": "plain",
+                    "optional": true,
+                    "type": "bool"
+                  }
+                },
+                "description_kind": "plain"
+              },
+              "max_items": 1,
+              "min_items": 1,
+              "nesting_mode": "list"
+            }
+          },
+          "description_kind": "plain"
+        },
+        "nesting_mode": "set"
+      },
       "log": {
         "block": {
           "attributes": {
@@ -78,9 +113,9 @@ const azurermMonitorAadDiagnosticSetting = `{
               "nesting_mode": "list"
             }
           },
+          "deprecated": true,
           "description_kind": "plain"
         },
-        "min_items": 1,
         "nesting_mode": "set"
       },
       "timeouts": {

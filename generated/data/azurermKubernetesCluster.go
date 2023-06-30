@@ -107,6 +107,14 @@ const azurermKubernetesCluster = `{
         "description_kind": "plain",
         "type": "bool"
       },
+      "custom_ca_trust_certificates_base64": {
+        "computed": true,
+        "description_kind": "plain",
+        "type": [
+          "list",
+          "string"
+        ]
+      },
       "disk_encryption_set_id": {
         "computed": true,
         "description_kind": "plain",

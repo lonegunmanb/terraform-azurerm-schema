@@ -6,23 +6,18 @@ import (
 	tfjson "github.com/hashicorp/terraform-json"
 )
 
-const azurermResourceGroup = `{
+const azurermNetworkManagerNetworkGroup = `{
   "block": {
     "attributes": {
+      "description": {
+        "computed": true,
+        "description_kind": "plain",
+        "type": "string"
+      },
       "id": {
         "computed": true,
         "description_kind": "plain",
         "optional": true,
-        "type": "string"
-      },
-      "location": {
-        "computed": true,
-        "description_kind": "plain",
-        "type": "string"
-      },
-      "managed_by": {
-        "computed": true,
-        "description_kind": "plain",
         "type": "string"
       },
       "name": {
@@ -30,13 +25,10 @@ const azurermResourceGroup = `{
         "required": true,
         "type": "string"
       },
-      "tags": {
-        "computed": true,
+      "network_manager_id": {
         "description_kind": "plain",
-        "type": [
-          "map",
-          "string"
-        ]
+        "required": true,
+        "type": "string"
       }
     },
     "block_types": {
@@ -59,8 +51,8 @@ const azurermResourceGroup = `{
   "version": 0
 }`
 
-func AzurermResourceGroupSchema() *tfjson.Schema {
+func AzurermNetworkManagerNetworkGroupSchema() *tfjson.Schema {
 	var result tfjson.Schema
-	_ = json.Unmarshal([]byte(azurermResourceGroup), &result)
+	_ = json.Unmarshal([]byte(azurermNetworkManagerNetworkGroup), &result)
 	return &result
 }

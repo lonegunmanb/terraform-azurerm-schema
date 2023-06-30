@@ -1412,11 +1412,37 @@ const azurermLinuxWebAppSlot = `{
               "block": {
                 "attributes": {
                   "docker_image": {
+                    "deprecated": true,
+                    "description_kind": "plain",
+                    "optional": true,
+                    "type": "string"
+                  },
+                  "docker_image_name": {
                     "description_kind": "plain",
                     "optional": true,
                     "type": "string"
                   },
                   "docker_image_tag": {
+                    "deprecated": true,
+                    "description_kind": "plain",
+                    "optional": true,
+                    "type": "string"
+                  },
+                  "docker_registry_password": {
+                    "computed": true,
+                    "description_kind": "plain",
+                    "optional": true,
+                    "sensitive": true,
+                    "type": "string"
+                  },
+                  "docker_registry_url": {
+                    "computed": true,
+                    "description_kind": "plain",
+                    "optional": true,
+                    "type": "string"
+                  },
+                  "docker_registry_username": {
+                    "computed": true,
                     "description_kind": "plain",
                     "optional": true,
                     "type": "string"
@@ -1577,7 +1603,7 @@ const azurermLinuxWebAppSlot = `{
                               "win32_status": {
                                 "description_kind": "plain",
                                 "optional": true,
-                                "type": "string"
+                                "type": "number"
                               }
                             },
                             "description_kind": "plain"

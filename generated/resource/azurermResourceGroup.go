@@ -20,6 +20,11 @@ const azurermResourceGroup = `{
         "required": true,
         "type": "string"
       },
+      "managed_by": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "string"
+      },
       "name": {
         "description_kind": "plain",
         "required": true,

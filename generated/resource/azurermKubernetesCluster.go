@@ -29,6 +29,14 @@ const azurermKubernetesCluster = `{
         "optional": true,
         "type": "bool"
       },
+      "custom_ca_trust_certificates_base64": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": [
+          "list",
+          "string"
+        ]
+      },
       "disk_encryption_set_id": {
         "description_kind": "plain",
         "optional": true,
@@ -1197,6 +1205,156 @@ const azurermKubernetesCluster = `{
               },
               "nesting_mode": "set"
             },
+            "not_allowed": {
+              "block": {
+                "attributes": {
+                  "end": {
+                    "description_kind": "plain",
+                    "required": true,
+                    "type": "string"
+                  },
+                  "start": {
+                    "description_kind": "plain",
+                    "required": true,
+                    "type": "string"
+                  }
+                },
+                "description_kind": "plain"
+              },
+              "nesting_mode": "set"
+            }
+          },
+          "description_kind": "plain"
+        },
+        "max_items": 1,
+        "nesting_mode": "list"
+      },
+      "maintenance_window_auto_upgrade": {
+        "block": {
+          "attributes": {
+            "day_of_month": {
+              "description_kind": "plain",
+              "optional": true,
+              "type": "number"
+            },
+            "day_of_week": {
+              "description_kind": "plain",
+              "optional": true,
+              "type": "string"
+            },
+            "duration": {
+              "description_kind": "plain",
+              "required": true,
+              "type": "number"
+            },
+            "frequency": {
+              "description_kind": "plain",
+              "required": true,
+              "type": "string"
+            },
+            "interval": {
+              "description_kind": "plain",
+              "required": true,
+              "type": "number"
+            },
+            "start_date": {
+              "computed": true,
+              "description_kind": "plain",
+              "optional": true,
+              "type": "string"
+            },
+            "start_time": {
+              "description_kind": "plain",
+              "optional": true,
+              "type": "string"
+            },
+            "utc_offset": {
+              "description_kind": "plain",
+              "optional": true,
+              "type": "string"
+            },
+            "week_index": {
+              "description_kind": "plain",
+              "optional": true,
+              "type": "string"
+            }
+          },
+          "block_types": {
+            "not_allowed": {
+              "block": {
+                "attributes": {
+                  "end": {
+                    "description_kind": "plain",
+                    "required": true,
+                    "type": "string"
+                  },
+                  "start": {
+                    "description_kind": "plain",
+                    "required": true,
+                    "type": "string"
+                  }
+                },
+                "description_kind": "plain"
+              },
+              "nesting_mode": "set"
+            }
+          },
+          "description_kind": "plain"
+        },
+        "max_items": 1,
+        "nesting_mode": "list"
+      },
+      "maintenance_window_node_os": {
+        "block": {
+          "attributes": {
+            "day_of_month": {
+              "description_kind": "plain",
+              "optional": true,
+              "type": "number"
+            },
+            "day_of_week": {
+              "description_kind": "plain",
+              "optional": true,
+              "type": "string"
+            },
+            "duration": {
+              "description_kind": "plain",
+              "required": true,
+              "type": "number"
+            },
+            "frequency": {
+              "description_kind": "plain",
+              "required": true,
+              "type": "string"
+            },
+            "interval": {
+              "description_kind": "plain",
+              "required": true,
+              "type": "number"
+            },
+            "start_date": {
+              "computed": true,
+              "description_kind": "plain",
+              "optional": true,
+              "type": "string"
+            },
+            "start_time": {
+              "description_kind": "plain",
+              "optional": true,
+              "type": "string"
+            },
+            "utc_offset": {
+              "description_kind": "plain",
+              "optional": true,
+              "type": "string"
+            },
+            "week_index": {
+              "description_kind": "plain",
+              "optional": true,
+              "type": "string"
+            }
+          },
+          "block_types": {
             "not_allowed": {
               "block": {
                 "attributes": {

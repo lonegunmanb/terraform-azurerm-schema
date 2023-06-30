@@ -605,7 +605,11 @@ const azurermLinuxWebApp = `{
                   "object",
                   {
                     "docker_image": "string",
+                    "docker_image_name": "string",
                     "docker_image_tag": "string",
+                    "docker_registry_password": "string",
+                    "docker_registry_url": "string",
+                    "docker_registry_username": "string",
                     "dotnet_version": "string",
                     "go_version": "string",
                     "java_server": "string",
@@ -671,7 +675,7 @@ const azurermLinuxWebApp = `{
                                 "path": "string",
                                 "status_code_range": "string",
                                 "sub_status": "number",
-                                "win32_status": "string"
+                                "win32_status": "number"
                               }
                             ]
                           ]

@@ -1201,6 +1201,7 @@ func init() {
 	dataSources["azurerm_netapp_volume_group_sap_hana"] = data.AzurermNetappVolumeGroupSapHanaSchema()  
 	dataSources["azurerm_network_ddos_protection_plan"] = data.AzurermNetworkDdosProtectionPlanSchema()  
 	dataSources["azurerm_network_interface"] = data.AzurermNetworkInterfaceSchema()  
+	dataSources["azurerm_network_manager_network_group"] = data.AzurermNetworkManagerNetworkGroupSchema()  
 	dataSources["azurerm_network_security_group"] = data.AzurermNetworkSecurityGroupSchema()  
 	dataSources["azurerm_network_service_tags"] = data.AzurermNetworkServiceTagsSchema()  
 	dataSources["azurerm_network_watcher"] = data.AzurermNetworkWatcherSchema()  

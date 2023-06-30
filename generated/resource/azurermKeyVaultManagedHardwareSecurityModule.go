@@ -53,6 +53,25 @@ const azurermKeyVaultManagedHardwareSecurityModule = `{
         "required": true,
         "type": "string"
       },
+      "security_domain_encrypted_data": {
+        "computed": true,
+        "description_kind": "plain",
+        "sensitive": true,
+        "type": "string"
+      },
+      "security_domain_key_vault_certificate_ids": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": [
+          "list",
+          "string"
+        ]
+      },
+      "security_domain_quorum": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "number"
+      },
       "sku_name": {
         "description_kind": "plain",
         "required": true,
@@ -111,6 +130,11 @@ const azurermKeyVaultManagedHardwareSecurityModule = `{
               "type": "string"
             },
             "read": {
+              "description_kind": "plain",
+              "optional": true,
+              "type": "string"
+            },
+            "update": {
               "description_kind": "plain",
               "optional": true,
               "type": "string"
