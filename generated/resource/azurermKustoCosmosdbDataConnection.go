@@ -6,12 +6,12 @@ import (
 	tfjson "github.com/hashicorp/terraform-json"
 )
 
-const azurermMediaJob = `{
+const azurermKustoCosmosdbDataConnection = `{
   "block": {
     "attributes": {
-      "description": {
+      "cosmosdb_container_id": {
         "description_kind": "plain",
-        "optional": true,
+        "required": true,
         "type": "string"
       },
       "id": {
@@ -20,9 +20,24 @@ const azurermMediaJob = `{
         "optional": true,
         "type": "string"
       },
-      "media_services_account_name": {
+      "kusto_database_id": {
         "description_kind": "plain",
         "required": true,
+        "type": "string"
+      },
+      "location": {
+        "description_kind": "plain",
+        "required": true,
+        "type": "string"
+      },
+      "managed_identity_id": {
+        "description_kind": "plain",
+        "required": true,
+        "type": "string"
+      },
+      "mapping_rule_name": {
+        "description_kind": "plain",
+        "optional": true,
         "type": "string"
       },
       "name": {
@@ -30,62 +45,18 @@ const azurermMediaJob = `{
         "required": true,
         "type": "string"
       },
-      "priority": {
+      "retrieval_start_date": {
         "description_kind": "plain",
         "optional": true,
         "type": "string"
       },
-      "resource_group_name": {
-        "description_kind": "plain",
-        "required": true,
-        "type": "string"
-      },
-      "transform_name": {
+      "table_name": {
         "description_kind": "plain",
         "required": true,
         "type": "string"
       }
     },
     "block_types": {
-      "input_asset": {
-        "block": {
-          "attributes": {
-            "label": {
-              "description_kind": "plain",
-              "optional": true,
-              "type": "string"
-            },
-            "name": {
-              "description_kind": "plain",
-              "required": true,
-              "type": "string"
-            }
-          },
-          "description_kind": "plain"
-        },
-        "max_items": 1,
-        "min_items": 1,
-        "nesting_mode": "list"
-      },
-      "output_asset": {
-        "block": {
-          "attributes": {
-            "label": {
-              "description_kind": "plain",
-              "optional": true,
-              "type": "string"
-            },
-            "name": {
-              "description_kind": "plain",
-              "required": true,
-              "type": "string"
-            }
-          },
-          "description_kind": "plain"
-        },
-        "min_items": 1,
-        "nesting_mode": "list"
-      },
       "timeouts": {
         "block": {
           "attributes": {
@@ -103,11 +74,6 @@ const azurermMediaJob = `{
               "description_kind": "plain",
               "optional": true,
               "type": "string"
-            },
-            "update": {
-              "description_kind": "plain",
-              "optional": true,
-              "type": "string"
             }
           },
           "description_kind": "plain"
@@ -115,14 +81,13 @@ const azurermMediaJob = `{
         "nesting_mode": "single"
       }
     },
-    "deprecated": true,
     "description_kind": "plain"
   },
-  "version": 1
+  "version": 0
 }`
 
-func AzurermMediaJobSchema() *tfjson.Schema {
+func AzurermKustoCosmosdbDataConnectionSchema() *tfjson.Schema {
 	var result tfjson.Schema
-	_ = json.Unmarshal([]byte(azurermMediaJob), &result)
+	_ = json.Unmarshal([]byte(azurermKustoCosmosdbDataConnection), &result)
 	return &result
 }

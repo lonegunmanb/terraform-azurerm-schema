@@ -60,6 +60,26 @@ const azurermCognitiveDeployment = `{
       "scale": {
         "block": {
           "attributes": {
+            "capacity": {
+              "description_kind": "plain",
+              "optional": true,
+              "type": "number"
+            },
+            "family": {
+              "description_kind": "plain",
+              "optional": true,
+              "type": "string"
+            },
+            "size": {
+              "description_kind": "plain",
+              "optional": true,
+              "type": "string"
+            },
+            "tier": {
+              "description_kind": "plain",
+              "optional": true,
+              "type": "string"
+            },
             "type": {
               "description_kind": "plain",
               "required": true,

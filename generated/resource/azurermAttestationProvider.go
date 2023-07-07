@@ -45,6 +45,11 @@ const azurermAttestationProvider = `{
         "required": true,
         "type": "string"
       },
+      "sev_snp_policy_base64": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "string"
+      },
       "sgx_enclave_policy_base64": {
         "description_kind": "plain",
         "optional": true,

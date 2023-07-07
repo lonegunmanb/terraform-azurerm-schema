@@ -147,6 +147,14 @@ const azurermSpringCloudGateway = `{
                 "string"
               ]
             },
+            "allowed_origin_patterns": {
+              "description_kind": "plain",
+              "optional": true,
+              "type": [
+                "set",
+                "string"
+              ]
+            },
             "allowed_origins": {
               "description_kind": "plain",
               "optional": true,

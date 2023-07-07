@@ -125,6 +125,11 @@ const azurermLinuxWebAppSlot = `{
         "description_kind": "plain",
         "type": "string"
       },
+      "public_network_access_enabled": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "bool"
+      },
       "service_plan_id": {
         "description_kind": "plain",
         "optional": true,

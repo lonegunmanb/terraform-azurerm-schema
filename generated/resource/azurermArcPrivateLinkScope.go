@@ -6,21 +6,16 @@ import (
 	tfjson "github.com/hashicorp/terraform-json"
 )
 
-const azurermMediaJob = `{
+const azurermArcPrivateLinkScope = `{
   "block": {
     "attributes": {
-      "description": {
-        "description_kind": "plain",
-        "optional": true,
-        "type": "string"
-      },
       "id": {
         "computed": true,
         "description_kind": "plain",
         "optional": true,
         "type": "string"
       },
-      "media_services_account_name": {
+      "location": {
         "description_kind": "plain",
         "required": true,
         "type": "string"
@@ -30,62 +25,26 @@ const azurermMediaJob = `{
         "required": true,
         "type": "string"
       },
-      "priority": {
+      "public_network_access_enabled": {
         "description_kind": "plain",
         "optional": true,
-        "type": "string"
+        "type": "bool"
       },
       "resource_group_name": {
         "description_kind": "plain",
         "required": true,
         "type": "string"
       },
-      "transform_name": {
+      "tags": {
         "description_kind": "plain",
-        "required": true,
-        "type": "string"
+        "optional": true,
+        "type": [
+          "map",
+          "string"
+        ]
       }
     },
     "block_types": {
-      "input_asset": {
-        "block": {
-          "attributes": {
-            "label": {
-              "description_kind": "plain",
-              "optional": true,
-              "type": "string"
-            },
-            "name": {
-              "description_kind": "plain",
-              "required": true,
-              "type": "string"
-            }
-          },
-          "description_kind": "plain"
-        },
-        "max_items": 1,
-        "min_items": 1,
-        "nesting_mode": "list"
-      },
-      "output_asset": {
-        "block": {
-          "attributes": {
-            "label": {
-              "description_kind": "plain",
-              "optional": true,
-              "type": "string"
-            },
-            "name": {
-              "description_kind": "plain",
-              "required": true,
-              "type": "string"
-            }
-          },
-          "description_kind": "plain"
-        },
-        "min_items": 1,
-        "nesting_mode": "list"
-      },
       "timeouts": {
         "block": {
           "attributes": {
@@ -115,14 +74,13 @@ const azurermMediaJob = `{
         "nesting_mode": "single"
       }
     },
-    "deprecated": true,
     "description_kind": "plain"
   },
-  "version": 1
+  "version": 0
 }`
 
-func AzurermMediaJobSchema() *tfjson.Schema {
+func AzurermArcPrivateLinkScopeSchema() *tfjson.Schema {
 	var result tfjson.Schema
-	_ = json.Unmarshal([]byte(azurermMediaJob), &result)
+	_ = json.Unmarshal([]byte(azurermArcPrivateLinkScope), &result)
 	return &result
 }

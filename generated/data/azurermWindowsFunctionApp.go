@@ -512,6 +512,11 @@ const azurermWindowsFunctionApp = `{
         "description_kind": "plain",
         "type": "string"
       },
+      "public_network_access_enabled": {
+        "computed": true,
+        "description_kind": "plain",
+        "type": "bool"
+      },
       "resource_group_name": {
         "description_kind": "plain",
         "required": true,

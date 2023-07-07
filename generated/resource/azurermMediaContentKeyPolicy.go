@@ -421,6 +421,7 @@ const azurermMediaContentKeyPolicy = `{
         "nesting_mode": "single"
       }
     },
+    "deprecated": true,
     "description_kind": "plain"
   },
   "version": 1
