@@ -1634,6 +1634,16 @@ const azurermKubernetesCluster = `{
       "service_mesh_profile": {
         "block": {
           "attributes": {
+            "external_ingress_gateway_enabled": {
+              "description_kind": "plain",
+              "optional": true,
+              "type": "bool"
+            },
+            "internal_ingress_gateway_enabled": {
+              "description_kind": "plain",
+              "optional": true,
+              "type": "bool"
+            },
             "mode": {
               "description_kind": "plain",
               "required": true,

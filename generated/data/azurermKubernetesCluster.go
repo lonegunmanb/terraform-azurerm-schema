@@ -436,6 +436,21 @@ const azurermKubernetesCluster = `{
         "description_kind": "plain",
         "type": "bool"
       },
+      "service_mesh_profile": {
+        "computed": true,
+        "description_kind": "plain",
+        "type": [
+          "list",
+          [
+            "object",
+            {
+              "external_ingress_gateway_enabled": "bool",
+              "internal_ingress_gateway_enabled": "bool",
+              "mode": "string"
+            }
+          ]
+        ]
+      },
       "service_principal": {
         "computed": true,
         "description_kind": "plain",

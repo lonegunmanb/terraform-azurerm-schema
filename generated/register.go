@@ -1060,6 +1060,7 @@ func init() {
 	dataSources["azurerm_cdn_profile"] = data.AzurermCdnProfileSchema()  
 	dataSources["azurerm_client_config"] = data.AzurermClientConfigSchema()  
 	dataSources["azurerm_cognitive_account"] = data.AzurermCognitiveAccountSchema()  
+	dataSources["azurerm_communication_service"] = data.AzurermCommunicationServiceSchema()  
 	dataSources["azurerm_confidential_ledger"] = data.AzurermConfidentialLedgerSchema()  
 	dataSources["azurerm_consumption_budget_resource_group"] = data.AzurermConsumptionBudgetResourceGroupSchema()  
 	dataSources["azurerm_consumption_budget_subscription"] = data.AzurermConsumptionBudgetSubscriptionSchema()  

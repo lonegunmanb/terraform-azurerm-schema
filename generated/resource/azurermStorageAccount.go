@@ -999,7 +999,7 @@ const azurermStorageAccount = `{
     },
     "description_kind": "plain"
   },
-  "version": 3
+  "version": 4
 }`
 
 func AzurermStorageAccountSchema() *tfjson.Schema {
