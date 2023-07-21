@@ -46,6 +46,7 @@ const azurermKustoCluster = `{
         "type": "bool"
       },
       "engine": {
+        "deprecated": true,
         "description_kind": "plain",
         "optional": true,
         "type": "string"

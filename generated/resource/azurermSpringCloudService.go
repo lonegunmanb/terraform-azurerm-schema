@@ -316,6 +316,30 @@ const azurermSpringCloudService = `{
         "max_items": 1,
         "nesting_mode": "list"
       },
+      "marketplace": {
+        "block": {
+          "attributes": {
+            "plan": {
+              "description_kind": "plain",
+              "required": true,
+              "type": "string"
+            },
+            "product": {
+              "description_kind": "plain",
+              "required": true,
+              "type": "string"
+            },
+            "publisher": {
+              "description_kind": "plain",
+              "required": true,
+              "type": "string"
+            }
+          },
+          "description_kind": "plain"
+        },
+        "max_items": 1,
+        "nesting_mode": "list"
+      },
       "network": {
         "block": {
           "attributes": {
@@ -337,6 +361,11 @@ const azurermSpringCloudService = `{
                 "list",
                 "string"
               ]
+            },
+            "outbound_type": {
+              "description_kind": "plain",
+              "optional": true,
+              "type": "string"
             },
             "read_timeout_seconds": {
               "description_kind": "plain",

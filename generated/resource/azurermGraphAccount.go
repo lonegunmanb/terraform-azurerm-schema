@@ -1,4 +1,4 @@
-package data
+package resource
 
 import (
 	"encoding/json"
@@ -6,23 +6,23 @@ import (
 	tfjson "github.com/hashicorp/terraform-json"
 )
 
-const azurermRouteTable = `{
+const azurermGraphAccount = `{
   "block": {
     "attributes": {
-      "bgp_route_propagation_enabled": {
+      "application_id": {
+        "description_kind": "plain",
+        "required": true,
+        "type": "string"
+      },
+      "billing_plan_id": {
         "computed": true,
         "description_kind": "plain",
-        "type": "bool"
+        "type": "string"
       },
       "id": {
         "computed": true,
         "description_kind": "plain",
         "optional": true,
-        "type": "string"
-      },
-      "location": {
-        "computed": true,
-        "description_kind": "plain",
         "type": "string"
       },
       "name": {
@@ -35,33 +35,9 @@ const azurermRouteTable = `{
         "required": true,
         "type": "string"
       },
-      "route": {
-        "computed": true,
-        "description_kind": "plain",
-        "type": [
-          "list",
-          [
-            "object",
-            {
-              "address_prefix": "string",
-              "name": "string",
-              "next_hop_in_ip_address": "string",
-              "next_hop_type": "string"
-            }
-          ]
-        ]
-      },
-      "subnets": {
-        "computed": true,
-        "description_kind": "plain",
-        "type": [
-          "set",
-          "string"
-        ]
-      },
       "tags": {
-        "computed": true,
         "description_kind": "plain",
+        "optional": true,
         "type": [
           "map",
           "string"
@@ -72,7 +48,22 @@ const azurermRouteTable = `{
       "timeouts": {
         "block": {
           "attributes": {
+            "create": {
+              "description_kind": "plain",
+              "optional": true,
+              "type": "string"
+            },
+            "delete": {
+              "description_kind": "plain",
+              "optional": true,
+              "type": "string"
+            },
             "read": {
+              "description_kind": "plain",
+              "optional": true,
+              "type": "string"
+            },
+            "update": {
               "description_kind": "plain",
               "optional": true,
               "type": "string"
@@ -88,8 +79,8 @@ const azurermRouteTable = `{
   "version": 0
 }`
 
-func AzurermRouteTableSchema() *tfjson.Schema {
+func AzurermGraphAccountSchema() *tfjson.Schema {
 	var result tfjson.Schema
-	_ = json.Unmarshal([]byte(azurermRouteTable), &result)
+	_ = json.Unmarshal([]byte(azurermGraphAccount), &result)
 	return &result
 }

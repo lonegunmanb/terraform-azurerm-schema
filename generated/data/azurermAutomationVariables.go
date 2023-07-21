@@ -24,6 +24,7 @@ const azurermAutomationVariables = `{
             {
               "description": "string",
               "encrypted": "bool",
+              "id": "string",
               "name": "string",
               "value": "bool"
             }
@@ -40,6 +41,7 @@ const azurermAutomationVariables = `{
             {
               "description": "string",
               "encrypted": "bool",
+              "id": "string",
               "name": "string",
               "value": "string"
             }
@@ -56,6 +58,7 @@ const azurermAutomationVariables = `{
             {
               "description": "string",
               "encrypted": "bool",
+              "id": "string",
               "name": "string",
               "value": "string"
             }
@@ -78,6 +81,7 @@ const azurermAutomationVariables = `{
             {
               "description": "string",
               "encrypted": "bool",
+              "id": "string",
               "name": "string",
               "value": "number"
             }
@@ -94,6 +98,7 @@ const azurermAutomationVariables = `{
             {
               "description": "string",
               "encrypted": "bool",
+              "id": "string",
               "name": "string",
               "value": "string"
             }
@@ -110,6 +115,7 @@ const azurermAutomationVariables = `{
             {
               "description": "string",
               "encrypted": "bool",
+              "id": "string",
               "name": "string",
               "value": "string"
             }

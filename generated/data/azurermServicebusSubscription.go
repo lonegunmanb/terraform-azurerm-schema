@@ -66,6 +66,7 @@ const azurermServicebusSubscription = `{
         "type": "string"
       },
       "namespace_name": {
+        "deprecated": true,
         "description_kind": "plain",
         "optional": true,
         "type": "string"
@@ -76,6 +77,7 @@ const azurermServicebusSubscription = `{
         "type": "bool"
       },
       "resource_group_name": {
+        "deprecated": true,
         "description_kind": "plain",
         "optional": true,
         "type": "string"
@@ -86,6 +88,7 @@ const azurermServicebusSubscription = `{
         "type": "string"
       },
       "topic_name": {
+        "deprecated": true,
         "description_kind": "plain",
         "optional": true,
         "type": "string"

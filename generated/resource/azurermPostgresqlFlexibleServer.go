@@ -154,6 +154,16 @@ const azurermPostgresqlFlexibleServer = `{
       "customer_managed_key": {
         "block": {
           "attributes": {
+            "geo_backup_key_vault_key_id": {
+              "description_kind": "plain",
+              "optional": true,
+              "type": "string"
+            },
+            "geo_backup_user_assigned_identity_id": {
+              "description_kind": "plain",
+              "optional": true,
+              "type": "string"
+            },
             "key_vault_key_id": {
               "description_kind": "plain",
               "optional": true,
