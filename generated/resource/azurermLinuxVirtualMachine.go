@@ -30,6 +30,11 @@ const azurermLinuxVirtualMachine = `{
         "optional": true,
         "type": "string"
       },
+      "bypass_platform_safety_checks_on_user_schedule_enabled": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "bool"
+      },
       "capacity_reservation_group_id": {
         "description_kind": "plain",
         "optional": true,
@@ -171,6 +176,11 @@ const azurermLinuxVirtualMachine = `{
           "list",
           "string"
         ]
+      },
+      "reboot_setting": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "string"
       },
       "resource_group_name": {
         "description_kind": "plain",

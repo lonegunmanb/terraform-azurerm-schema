@@ -345,7 +345,7 @@ const azurermCosmosdbAccount = `{
             },
             "max_age_in_seconds": {
               "description_kind": "plain",
-              "required": true,
+              "optional": true,
               "type": "number"
             }
           },

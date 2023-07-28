@@ -104,6 +104,11 @@ const azurermImage = `{
               "optional": true,
               "type": "string"
             },
+            "disk_encryption_set_id": {
+              "description_kind": "plain",
+              "optional": true,
+              "type": "string"
+            },
             "managed_disk_id": {
               "computed": true,
               "description_kind": "plain",

@@ -22,11 +22,6 @@ const azurermLogicAppStandard = `{
           "string"
         ]
       },
-      "auto_swap_slot_name": {
-        "computed": true,
-        "description_kind": "plain",
-        "type": "string"
-      },
       "bundle_version": {
         "computed": true,
         "description_kind": "plain",
@@ -196,6 +191,11 @@ const azurermLogicAppStandard = `{
               "description_kind": "plain",
               "optional": true,
               "type": "number"
+            },
+            "auto_swap_slot_name": {
+              "computed": true,
+              "description_kind": "plain",
+              "type": "string"
             },
             "dotnet_framework_version": {
               "description_kind": "plain",
