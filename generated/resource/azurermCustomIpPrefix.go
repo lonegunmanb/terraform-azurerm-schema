@@ -6,51 +6,29 @@ import (
 	tfjson "github.com/hashicorp/terraform-json"
 )
 
-const azurermVirtualNetwork = `{
+const azurermCustomIpPrefix = `{
   "block": {
     "attributes": {
-      "address_space": {
+      "cidr": {
         "description_kind": "plain",
         "required": true,
-        "type": [
-          "list",
-          "string"
-        ]
-      },
-      "bgp_community": {
-        "description_kind": "plain",
-        "optional": true,
         "type": "string"
       },
-      "dns_servers": {
-        "computed": true,
+      "commissioning_enabled": {
         "description_kind": "plain",
         "optional": true,
-        "type": [
-          "list",
-          "string"
-        ]
-      },
-      "edge_zone": {
-        "description_kind": "plain",
-        "optional": true,
-        "type": "string"
-      },
-      "flow_timeout_in_minutes": {
-        "description_kind": "plain",
-        "optional": true,
-        "type": "number"
-      },
-      "guid": {
-        "computed": true,
-        "description_kind": "plain",
-        "type": "string"
+        "type": "bool"
       },
       "id": {
         "computed": true,
         "description_kind": "plain",
         "optional": true,
         "type": "string"
+      },
+      "internet_advertising_disabled": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "bool"
       },
       "location": {
         "description_kind": "plain",
@@ -62,27 +40,20 @@ const azurermVirtualNetwork = `{
         "required": true,
         "type": "string"
       },
+      "parent_custom_ip_prefix_id": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "string"
+      },
       "resource_group_name": {
         "description_kind": "plain",
         "required": true,
         "type": "string"
       },
-      "subnet": {
-        "computed": true,
+      "roa_validity_end_date": {
         "description_kind": "plain",
         "optional": true,
-        "type": [
-          "set",
-          [
-            "object",
-            {
-              "address_prefix": "string",
-              "id": "string",
-              "name": "string",
-              "security_group": "string"
-            }
-          ]
-        ]
+        "type": "string"
       },
       "tags": {
         "description_kind": "plain",
@@ -91,42 +62,22 @@ const azurermVirtualNetwork = `{
           "map",
           "string"
         ]
+      },
+      "wan_validation_signed_message": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "string"
+      },
+      "zones": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": [
+          "set",
+          "string"
+        ]
       }
     },
     "block_types": {
-      "ddos_protection_plan": {
-        "block": {
-          "attributes": {
-            "enable": {
-              "description_kind": "plain",
-              "required": true,
-              "type": "bool"
-            },
-            "id": {
-              "description_kind": "plain",
-              "required": true,
-              "type": "string"
-            }
-          },
-          "description_kind": "plain"
-        },
-        "max_items": 1,
-        "nesting_mode": "list"
-      },
-      "encryption": {
-        "block": {
-          "attributes": {
-            "enforcement": {
-              "description_kind": "plain",
-              "required": true,
-              "type": "string"
-            }
-          },
-          "description_kind": "plain"
-        },
-        "max_items": 1,
-        "nesting_mode": "list"
-      },
       "timeouts": {
         "block": {
           "attributes": {
@@ -161,8 +112,8 @@ const azurermVirtualNetwork = `{
   "version": 0
 }`
 
-func AzurermVirtualNetworkSchema() *tfjson.Schema {
+func AzurermCustomIpPrefixSchema() *tfjson.Schema {
 	var result tfjson.Schema
-	_ = json.Unmarshal([]byte(azurermVirtualNetwork), &result)
+	_ = json.Unmarshal([]byte(azurermCustomIpPrefix), &result)
 	return &result
 }

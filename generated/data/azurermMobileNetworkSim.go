@@ -6,10 +6,10 @@ import (
 	tfjson "github.com/hashicorp/terraform-json"
 )
 
-const azurermEventgridTopic = `{
+const azurermMobileNetworkSim = `{
   "block": {
     "attributes": {
-      "endpoint": {
+      "device_type": {
         "computed": true,
         "description_kind": "plain",
         "type": "string"
@@ -20,9 +20,19 @@ const azurermEventgridTopic = `{
         "optional": true,
         "type": "string"
       },
-      "location": {
+      "integrated_circuit_card_identifier": {
         "computed": true,
         "description_kind": "plain",
+        "type": "string"
+      },
+      "international_mobile_subscriber_identity": {
+        "computed": true,
+        "description_kind": "plain",
+        "type": "string"
+      },
+      "mobile_network_sim_group_id": {
+        "description_kind": "plain",
+        "required": true,
         "type": "string"
       },
       "name": {
@@ -30,30 +40,40 @@ const azurermEventgridTopic = `{
         "required": true,
         "type": "string"
       },
-      "primary_access_key": {
+      "sim_policy_id": {
         "computed": true,
         "description_kind": "plain",
-        "sensitive": true,
         "type": "string"
       },
-      "resource_group_name": {
-        "description_kind": "plain",
-        "required": true,
-        "type": "string"
-      },
-      "secondary_access_key": {
+      "sim_state": {
         "computed": true,
         "description_kind": "plain",
-        "sensitive": true,
         "type": "string"
       },
-      "tags": {
+      "static_ip_configuration": {
         "computed": true,
         "description_kind": "plain",
         "type": [
-          "map",
-          "string"
+          "list",
+          [
+            "object",
+            {
+              "attached_data_network_id": "string",
+              "slice_id": "string",
+              "static_ipv4_address": "string"
+            }
+          ]
         ]
+      },
+      "vendor_key_fingerprint": {
+        "computed": true,
+        "description_kind": "plain",
+        "type": "string"
+      },
+      "vendor_name": {
+        "computed": true,
+        "description_kind": "plain",
+        "type": "string"
       }
     },
     "block_types": {
@@ -76,8 +96,8 @@ const azurermEventgridTopic = `{
   "version": 0
 }`
 
-func AzurermEventgridTopicSchema() *tfjson.Schema {
+func AzurermMobileNetworkSimSchema() *tfjson.Schema {
 	var result tfjson.Schema
-	_ = json.Unmarshal([]byte(azurermEventgridTopic), &result)
+	_ = json.Unmarshal([]byte(azurermMobileNetworkSim), &result)
 	return &result
 }

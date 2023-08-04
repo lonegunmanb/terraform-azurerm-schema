@@ -6,13 +6,23 @@ import (
 	tfjson "github.com/hashicorp/terraform-json"
 )
 
-const azurermEventhubNamespaceCustomerManagedKey = `{
+const azurermAutomationVariableObject = `{
   "block": {
     "attributes": {
-      "eventhub_namespace_id": {
+      "automation_account_name": {
         "description_kind": "plain",
         "required": true,
         "type": "string"
+      },
+      "description": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "string"
+      },
+      "encrypted": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "bool"
       },
       "id": {
         "computed": true,
@@ -20,18 +30,20 @@ const azurermEventhubNamespaceCustomerManagedKey = `{
         "optional": true,
         "type": "string"
       },
-      "infrastructure_encryption_enabled": {
-        "description_kind": "plain",
-        "optional": true,
-        "type": "bool"
-      },
-      "key_vault_key_ids": {
+      "name": {
         "description_kind": "plain",
         "required": true,
-        "type": [
-          "set",
-          "string"
-        ]
+        "type": "string"
+      },
+      "resource_group_name": {
+        "description_kind": "plain",
+        "required": true,
+        "type": "string"
+      },
+      "value": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "string"
       }
     },
     "block_types": {
@@ -69,8 +81,8 @@ const azurermEventhubNamespaceCustomerManagedKey = `{
   "version": 0
 }`
 
-func AzurermEventhubNamespaceCustomerManagedKeySchema() *tfjson.Schema {
+func AzurermAutomationVariableObjectSchema() *tfjson.Schema {
 	var result tfjson.Schema
-	_ = json.Unmarshal([]byte(azurermEventhubNamespaceCustomerManagedKey), &result)
+	_ = json.Unmarshal([]byte(azurermAutomationVariableObject), &result)
 	return &result
 }

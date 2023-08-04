@@ -6,44 +6,18 @@ import (
 	tfjson "github.com/hashicorp/terraform-json"
 )
 
-const azurermVirtualNetwork = `{
+const azurermMobileNetworkSim = `{
   "block": {
     "attributes": {
-      "address_space": {
+      "authentication_key": {
         "description_kind": "plain",
         "required": true,
-        "type": [
-          "list",
-          "string"
-        ]
-      },
-      "bgp_community": {
-        "description_kind": "plain",
-        "optional": true,
+        "sensitive": true,
         "type": "string"
       },
-      "dns_servers": {
-        "computed": true,
+      "device_type": {
         "description_kind": "plain",
         "optional": true,
-        "type": [
-          "list",
-          "string"
-        ]
-      },
-      "edge_zone": {
-        "description_kind": "plain",
-        "optional": true,
-        "type": "string"
-      },
-      "flow_timeout_in_minutes": {
-        "description_kind": "plain",
-        "optional": true,
-        "type": "number"
-      },
-      "guid": {
-        "computed": true,
-        "description_kind": "plain",
         "type": "string"
       },
       "id": {
@@ -52,7 +26,17 @@ const azurermVirtualNetwork = `{
         "optional": true,
         "type": "string"
       },
-      "location": {
+      "integrated_circuit_card_identifier": {
+        "description_kind": "plain",
+        "required": true,
+        "type": "string"
+      },
+      "international_mobile_subscriber_identity": {
+        "description_kind": "plain",
+        "required": true,
+        "type": "string"
+      },
+      "mobile_network_sim_group_id": {
         "description_kind": "plain",
         "required": true,
         "type": "string"
@@ -62,69 +46,55 @@ const azurermVirtualNetwork = `{
         "required": true,
         "type": "string"
       },
-      "resource_group_name": {
+      "operator_key_code": {
         "description_kind": "plain",
         "required": true,
+        "sensitive": true,
         "type": "string"
       },
-      "subnet": {
+      "sim_policy_id": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "string"
+      },
+      "sim_state": {
         "computed": true,
         "description_kind": "plain",
-        "optional": true,
-        "type": [
-          "set",
-          [
-            "object",
-            {
-              "address_prefix": "string",
-              "id": "string",
-              "name": "string",
-              "security_group": "string"
-            }
-          ]
-        ]
+        "type": "string"
       },
-      "tags": {
+      "vendor_key_fingerprint": {
+        "computed": true,
         "description_kind": "plain",
-        "optional": true,
-        "type": [
-          "map",
-          "string"
-        ]
+        "type": "string"
+      },
+      "vendor_name": {
+        "computed": true,
+        "description_kind": "plain",
+        "type": "string"
       }
     },
     "block_types": {
-      "ddos_protection_plan": {
+      "static_ip_configuration": {
         "block": {
           "attributes": {
-            "enable": {
+            "attached_data_network_id": {
               "description_kind": "plain",
               "required": true,
-              "type": "bool"
+              "type": "string"
             },
-            "id": {
+            "slice_id": {
               "description_kind": "plain",
               "required": true,
+              "type": "string"
+            },
+            "static_ipv4_address": {
+              "description_kind": "plain",
+              "optional": true,
               "type": "string"
             }
           },
           "description_kind": "plain"
         },
-        "max_items": 1,
-        "nesting_mode": "list"
-      },
-      "encryption": {
-        "block": {
-          "attributes": {
-            "enforcement": {
-              "description_kind": "plain",
-              "required": true,
-              "type": "string"
-            }
-          },
-          "description_kind": "plain"
-        },
-        "max_items": 1,
         "nesting_mode": "list"
       },
       "timeouts": {
@@ -161,8 +131,8 @@ const azurermVirtualNetwork = `{
   "version": 0
 }`
 
-func AzurermVirtualNetworkSchema() *tfjson.Schema {
+func AzurermMobileNetworkSimSchema() *tfjson.Schema {
 	var result tfjson.Schema
-	_ = json.Unmarshal([]byte(azurermVirtualNetwork), &result)
+	_ = json.Unmarshal([]byte(azurermMobileNetworkSim), &result)
 	return &result
 }

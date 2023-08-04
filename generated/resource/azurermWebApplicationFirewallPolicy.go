@@ -317,6 +317,53 @@ const azurermWebApplicationFirewallPolicy = `{
               "type": "bool"
             }
           },
+          "block_types": {
+            "log_scrubbing": {
+              "block": {
+                "attributes": {
+                  "enabled": {
+                    "description_kind": "plain",
+                    "optional": true,
+                    "type": "bool"
+                  }
+                },
+                "block_types": {
+                  "rule": {
+                    "block": {
+                      "attributes": {
+                        "enabled": {
+                          "description_kind": "plain",
+                          "optional": true,
+                          "type": "bool"
+                        },
+                        "match_variable": {
+                          "description_kind": "plain",
+                          "required": true,
+                          "type": "string"
+                        },
+                        "selector": {
+                          "description": "When matchVariable is a collection, operator used to specify which elements in the collection this rule applies to.",
+                          "description_kind": "plain",
+                          "optional": true,
+                          "type": "string"
+                        },
+                        "selector_match_operator": {
+                          "description_kind": "plain",
+                          "optional": true,
+                          "type": "string"
+                        }
+                      },
+                      "description_kind": "plain"
+                    },
+                    "nesting_mode": "list"
+                  }
+                },
+                "description_kind": "plain"
+              },
+              "max_items": 1,
+              "nesting_mode": "list"
+            }
+          },
           "description_kind": "plain"
         },
         "max_items": 1,
@@ -353,7 +400,7 @@ const azurermWebApplicationFirewallPolicy = `{
     },
     "description_kind": "plain"
   },
-  "version": 0
+  "version": 1
 }`
 
 func AzurermWebApplicationFirewallPolicySchema() *tfjson.Schema {

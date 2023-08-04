@@ -45,6 +45,7 @@ const azurermImages = `{
                   {
                     "blob_uri": "string",
                     "caching": "string",
+                    "disk_encryption_set_id": "string",
                     "managed_disk_id": "string",
                     "os_state": "string",
                     "os_type": "string",

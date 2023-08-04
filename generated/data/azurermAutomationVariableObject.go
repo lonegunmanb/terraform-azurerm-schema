@@ -1,4 +1,4 @@
-package resource
+package data
 
 import (
 	"encoding/json"
@@ -6,13 +6,23 @@ import (
 	tfjson "github.com/hashicorp/terraform-json"
 )
 
-const azurermEventhubNamespaceCustomerManagedKey = `{
+const azurermAutomationVariableObject = `{
   "block": {
     "attributes": {
-      "eventhub_namespace_id": {
+      "automation_account_name": {
         "description_kind": "plain",
         "required": true,
         "type": "string"
+      },
+      "description": {
+        "computed": true,
+        "description_kind": "plain",
+        "type": "string"
+      },
+      "encrypted": {
+        "computed": true,
+        "description_kind": "plain",
+        "type": "bool"
       },
       "id": {
         "computed": true,
@@ -20,40 +30,27 @@ const azurermEventhubNamespaceCustomerManagedKey = `{
         "optional": true,
         "type": "string"
       },
-      "infrastructure_encryption_enabled": {
-        "description_kind": "plain",
-        "optional": true,
-        "type": "bool"
-      },
-      "key_vault_key_ids": {
+      "name": {
         "description_kind": "plain",
         "required": true,
-        "type": [
-          "set",
-          "string"
-        ]
+        "type": "string"
+      },
+      "resource_group_name": {
+        "description_kind": "plain",
+        "required": true,
+        "type": "string"
+      },
+      "value": {
+        "computed": true,
+        "description_kind": "plain",
+        "type": "string"
       }
     },
     "block_types": {
       "timeouts": {
         "block": {
           "attributes": {
-            "create": {
-              "description_kind": "plain",
-              "optional": true,
-              "type": "string"
-            },
-            "delete": {
-              "description_kind": "plain",
-              "optional": true,
-              "type": "string"
-            },
             "read": {
-              "description_kind": "plain",
-              "optional": true,
-              "type": "string"
-            },
-            "update": {
               "description_kind": "plain",
               "optional": true,
               "type": "string"
@@ -69,8 +66,8 @@ const azurermEventhubNamespaceCustomerManagedKey = `{
   "version": 0
 }`
 
-func AzurermEventhubNamespaceCustomerManagedKeySchema() *tfjson.Schema {
+func AzurermAutomationVariableObjectSchema() *tfjson.Schema {
 	var result tfjson.Schema
-	_ = json.Unmarshal([]byte(azurermEventhubNamespaceCustomerManagedKey), &result)
+	_ = json.Unmarshal([]byte(azurermAutomationVariableObject), &result)
 	return &result
 }

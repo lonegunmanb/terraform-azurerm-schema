@@ -105,6 +105,23 @@ const azurermAutomationVariables = `{
           ]
         ]
       },
+      "object": {
+        "computed": true,
+        "description_kind": "plain",
+        "type": [
+          "list",
+          [
+            "object",
+            {
+              "description": "string",
+              "encrypted": "bool",
+              "id": "string",
+              "name": "string",
+              "value": "string"
+            }
+          ]
+        ]
+      },
       "string": {
         "computed": true,
         "description_kind": "plain",

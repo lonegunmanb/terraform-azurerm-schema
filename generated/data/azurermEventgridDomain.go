@@ -21,8 +21,8 @@ const azurermEventgridDomain = `{
         "type": "string"
       },
       "inbound_ip_rule": {
+        "computed": true,
         "description_kind": "plain",
-        "optional": true,
         "type": [
           "list",
           [
@@ -89,8 +89,8 @@ const azurermEventgridDomain = `{
         "type": "string"
       },
       "public_network_access_enabled": {
+        "computed": true,
         "description_kind": "plain",
-        "optional": true,
         "type": "bool"
       },
       "resource_group_name": {
@@ -105,8 +105,8 @@ const azurermEventgridDomain = `{
         "type": "string"
       },
       "tags": {
+        "computed": true,
         "description_kind": "plain",
-        "optional": true,
         "type": [
           "map",
           "string"
