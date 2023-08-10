@@ -6,10 +6,15 @@ import (
 	tfjson "github.com/hashicorp/terraform-json"
 )
 
-const azurermDigitalTwinsInstance = `{
+const azurermGraphServicesAccount = `{
   "block": {
     "attributes": {
-      "host_name": {
+      "application_id": {
+        "description_kind": "plain",
+        "required": true,
+        "type": "string"
+      },
+      "billing_plan_id": {
         "computed": true,
         "description_kind": "plain",
         "type": "string"
@@ -18,11 +23,6 @@ const azurermDigitalTwinsInstance = `{
         "computed": true,
         "description_kind": "plain",
         "optional": true,
-        "type": "string"
-      },
-      "location": {
-        "description_kind": "plain",
-        "required": true,
         "type": "string"
       },
       "name": {
@@ -45,38 +45,6 @@ const azurermDigitalTwinsInstance = `{
       }
     },
     "block_types": {
-      "identity": {
-        "block": {
-          "attributes": {
-            "identity_ids": {
-              "description_kind": "plain",
-              "optional": true,
-              "type": [
-                "set",
-                "string"
-              ]
-            },
-            "principal_id": {
-              "computed": true,
-              "description_kind": "plain",
-              "type": "string"
-            },
-            "tenant_id": {
-              "computed": true,
-              "description_kind": "plain",
-              "type": "string"
-            },
-            "type": {
-              "description_kind": "plain",
-              "required": true,
-              "type": "string"
-            }
-          },
-          "description_kind": "plain"
-        },
-        "max_items": 1,
-        "nesting_mode": "list"
-      },
       "timeouts": {
         "block": {
           "attributes": {
@@ -106,13 +74,14 @@ const azurermDigitalTwinsInstance = `{
         "nesting_mode": "single"
       }
     },
+    "deprecated": true,
     "description_kind": "plain"
   },
   "version": 0
 }`
 
-func AzurermDigitalTwinsInstanceSchema() *tfjson.Schema {
+func AzurermGraphServicesAccountSchema() *tfjson.Schema {
 	var result tfjson.Schema
-	_ = json.Unmarshal([]byte(azurermDigitalTwinsInstance), &result)
+	_ = json.Unmarshal([]byte(azurermGraphServicesAccount), &result)
 	return &result
 }

@@ -6,44 +6,39 @@ import (
 	tfjson "github.com/hashicorp/terraform-json"
 )
 
-const azurermLogAnalyticsWorkspace = `{
+const azurermPaloAltoLocalRulestack = `{
   "block": {
     "attributes": {
-      "allow_resource_only_permissions": {
+      "anti_spyware_profile": {
         "description_kind": "plain",
         "optional": true,
-        "type": "bool"
+        "type": "string"
       },
-      "cmk_for_query_forced": {
+      "anti_virus_profile": {
         "description_kind": "plain",
         "optional": true,
-        "type": "bool"
+        "type": "string"
       },
-      "daily_quota_gb": {
+      "description": {
         "description_kind": "plain",
         "optional": true,
-        "type": "number"
+        "type": "string"
+      },
+      "dns_subscription": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "string"
+      },
+      "file_blocking_profile": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "string"
       },
       "id": {
         "computed": true,
         "description_kind": "plain",
         "optional": true,
         "type": "string"
-      },
-      "internet_ingestion_enabled": {
-        "description_kind": "plain",
-        "optional": true,
-        "type": "bool"
-      },
-      "internet_query_enabled": {
-        "description_kind": "plain",
-        "optional": true,
-        "type": "bool"
-      },
-      "local_authentication_disabled": {
-        "description_kind": "plain",
-        "optional": true,
-        "type": "bool"
       },
       "location": {
         "description_kind": "plain",
@@ -55,51 +50,19 @@ const azurermLogAnalyticsWorkspace = `{
         "required": true,
         "type": "string"
       },
-      "primary_shared_key": {
-        "computed": true,
-        "description_kind": "plain",
-        "sensitive": true,
-        "type": "string"
-      },
-      "reservation_capacity_in_gb_per_day": {
-        "description_kind": "plain",
-        "optional": true,
-        "type": "number"
-      },
       "resource_group_name": {
         "description_kind": "plain",
         "required": true,
         "type": "string"
       },
-      "retention_in_days": {
-        "computed": true,
-        "description_kind": "plain",
-        "optional": true,
-        "type": "number"
-      },
-      "secondary_shared_key": {
-        "computed": true,
-        "description_kind": "plain",
-        "sensitive": true,
-        "type": "string"
-      },
-      "sku": {
-        "computed": true,
+      "url_filtering_profile": {
         "description_kind": "plain",
         "optional": true,
         "type": "string"
       },
-      "tags": {
+      "vulnerability_profile": {
         "description_kind": "plain",
         "optional": true,
-        "type": [
-          "map",
-          "string"
-        ]
-      },
-      "workspace_id": {
-        "computed": true,
-        "description_kind": "plain",
         "type": "string"
       }
     },
@@ -135,11 +98,11 @@ const azurermLogAnalyticsWorkspace = `{
     },
     "description_kind": "plain"
   },
-  "version": 3
+  "version": 0
 }`
 
-func AzurermLogAnalyticsWorkspaceSchema() *tfjson.Schema {
+func AzurermPaloAltoLocalRulestackSchema() *tfjson.Schema {
 	var result tfjson.Schema
-	_ = json.Unmarshal([]byte(azurermLogAnalyticsWorkspace), &result)
+	_ = json.Unmarshal([]byte(azurermPaloAltoLocalRulestack), &result)
 	return &result
 }

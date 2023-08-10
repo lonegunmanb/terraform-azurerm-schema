@@ -32,6 +32,27 @@ const azurermSecurityCenterSubscriptionPricing = `{
       }
     },
     "block_types": {
+      "extension": {
+        "block": {
+          "attributes": {
+            "additional_extension_properties": {
+              "description_kind": "plain",
+              "optional": true,
+              "type": [
+                "map",
+                "string"
+              ]
+            },
+            "name": {
+              "description_kind": "plain",
+              "required": true,
+              "type": "string"
+            }
+          },
+          "description_kind": "plain"
+        },
+        "nesting_mode": "set"
+      },
       "timeouts": {
         "block": {
           "attributes": {

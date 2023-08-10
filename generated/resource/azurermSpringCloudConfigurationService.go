@@ -35,6 +35,11 @@ const azurermSpringCloudConfigurationService = `{
       "repository": {
         "block": {
           "attributes": {
+            "ca_certificate_id": {
+              "description_kind": "plain",
+              "optional": true,
+              "type": "string"
+            },
             "host_key": {
               "description_kind": "plain",
               "optional": true,

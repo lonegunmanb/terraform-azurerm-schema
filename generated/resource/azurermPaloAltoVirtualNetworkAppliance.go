@@ -6,19 +6,9 @@ import (
 	tfjson "github.com/hashicorp/terraform-json"
 )
 
-const azurermGraphAccount = `{
+const azurermPaloAltoVirtualNetworkAppliance = `{
   "block": {
     "attributes": {
-      "application_id": {
-        "description_kind": "plain",
-        "required": true,
-        "type": "string"
-      },
-      "billing_plan_id": {
-        "computed": true,
-        "description_kind": "plain",
-        "type": "string"
-      },
       "id": {
         "computed": true,
         "description_kind": "plain",
@@ -30,18 +20,10 @@ const azurermGraphAccount = `{
         "required": true,
         "type": "string"
       },
-      "resource_group_name": {
+      "virtual_hub_id": {
         "description_kind": "plain",
         "required": true,
         "type": "string"
-      },
-      "tags": {
-        "description_kind": "plain",
-        "optional": true,
-        "type": [
-          "map",
-          "string"
-        ]
       }
     },
     "block_types": {
@@ -62,11 +44,6 @@ const azurermGraphAccount = `{
               "description_kind": "plain",
               "optional": true,
               "type": "string"
-            },
-            "update": {
-              "description_kind": "plain",
-              "optional": true,
-              "type": "string"
             }
           },
           "description_kind": "plain"
@@ -74,14 +51,13 @@ const azurermGraphAccount = `{
         "nesting_mode": "single"
       }
     },
-    "deprecated": true,
     "description_kind": "plain"
   },
   "version": 0
 }`
 
-func AzurermGraphAccountSchema() *tfjson.Schema {
+func AzurermPaloAltoVirtualNetworkApplianceSchema() *tfjson.Schema {
 	var result tfjson.Schema
-	_ = json.Unmarshal([]byte(azurermGraphAccount), &result)
+	_ = json.Unmarshal([]byte(azurermPaloAltoVirtualNetworkAppliance), &result)
 	return &result
 }

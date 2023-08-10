@@ -1,4 +1,4 @@
-package resource
+package data
 
 import (
 	"encoding/json"
@@ -6,17 +6,32 @@ import (
 	tfjson "github.com/hashicorp/terraform-json"
 )
 
-const azurermVirtualDesktopWorkspace = `{
+const azurermPaloAltoLocalRulestack = `{
   "block": {
     "attributes": {
-      "description": {
+      "anti_spyware_profile": {
+        "computed": true,
         "description_kind": "plain",
-        "optional": true,
         "type": "string"
       },
-      "friendly_name": {
+      "anti_virus_profile": {
+        "computed": true,
         "description_kind": "plain",
-        "optional": true,
+        "type": "string"
+      },
+      "description": {
+        "computed": true,
+        "description_kind": "plain",
+        "type": "string"
+      },
+      "dns_subscription": {
+        "computed": true,
+        "description_kind": "plain",
+        "type": "string"
+      },
+      "file_blocking_profile": {
+        "computed": true,
+        "description_kind": "plain",
         "type": "string"
       },
       "id": {
@@ -26,8 +41,8 @@ const azurermVirtualDesktopWorkspace = `{
         "type": "string"
       },
       "location": {
+        "computed": true,
         "description_kind": "plain",
-        "required": true,
         "type": "string"
       },
       "name": {
@@ -35,45 +50,37 @@ const azurermVirtualDesktopWorkspace = `{
         "required": true,
         "type": "string"
       },
-      "public_network_access_enabled": {
+      "outbound_trust_certificate": {
+        "computed": true,
         "description_kind": "plain",
-        "optional": true,
-        "type": "bool"
+        "type": "string"
+      },
+      "outbound_untrust_certificate": {
+        "computed": true,
+        "description_kind": "plain",
+        "type": "string"
       },
       "resource_group_name": {
         "description_kind": "plain",
         "required": true,
         "type": "string"
       },
-      "tags": {
+      "url_filtering_profile": {
+        "computed": true,
         "description_kind": "plain",
-        "optional": true,
-        "type": [
-          "map",
-          "string"
-        ]
+        "type": "string"
+      },
+      "vulnerability_profile": {
+        "computed": true,
+        "description_kind": "plain",
+        "type": "string"
       }
     },
     "block_types": {
       "timeouts": {
         "block": {
           "attributes": {
-            "create": {
-              "description_kind": "plain",
-              "optional": true,
-              "type": "string"
-            },
-            "delete": {
-              "description_kind": "plain",
-              "optional": true,
-              "type": "string"
-            },
             "read": {
-              "description_kind": "plain",
-              "optional": true,
-              "type": "string"
-            },
-            "update": {
               "description_kind": "plain",
               "optional": true,
               "type": "string"
@@ -86,11 +93,11 @@ const azurermVirtualDesktopWorkspace = `{
     },
     "description_kind": "plain"
   },
-  "version": 1
+  "version": 0
 }`
 
-func AzurermVirtualDesktopWorkspaceSchema() *tfjson.Schema {
+func AzurermPaloAltoLocalRulestackSchema() *tfjson.Schema {
 	var result tfjson.Schema
-	_ = json.Unmarshal([]byte(azurermVirtualDesktopWorkspace), &result)
+	_ = json.Unmarshal([]byte(azurermPaloAltoLocalRulestack), &result)
 	return &result
 }

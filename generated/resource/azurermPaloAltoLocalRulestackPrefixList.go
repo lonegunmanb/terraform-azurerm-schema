@@ -6,12 +6,17 @@ import (
 	tfjson "github.com/hashicorp/terraform-json"
 )
 
-const azurermDigitalTwinsInstance = `{
+const azurermPaloAltoLocalRulestackPrefixList = `{
   "block": {
     "attributes": {
-      "host_name": {
-        "computed": true,
+      "audit_comment": {
         "description_kind": "plain",
+        "optional": true,
+        "type": "string"
+      },
+      "description": {
+        "description_kind": "plain",
+        "optional": true,
         "type": "string"
       },
       "id": {
@@ -20,63 +25,26 @@ const azurermDigitalTwinsInstance = `{
         "optional": true,
         "type": "string"
       },
-      "location": {
-        "description_kind": "plain",
-        "required": true,
-        "type": "string"
-      },
       "name": {
         "description_kind": "plain",
         "required": true,
         "type": "string"
       },
-      "resource_group_name": {
+      "prefix_list": {
+        "description_kind": "plain",
+        "required": true,
+        "type": [
+          "list",
+          "string"
+        ]
+      },
+      "rulestack_id": {
         "description_kind": "plain",
         "required": true,
         "type": "string"
-      },
-      "tags": {
-        "description_kind": "plain",
-        "optional": true,
-        "type": [
-          "map",
-          "string"
-        ]
       }
     },
     "block_types": {
-      "identity": {
-        "block": {
-          "attributes": {
-            "identity_ids": {
-              "description_kind": "plain",
-              "optional": true,
-              "type": [
-                "set",
-                "string"
-              ]
-            },
-            "principal_id": {
-              "computed": true,
-              "description_kind": "plain",
-              "type": "string"
-            },
-            "tenant_id": {
-              "computed": true,
-              "description_kind": "plain",
-              "type": "string"
-            },
-            "type": {
-              "description_kind": "plain",
-              "required": true,
-              "type": "string"
-            }
-          },
-          "description_kind": "plain"
-        },
-        "max_items": 1,
-        "nesting_mode": "list"
-      },
       "timeouts": {
         "block": {
           "attributes": {
@@ -111,8 +79,8 @@ const azurermDigitalTwinsInstance = `{
   "version": 0
 }`
 
-func AzurermDigitalTwinsInstanceSchema() *tfjson.Schema {
+func AzurermPaloAltoLocalRulestackPrefixListSchema() *tfjson.Schema {
 	var result tfjson.Schema
-	_ = json.Unmarshal([]byte(azurermDigitalTwinsInstance), &result)
+	_ = json.Unmarshal([]byte(azurermPaloAltoLocalRulestackPrefixList), &result)
 	return &result
 }

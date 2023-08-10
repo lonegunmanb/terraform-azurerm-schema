@@ -6,17 +6,12 @@ import (
 	tfjson "github.com/hashicorp/terraform-json"
 )
 
-const azurermGraphAccount = `{
+const azurermPaloAltoLocalRulestackOutboundTrustCertificateAssociation = `{
   "block": {
     "attributes": {
-      "application_id": {
+      "certificate_id": {
         "description_kind": "plain",
         "required": true,
-        "type": "string"
-      },
-      "billing_plan_id": {
-        "computed": true,
-        "description_kind": "plain",
         "type": "string"
       },
       "id": {
@@ -24,24 +19,6 @@ const azurermGraphAccount = `{
         "description_kind": "plain",
         "optional": true,
         "type": "string"
-      },
-      "name": {
-        "description_kind": "plain",
-        "required": true,
-        "type": "string"
-      },
-      "resource_group_name": {
-        "description_kind": "plain",
-        "required": true,
-        "type": "string"
-      },
-      "tags": {
-        "description_kind": "plain",
-        "optional": true,
-        "type": [
-          "map",
-          "string"
-        ]
       }
     },
     "block_types": {
@@ -62,11 +39,6 @@ const azurermGraphAccount = `{
               "description_kind": "plain",
               "optional": true,
               "type": "string"
-            },
-            "update": {
-              "description_kind": "plain",
-              "optional": true,
-              "type": "string"
             }
           },
           "description_kind": "plain"
@@ -74,14 +46,13 @@ const azurermGraphAccount = `{
         "nesting_mode": "single"
       }
     },
-    "deprecated": true,
     "description_kind": "plain"
   },
   "version": 0
 }`
 
-func AzurermGraphAccountSchema() *tfjson.Schema {
+func AzurermPaloAltoLocalRulestackOutboundTrustCertificateAssociationSchema() *tfjson.Schema {
 	var result tfjson.Schema
-	_ = json.Unmarshal([]byte(azurermGraphAccount), &result)
+	_ = json.Unmarshal([]byte(azurermPaloAltoLocalRulestackOutboundTrustCertificateAssociation), &result)
 	return &result
 }

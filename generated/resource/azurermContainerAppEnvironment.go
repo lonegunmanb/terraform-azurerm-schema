@@ -47,7 +47,7 @@ const azurermContainerAppEnvironment = `{
       "log_analytics_workspace_id": {
         "description": "The ID for the Log Analytics Workspace to link this Container Apps Managed Environment to.",
         "description_kind": "plain",
-        "required": true,
+        "optional": true,
         "type": "string"
       },
       "name": {

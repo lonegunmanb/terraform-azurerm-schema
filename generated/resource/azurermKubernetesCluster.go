@@ -627,6 +627,11 @@ const azurermKubernetesCluster = `{
               "optional": true,
               "type": "string"
             },
+            "snapshot_id": {
+              "description_kind": "plain",
+              "optional": true,
+              "type": "string"
+            },
             "tags": {
               "description_kind": "plain",
               "optional": true,
@@ -1744,6 +1749,21 @@ const azurermKubernetesCluster = `{
               "description_kind": "plain",
               "required": true,
               "type": "string"
+            },
+            "web_app_routing_identity": {
+              "computed": true,
+              "description_kind": "plain",
+              "type": [
+                "list",
+                [
+                  "object",
+                  {
+                    "client_id": "string",
+                    "object_id": "string",
+                    "user_assigned_identity_id": "string"
+                  }
+                ]
+              ]
             }
           },
           "description_kind": "plain"

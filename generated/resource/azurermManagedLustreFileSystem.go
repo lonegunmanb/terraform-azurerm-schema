@@ -6,14 +6,9 @@ import (
 	tfjson "github.com/hashicorp/terraform-json"
 )
 
-const azurermDigitalTwinsInstance = `{
+const azurermManagedLustreFileSystem = `{
   "block": {
     "attributes": {
-      "host_name": {
-        "computed": true,
-        "description_kind": "plain",
-        "type": "string"
-      },
       "id": {
         "computed": true,
         "description_kind": "plain",
@@ -35,6 +30,21 @@ const azurermDigitalTwinsInstance = `{
         "required": true,
         "type": "string"
       },
+      "sku_name": {
+        "description_kind": "plain",
+        "required": true,
+        "type": "string"
+      },
+      "storage_capacity_in_tb": {
+        "description_kind": "plain",
+        "required": true,
+        "type": "number"
+      },
+      "subnet_id": {
+        "description_kind": "plain",
+        "required": true,
+        "type": "string"
+      },
       "tags": {
         "description_kind": "plain",
         "optional": true,
@@ -42,29 +52,70 @@ const azurermDigitalTwinsInstance = `{
           "map",
           "string"
         ]
+      },
+      "zones": {
+        "description_kind": "plain",
+        "required": true,
+        "type": [
+          "set",
+          "string"
+        ]
       }
     },
     "block_types": {
+      "encryption_key": {
+        "block": {
+          "attributes": {
+            "key_url": {
+              "description_kind": "plain",
+              "required": true,
+              "type": "string"
+            },
+            "source_vault_id": {
+              "description_kind": "plain",
+              "required": true,
+              "type": "string"
+            }
+          },
+          "description_kind": "plain"
+        },
+        "max_items": 1,
+        "nesting_mode": "list"
+      },
+      "hsm_setting": {
+        "block": {
+          "attributes": {
+            "container_id": {
+              "description_kind": "plain",
+              "required": true,
+              "type": "string"
+            },
+            "import_prefix": {
+              "description_kind": "plain",
+              "optional": true,
+              "type": "string"
+            },
+            "logging_container_id": {
+              "description_kind": "plain",
+              "required": true,
+              "type": "string"
+            }
+          },
+          "description_kind": "plain"
+        },
+        "max_items": 1,
+        "nesting_mode": "list"
+      },
       "identity": {
         "block": {
           "attributes": {
             "identity_ids": {
               "description_kind": "plain",
-              "optional": true,
+              "required": true,
               "type": [
                 "set",
                 "string"
               ]
-            },
-            "principal_id": {
-              "computed": true,
-              "description_kind": "plain",
-              "type": "string"
-            },
-            "tenant_id": {
-              "computed": true,
-              "description_kind": "plain",
-              "type": "string"
             },
             "type": {
               "description_kind": "plain",
@@ -75,6 +126,26 @@ const azurermDigitalTwinsInstance = `{
           "description_kind": "plain"
         },
         "max_items": 1,
+        "nesting_mode": "list"
+      },
+      "maintenance_window": {
+        "block": {
+          "attributes": {
+            "day_of_week": {
+              "description_kind": "plain",
+              "required": true,
+              "type": "string"
+            },
+            "time_of_day_in_utc": {
+              "description_kind": "plain",
+              "required": true,
+              "type": "string"
+            }
+          },
+          "description_kind": "plain"
+        },
+        "max_items": 1,
+        "min_items": 1,
         "nesting_mode": "list"
       },
       "timeouts": {
@@ -111,8 +182,8 @@ const azurermDigitalTwinsInstance = `{
   "version": 0
 }`
 
-func AzurermDigitalTwinsInstanceSchema() *tfjson.Schema {
+func AzurermManagedLustreFileSystemSchema() *tfjson.Schema {
 	var result tfjson.Schema
-	_ = json.Unmarshal([]byte(azurermDigitalTwinsInstance), &result)
+	_ = json.Unmarshal([]byte(azurermManagedLustreFileSystem), &result)
 	return &result
 }
