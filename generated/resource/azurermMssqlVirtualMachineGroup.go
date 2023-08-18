@@ -6,38 +6,13 @@ import (
 	tfjson "github.com/hashicorp/terraform-json"
 )
 
-const azurermDiskEncryptionSet = `{
+const azurermMssqlVirtualMachineGroup = `{
   "block": {
     "attributes": {
-      "auto_key_rotation_enabled": {
-        "description_kind": "plain",
-        "optional": true,
-        "type": "bool"
-      },
-      "encryption_type": {
-        "description_kind": "plain",
-        "optional": true,
-        "type": "string"
-      },
-      "federated_client_id": {
-        "description_kind": "plain",
-        "optional": true,
-        "type": "string"
-      },
       "id": {
         "computed": true,
         "description_kind": "plain",
         "optional": true,
-        "type": "string"
-      },
-      "key_vault_key_id": {
-        "description_kind": "plain",
-        "required": true,
-        "type": "string"
-      },
-      "key_vault_key_url": {
-        "computed": true,
-        "description_kind": "plain",
         "type": "string"
       },
       "location": {
@@ -55,6 +30,16 @@ const azurermDiskEncryptionSet = `{
         "required": true,
         "type": "string"
       },
+      "sql_image_offer": {
+        "description_kind": "plain",
+        "required": true,
+        "type": "string"
+      },
+      "sql_image_sku": {
+        "description_kind": "plain",
+        "required": true,
+        "type": "string"
+      },
       "tags": {
         "description_kind": "plain",
         "optional": true,
@@ -65,39 +50,6 @@ const azurermDiskEncryptionSet = `{
       }
     },
     "block_types": {
-      "identity": {
-        "block": {
-          "attributes": {
-            "identity_ids": {
-              "description_kind": "plain",
-              "optional": true,
-              "type": [
-                "set",
-                "string"
-              ]
-            },
-            "principal_id": {
-              "computed": true,
-              "description_kind": "plain",
-              "type": "string"
-            },
-            "tenant_id": {
-              "computed": true,
-              "description_kind": "plain",
-              "type": "string"
-            },
-            "type": {
-              "description_kind": "plain",
-              "required": true,
-              "type": "string"
-            }
-          },
-          "description_kind": "plain"
-        },
-        "max_items": 1,
-        "min_items": 1,
-        "nesting_mode": "list"
-      },
       "timeouts": {
         "block": {
           "attributes": {
@@ -125,6 +77,57 @@ const azurermDiskEncryptionSet = `{
           "description_kind": "plain"
         },
         "nesting_mode": "single"
+      },
+      "wsfc_domain_profile": {
+        "block": {
+          "attributes": {
+            "cluster_bootstrap_account_name": {
+              "description_kind": "plain",
+              "optional": true,
+              "type": "string"
+            },
+            "cluster_operator_account_name": {
+              "description_kind": "plain",
+              "optional": true,
+              "type": "string"
+            },
+            "cluster_subnet_type": {
+              "description_kind": "plain",
+              "required": true,
+              "type": "string"
+            },
+            "fqdn": {
+              "description_kind": "plain",
+              "required": true,
+              "type": "string"
+            },
+            "organizational_unit_path": {
+              "description_kind": "plain",
+              "optional": true,
+              "type": "string"
+            },
+            "sql_service_account_name": {
+              "description_kind": "plain",
+              "optional": true,
+              "type": "string"
+            },
+            "storage_account_primary_key": {
+              "description_kind": "plain",
+              "optional": true,
+              "sensitive": true,
+              "type": "string"
+            },
+            "storage_account_url": {
+              "description_kind": "plain",
+              "optional": true,
+              "type": "string"
+            }
+          },
+          "description_kind": "plain"
+        },
+        "max_items": 1,
+        "min_items": 1,
+        "nesting_mode": "list"
       }
     },
     "description_kind": "plain"
@@ -132,8 +135,8 @@ const azurermDiskEncryptionSet = `{
   "version": 0
 }`
 
-func AzurermDiskEncryptionSetSchema() *tfjson.Schema {
+func AzurermMssqlVirtualMachineGroupSchema() *tfjson.Schema {
 	var result tfjson.Schema
-	_ = json.Unmarshal([]byte(azurermDiskEncryptionSet), &result)
+	_ = json.Unmarshal([]byte(azurermMssqlVirtualMachineGroup), &result)
 	return &result
 }

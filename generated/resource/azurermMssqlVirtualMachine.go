@@ -47,6 +47,11 @@ const azurermMssqlVirtualMachine = `{
         "optional": true,
         "type": "string"
       },
+      "sql_virtual_machine_group_id": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "string"
+      },
       "tags": {
         "description_kind": "plain",
         "optional": true,
@@ -435,6 +440,33 @@ const azurermMssqlVirtualMachine = `{
           "description_kind": "plain"
         },
         "nesting_mode": "single"
+      },
+      "wsfc_domain_credential": {
+        "block": {
+          "attributes": {
+            "cluster_bootstrap_account_password": {
+              "description_kind": "plain",
+              "required": true,
+              "sensitive": true,
+              "type": "string"
+            },
+            "cluster_operator_account_password": {
+              "description_kind": "plain",
+              "required": true,
+              "sensitive": true,
+              "type": "string"
+            },
+            "sql_service_account_password": {
+              "description_kind": "plain",
+              "required": true,
+              "sensitive": true,
+              "type": "string"
+            }
+          },
+          "description_kind": "plain"
+        },
+        "max_items": 1,
+        "nesting_mode": "list"
       }
     },
     "description_kind": "plain"

@@ -9,6 +9,11 @@ import (
 const azurermStackHciCluster = `{
   "block": {
     "attributes": {
+      "automanage_configuration_id": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "string"
+      },
       "client_id": {
         "description_kind": "plain",
         "required": true,

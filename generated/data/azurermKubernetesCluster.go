@@ -107,6 +107,11 @@ const azurermKubernetesCluster = `{
         "description_kind": "plain",
         "type": "bool"
       },
+      "current_kubernetes_version": {
+        "computed": true,
+        "description_kind": "plain",
+        "type": "string"
+      },
       "custom_ca_trust_certificates_base64": {
         "computed": true,
         "description_kind": "plain",

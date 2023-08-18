@@ -64,7 +64,7 @@ const azurermApiManagementPolicy = `{
     },
     "description_kind": "plain"
   },
-  "version": 1
+  "version": 2
 }`
 
 func AzurermApiManagementPolicySchema() *tfjson.Schema {

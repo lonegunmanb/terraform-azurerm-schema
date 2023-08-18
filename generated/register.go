@@ -614,6 +614,8 @@ func init() {
 	resources["azurerm_mssql_server_transparent_data_encryption"] = resource.AzurermMssqlServerTransparentDataEncryptionSchema()  
 	resources["azurerm_mssql_server_vulnerability_assessment"] = resource.AzurermMssqlServerVulnerabilityAssessmentSchema()  
 	resources["azurerm_mssql_virtual_machine"] = resource.AzurermMssqlVirtualMachineSchema()  
+	resources["azurerm_mssql_virtual_machine_availability_group_listener"] = resource.AzurermMssqlVirtualMachineAvailabilityGroupListenerSchema()  
+	resources["azurerm_mssql_virtual_machine_group"] = resource.AzurermMssqlVirtualMachineGroupSchema()  
 	resources["azurerm_mssql_virtual_network_rule"] = resource.AzurermMssqlVirtualNetworkRuleSchema()  
 	resources["azurerm_mysql_active_directory_administrator"] = resource.AzurermMysqlActiveDirectoryAdministratorSchema()  
 	resources["azurerm_mysql_configuration"] = resource.AzurermMysqlConfigurationSchema()  

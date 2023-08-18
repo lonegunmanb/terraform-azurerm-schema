@@ -74,7 +74,7 @@ const azurermApiManagementProductPolicy = `{
     },
     "description_kind": "plain"
   },
-  "version": 0
+  "version": 1
 }`
 
 func AzurermApiManagementProductPolicySchema() *tfjson.Schema {
