@@ -680,7 +680,7 @@ const azurermLinuxWebApp = `{
                                 "path": "string",
                                 "status_code_range": "string",
                                 "sub_status": "number",
-                                "win32_status": "number"
+                                "win32_status_code": "number"
                               }
                             ]
                           ]

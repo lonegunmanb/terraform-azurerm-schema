@@ -92,6 +92,11 @@ const azurermContainerGroup = `{
         "optional": true,
         "type": "string"
       },
+      "sku": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "string"
+      },
       "subnet_ids": {
         "description_kind": "plain",
         "optional": true,
@@ -385,6 +390,19 @@ const azurermContainerGroup = `{
               "max_items": 1,
               "nesting_mode": "list"
             },
+            "security": {
+              "block": {
+                "attributes": {
+                  "privilege_enabled": {
+                    "description_kind": "plain",
+                    "required": true,
+                    "type": "bool"
+                  }
+                },
+                "description_kind": "plain"
+              },
+              "nesting_mode": "list"
+            },
             "volume": {
               "block": {
                 "attributes": {
@@ -649,6 +667,19 @@ const azurermContainerGroup = `{
             }
           },
           "block_types": {
+            "security": {
+              "block": {
+                "attributes": {
+                  "privilege_enabled": {
+                    "description_kind": "plain",
+                    "required": true,
+                    "type": "bool"
+                  }
+                },
+                "description_kind": "plain"
+              },
+              "nesting_mode": "list"
+            },
             "volume": {
               "block": {
                 "attributes": {

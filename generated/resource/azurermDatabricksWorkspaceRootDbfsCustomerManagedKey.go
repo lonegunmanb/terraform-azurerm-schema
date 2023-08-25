@@ -6,29 +6,23 @@ import (
 	tfjson "github.com/hashicorp/terraform-json"
 )
 
-const azurermApiManagementPolicy = `{
+const azurermDatabricksWorkspaceRootDbfsCustomerManagedKey = `{
   "block": {
     "attributes": {
-      "api_management_id": {
-        "description_kind": "plain",
-        "required": true,
-        "type": "string"
-      },
       "id": {
         "computed": true,
         "description_kind": "plain",
         "optional": true,
         "type": "string"
       },
-      "xml_content": {
-        "computed": true,
+      "key_vault_key_id": {
         "description_kind": "plain",
-        "optional": true,
+        "required": true,
         "type": "string"
       },
-      "xml_link": {
+      "workspace_id": {
         "description_kind": "plain",
-        "optional": true,
+        "required": true,
         "type": "string"
       }
     },
@@ -64,11 +58,11 @@ const azurermApiManagementPolicy = `{
     },
     "description_kind": "plain"
   },
-  "version": 3
+  "version": 0
 }`
 
-func AzurermApiManagementPolicySchema() *tfjson.Schema {
+func AzurermDatabricksWorkspaceRootDbfsCustomerManagedKeySchema() *tfjson.Schema {
 	var result tfjson.Schema
-	_ = json.Unmarshal([]byte(azurermApiManagementPolicy), &result)
+	_ = json.Unmarshal([]byte(azurermDatabricksWorkspaceRootDbfsCustomerManagedKey), &result)
 	return &result
 }

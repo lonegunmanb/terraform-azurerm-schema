@@ -21,6 +21,7 @@ const azurermDatabricksWorkspaceCustomerManagedKey = `{
         "type": "string"
       },
       "workspace_id": {
+        "deprecated": true,
         "description_kind": "plain",
         "required": true,
         "type": "string"

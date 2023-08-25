@@ -301,6 +301,7 @@ func init() {
 	resources["azurerm_databricks_virtual_network_peering"] = resource.AzurermDatabricksVirtualNetworkPeeringSchema()  
 	resources["azurerm_databricks_workspace"] = resource.AzurermDatabricksWorkspaceSchema()  
 	resources["azurerm_databricks_workspace_customer_managed_key"] = resource.AzurermDatabricksWorkspaceCustomerManagedKeySchema()  
+	resources["azurerm_databricks_workspace_root_dbfs_customer_managed_key"] = resource.AzurermDatabricksWorkspaceRootDbfsCustomerManagedKeySchema()  
 	resources["azurerm_datadog_monitor"] = resource.AzurermDatadogMonitorSchema()  
 	resources["azurerm_datadog_monitor_sso_configuration"] = resource.AzurermDatadogMonitorSsoConfigurationSchema()  
 	resources["azurerm_datadog_monitor_tag_rule"] = resource.AzurermDatadogMonitorTagRuleSchema()  

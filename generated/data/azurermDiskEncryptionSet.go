@@ -20,6 +20,25 @@ const azurermDiskEncryptionSet = `{
         "optional": true,
         "type": "string"
       },
+      "identity": {
+        "computed": true,
+        "description_kind": "plain",
+        "type": [
+          "list",
+          [
+            "object",
+            {
+              "identity_ids": [
+                "list",
+                "string"
+              ],
+              "principal_id": "string",
+              "tenant_id": "string",
+              "type": "string"
+            }
+          ]
+        ]
+      },
       "key_vault_key_url": {
         "computed": true,
         "description_kind": "plain",

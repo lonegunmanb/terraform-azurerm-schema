@@ -1660,7 +1660,7 @@ const azurermWindowsWebApp = `{
                                 "optional": true,
                                 "type": "number"
                               },
-                              "win32_status": {
+                              "win32_status_code": {
                                 "description_kind": "plain",
                                 "optional": true,
                                 "type": "number"

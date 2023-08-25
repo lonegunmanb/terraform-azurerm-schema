@@ -223,6 +223,7 @@ const azurermKubernetesCluster = `{
         "type": "string"
       },
       "public_network_access_enabled": {
+        "deprecated": true,
         "description_kind": "plain",
         "optional": true,
         "type": "bool"

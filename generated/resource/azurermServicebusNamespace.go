@@ -156,6 +156,58 @@ const azurermServicebusNamespace = `{
         "max_items": 1,
         "nesting_mode": "list"
       },
+      "network_rule_set": {
+        "block": {
+          "attributes": {
+            "default_action": {
+              "description_kind": "plain",
+              "optional": true,
+              "type": "string"
+            },
+            "ip_rules": {
+              "description_kind": "plain",
+              "optional": true,
+              "type": [
+                "set",
+                "string"
+              ]
+            },
+            "public_network_access_enabled": {
+              "description_kind": "plain",
+              "optional": true,
+              "type": "bool"
+            },
+            "trusted_services_allowed": {
+              "description_kind": "plain",
+              "optional": true,
+              "type": "bool"
+            }
+          },
+          "block_types": {
+            "network_rules": {
+              "block": {
+                "attributes": {
+                  "ignore_missing_vnet_service_endpoint": {
+                    "description_kind": "plain",
+                    "optional": true,
+                    "type": "bool"
+                  },
+                  "subnet_id": {
+                    "description_kind": "plain",
+                    "required": true,
+                    "type": "string"
+                  }
+                },
+                "description_kind": "plain"
+              },
+              "nesting_mode": "set"
+            }
+          },
+          "description_kind": "plain"
+        },
+        "max_items": 1,
+        "nesting_mode": "list"
+      },
       "timeouts": {
         "block": {
           "attributes": {
