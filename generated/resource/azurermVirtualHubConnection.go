@@ -45,6 +45,21 @@ const azurermVirtualHubConnection = `{
               "description_kind": "plain",
               "optional": true,
               "type": "string"
+            },
+            "inbound_route_map_id": {
+              "description_kind": "plain",
+              "optional": true,
+              "type": "string"
+            },
+            "outbound_route_map_id": {
+              "description_kind": "plain",
+              "optional": true,
+              "type": "string"
+            },
+            "static_vnet_local_route_override_criteria": {
+              "description_kind": "plain",
+              "optional": true,
+              "type": "string"
             }
           },
           "block_types": {

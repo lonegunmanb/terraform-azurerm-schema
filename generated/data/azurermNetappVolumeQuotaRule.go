@@ -1,4 +1,4 @@
-package resource
+package data
 
 import (
 	"encoding/json"
@@ -6,39 +6,43 @@ import (
 	tfjson "github.com/hashicorp/terraform-json"
 )
 
-const azurermApiManagementProductPolicy = `{
+const azurermNetappVolumeQuotaRule = `{
   "block": {
     "attributes": {
-      "api_management_name": {
-        "description_kind": "plain",
-        "required": true,
-        "type": "string"
-      },
       "id": {
         "computed": true,
         "description_kind": "plain",
         "optional": true,
         "type": "string"
       },
-      "product_id": {
-        "description_kind": "plain",
-        "required": true,
-        "type": "string"
-      },
-      "resource_group_name": {
-        "description_kind": "plain",
-        "required": true,
-        "type": "string"
-      },
-      "xml_content": {
+      "location": {
         "computed": true,
         "description_kind": "plain",
-        "optional": true,
         "type": "string"
       },
-      "xml_link": {
+      "name": {
         "description_kind": "plain",
-        "optional": true,
+        "required": true,
+        "type": "string"
+      },
+      "quota_size_in_kib": {
+        "computed": true,
+        "description_kind": "plain",
+        "type": "number"
+      },
+      "quota_target": {
+        "computed": true,
+        "description_kind": "plain",
+        "type": "string"
+      },
+      "quota_type": {
+        "computed": true,
+        "description_kind": "plain",
+        "type": "string"
+      },
+      "volume_id": {
+        "description_kind": "plain",
+        "required": true,
         "type": "string"
       }
     },
@@ -46,22 +50,7 @@ const azurermApiManagementProductPolicy = `{
       "timeouts": {
         "block": {
           "attributes": {
-            "create": {
-              "description_kind": "plain",
-              "optional": true,
-              "type": "string"
-            },
-            "delete": {
-              "description_kind": "plain",
-              "optional": true,
-              "type": "string"
-            },
             "read": {
-              "description_kind": "plain",
-              "optional": true,
-              "type": "string"
-            },
-            "update": {
               "description_kind": "plain",
               "optional": true,
               "type": "string"
@@ -74,11 +63,11 @@ const azurermApiManagementProductPolicy = `{
     },
     "description_kind": "plain"
   },
-  "version": 2
+  "version": 0
 }`
 
-func AzurermApiManagementProductPolicySchema() *tfjson.Schema {
+func AzurermNetappVolumeQuotaRuleSchema() *tfjson.Schema {
 	var result tfjson.Schema
-	_ = json.Unmarshal([]byte(azurermApiManagementProductPolicy), &result)
+	_ = json.Unmarshal([]byte(azurermNetappVolumeQuotaRule), &result)
 	return &result
 }

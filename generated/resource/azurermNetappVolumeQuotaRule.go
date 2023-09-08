@@ -6,40 +6,9 @@ import (
 	tfjson "github.com/hashicorp/terraform-json"
 )
 
-const azurermBotChannelDirectLineSpeech = `{
+const azurermNetappVolumeQuotaRule = `{
   "block": {
     "attributes": {
-      "bot_name": {
-        "description_kind": "plain",
-        "required": true,
-        "type": "string"
-      },
-      "cognitive_account_id": {
-        "description_kind": "plain",
-        "optional": true,
-        "type": "string"
-      },
-      "cognitive_service_access_key": {
-        "description_kind": "plain",
-        "required": true,
-        "sensitive": true,
-        "type": "string"
-      },
-      "cognitive_service_location": {
-        "description_kind": "plain",
-        "required": true,
-        "type": "string"
-      },
-      "custom_speech_model_id": {
-        "description_kind": "plain",
-        "optional": true,
-        "type": "string"
-      },
-      "custom_voice_deployment_id": {
-        "description_kind": "plain",
-        "optional": true,
-        "type": "string"
-      },
       "id": {
         "computed": true,
         "description_kind": "plain",
@@ -51,7 +20,27 @@ const azurermBotChannelDirectLineSpeech = `{
         "required": true,
         "type": "string"
       },
-      "resource_group_name": {
+      "name": {
+        "description_kind": "plain",
+        "required": true,
+        "type": "string"
+      },
+      "quota_size_in_kib": {
+        "description_kind": "plain",
+        "required": true,
+        "type": "number"
+      },
+      "quota_target": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "string"
+      },
+      "quota_type": {
+        "description_kind": "plain",
+        "required": true,
+        "type": "string"
+      },
+      "volume_id": {
         "description_kind": "plain",
         "required": true,
         "type": "string"
@@ -92,8 +81,8 @@ const azurermBotChannelDirectLineSpeech = `{
   "version": 0
 }`
 
-func AzurermBotChannelDirectLineSpeechSchema() *tfjson.Schema {
+func AzurermNetappVolumeQuotaRuleSchema() *tfjson.Schema {
 	var result tfjson.Schema
-	_ = json.Unmarshal([]byte(azurermBotChannelDirectLineSpeech), &result)
+	_ = json.Unmarshal([]byte(azurermNetappVolumeQuotaRule), &result)
 	return &result
 }

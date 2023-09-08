@@ -254,6 +254,7 @@ const azurermBatchPool = `{
           [
             "object",
             {
+              "accelerated_networking_enabled": "bool",
               "dynamic_vnet_assignment_scope": "string",
               "endpoint_configuration": [
                 "list",

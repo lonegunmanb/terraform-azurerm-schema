@@ -222,6 +222,11 @@ const azurermBatchPool = `{
               "optional": true,
               "type": "bool"
             },
+            "automatic_upgrade_enabled": {
+              "description_kind": "plain",
+              "optional": true,
+              "type": "bool"
+            },
             "name": {
               "description_kind": "plain",
               "required": true,
@@ -465,6 +470,11 @@ const azurermBatchPool = `{
       "network_configuration": {
         "block": {
           "attributes": {
+            "accelerated_networking_enabled": {
+              "description_kind": "plain",
+              "optional": true,
+              "type": "bool"
+            },
             "dynamic_vnet_assignment_scope": {
               "description_kind": "plain",
               "optional": true,
@@ -485,7 +495,7 @@ const azurermBatchPool = `{
             },
             "subnet_id": {
               "description_kind": "plain",
-              "required": true,
+              "optional": true,
               "type": "string"
             }
           },

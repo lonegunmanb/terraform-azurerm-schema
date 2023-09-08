@@ -6,23 +6,33 @@ import (
 	tfjson "github.com/hashicorp/terraform-json"
 )
 
-const azurermVirtualMachineExtension = `{
+const azurermAutomationPython3Package = `{
   "block": {
     "attributes": {
-      "auto_upgrade_minor_version": {
+      "automation_account_name": {
         "description_kind": "plain",
-        "optional": true,
-        "type": "bool"
+        "required": true,
+        "type": "string"
       },
-      "automatic_upgrade_enabled": {
+      "content_uri": {
         "description_kind": "plain",
-        "optional": true,
-        "type": "bool"
+        "required": true,
+        "type": "string"
       },
-      "failure_suppression_enabled": {
+      "content_version": {
         "description_kind": "plain",
         "optional": true,
-        "type": "bool"
+        "type": "string"
+      },
+      "hash_algorithm": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "string"
+      },
+      "hash_value": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "string"
       },
       "id": {
         "computed": true,
@@ -35,28 +45,9 @@ const azurermVirtualMachineExtension = `{
         "required": true,
         "type": "string"
       },
-      "protected_settings": {
-        "description_kind": "plain",
-        "optional": true,
-        "sensitive": true,
-        "type": "string"
-      },
-      "provision_after_extensions": {
-        "description_kind": "plain",
-        "optional": true,
-        "type": [
-          "list",
-          "string"
-        ]
-      },
-      "publisher": {
+      "resource_group_name": {
         "description_kind": "plain",
         "required": true,
-        "type": "string"
-      },
-      "settings": {
-        "description_kind": "plain",
-        "optional": true,
         "type": "string"
       },
       "tags": {
@@ -66,43 +57,9 @@ const azurermVirtualMachineExtension = `{
           "map",
           "string"
         ]
-      },
-      "type": {
-        "description_kind": "plain",
-        "required": true,
-        "type": "string"
-      },
-      "type_handler_version": {
-        "description_kind": "plain",
-        "required": true,
-        "type": "string"
-      },
-      "virtual_machine_id": {
-        "description_kind": "plain",
-        "required": true,
-        "type": "string"
       }
     },
     "block_types": {
-      "protected_settings_from_key_vault": {
-        "block": {
-          "attributes": {
-            "secret_url": {
-              "description_kind": "plain",
-              "required": true,
-              "type": "string"
-            },
-            "source_vault_id": {
-              "description_kind": "plain",
-              "required": true,
-              "type": "string"
-            }
-          },
-          "description_kind": "plain"
-        },
-        "max_items": 1,
-        "nesting_mode": "list"
-      },
       "timeouts": {
         "block": {
           "attributes": {
@@ -137,8 +94,8 @@ const azurermVirtualMachineExtension = `{
   "version": 0
 }`
 
-func AzurermVirtualMachineExtensionSchema() *tfjson.Schema {
+func AzurermAutomationPython3PackageSchema() *tfjson.Schema {
 	var result tfjson.Schema
-	_ = json.Unmarshal([]byte(azurermVirtualMachineExtension), &result)
+	_ = json.Unmarshal([]byte(azurermAutomationPython3Package), &result)
 	return &result
 }

@@ -87,6 +87,7 @@ const azurermMonitorDiagnosticSetting = `{
                     "type": "bool"
                   }
                 },
+                "deprecated": true,
                 "description_kind": "plain"
               },
               "max_items": 1,

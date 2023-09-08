@@ -21,6 +21,11 @@ const azurermPostgresqlFlexibleServer = `{
         "sensitive": true,
         "type": "string"
       },
+      "auto_grow_enabled": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "bool"
+      },
       "backup_retention_days": {
         "computed": true,
         "description_kind": "plain",

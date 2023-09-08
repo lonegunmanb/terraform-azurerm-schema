@@ -9,6 +9,13 @@ import (
 const azurermContainerAppEnvironment = `{
   "block": {
     "attributes": {
+      "dapr_application_insights_connection_string": {
+        "description": "Application Insights connection string used by Dapr to export Service to Service communication telemetry.",
+        "description_kind": "plain",
+        "optional": true,
+        "sensitive": true,
+        "type": "string"
+      },
       "default_domain": {
         "computed": true,
         "description": "The default publicly resolvable name of this Container App Environment",
