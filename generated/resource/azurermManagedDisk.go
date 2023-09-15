@@ -112,10 +112,20 @@ const azurermManagedDisk = `{
         "optional": true,
         "type": "bool"
       },
+      "optimized_frequent_attach_enabled": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "bool"
+      },
       "os_type": {
         "description_kind": "plain",
         "optional": true,
         "type": "string"
+      },
+      "performance_plus_enabled": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "bool"
       },
       "public_network_access_enabled": {
         "description_kind": "plain",

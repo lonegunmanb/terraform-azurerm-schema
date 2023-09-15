@@ -6,48 +6,54 @@ import (
 	tfjson "github.com/hashicorp/terraform-json"
 )
 
-const azurermBotChannelMsTeams = `{
+const azurermVirtualHubRoutingIntent = `{
   "block": {
     "attributes": {
-      "bot_name": {
-        "description_kind": "plain",
-        "required": true,
-        "type": "string"
-      },
-      "calling_web_hook": {
-        "computed": true,
-        "description_kind": "plain",
-        "optional": true,
-        "type": "string"
-      },
-      "deployment_environment": {
-        "description_kind": "plain",
-        "optional": true,
-        "type": "string"
-      },
-      "enable_calling": {
-        "description_kind": "plain",
-        "optional": true,
-        "type": "bool"
-      },
       "id": {
         "computed": true,
         "description_kind": "plain",
         "optional": true,
         "type": "string"
       },
-      "location": {
+      "name": {
         "description_kind": "plain",
         "required": true,
         "type": "string"
       },
-      "resource_group_name": {
+      "virtual_hub_id": {
         "description_kind": "plain",
         "required": true,
         "type": "string"
       }
     },
     "block_types": {
+      "routing_policy": {
+        "block": {
+          "attributes": {
+            "destinations": {
+              "description_kind": "plain",
+              "required": true,
+              "type": [
+                "list",
+                "string"
+              ]
+            },
+            "name": {
+              "description_kind": "plain",
+              "required": true,
+              "type": "string"
+            },
+            "next_hop": {
+              "description_kind": "plain",
+              "required": true,
+              "type": "string"
+            }
+          },
+          "description_kind": "plain"
+        },
+        "min_items": 1,
+        "nesting_mode": "list"
+      },
       "timeouts": {
         "block": {
           "attributes": {
@@ -82,8 +88,8 @@ const azurermBotChannelMsTeams = `{
   "version": 0
 }`
 
-func AzurermBotChannelMsTeamsSchema() *tfjson.Schema {
+func AzurermVirtualHubRoutingIntentSchema() *tfjson.Schema {
 	var result tfjson.Schema
-	_ = json.Unmarshal([]byte(azurermBotChannelMsTeams), &result)
+	_ = json.Unmarshal([]byte(azurermVirtualHubRoutingIntent), &result)
 	return &result
 }

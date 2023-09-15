@@ -15,6 +15,11 @@ const azurermMapsAccount = `{
         "optional": true,
         "type": "string"
       },
+      "local_authentication_enabled": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "bool"
+      },
       "name": {
         "description_kind": "plain",
         "required": true,

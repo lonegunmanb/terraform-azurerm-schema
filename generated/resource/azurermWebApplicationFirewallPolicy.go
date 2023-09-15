@@ -64,6 +64,11 @@ const azurermWebApplicationFirewallPolicy = `{
               "required": true,
               "type": "string"
             },
+            "enabled": {
+              "description_kind": "plain",
+              "optional": true,
+              "type": "bool"
+            },
             "name": {
               "description_kind": "plain",
               "optional": true,

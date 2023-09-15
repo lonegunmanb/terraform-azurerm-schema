@@ -1094,6 +1094,11 @@ const azurermApplicationGateway = `{
               "description_kind": "plain",
               "optional": true,
               "type": "bool"
+            },
+            "verify_client_certificate_revocation": {
+              "description_kind": "plain",
+              "optional": true,
+              "type": "string"
             }
           },
           "block_types": {

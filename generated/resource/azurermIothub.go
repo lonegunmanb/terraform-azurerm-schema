@@ -102,6 +102,11 @@ const azurermIothub = `{
         "optional": true,
         "type": "string"
       },
+      "local_authentication_enabled": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "bool"
+      },
       "location": {
         "description_kind": "plain",
         "required": true,

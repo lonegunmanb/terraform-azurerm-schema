@@ -6,29 +6,28 @@ import (
 	tfjson "github.com/hashicorp/terraform-json"
 )
 
-const azurermBotChannelMsTeams = `{
+const azurermIothubEndpointCosmosdbAccount = `{
   "block": {
     "attributes": {
-      "bot_name": {
+      "authentication_type": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "string"
+      },
+      "container_name": {
         "description_kind": "plain",
         "required": true,
         "type": "string"
       },
-      "calling_web_hook": {
-        "computed": true,
+      "database_name": {
         "description_kind": "plain",
-        "optional": true,
+        "required": true,
         "type": "string"
       },
-      "deployment_environment": {
+      "endpoint_uri": {
         "description_kind": "plain",
-        "optional": true,
+        "required": true,
         "type": "string"
-      },
-      "enable_calling": {
-        "description_kind": "plain",
-        "optional": true,
-        "type": "bool"
       },
       "id": {
         "computed": true,
@@ -36,14 +35,46 @@ const azurermBotChannelMsTeams = `{
         "optional": true,
         "type": "string"
       },
-      "location": {
+      "identity_id": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "string"
+      },
+      "iothub_id": {
         "description_kind": "plain",
         "required": true,
+        "type": "string"
+      },
+      "name": {
+        "description_kind": "plain",
+        "required": true,
+        "type": "string"
+      },
+      "partition_key_name": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "string"
+      },
+      "partition_key_template": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "string"
+      },
+      "primary_key": {
+        "description_kind": "plain",
+        "optional": true,
+        "sensitive": true,
         "type": "string"
       },
       "resource_group_name": {
         "description_kind": "plain",
         "required": true,
+        "type": "string"
+      },
+      "secondary_key": {
+        "description_kind": "plain",
+        "optional": true,
+        "sensitive": true,
         "type": "string"
       }
     },
@@ -82,8 +113,8 @@ const azurermBotChannelMsTeams = `{
   "version": 0
 }`
 
-func AzurermBotChannelMsTeamsSchema() *tfjson.Schema {
+func AzurermIothubEndpointCosmosdbAccountSchema() *tfjson.Schema {
 	var result tfjson.Schema
-	_ = json.Unmarshal([]byte(azurermBotChannelMsTeams), &result)
+	_ = json.Unmarshal([]byte(azurermIothubEndpointCosmosdbAccount), &result)
 	return &result
 }
