@@ -17,6 +17,16 @@ const azurermNetworkInterface = `{
           "string"
         ]
       },
+      "auxiliary_mode": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "string"
+      },
+      "auxiliary_sku": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "string"
+      },
       "dns_servers": {
         "computed": true,
         "description_kind": "plain",

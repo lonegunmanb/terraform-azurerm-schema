@@ -188,6 +188,27 @@ const azurermContainerApp = `{
           [
             "object",
             {
+              "azure_queue_scale_rule": [
+                "list",
+                [
+                  "object",
+                  {
+                    "authentication": [
+                      "list",
+                      [
+                        "object",
+                        {
+                          "secret_name": "string",
+                          "trigger_parameter": "string"
+                        }
+                      ]
+                    ],
+                    "name": "string",
+                    "queue_length": "number",
+                    "queue_name": "string"
+                  }
+                ]
+              ],
               "container": [
                 "list",
                 [
@@ -309,9 +330,73 @@ const azurermContainerApp = `{
                   }
                 ]
               ],
+              "custom_scale_rule": [
+                "list",
+                [
+                  "object",
+                  {
+                    "authentication": [
+                      "list",
+                      [
+                        "object",
+                        {
+                          "secret_name": "string",
+                          "trigger_parameter": "string"
+                        }
+                      ]
+                    ],
+                    "custom_rule_type": "string",
+                    "metadata": [
+                      "map",
+                      "string"
+                    ],
+                    "name": "string"
+                  }
+                ]
+              ],
+              "http_scale_rule": [
+                "list",
+                [
+                  "object",
+                  {
+                    "authentication": [
+                      "list",
+                      [
+                        "object",
+                        {
+                          "secret_name": "string",
+                          "trigger_parameter": "string"
+                        }
+                      ]
+                    ],
+                    "concurrent_requests": "string",
+                    "name": "string"
+                  }
+                ]
+              ],
               "max_replicas": "number",
               "min_replicas": "number",
               "revision_suffix": "string",
+              "tcp_scale_rule": [
+                "list",
+                [
+                  "object",
+                  {
+                    "authentication": [
+                      "list",
+                      [
+                        "object",
+                        {
+                          "secret_name": "string",
+                          "trigger_parameter": "string"
+                        }
+                      ]
+                    ],
+                    "concurrent_requests": "string",
+                    "name": "string"
+                  }
+                ]
+              ],
               "volume": [
                 "list",
                 [

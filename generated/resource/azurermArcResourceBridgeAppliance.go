@@ -6,29 +6,13 @@ import (
 	tfjson "github.com/hashicorp/terraform-json"
 )
 
-const azurermSynapseSqlPool = `{
+const azurermArcResourceBridgeAppliance = `{
   "block": {
     "attributes": {
-      "collation": {
-        "computed": true,
+      "distro": {
         "description_kind": "plain",
-        "optional": true,
+        "required": true,
         "type": "string"
-      },
-      "create_mode": {
-        "description_kind": "plain",
-        "optional": true,
-        "type": "string"
-      },
-      "data_encrypted": {
-        "description_kind": "plain",
-        "optional": true,
-        "type": "bool"
-      },
-      "geo_backup_policy_enabled": {
-        "description_kind": "plain",
-        "optional": true,
-        "type": "bool"
       },
       "id": {
         "computed": true,
@@ -36,27 +20,27 @@ const azurermSynapseSqlPool = `{
         "optional": true,
         "type": "string"
       },
+      "infrastructure_provider": {
+        "description_kind": "plain",
+        "required": true,
+        "type": "string"
+      },
+      "location": {
+        "description_kind": "plain",
+        "required": true,
+        "type": "string"
+      },
       "name": {
         "description_kind": "plain",
         "required": true,
         "type": "string"
       },
-      "recovery_database_id": {
+      "public_key_base64": {
         "description_kind": "plain",
         "optional": true,
         "type": "string"
       },
-      "sku_name": {
-        "description_kind": "plain",
-        "required": true,
-        "type": "string"
-      },
-      "storage_account_type": {
-        "description_kind": "plain",
-        "optional": true,
-        "type": "string"
-      },
-      "synapse_workspace_id": {
+      "resource_group_name": {
         "description_kind": "plain",
         "required": true,
         "type": "string"
@@ -71,15 +55,20 @@ const azurermSynapseSqlPool = `{
       }
     },
     "block_types": {
-      "restore": {
+      "identity": {
         "block": {
           "attributes": {
-            "point_in_time": {
+            "principal_id": {
+              "computed": true,
               "description_kind": "plain",
-              "required": true,
               "type": "string"
             },
-            "source_database_id": {
+            "tenant_id": {
+              "computed": true,
+              "description_kind": "plain",
+              "type": "string"
+            },
+            "type": {
               "description_kind": "plain",
               "required": true,
               "type": "string"
@@ -88,6 +77,7 @@ const azurermSynapseSqlPool = `{
           "description_kind": "plain"
         },
         "max_items": 1,
+        "min_items": 1,
         "nesting_mode": "list"
       },
       "timeouts": {
@@ -124,8 +114,8 @@ const azurermSynapseSqlPool = `{
   "version": 0
 }`
 
-func AzurermSynapseSqlPoolSchema() *tfjson.Schema {
+func AzurermArcResourceBridgeApplianceSchema() *tfjson.Schema {
 	var result tfjson.Schema
-	_ = json.Unmarshal([]byte(azurermSynapseSqlPool), &result)
+	_ = json.Unmarshal([]byte(azurermArcResourceBridgeAppliance), &result)
 	return &result
 }

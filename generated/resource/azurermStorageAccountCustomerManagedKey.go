@@ -9,6 +9,11 @@ import (
 const azurermStorageAccountCustomerManagedKey = `{
   "block": {
     "attributes": {
+      "federated_identity_client_id": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "string"
+      },
       "id": {
         "computed": true,
         "description_kind": "plain",
@@ -22,7 +27,13 @@ const azurermStorageAccountCustomerManagedKey = `{
       },
       "key_vault_id": {
         "description_kind": "plain",
-        "required": true,
+        "optional": true,
+        "type": "string"
+      },
+      "key_vault_uri": {
+        "computed": true,
+        "description_kind": "plain",
+        "optional": true,
         "type": "string"
       },
       "key_version": {

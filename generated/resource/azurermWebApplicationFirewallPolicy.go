@@ -69,6 +69,11 @@ const azurermWebApplicationFirewallPolicy = `{
               "optional": true,
               "type": "bool"
             },
+            "group_rate_limit_by": {
+              "description_kind": "plain",
+              "optional": true,
+              "type": "string"
+            },
             "name": {
               "description_kind": "plain",
               "optional": true,
@@ -77,6 +82,16 @@ const azurermWebApplicationFirewallPolicy = `{
             "priority": {
               "description_kind": "plain",
               "required": true,
+              "type": "number"
+            },
+            "rate_limit_duration": {
+              "description_kind": "plain",
+              "optional": true,
+              "type": "string"
+            },
+            "rate_limit_threshold": {
+              "description_kind": "plain",
+              "optional": true,
               "type": "number"
             },
             "rule_type": {
@@ -320,6 +335,11 @@ const azurermWebApplicationFirewallPolicy = `{
               "description_kind": "plain",
               "optional": true,
               "type": "bool"
+            },
+            "request_body_inspect_limit_in_kb": {
+              "description_kind": "plain",
+              "optional": true,
+              "type": "number"
             }
           },
           "block_types": {

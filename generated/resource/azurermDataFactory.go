@@ -83,6 +83,11 @@ const azurermDataFactory = `{
               "required": true,
               "type": "string"
             },
+            "publishing_enabled": {
+              "description_kind": "plain",
+              "optional": true,
+              "type": "bool"
+            },
             "repository_name": {
               "description_kind": "plain",
               "required": true,
@@ -199,6 +204,11 @@ const azurermDataFactory = `{
               "description_kind": "plain",
               "required": true,
               "type": "string"
+            },
+            "publishing_enabled": {
+              "description_kind": "plain",
+              "optional": true,
+              "type": "bool"
             },
             "repository_name": {
               "description_kind": "plain",

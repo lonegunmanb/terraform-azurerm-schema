@@ -31,8 +31,10 @@ const azurermBotChannelWebChat = `{
         "type": "string"
       },
       "site_names": {
+        "computed": true,
+        "deprecated": true,
         "description_kind": "plain",
-        "required": true,
+        "optional": true,
         "type": [
           "set",
           "string"
@@ -40,6 +42,34 @@ const azurermBotChannelWebChat = `{
       }
     },
     "block_types": {
+      "site": {
+        "block": {
+          "attributes": {
+            "endpoint_parameters_enabled": {
+              "description_kind": "plain",
+              "optional": true,
+              "type": "bool"
+            },
+            "name": {
+              "description_kind": "plain",
+              "required": true,
+              "type": "string"
+            },
+            "storage_enabled": {
+              "description_kind": "plain",
+              "optional": true,
+              "type": "bool"
+            },
+            "user_upload_enabled": {
+              "description_kind": "plain",
+              "optional": true,
+              "type": "bool"
+            }
+          },
+          "description_kind": "plain"
+        },
+        "nesting_mode": "set"
+      },
       "timeouts": {
         "block": {
           "attributes": {

@@ -6,26 +6,15 @@ import (
 	tfjson "github.com/hashicorp/terraform-json"
 )
 
-const azurermSynapseSqlPool = `{
+const azurermNewRelicTagRule = `{
   "block": {
     "attributes": {
-      "collation": {
-        "computed": true,
-        "description_kind": "plain",
-        "optional": true,
-        "type": "string"
-      },
-      "create_mode": {
-        "description_kind": "plain",
-        "optional": true,
-        "type": "string"
-      },
-      "data_encrypted": {
+      "activity_log_enabled": {
         "description_kind": "plain",
         "optional": true,
         "type": "bool"
       },
-      "geo_backup_policy_enabled": {
+      "azure_active_directory_log_enabled": {
         "description_kind": "plain",
         "optional": true,
         "type": "bool"
@@ -36,50 +25,37 @@ const azurermSynapseSqlPool = `{
         "optional": true,
         "type": "string"
       },
-      "name": {
+      "metric_enabled": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "bool"
+      },
+      "monitor_id": {
         "description_kind": "plain",
         "required": true,
         "type": "string"
       },
-      "recovery_database_id": {
+      "subscription_log_enabled": {
         "description_kind": "plain",
         "optional": true,
-        "type": "string"
-      },
-      "sku_name": {
-        "description_kind": "plain",
-        "required": true,
-        "type": "string"
-      },
-      "storage_account_type": {
-        "description_kind": "plain",
-        "optional": true,
-        "type": "string"
-      },
-      "synapse_workspace_id": {
-        "description_kind": "plain",
-        "required": true,
-        "type": "string"
-      },
-      "tags": {
-        "description_kind": "plain",
-        "optional": true,
-        "type": [
-          "map",
-          "string"
-        ]
+        "type": "bool"
       }
     },
     "block_types": {
-      "restore": {
+      "log_tag_filter": {
         "block": {
           "attributes": {
-            "point_in_time": {
+            "action": {
               "description_kind": "plain",
               "required": true,
               "type": "string"
             },
-            "source_database_id": {
+            "name": {
+              "description_kind": "plain",
+              "required": true,
+              "type": "string"
+            },
+            "value": {
               "description_kind": "plain",
               "required": true,
               "type": "string"
@@ -87,7 +63,29 @@ const azurermSynapseSqlPool = `{
           },
           "description_kind": "plain"
         },
-        "max_items": 1,
+        "nesting_mode": "list"
+      },
+      "metric_tag_filter": {
+        "block": {
+          "attributes": {
+            "action": {
+              "description_kind": "plain",
+              "required": true,
+              "type": "string"
+            },
+            "name": {
+              "description_kind": "plain",
+              "required": true,
+              "type": "string"
+            },
+            "value": {
+              "description_kind": "plain",
+              "required": true,
+              "type": "string"
+            }
+          },
+          "description_kind": "plain"
+        },
         "nesting_mode": "list"
       },
       "timeouts": {
@@ -124,8 +122,8 @@ const azurermSynapseSqlPool = `{
   "version": 0
 }`
 
-func AzurermSynapseSqlPoolSchema() *tfjson.Schema {
+func AzurermNewRelicTagRuleSchema() *tfjson.Schema {
 	var result tfjson.Schema
-	_ = json.Unmarshal([]byte(azurermSynapseSqlPool), &result)
+	_ = json.Unmarshal([]byte(azurermNewRelicTagRule), &result)
 	return &result
 }

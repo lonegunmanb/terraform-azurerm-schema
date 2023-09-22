@@ -76,6 +76,45 @@ const azurermDataFactoryDatasetParquet = `{
       }
     },
     "block_types": {
+      "azure_blob_fs_location": {
+        "block": {
+          "attributes": {
+            "dynamic_file_system_enabled": {
+              "description_kind": "plain",
+              "optional": true,
+              "type": "bool"
+            },
+            "dynamic_filename_enabled": {
+              "description_kind": "plain",
+              "optional": true,
+              "type": "bool"
+            },
+            "dynamic_path_enabled": {
+              "description_kind": "plain",
+              "optional": true,
+              "type": "bool"
+            },
+            "file_system": {
+              "description_kind": "plain",
+              "optional": true,
+              "type": "string"
+            },
+            "filename": {
+              "description_kind": "plain",
+              "optional": true,
+              "type": "string"
+            },
+            "path": {
+              "description_kind": "plain",
+              "optional": true,
+              "type": "string"
+            }
+          },
+          "description_kind": "plain"
+        },
+        "max_items": 1,
+        "nesting_mode": "list"
+      },
       "azure_blob_storage_location": {
         "block": {
           "attributes": {

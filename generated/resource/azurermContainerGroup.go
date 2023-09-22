@@ -60,6 +60,11 @@ const azurermContainerGroup = `{
         "optional": true,
         "type": "string"
       },
+      "key_vault_user_assigned_identity_id": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "string"
+      },
       "location": {
         "description_kind": "plain",
         "required": true,

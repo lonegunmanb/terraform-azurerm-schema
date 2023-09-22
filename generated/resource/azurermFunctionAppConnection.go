@@ -6,29 +6,18 @@ import (
 	tfjson "github.com/hashicorp/terraform-json"
 )
 
-const azurermSynapseSqlPool = `{
+const azurermFunctionAppConnection = `{
   "block": {
     "attributes": {
-      "collation": {
-        "computed": true,
+      "client_type": {
         "description_kind": "plain",
         "optional": true,
         "type": "string"
       },
-      "create_mode": {
+      "function_app_id": {
         "description_kind": "plain",
-        "optional": true,
+        "required": true,
         "type": "string"
-      },
-      "data_encrypted": {
-        "description_kind": "plain",
-        "optional": true,
-        "type": "bool"
-      },
-      "geo_backup_policy_enabled": {
-        "description_kind": "plain",
-        "optional": true,
-        "type": "bool"
       },
       "id": {
         "computed": true,
@@ -41,45 +30,69 @@ const azurermSynapseSqlPool = `{
         "required": true,
         "type": "string"
       },
-      "recovery_database_id": {
-        "description_kind": "plain",
-        "optional": true,
-        "type": "string"
-      },
-      "sku_name": {
+      "target_resource_id": {
         "description_kind": "plain",
         "required": true,
         "type": "string"
       },
-      "storage_account_type": {
+      "vnet_solution": {
         "description_kind": "plain",
         "optional": true,
         "type": "string"
-      },
-      "synapse_workspace_id": {
-        "description_kind": "plain",
-        "required": true,
-        "type": "string"
-      },
-      "tags": {
-        "description_kind": "plain",
-        "optional": true,
-        "type": [
-          "map",
-          "string"
-        ]
       }
     },
     "block_types": {
-      "restore": {
+      "authentication": {
         "block": {
           "attributes": {
-            "point_in_time": {
+            "certificate": {
+              "description_kind": "plain",
+              "optional": true,
+              "sensitive": true,
+              "type": "string"
+            },
+            "client_id": {
+              "description_kind": "plain",
+              "optional": true,
+              "type": "string"
+            },
+            "name": {
+              "description_kind": "plain",
+              "optional": true,
+              "type": "string"
+            },
+            "principal_id": {
+              "description_kind": "plain",
+              "optional": true,
+              "type": "string"
+            },
+            "secret": {
+              "description_kind": "plain",
+              "optional": true,
+              "sensitive": true,
+              "type": "string"
+            },
+            "subscription_id": {
+              "description_kind": "plain",
+              "optional": true,
+              "type": "string"
+            },
+            "type": {
               "description_kind": "plain",
               "required": true,
               "type": "string"
-            },
-            "source_database_id": {
+            }
+          },
+          "description_kind": "plain"
+        },
+        "max_items": 1,
+        "min_items": 1,
+        "nesting_mode": "list"
+      },
+      "secret_store": {
+        "block": {
+          "attributes": {
+            "key_vault_id": {
               "description_kind": "plain",
               "required": true,
               "type": "string"
@@ -124,8 +137,8 @@ const azurermSynapseSqlPool = `{
   "version": 0
 }`
 
-func AzurermSynapseSqlPoolSchema() *tfjson.Schema {
+func AzurermFunctionAppConnectionSchema() *tfjson.Schema {
 	var result tfjson.Schema
-	_ = json.Unmarshal([]byte(azurermSynapseSqlPool), &result)
+	_ = json.Unmarshal([]byte(azurermFunctionAppConnection), &result)
 	return &result
 }

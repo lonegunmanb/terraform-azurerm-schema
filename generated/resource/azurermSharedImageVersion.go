@@ -14,6 +14,11 @@ const azurermSharedImageVersion = `{
         "optional": true,
         "type": "string"
       },
+      "deletion_of_replicated_locations_enabled": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "bool"
+      },
       "end_of_life_date": {
         "description_kind": "plain",
         "optional": true,
@@ -92,6 +97,11 @@ const azurermSharedImageVersion = `{
               "description_kind": "plain",
               "optional": true,
               "type": "string"
+            },
+            "exclude_from_latest_enabled": {
+              "description_kind": "plain",
+              "optional": true,
+              "type": "bool"
             },
             "name": {
               "description_kind": "plain",

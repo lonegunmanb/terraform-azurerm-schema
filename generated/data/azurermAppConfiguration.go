@@ -113,6 +113,22 @@ const azurermAppConfiguration = `{
         "description_kind": "plain",
         "type": "bool"
       },
+      "replica": {
+        "computed": true,
+        "description_kind": "plain",
+        "type": [
+          "list",
+          [
+            "object",
+            {
+              "endpoint": "string",
+              "id": "string",
+              "location": "string",
+              "name": "string"
+            }
+          ]
+        ]
+      },
       "resource_group_name": {
         "description_kind": "plain",
         "required": true,

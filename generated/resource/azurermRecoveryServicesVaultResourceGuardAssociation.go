@@ -16,8 +16,9 @@ const azurermRecoveryServicesVaultResourceGuardAssociation = `{
         "type": "string"
       },
       "name": {
+        "deprecated": true,
         "description_kind": "plain",
-        "required": true,
+        "optional": true,
         "type": "string"
       },
       "resource_guard_id": {

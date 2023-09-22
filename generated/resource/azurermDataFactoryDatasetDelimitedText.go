@@ -114,9 +114,24 @@ const azurermDataFactoryDatasetDelimitedText = `{
       "azure_blob_fs_location": {
         "block": {
           "attributes": {
+            "dynamic_file_system_enabled": {
+              "description_kind": "plain",
+              "optional": true,
+              "type": "bool"
+            },
+            "dynamic_filename_enabled": {
+              "description_kind": "plain",
+              "optional": true,
+              "type": "bool"
+            },
+            "dynamic_path_enabled": {
+              "description_kind": "plain",
+              "optional": true,
+              "type": "bool"
+            },
             "file_system": {
               "description_kind": "plain",
-              "required": true,
+              "optional": true,
               "type": "string"
             },
             "filename": {

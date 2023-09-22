@@ -93,6 +93,11 @@ const azurermContainerAppEnvironment = `{
           "map",
           "string"
         ]
+      },
+      "zone_redundancy_enabled": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "bool"
       }
     },
     "block_types": {

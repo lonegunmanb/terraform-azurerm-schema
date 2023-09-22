@@ -130,7 +130,19 @@ const azurermCosmosdbAccount = `{
         "sensitive": true,
         "type": "string"
       },
+      "primary_mongodb_connection_string": {
+        "computed": true,
+        "description_kind": "plain",
+        "sensitive": true,
+        "type": "string"
+      },
       "primary_readonly_key": {
+        "computed": true,
+        "description_kind": "plain",
+        "sensitive": true,
+        "type": "string"
+      },
+      "primary_readonly_mongodb_connection_string": {
         "computed": true,
         "description_kind": "plain",
         "sensitive": true,
@@ -172,7 +184,19 @@ const azurermCosmosdbAccount = `{
         "sensitive": true,
         "type": "string"
       },
+      "secondary_mongodb_connection_string": {
+        "computed": true,
+        "description_kind": "plain",
+        "sensitive": true,
+        "type": "string"
+      },
       "secondary_readonly_key": {
+        "computed": true,
+        "description_kind": "plain",
+        "sensitive": true,
+        "type": "string"
+      },
+      "secondary_readonly_mongodb_connection_string": {
         "computed": true,
         "description_kind": "plain",
         "sensitive": true,

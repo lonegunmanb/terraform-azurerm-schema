@@ -317,6 +317,50 @@ const azurermContainerApp = `{
             }
           },
           "block_types": {
+            "azure_queue_scale_rule": {
+              "block": {
+                "attributes": {
+                  "name": {
+                    "description_kind": "plain",
+                    "required": true,
+                    "type": "string"
+                  },
+                  "queue_length": {
+                    "description_kind": "plain",
+                    "required": true,
+                    "type": "number"
+                  },
+                  "queue_name": {
+                    "description_kind": "plain",
+                    "required": true,
+                    "type": "string"
+                  }
+                },
+                "block_types": {
+                  "authentication": {
+                    "block": {
+                      "attributes": {
+                        "secret_name": {
+                          "description_kind": "plain",
+                          "required": true,
+                          "type": "string"
+                        },
+                        "trigger_parameter": {
+                          "description_kind": "plain",
+                          "required": true,
+                          "type": "string"
+                        }
+                      },
+                      "description_kind": "plain"
+                    },
+                    "min_items": 1,
+                    "nesting_mode": "list"
+                  }
+                },
+                "description_kind": "plain"
+              },
+              "nesting_mode": "list"
+            },
             "container": {
               "block": {
                 "attributes": {
@@ -663,6 +707,128 @@ const azurermContainerApp = `{
                 "description_kind": "plain"
               },
               "min_items": 1,
+              "nesting_mode": "list"
+            },
+            "custom_scale_rule": {
+              "block": {
+                "attributes": {
+                  "custom_rule_type": {
+                    "description_kind": "plain",
+                    "required": true,
+                    "type": "string"
+                  },
+                  "metadata": {
+                    "description_kind": "plain",
+                    "required": true,
+                    "type": [
+                      "map",
+                      "string"
+                    ]
+                  },
+                  "name": {
+                    "description_kind": "plain",
+                    "required": true,
+                    "type": "string"
+                  }
+                },
+                "block_types": {
+                  "authentication": {
+                    "block": {
+                      "attributes": {
+                        "secret_name": {
+                          "description_kind": "plain",
+                          "required": true,
+                          "type": "string"
+                        },
+                        "trigger_parameter": {
+                          "description_kind": "plain",
+                          "required": true,
+                          "type": "string"
+                        }
+                      },
+                      "description_kind": "plain"
+                    },
+                    "nesting_mode": "list"
+                  }
+                },
+                "description_kind": "plain"
+              },
+              "nesting_mode": "list"
+            },
+            "http_scale_rule": {
+              "block": {
+                "attributes": {
+                  "concurrent_requests": {
+                    "description_kind": "plain",
+                    "required": true,
+                    "type": "string"
+                  },
+                  "name": {
+                    "description_kind": "plain",
+                    "required": true,
+                    "type": "string"
+                  }
+                },
+                "block_types": {
+                  "authentication": {
+                    "block": {
+                      "attributes": {
+                        "secret_name": {
+                          "description_kind": "plain",
+                          "required": true,
+                          "type": "string"
+                        },
+                        "trigger_parameter": {
+                          "description_kind": "plain",
+                          "optional": true,
+                          "type": "string"
+                        }
+                      },
+                      "description_kind": "plain"
+                    },
+                    "nesting_mode": "list"
+                  }
+                },
+                "description_kind": "plain"
+              },
+              "nesting_mode": "list"
+            },
+            "tcp_scale_rule": {
+              "block": {
+                "attributes": {
+                  "concurrent_requests": {
+                    "description_kind": "plain",
+                    "required": true,
+                    "type": "string"
+                  },
+                  "name": {
+                    "description_kind": "plain",
+                    "required": true,
+                    "type": "string"
+                  }
+                },
+                "block_types": {
+                  "authentication": {
+                    "block": {
+                      "attributes": {
+                        "secret_name": {
+                          "description_kind": "plain",
+                          "required": true,
+                          "type": "string"
+                        },
+                        "trigger_parameter": {
+                          "description_kind": "plain",
+                          "optional": true,
+                          "type": "string"
+                        }
+                      },
+                      "description_kind": "plain"
+                    },
+                    "nesting_mode": "list"
+                  }
+                },
+                "description_kind": "plain"
+              },
               "nesting_mode": "list"
             },
             "volume": {

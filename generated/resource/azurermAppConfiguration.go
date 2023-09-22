@@ -181,6 +181,34 @@ const azurermAppConfiguration = `{
         "max_items": 1,
         "nesting_mode": "list"
       },
+      "replica": {
+        "block": {
+          "attributes": {
+            "endpoint": {
+              "computed": true,
+              "description_kind": "plain",
+              "type": "string"
+            },
+            "id": {
+              "computed": true,
+              "description_kind": "plain",
+              "type": "string"
+            },
+            "location": {
+              "description_kind": "plain",
+              "required": true,
+              "type": "string"
+            },
+            "name": {
+              "description_kind": "plain",
+              "required": true,
+              "type": "string"
+            }
+          },
+          "description_kind": "plain"
+        },
+        "nesting_mode": "set"
+      },
       "timeouts": {
         "block": {
           "attributes": {

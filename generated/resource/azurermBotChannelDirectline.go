@@ -40,6 +40,11 @@ const azurermBotChannelDirectline = `{
               "optional": true,
               "type": "bool"
             },
+            "endpoint_parameters_enabled": {
+              "description_kind": "plain",
+              "optional": true,
+              "type": "bool"
+            },
             "enhanced_authentication_enabled": {
               "description_kind": "plain",
               "optional": true,
@@ -67,6 +72,11 @@ const azurermBotChannelDirectline = `{
               "required": true,
               "type": "string"
             },
+            "storage_enabled": {
+              "description_kind": "plain",
+              "optional": true,
+              "type": "bool"
+            },
             "trusted_origins": {
               "description_kind": "plain",
               "optional": true,
@@ -74,6 +84,11 @@ const azurermBotChannelDirectline = `{
                 "set",
                 "string"
               ]
+            },
+            "user_upload_enabled": {
+              "description_kind": "plain",
+              "optional": true,
+              "type": "bool"
             },
             "v1_allowed": {
               "description_kind": "plain",
