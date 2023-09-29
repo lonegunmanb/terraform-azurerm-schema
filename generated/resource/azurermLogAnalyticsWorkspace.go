@@ -24,6 +24,11 @@ const azurermLogAnalyticsWorkspace = `{
         "optional": true,
         "type": "number"
       },
+      "data_collection_rule_id": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "string"
+      },
       "id": {
         "computed": true,
         "description_kind": "plain",

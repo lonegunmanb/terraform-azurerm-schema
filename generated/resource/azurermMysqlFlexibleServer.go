@@ -227,6 +227,11 @@ const azurermMysqlFlexibleServer = `{
               "optional": true,
               "type": "bool"
             },
+            "io_scaling_enabled": {
+              "description_kind": "plain",
+              "optional": true,
+              "type": "bool"
+            },
             "iops": {
               "computed": true,
               "description_kind": "plain",

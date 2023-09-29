@@ -180,6 +180,11 @@ const azurermFirewallPolicyRuleCollectionGroup = `{
             "rule": {
               "block": {
                 "attributes": {
+                  "description": {
+                    "description_kind": "plain",
+                    "optional": true,
+                    "type": "string"
+                  },
                   "destination_address": {
                     "description_kind": "plain",
                     "optional": true,
@@ -271,6 +276,11 @@ const azurermFirewallPolicyRuleCollectionGroup = `{
             "rule": {
               "block": {
                 "attributes": {
+                  "description": {
+                    "description_kind": "plain",
+                    "optional": true,
+                    "type": "string"
+                  },
                   "destination_addresses": {
                     "description_kind": "plain",
                     "optional": true,

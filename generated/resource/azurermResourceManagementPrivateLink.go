@@ -6,7 +6,7 @@ import (
 	tfjson "github.com/hashicorp/terraform-json"
 )
 
-const azurermManagementLock = `{
+const azurermResourceManagementPrivateLink = `{
   "block": {
     "attributes": {
       "id": {
@@ -15,7 +15,7 @@ const azurermManagementLock = `{
         "optional": true,
         "type": "string"
       },
-      "lock_level": {
+      "location": {
         "description_kind": "plain",
         "required": true,
         "type": "string"
@@ -25,12 +25,7 @@ const azurermManagementLock = `{
         "required": true,
         "type": "string"
       },
-      "notes": {
-        "description_kind": "plain",
-        "optional": true,
-        "type": "string"
-      },
-      "scope": {
+      "resource_group_name": {
         "description_kind": "plain",
         "required": true,
         "type": "string"
@@ -66,8 +61,8 @@ const azurermManagementLock = `{
   "version": 0
 }`
 
-func AzurermManagementLockSchema() *tfjson.Schema {
+func AzurermResourceManagementPrivateLinkSchema() *tfjson.Schema {
 	var result tfjson.Schema
-	_ = json.Unmarshal([]byte(azurermManagementLock), &result)
+	_ = json.Unmarshal([]byte(azurermResourceManagementPrivateLink), &result)
 	return &result
 }

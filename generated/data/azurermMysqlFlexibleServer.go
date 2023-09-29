@@ -123,6 +123,7 @@ const azurermMysqlFlexibleServer = `{
             "object",
             {
               "auto_grow_enabled": "bool",
+              "io_scaling_enabled": "bool",
               "iops": "number",
               "size_gb": "number"
             }
