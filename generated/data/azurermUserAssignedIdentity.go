@@ -71,7 +71,7 @@ const azurermUserAssignedIdentity = `{
     },
     "description_kind": "plain"
   },
-  "version": 1
+  "version": 0
 }`
 
 func AzurermUserAssignedIdentitySchema() *tfjson.Schema {

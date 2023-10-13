@@ -125,7 +125,7 @@ const azurermSignalrService = `{
     },
     "description_kind": "plain"
   },
-  "version": 1
+  "version": 0
 }`
 
 func AzurermSignalrServiceSchema() *tfjson.Schema {

@@ -525,7 +525,7 @@ const azurermKubernetesCluster = `{
     },
     "description_kind": "plain"
   },
-  "version": 2
+  "version": 0
 }`
 
 func AzurermKubernetesClusterSchema() *tfjson.Schema {

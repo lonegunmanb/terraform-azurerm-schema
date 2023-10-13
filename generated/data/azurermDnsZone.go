@@ -70,7 +70,7 @@ const azurermDnsZone = `{
     },
     "description_kind": "plain"
   },
-  "version": 2
+  "version": 0
 }`
 
 func AzurermDnsZoneSchema() *tfjson.Schema {

@@ -49,6 +49,11 @@ const azurermNetworkServiceTags = `{
         "optional": true,
         "type": "string"
       },
+      "name": {
+        "computed": true,
+        "description_kind": "plain",
+        "type": "string"
+      },
       "service": {
         "description_kind": "plain",
         "required": true,

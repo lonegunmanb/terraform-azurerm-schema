@@ -86,7 +86,7 @@ const azurermAppConfigurationKey = `{
     },
     "description_kind": "plain"
   },
-  "version": 2
+  "version": 0
 }`
 
 func AzurermAppConfigurationKeySchema() *tfjson.Schema {

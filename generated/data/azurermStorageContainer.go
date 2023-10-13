@@ -72,7 +72,7 @@ const azurermStorageContainer = `{
     },
     "description_kind": "plain"
   },
-  "version": 1
+  "version": 0
 }`
 
 func AzurermStorageContainerSchema() *tfjson.Schema {

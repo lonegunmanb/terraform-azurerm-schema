@@ -82,7 +82,7 @@ const azurermHealthcareMedtechService = `{
     },
     "description_kind": "plain"
   },
-  "version": 1
+  "version": 0
 }`
 
 func AzurermHealthcareMedtechServiceSchema() *tfjson.Schema {

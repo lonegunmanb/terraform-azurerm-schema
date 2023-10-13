@@ -86,7 +86,7 @@ const azurermContainerRegistry = `{
     },
     "description_kind": "plain"
   },
-  "version": 2
+  "version": 0
 }`
 
 func AzurermContainerRegistrySchema() *tfjson.Schema {

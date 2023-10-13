@@ -116,7 +116,7 @@ const azurermSnapshot = `{
     },
     "description_kind": "plain"
   },
-  "version": 1
+  "version": 0
 }`
 
 func AzurermSnapshotSchema() *tfjson.Schema {

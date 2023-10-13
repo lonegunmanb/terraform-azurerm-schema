@@ -80,7 +80,7 @@ const azurermDnsMxRecord = `{
     },
     "description_kind": "plain"
   },
-  "version": 1
+  "version": 0
 }`
 
 func AzurermDnsMxRecordSchema() *tfjson.Schema {

@@ -91,7 +91,7 @@ const azurermPostgresqlServer = `{
     },
     "description_kind": "plain"
   },
-  "version": 1
+  "version": 0
 }`
 
 func AzurermPostgresqlServerSchema() *tfjson.Schema {

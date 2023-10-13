@@ -15,6 +15,14 @@ const azurermStaticSite = `{
         "sensitive": true,
         "type": "string"
       },
+      "app_settings": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": [
+          "map",
+          "string"
+        ]
+      },
       "default_host_name": {
         "computed": true,
         "description_kind": "plain",

@@ -88,7 +88,7 @@ const azurermLogAnalyticsWorkspace = `{
     },
     "description_kind": "plain"
   },
-  "version": 3
+  "version": 0
 }`
 
 func AzurermLogAnalyticsWorkspaceSchema() *tfjson.Schema {

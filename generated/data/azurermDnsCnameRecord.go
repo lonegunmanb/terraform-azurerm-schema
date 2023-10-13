@@ -76,7 +76,7 @@ const azurermDnsCnameRecord = `{
     },
     "description_kind": "plain"
   },
-  "version": 1
+  "version": 0
 }`
 
 func AzurermDnsCnameRecordSchema() *tfjson.Schema {

@@ -1,4 +1,4 @@
-package data
+package resource
 
 import (
 	"encoding/json"
@@ -6,23 +6,18 @@ import (
 	tfjson "github.com/hashicorp/terraform-json"
 )
 
-const azurermDevTestLab = `{
+const azurermSpringCloudApplicationInsightsApplicationPerformanceMonitoring = `{
   "block": {
     "attributes": {
-      "artifacts_storage_account_id": {
-        "computed": true,
+      "connection_string": {
         "description_kind": "plain",
+        "optional": true,
         "type": "string"
       },
-      "default_premium_storage_account_id": {
-        "computed": true,
+      "globally_enabled": {
         "description_kind": "plain",
-        "type": "string"
-      },
-      "default_storage_account_id": {
-        "computed": true,
-        "description_kind": "plain",
-        "type": "string"
+        "optional": true,
+        "type": "bool"
       },
       "id": {
         "computed": true,
@@ -30,47 +25,34 @@ const azurermDevTestLab = `{
         "optional": true,
         "type": "string"
       },
-      "key_vault_id": {
-        "computed": true,
-        "description_kind": "plain",
-        "type": "string"
-      },
-      "location": {
-        "computed": true,
-        "description_kind": "plain",
-        "type": "string"
-      },
       "name": {
         "description_kind": "plain",
         "required": true,
         "type": "string"
       },
-      "premium_data_disk_storage_account_id": {
-        "computed": true,
+      "role_instance": {
         "description_kind": "plain",
+        "optional": true,
         "type": "string"
       },
-      "resource_group_name": {
+      "role_name": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "string"
+      },
+      "sampling_percentage": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "number"
+      },
+      "sampling_requests_per_second": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "number"
+      },
+      "spring_cloud_service_id": {
         "description_kind": "plain",
         "required": true,
-        "type": "string"
-      },
-      "storage_type": {
-        "computed": true,
-        "description_kind": "plain",
-        "type": "string"
-      },
-      "tags": {
-        "computed": true,
-        "description_kind": "plain",
-        "type": [
-          "map",
-          "string"
-        ]
-      },
-      "unique_identifier": {
-        "computed": true,
-        "description_kind": "plain",
         "type": "string"
       }
     },
@@ -78,7 +60,22 @@ const azurermDevTestLab = `{
       "timeouts": {
         "block": {
           "attributes": {
+            "create": {
+              "description_kind": "plain",
+              "optional": true,
+              "type": "string"
+            },
+            "delete": {
+              "description_kind": "plain",
+              "optional": true,
+              "type": "string"
+            },
             "read": {
+              "description_kind": "plain",
+              "optional": true,
+              "type": "string"
+            },
+            "update": {
               "description_kind": "plain",
               "optional": true,
               "type": "string"
@@ -94,8 +91,8 @@ const azurermDevTestLab = `{
   "version": 0
 }`
 
-func AzurermDevTestLabSchema() *tfjson.Schema {
+func AzurermSpringCloudApplicationInsightsApplicationPerformanceMonitoringSchema() *tfjson.Schema {
 	var result tfjson.Schema
-	_ = json.Unmarshal([]byte(azurermDevTestLab), &result)
+	_ = json.Unmarshal([]byte(azurermSpringCloudApplicationInsightsApplicationPerformanceMonitoring), &result)
 	return &result
 }

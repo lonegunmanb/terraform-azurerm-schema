@@ -111,7 +111,7 @@ const azurermHealthcareDicomService = `{
     },
     "description_kind": "plain"
   },
-  "version": 1
+  "version": 0
 }`
 
 func AzurermHealthcareDicomServiceSchema() *tfjson.Schema {

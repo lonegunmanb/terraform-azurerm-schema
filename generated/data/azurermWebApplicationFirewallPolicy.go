@@ -56,7 +56,7 @@ const azurermWebApplicationFirewallPolicy = `{
     },
     "description_kind": "plain"
   },
-  "version": 1
+  "version": 0
 }`
 
 func AzurermWebApplicationFirewallPolicySchema() *tfjson.Schema {
