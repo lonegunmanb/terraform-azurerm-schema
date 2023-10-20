@@ -44,6 +44,8 @@ const azurermVirtualHubConnection = `{
             "object",
             {
               "associated_route_table_id": "string",
+              "inbound_route_map_id": "string",
+              "outbound_route_map_id": "string",
               "propagated_route_table": [
                 "list",
                 [
@@ -60,6 +62,7 @@ const azurermVirtualHubConnection = `{
                   }
                 ]
               ],
+              "static_vnet_local_route_override_criteria": "string",
               "static_vnet_route": [
                 "list",
                 [

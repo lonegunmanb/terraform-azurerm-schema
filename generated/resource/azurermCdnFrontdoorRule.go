@@ -737,7 +737,7 @@ const azurermCdnFrontdoorRule = `{
                 "attributes": {
                   "match_values": {
                     "description_kind": "plain",
-                    "required": true,
+                    "optional": true,
                     "type": [
                       "list",
                       "string"

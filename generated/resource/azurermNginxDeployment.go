@@ -9,10 +9,20 @@ import (
 const azurermNginxDeployment = `{
   "block": {
     "attributes": {
+      "capacity": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "number"
+      },
       "diagnose_support_enabled": {
         "description_kind": "plain",
         "optional": true,
         "type": "bool"
+      },
+      "email": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "string"
       },
       "id": {
         "computed": true,
