@@ -6,36 +6,38 @@ import (
 	tfjson "github.com/hashicorp/terraform-json"
 )
 
-const azurermEventhubNamespaceCustomerManagedKey = `{
+const azurermResourceManagementPrivateLinkAssociation = `{
   "block": {
     "attributes": {
-      "eventhub_namespace_id": {
-        "description_kind": "plain",
-        "required": true,
-        "type": "string"
-      },
       "id": {
         "computed": true,
         "description_kind": "plain",
         "optional": true,
         "type": "string"
       },
-      "infrastructure_encryption_enabled": {
-        "description_kind": "plain",
-        "optional": true,
-        "type": "bool"
-      },
-      "key_vault_key_ids": {
+      "management_group_id": {
         "description_kind": "plain",
         "required": true,
-        "type": [
-          "set",
-          "string"
-        ]
+        "type": "string"
       },
-      "user_assigned_identity_id": {
+      "name": {
         "description_kind": "plain",
         "optional": true,
+        "type": "string"
+      },
+      "public_network_access_enabled": {
+        "description_kind": "plain",
+        "required": true,
+        "type": "bool"
+      },
+      "resource_management_private_link_id": {
+        "description_kind": "plain",
+        "required": true,
+        "type": "string"
+      },
+      "tenant_id": {
+        "computed": true,
+        "description_kind": "plain",
         "type": "string"
       }
     },
@@ -57,11 +59,6 @@ const azurermEventhubNamespaceCustomerManagedKey = `{
               "description_kind": "plain",
               "optional": true,
               "type": "string"
-            },
-            "update": {
-              "description_kind": "plain",
-              "optional": true,
-              "type": "string"
             }
           },
           "description_kind": "plain"
@@ -74,8 +71,8 @@ const azurermEventhubNamespaceCustomerManagedKey = `{
   "version": 0
 }`
 
-func AzurermEventhubNamespaceCustomerManagedKeySchema() *tfjson.Schema {
+func AzurermResourceManagementPrivateLinkAssociationSchema() *tfjson.Schema {
 	var result tfjson.Schema
-	_ = json.Unmarshal([]byte(azurermEventhubNamespaceCustomerManagedKey), &result)
+	_ = json.Unmarshal([]byte(azurermResourceManagementPrivateLinkAssociation), &result)
 	return &result
 }

@@ -136,6 +136,11 @@ const azurermExpressRoutePort = `{
               "optional": true,
               "type": "string"
             },
+            "macsec_sci_enabled": {
+              "description_kind": "plain",
+              "optional": true,
+              "type": "bool"
+            },
             "patch_panel_id": {
               "computed": true,
               "description_kind": "plain",
@@ -194,6 +199,11 @@ const azurermExpressRoutePort = `{
               "description_kind": "plain",
               "optional": true,
               "type": "string"
+            },
+            "macsec_sci_enabled": {
+              "description_kind": "plain",
+              "optional": true,
+              "type": "bool"
             },
             "patch_panel_id": {
               "computed": true,

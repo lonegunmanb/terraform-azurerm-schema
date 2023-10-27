@@ -99,6 +99,11 @@ const azurermSearchService = `{
         "sensitive": true,
         "type": "string"
       },
+      "semantic_search_sku": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "string"
+      },
       "sku": {
         "description_kind": "plain",
         "required": true,

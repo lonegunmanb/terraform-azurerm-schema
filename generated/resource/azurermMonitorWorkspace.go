@@ -30,6 +30,11 @@ const azurermMonitorWorkspace = `{
         "optional": true,
         "type": "bool"
       },
+      "query_endpoint": {
+        "computed": true,
+        "description_kind": "plain",
+        "type": "string"
+      },
       "resource_group_name": {
         "description_kind": "plain",
         "required": true,

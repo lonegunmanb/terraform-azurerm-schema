@@ -763,6 +763,7 @@ func init() {
 	resources["azurerm_resource_group_policy_remediation"] = resource.AzurermResourceGroupPolicyRemediationSchema()  
 	resources["azurerm_resource_group_template_deployment"] = resource.AzurermResourceGroupTemplateDeploymentSchema()  
 	resources["azurerm_resource_management_private_link"] = resource.AzurermResourceManagementPrivateLinkSchema()  
+	resources["azurerm_resource_management_private_link_association"] = resource.AzurermResourceManagementPrivateLinkAssociationSchema()  
 	resources["azurerm_resource_policy_assignment"] = resource.AzurermResourcePolicyAssignmentSchema()  
 	resources["azurerm_resource_policy_exemption"] = resource.AzurermResourcePolicyExemptionSchema()  
 	resources["azurerm_resource_policy_remediation"] = resource.AzurermResourcePolicyRemediationSchema()  

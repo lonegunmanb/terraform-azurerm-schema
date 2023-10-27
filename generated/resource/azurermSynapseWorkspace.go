@@ -25,6 +25,11 @@ const azurermSynapseWorkspace = `{
           ]
         ]
       },
+      "azuread_authentication_only": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "bool"
+      },
       "compute_subnet_id": {
         "description_kind": "plain",
         "optional": true,
