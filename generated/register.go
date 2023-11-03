@@ -652,6 +652,7 @@ func init() {
 	resources["azurerm_network_connection_monitor"] = resource.AzurermNetworkConnectionMonitorSchema()  
 	resources["azurerm_network_ddos_protection_plan"] = resource.AzurermNetworkDdosProtectionPlanSchema()  
 	resources["azurerm_network_function_azure_traffic_collector"] = resource.AzurermNetworkFunctionAzureTrafficCollectorSchema()  
+	resources["azurerm_network_function_collector_policy"] = resource.AzurermNetworkFunctionCollectorPolicySchema()  
 	resources["azurerm_network_interface"] = resource.AzurermNetworkInterfaceSchema()  
 	resources["azurerm_network_interface_application_gateway_backend_address_pool_association"] = resource.AzurermNetworkInterfaceApplicationGatewayBackendAddressPoolAssociationSchema()  
 	resources["azurerm_network_interface_application_security_group_association"] = resource.AzurermNetworkInterfaceApplicationSecurityGroupAssociationSchema()  

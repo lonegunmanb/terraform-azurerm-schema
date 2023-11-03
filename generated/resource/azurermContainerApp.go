@@ -147,6 +147,12 @@ const azurermContainerApp = `{
               "optional": true,
               "type": "bool"
             },
+            "exposed_port": {
+              "description": "The exposed port on the container for the Ingress traffic.",
+              "description_kind": "plain",
+              "optional": true,
+              "type": "number"
+            },
             "external_enabled": {
               "description": "Is this an external Ingress.",
               "description_kind": "plain",
@@ -166,7 +172,7 @@ const azurermContainerApp = `{
               "type": "number"
             },
             "transport": {
-              "description": "The transport method for the Ingress. Possible values include ` + "`" + `auto` + "`" + `, ` + "`" + `http` + "`" + `, and ` + "`" + `http2` + "`" + `. Defaults to ` + "`" + `auto` + "`" + `",
+              "description": "The transport method for the Ingress. Possible values include ` + "`" + `auto` + "`" + `, ` + "`" + `http` + "`" + `, and ` + "`" + `http2` + "`" + `, ` + "`" + `tcp` + "`" + `. Defaults to ` + "`" + `auto` + "`" + `",
               "description_kind": "plain",
               "optional": true,
               "type": "string"

@@ -41,6 +41,9 @@ const azurermStorageManagementPolicy = `{
                           "tier_to_archive_after_days_since_last_access_time_greater_than": "number",
                           "tier_to_archive_after_days_since_last_tier_change_greater_than": "number",
                           "tier_to_archive_after_days_since_modification_greater_than": "number",
+                          "tier_to_cold_after_days_since_creation_greater_than": "number",
+                          "tier_to_cold_after_days_since_last_access_time_greater_than": "number",
+                          "tier_to_cold_after_days_since_modification_greater_than": "number",
                           "tier_to_cool_after_days_since_creation_greater_than": "number",
                           "tier_to_cool_after_days_since_last_access_time_greater_than": "number",
                           "tier_to_cool_after_days_since_modification_greater_than": "number"
@@ -55,7 +58,8 @@ const azurermStorageManagementPolicy = `{
                           "change_tier_to_archive_after_days_since_creation": "number",
                           "change_tier_to_cool_after_days_since_creation": "number",
                           "delete_after_days_since_creation_greater_than": "number",
-                          "tier_to_archive_after_days_since_last_tier_change_greater_than": "number"
+                          "tier_to_archive_after_days_since_last_tier_change_greater_than": "number",
+                          "tier_to_cold_after_days_since_creation_greater_than": "number"
                         }
                       ]
                     ],
@@ -67,7 +71,8 @@ const azurermStorageManagementPolicy = `{
                           "change_tier_to_archive_after_days_since_creation": "number",
                           "change_tier_to_cool_after_days_since_creation": "number",
                           "delete_after_days_since_creation": "number",
-                          "tier_to_archive_after_days_since_last_tier_change_greater_than": "number"
+                          "tier_to_archive_after_days_since_last_tier_change_greater_than": "number",
+                          "tier_to_cold_after_days_since_creation_greater_than": "number"
                         }
                       ]
                     ]

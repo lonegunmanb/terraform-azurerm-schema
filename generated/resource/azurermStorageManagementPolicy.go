@@ -83,6 +83,21 @@ const azurermStorageManagementPolicy = `{
                           "optional": true,
                           "type": "number"
                         },
+                        "tier_to_cold_after_days_since_creation_greater_than": {
+                          "description_kind": "plain",
+                          "optional": true,
+                          "type": "number"
+                        },
+                        "tier_to_cold_after_days_since_last_access_time_greater_than": {
+                          "description_kind": "plain",
+                          "optional": true,
+                          "type": "number"
+                        },
+                        "tier_to_cold_after_days_since_modification_greater_than": {
+                          "description_kind": "plain",
+                          "optional": true,
+                          "type": "number"
+                        },
                         "tier_to_cool_after_days_since_creation_greater_than": {
                           "description_kind": "plain",
                           "optional": true,
@@ -126,6 +141,11 @@ const azurermStorageManagementPolicy = `{
                           "description_kind": "plain",
                           "optional": true,
                           "type": "number"
+                        },
+                        "tier_to_cold_after_days_since_creation_greater_than": {
+                          "description_kind": "plain",
+                          "optional": true,
+                          "type": "number"
                         }
                       },
                       "description_kind": "plain"
@@ -152,6 +172,11 @@ const azurermStorageManagementPolicy = `{
                           "type": "number"
                         },
                         "tier_to_archive_after_days_since_last_tier_change_greater_than": {
+                          "description_kind": "plain",
+                          "optional": true,
+                          "type": "number"
+                        },
+                        "tier_to_cold_after_days_since_creation_greater_than": {
                           "description_kind": "plain",
                           "optional": true,
                           "type": "number"

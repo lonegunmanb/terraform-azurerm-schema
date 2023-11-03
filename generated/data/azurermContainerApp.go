@@ -81,6 +81,7 @@ const azurermContainerApp = `{
                   }
                 ]
               ],
+              "exposed_port": "number",
               "external_enabled": "bool",
               "fqdn": "string",
               "target_port": "number",

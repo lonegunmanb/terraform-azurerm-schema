@@ -53,7 +53,7 @@ const azurermSpringCloudAccelerator = `{
     },
     "description_kind": "plain"
   },
-  "version": 0
+  "version": 1
 }`
 
 func AzurermSpringCloudAcceleratorSchema() *tfjson.Schema {

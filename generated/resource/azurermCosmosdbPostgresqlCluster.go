@@ -11,7 +11,7 @@ const azurermCosmosdbPostgresqlCluster = `{
     "attributes": {
       "administrator_login_password": {
         "description_kind": "plain",
-        "required": true,
+        "optional": true,
         "sensitive": true,
         "type": "string"
       },
