@@ -67,13 +67,23 @@ const azurermApiManagementLogger = `{
           "attributes": {
             "connection_string": {
               "description_kind": "plain",
-              "required": true,
+              "optional": true,
               "sensitive": true,
+              "type": "string"
+            },
+            "endpoint_uri": {
+              "description_kind": "plain",
+              "optional": true,
               "type": "string"
             },
             "name": {
               "description_kind": "plain",
               "required": true,
+              "type": "string"
+            },
+            "user_assigned_identity_client_id": {
+              "description_kind": "plain",
+              "optional": true,
               "type": "string"
             }
           },

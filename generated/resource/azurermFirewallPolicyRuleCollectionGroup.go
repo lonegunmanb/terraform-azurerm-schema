@@ -128,6 +128,24 @@ const azurermFirewallPolicyRuleCollectionGroup = `{
                   }
                 },
                 "block_types": {
+                  "http_headers": {
+                    "block": {
+                      "attributes": {
+                        "name": {
+                          "description_kind": "plain",
+                          "required": true,
+                          "type": "string"
+                        },
+                        "value": {
+                          "description_kind": "plain",
+                          "required": true,
+                          "type": "string"
+                        }
+                      },
+                      "description_kind": "plain"
+                    },
+                    "nesting_mode": "list"
+                  },
                   "protocols": {
                     "block": {
                       "attributes": {

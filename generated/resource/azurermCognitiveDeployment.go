@@ -29,6 +29,11 @@ const azurermCognitiveDeployment = `{
         "description_kind": "plain",
         "optional": true,
         "type": "string"
+      },
+      "version_upgrade_option": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "string"
       }
     },
     "block_types": {
