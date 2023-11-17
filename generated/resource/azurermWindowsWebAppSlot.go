@@ -59,6 +59,11 @@ const azurermWindowsWebAppSlot = `{
         "optional": true,
         "type": "bool"
       },
+      "ftp_publish_basic_authentication_enabled": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "bool"
+      },
       "hosting_environment_id": {
         "computed": true,
         "description_kind": "plain",
@@ -154,6 +159,11 @@ const azurermWindowsWebAppSlot = `{
         "description_kind": "plain",
         "optional": true,
         "type": "string"
+      },
+      "webdeploy_publish_basic_authentication_enabled": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "bool"
       },
       "zip_deploy_file": {
         "computed": true,

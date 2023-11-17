@@ -73,6 +73,11 @@ const azurermWindowsFunctionAppSlot = `{
         "optional": true,
         "type": "bool"
       },
+      "ftp_publish_basic_authentication_enabled": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "bool"
+      },
       "function_app_id": {
         "description": "The ID of the Windows Function App this Slot is a member of.",
         "description_kind": "plain",
@@ -213,6 +218,11 @@ const azurermWindowsFunctionAppSlot = `{
         "description_kind": "plain",
         "optional": true,
         "type": "string"
+      },
+      "webdeploy_publish_basic_authentication_enabled": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "bool"
       }
     },
     "block_types": {

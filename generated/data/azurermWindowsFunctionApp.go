@@ -431,6 +431,11 @@ const azurermWindowsFunctionApp = `{
         "description_kind": "plain",
         "type": "bool"
       },
+      "ftp_publish_basic_authentication_enabled": {
+        "computed": true,
+        "description_kind": "plain",
+        "type": "bool"
+      },
       "functions_extension_version": {
         "computed": true,
         "description_kind": "plain",
@@ -752,6 +757,11 @@ const azurermWindowsFunctionApp = `{
         "computed": true,
         "description_kind": "plain",
         "type": "string"
+      },
+      "webdeploy_publish_basic_authentication_enabled": {
+        "computed": true,
+        "description_kind": "plain",
+        "type": "bool"
       }
     },
     "block_types": {

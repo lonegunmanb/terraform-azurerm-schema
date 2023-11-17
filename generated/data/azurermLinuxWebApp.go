@@ -434,6 +434,11 @@ const azurermLinuxWebApp = `{
         "description_kind": "plain",
         "type": "bool"
       },
+      "ftp_publish_basic_authentication_enabled": {
+        "computed": true,
+        "description_kind": "plain",
+        "type": "bool"
+      },
       "hosting_environment_id": {
         "computed": true,
         "description_kind": "plain",
@@ -878,6 +883,11 @@ const azurermLinuxWebApp = `{
         "computed": true,
         "description_kind": "plain",
         "type": "string"
+      },
+      "webdeploy_publish_basic_authentication_enabled": {
+        "computed": true,
+        "description_kind": "plain",
+        "type": "bool"
       }
     },
     "block_types": {

@@ -71,6 +71,11 @@ const azurermLinuxFunctionAppSlot = `{
         "optional": true,
         "type": "bool"
       },
+      "ftp_publish_basic_authentication_enabled": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "bool"
+      },
       "function_app_id": {
         "description": "The ID of the Linux Function App this Slot is a member of.",
         "description_kind": "plain",
@@ -206,6 +211,11 @@ const azurermLinuxFunctionAppSlot = `{
         "description_kind": "plain",
         "optional": true,
         "type": "string"
+      },
+      "webdeploy_publish_basic_authentication_enabled": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "bool"
       }
     },
     "block_types": {

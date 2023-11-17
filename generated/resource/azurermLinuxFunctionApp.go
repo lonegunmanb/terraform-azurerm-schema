@@ -71,6 +71,11 @@ const azurermLinuxFunctionApp = `{
         "optional": true,
         "type": "bool"
       },
+      "ftp_publish_basic_authentication_enabled": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "bool"
+      },
       "functions_extension_version": {
         "description": "The runtime version associated with the Function App.",
         "description_kind": "plain",
@@ -211,6 +216,11 @@ const azurermLinuxFunctionApp = `{
         "description_kind": "plain",
         "optional": true,
         "type": "string"
+      },
+      "webdeploy_publish_basic_authentication_enabled": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "bool"
       },
       "zip_deploy_file": {
         "computed": true,
