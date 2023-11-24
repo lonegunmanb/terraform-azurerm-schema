@@ -1,4 +1,4 @@
-package resource
+package data
 
 import (
 	"encoding/json"
@@ -6,7 +6,7 @@ import (
 	tfjson "github.com/hashicorp/terraform-json"
 )
 
-const azurermMarketplaceAgreement = `{
+const azurermMonitorWorkspace = `{
   "block": {
     "attributes": {
       "id": {
@@ -15,46 +15,44 @@ const azurermMarketplaceAgreement = `{
         "optional": true,
         "type": "string"
       },
-      "license_text_link": {
+      "location": {
         "computed": true,
         "description_kind": "plain",
         "type": "string"
       },
-      "offer": {
+      "name": {
         "description_kind": "plain",
         "required": true,
         "type": "string"
       },
-      "plan": {
+      "public_network_access_enabled": {
+        "computed": true,
         "description_kind": "plain",
-        "required": true,
-        "type": "string"
+        "type": "bool"
       },
-      "privacy_policy_link": {
+      "query_endpoint": {
         "computed": true,
         "description_kind": "plain",
         "type": "string"
       },
-      "publisher": {
+      "resource_group_name": {
         "description_kind": "plain",
         "required": true,
         "type": "string"
+      },
+      "tags": {
+        "computed": true,
+        "description_kind": "plain",
+        "type": [
+          "map",
+          "string"
+        ]
       }
     },
     "block_types": {
       "timeouts": {
         "block": {
           "attributes": {
-            "create": {
-              "description_kind": "plain",
-              "optional": true,
-              "type": "string"
-            },
-            "delete": {
-              "description_kind": "plain",
-              "optional": true,
-              "type": "string"
-            },
             "read": {
               "description_kind": "plain",
               "optional": true,
@@ -71,8 +69,8 @@ const azurermMarketplaceAgreement = `{
   "version": 0
 }`
 
-func AzurermMarketplaceAgreementSchema() *tfjson.Schema {
+func AzurermMonitorWorkspaceSchema() *tfjson.Schema {
 	var result tfjson.Schema
-	_ = json.Unmarshal([]byte(azurermMarketplaceAgreement), &result)
+	_ = json.Unmarshal([]byte(azurermMonitorWorkspace), &result)
 	return &result
 }

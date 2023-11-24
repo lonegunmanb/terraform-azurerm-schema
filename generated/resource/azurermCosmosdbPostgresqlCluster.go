@@ -33,12 +33,12 @@ const azurermCosmosdbPostgresqlCluster = `{
       },
       "coordinator_storage_quota_in_mb": {
         "description_kind": "plain",
-        "required": true,
+        "optional": true,
         "type": "number"
       },
       "coordinator_vcore_count": {
         "description_kind": "plain",
-        "required": true,
+        "optional": true,
         "type": "number"
       },
       "earliest_restore_time": {

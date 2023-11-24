@@ -9,6 +9,11 @@ import (
 const azurermGalleryApplicationVersion = `{
   "block": {
     "attributes": {
+      "config_file": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "string"
+      },
       "enable_health_check": {
         "description_kind": "plain",
         "optional": true,
@@ -43,6 +48,11 @@ const azurermGalleryApplicationVersion = `{
       "name": {
         "description_kind": "plain",
         "required": true,
+        "type": "string"
+      },
+      "package_file": {
+        "description_kind": "plain",
+        "optional": true,
         "type": "string"
       },
       "tags": {
@@ -103,6 +113,11 @@ const azurermGalleryApplicationVersion = `{
       "target_region": {
         "block": {
           "attributes": {
+            "exclude_from_latest": {
+              "description_kind": "plain",
+              "optional": true,
+              "type": "bool"
+            },
             "name": {
               "description_kind": "plain",
               "required": true,

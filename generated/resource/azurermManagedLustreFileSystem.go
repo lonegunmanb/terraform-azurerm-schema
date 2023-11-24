@@ -20,6 +20,11 @@ const azurermManagedLustreFileSystem = `{
         "required": true,
         "type": "string"
       },
+      "mgs_address": {
+        "computed": true,
+        "description_kind": "plain",
+        "type": "string"
+      },
       "name": {
         "description_kind": "plain",
         "required": true,

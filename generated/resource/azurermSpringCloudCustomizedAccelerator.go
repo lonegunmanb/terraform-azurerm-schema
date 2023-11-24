@@ -17,6 +17,11 @@ const azurermSpringCloudCustomizedAccelerator = `{
           "string"
         ]
       },
+      "accelerator_type": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "string"
+      },
       "description": {
         "description_kind": "plain",
         "optional": true,
@@ -77,6 +82,11 @@ const azurermSpringCloudCustomizedAccelerator = `{
               "description_kind": "plain",
               "optional": true,
               "type": "number"
+            },
+            "path": {
+              "description_kind": "plain",
+              "optional": true,
+              "type": "string"
             },
             "url": {
               "description_kind": "plain",

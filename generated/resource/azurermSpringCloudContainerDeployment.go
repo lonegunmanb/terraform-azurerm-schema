@@ -15,6 +15,14 @@ const azurermSpringCloudContainerDeployment = `{
         "optional": true,
         "type": "string"
       },
+      "application_performance_monitoring_ids": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": [
+          "list",
+          "string"
+        ]
+      },
       "arguments": {
         "description_kind": "plain",
         "optional": true,

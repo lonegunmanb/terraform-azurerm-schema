@@ -6,39 +6,37 @@ import (
 	tfjson "github.com/hashicorp/terraform-json"
 )
 
-const azurermMarketplaceAgreement = `{
+const azurermApplicationLoadBalancerSubnetAssociation = `{
   "block": {
     "attributes": {
+      "application_load_balancer_id": {
+        "description_kind": "plain",
+        "required": true,
+        "type": "string"
+      },
       "id": {
         "computed": true,
         "description_kind": "plain",
         "optional": true,
         "type": "string"
       },
-      "license_text_link": {
-        "computed": true,
-        "description_kind": "plain",
-        "type": "string"
-      },
-      "offer": {
+      "name": {
         "description_kind": "plain",
         "required": true,
         "type": "string"
       },
-      "plan": {
+      "subnet_id": {
         "description_kind": "plain",
         "required": true,
         "type": "string"
       },
-      "privacy_policy_link": {
-        "computed": true,
+      "tags": {
         "description_kind": "plain",
-        "type": "string"
-      },
-      "publisher": {
-        "description_kind": "plain",
-        "required": true,
-        "type": "string"
+        "optional": true,
+        "type": [
+          "map",
+          "string"
+        ]
       }
     },
     "block_types": {
@@ -59,6 +57,11 @@ const azurermMarketplaceAgreement = `{
               "description_kind": "plain",
               "optional": true,
               "type": "string"
+            },
+            "update": {
+              "description_kind": "plain",
+              "optional": true,
+              "type": "string"
             }
           },
           "description_kind": "plain"
@@ -71,8 +74,8 @@ const azurermMarketplaceAgreement = `{
   "version": 0
 }`
 
-func AzurermMarketplaceAgreementSchema() *tfjson.Schema {
+func AzurermApplicationLoadBalancerSubnetAssociationSchema() *tfjson.Schema {
 	var result tfjson.Schema
-	_ = json.Unmarshal([]byte(azurermMarketplaceAgreement), &result)
+	_ = json.Unmarshal([]byte(azurermApplicationLoadBalancerSubnetAssociation), &result)
 	return &result
 }

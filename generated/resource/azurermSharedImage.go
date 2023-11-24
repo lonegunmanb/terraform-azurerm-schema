@@ -135,6 +135,11 @@ const azurermSharedImage = `{
         "description_kind": "plain",
         "optional": true,
         "type": "bool"
+      },
+      "trusted_launch_supported": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "bool"
       }
     },
     "block_types": {

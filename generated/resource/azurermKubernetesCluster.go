@@ -520,6 +520,11 @@ const azurermKubernetesCluster = `{
               "optional": true,
               "type": "bool"
             },
+            "gpu_instance": {
+              "description_kind": "plain",
+              "optional": true,
+              "type": "string"
+            },
             "host_group_id": {
               "description_kind": "plain",
               "optional": true,
