@@ -191,7 +191,6 @@ const azurermDataFactoryFlowletDataFlow = `{
           },
           "description_kind": "plain"
         },
-        "min_items": 1,
         "nesting_mode": "list"
       },
       "source": {
@@ -327,7 +326,6 @@ const azurermDataFactoryFlowletDataFlow = `{
           },
           "description_kind": "plain"
         },
-        "min_items": 1,
         "nesting_mode": "list"
       },
       "timeouts": {

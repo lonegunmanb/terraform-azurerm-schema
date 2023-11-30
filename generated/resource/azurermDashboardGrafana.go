@@ -29,6 +29,11 @@ const azurermDashboardGrafana = `{
         "description_kind": "plain",
         "type": "string"
       },
+      "grafana_major_version": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "string"
+      },
       "grafana_version": {
         "computed": true,
         "description_kind": "plain",

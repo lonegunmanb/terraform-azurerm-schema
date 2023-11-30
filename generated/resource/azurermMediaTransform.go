@@ -1063,6 +1063,7 @@ const azurermMediaTransform = `{
                     "type": "string"
                   }
                 },
+                "deprecated": true,
                 "description_kind": "plain"
               },
               "max_items": 1,
@@ -1095,6 +1096,7 @@ const azurermMediaTransform = `{
                     "type": "string"
                   }
                 },
+                "deprecated": true,
                 "description_kind": "plain"
               },
               "max_items": 1,

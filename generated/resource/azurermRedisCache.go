@@ -217,6 +217,11 @@ const azurermRedisCache = `{
       "redis_configuration": {
         "block": {
           "attributes": {
+            "active_directory_authentication_enabled": {
+              "description_kind": "plain",
+              "optional": true,
+              "type": "bool"
+            },
             "aof_backup_enabled": {
               "description_kind": "plain",
               "optional": true,

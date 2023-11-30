@@ -1337,6 +1337,7 @@ func init() {
 	dataSources["azurerm_sql_managed_instance"] = data.AzurermSqlManagedInstanceSchema()  
 	dataSources["azurerm_sql_server"] = data.AzurermSqlServerSchema()  
 	dataSources["azurerm_ssh_public_key"] = data.AzurermSshPublicKeySchema()  
+	dataSources["azurerm_stack_hci_cluster"] = data.AzurermStackHciClusterSchema()  
 	dataSources["azurerm_storage_account"] = data.AzurermStorageAccountSchema()  
 	dataSources["azurerm_storage_account_blob_container_sas"] = data.AzurermStorageAccountBlobContainerSasSchema()  
 	dataSources["azurerm_storage_account_sas"] = data.AzurermStorageAccountSasSchema()  
