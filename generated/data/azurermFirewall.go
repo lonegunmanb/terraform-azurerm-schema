@@ -9,6 +9,12 @@ import (
 const azurermFirewall = `{
   "block": {
     "attributes": {
+      "dns_proxy_enabled": {
+        "computed": true,
+        "description_kind": "plain",
+        "optional": true,
+        "type": "bool"
+      },
       "dns_servers": {
         "computed": true,
         "description_kind": "plain",

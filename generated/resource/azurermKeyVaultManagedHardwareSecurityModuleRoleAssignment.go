@@ -6,7 +6,7 @@ import (
 	tfjson "github.com/hashicorp/terraform-json"
 )
 
-const azurermSynapseRoleAssignment = `{
+const azurermKeyVaultManagedHardwareSecurityModuleRoleAssignment = `{
   "block": {
     "attributes": {
       "id": {
@@ -15,29 +15,34 @@ const azurermSynapseRoleAssignment = `{
         "optional": true,
         "type": "string"
       },
+      "name": {
+        "description_kind": "plain",
+        "required": true,
+        "type": "string"
+      },
       "principal_id": {
         "description_kind": "plain",
         "required": true,
         "type": "string"
       },
-      "principal_type": {
+      "resource_id": {
+        "computed": true,
         "description_kind": "plain",
-        "optional": true,
         "type": "string"
       },
-      "role_name": {
+      "role_definition_id": {
         "description_kind": "plain",
         "required": true,
         "type": "string"
       },
-      "synapse_spark_pool_id": {
+      "scope": {
         "description_kind": "plain",
-        "optional": true,
+        "required": true,
         "type": "string"
       },
-      "synapse_workspace_id": {
+      "vault_base_url": {
         "description_kind": "plain",
-        "optional": true,
+        "required": true,
         "type": "string"
       }
     },
@@ -68,11 +73,11 @@ const azurermSynapseRoleAssignment = `{
     },
     "description_kind": "plain"
   },
-  "version": 1
+  "version": 0
 }`
 
-func AzurermSynapseRoleAssignmentSchema() *tfjson.Schema {
+func AzurermKeyVaultManagedHardwareSecurityModuleRoleAssignmentSchema() *tfjson.Schema {
 	var result tfjson.Schema
-	_ = json.Unmarshal([]byte(azurermSynapseRoleAssignment), &result)
+	_ = json.Unmarshal([]byte(azurermKeyVaultManagedHardwareSecurityModuleRoleAssignment), &result)
 	return &result
 }

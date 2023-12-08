@@ -15,6 +15,14 @@ const azurermSpringCloudBuildDeployment = `{
         "optional": true,
         "type": "string"
       },
+      "application_performance_monitoring_ids": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": [
+          "list",
+          "string"
+        ]
+      },
       "build_result_id": {
         "description_kind": "plain",
         "required": true,

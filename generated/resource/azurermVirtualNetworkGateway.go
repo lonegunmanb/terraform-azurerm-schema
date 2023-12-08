@@ -15,10 +15,20 @@ const azurermVirtualNetworkGateway = `{
         "optional": true,
         "type": "bool"
       },
+      "bgp_route_translation_for_nat_enabled": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "bool"
+      },
       "default_local_network_gateway_id": {
         "description_kind": "plain",
         "optional": true,
         "type": "string"
+      },
+      "dns_forwarding_enabled": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "bool"
       },
       "edge_zone": {
         "description_kind": "plain",
@@ -43,6 +53,11 @@ const azurermVirtualNetworkGateway = `{
         "optional": true,
         "type": "string"
       },
+      "ip_sec_replay_protection_enabled": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "bool"
+      },
       "location": {
         "description_kind": "plain",
         "required": true,
@@ -54,6 +69,11 @@ const azurermVirtualNetworkGateway = `{
         "type": "string"
       },
       "private_ip_address_enabled": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "bool"
+      },
+      "remote_vnet_traffic_enabled": {
         "description_kind": "plain",
         "optional": true,
         "type": "bool"
@@ -80,6 +100,11 @@ const azurermVirtualNetworkGateway = `{
         "description_kind": "plain",
         "required": true,
         "type": "string"
+      },
+      "virtual_wan_traffic_enabled": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "bool"
       },
       "vpn_type": {
         "description_kind": "plain",
@@ -195,6 +220,55 @@ const azurermVirtualNetworkGateway = `{
         "min_items": 1,
         "nesting_mode": "list"
       },
+      "policy_group": {
+        "block": {
+          "attributes": {
+            "is_default": {
+              "description_kind": "plain",
+              "optional": true,
+              "type": "bool"
+            },
+            "name": {
+              "description_kind": "plain",
+              "required": true,
+              "type": "string"
+            },
+            "priority": {
+              "description_kind": "plain",
+              "optional": true,
+              "type": "number"
+            }
+          },
+          "block_types": {
+            "policy_member": {
+              "block": {
+                "attributes": {
+                  "name": {
+                    "description_kind": "plain",
+                    "required": true,
+                    "type": "string"
+                  },
+                  "type": {
+                    "description_kind": "plain",
+                    "required": true,
+                    "type": "string"
+                  },
+                  "value": {
+                    "description_kind": "plain",
+                    "required": true,
+                    "type": "string"
+                  }
+                },
+                "description_kind": "plain"
+              },
+              "min_items": 1,
+              "nesting_mode": "list"
+            }
+          },
+          "description_kind": "plain"
+        },
+        "nesting_mode": "list"
+      },
       "timeouts": {
         "block": {
           "attributes": {
@@ -279,6 +353,79 @@ const azurermVirtualNetworkGateway = `{
             }
           },
           "block_types": {
+            "ipsec_policy": {
+              "block": {
+                "attributes": {
+                  "dh_group": {
+                    "description_kind": "plain",
+                    "required": true,
+                    "type": "string"
+                  },
+                  "ike_encryption": {
+                    "description_kind": "plain",
+                    "required": true,
+                    "type": "string"
+                  },
+                  "ike_integrity": {
+                    "description_kind": "plain",
+                    "required": true,
+                    "type": "string"
+                  },
+                  "ipsec_encryption": {
+                    "description_kind": "plain",
+                    "required": true,
+                    "type": "string"
+                  },
+                  "ipsec_integrity": {
+                    "description_kind": "plain",
+                    "required": true,
+                    "type": "string"
+                  },
+                  "pfs_group": {
+                    "description_kind": "plain",
+                    "required": true,
+                    "type": "string"
+                  },
+                  "sa_data_size_in_kilobytes": {
+                    "description_kind": "plain",
+                    "required": true,
+                    "type": "number"
+                  },
+                  "sa_lifetime_in_seconds": {
+                    "description_kind": "plain",
+                    "required": true,
+                    "type": "number"
+                  }
+                },
+                "description_kind": "plain"
+              },
+              "max_items": 1,
+              "nesting_mode": "list"
+            },
+            "radius_server": {
+              "block": {
+                "attributes": {
+                  "address": {
+                    "description_kind": "plain",
+                    "required": true,
+                    "type": "string"
+                  },
+                  "score": {
+                    "description_kind": "plain",
+                    "required": true,
+                    "type": "number"
+                  },
+                  "secret": {
+                    "description_kind": "plain",
+                    "required": true,
+                    "sensitive": true,
+                    "type": "string"
+                  }
+                },
+                "description_kind": "plain"
+              },
+              "nesting_mode": "list"
+            },
             "revoked_certificate": {
               "block": {
                 "attributes": {
@@ -314,6 +461,35 @@ const azurermVirtualNetworkGateway = `{
                 "description_kind": "plain"
               },
               "nesting_mode": "set"
+            },
+            "virtual_network_gateway_client_connection": {
+              "block": {
+                "attributes": {
+                  "address_prefixes": {
+                    "description_kind": "plain",
+                    "required": true,
+                    "type": [
+                      "list",
+                      "string"
+                    ]
+                  },
+                  "name": {
+                    "description_kind": "plain",
+                    "required": true,
+                    "type": "string"
+                  },
+                  "policy_group_names": {
+                    "description_kind": "plain",
+                    "required": true,
+                    "type": [
+                      "list",
+                      "string"
+                    ]
+                  }
+                },
+                "description_kind": "plain"
+              },
+              "nesting_mode": "list"
             }
           },
           "description_kind": "plain"

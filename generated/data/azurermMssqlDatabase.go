@@ -19,6 +19,11 @@ const azurermMssqlDatabase = `{
         "description_kind": "plain",
         "type": "string"
       },
+      "enclave_type": {
+        "computed": true,
+        "description_kind": "plain",
+        "type": "string"
+      },
       "id": {
         "computed": true,
         "description_kind": "plain",

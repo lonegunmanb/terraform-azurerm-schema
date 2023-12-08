@@ -6,40 +6,10 @@ import (
 	tfjson "github.com/hashicorp/terraform-json"
 )
 
-const azurermCosmosdbCassandraDatacenter = `{
+const azurermKeyVaultManagedHardwareSecurityModuleRoleDefinition = `{
   "block": {
     "attributes": {
-      "availability_zones_enabled": {
-        "description_kind": "plain",
-        "optional": true,
-        "type": "bool"
-      },
-      "backup_storage_customer_key_uri": {
-        "description_kind": "plain",
-        "optional": true,
-        "type": "string"
-      },
-      "base64_encoded_yaml_fragment": {
-        "description_kind": "plain",
-        "optional": true,
-        "type": "string"
-      },
-      "cassandra_cluster_id": {
-        "description_kind": "plain",
-        "required": true,
-        "type": "string"
-      },
-      "delegated_management_subnet_id": {
-        "description_kind": "plain",
-        "required": true,
-        "type": "string"
-      },
-      "disk_count": {
-        "description_kind": "plain",
-        "optional": true,
-        "type": "number"
-      },
-      "disk_sku": {
+      "description": {
         "description_kind": "plain",
         "optional": true,
         "type": "string"
@@ -50,42 +20,73 @@ const azurermCosmosdbCassandraDatacenter = `{
         "optional": true,
         "type": "string"
       },
-      "location": {
-        "description_kind": "plain",
-        "required": true,
-        "type": "string"
-      },
-      "managed_disk_customer_key_uri": {
-        "description_kind": "plain",
-        "optional": true,
-        "type": "string"
-      },
       "name": {
         "description_kind": "plain",
         "required": true,
         "type": "string"
       },
-      "node_count": {
-        "description_kind": "plain",
-        "optional": true,
-        "type": "number"
-      },
-      "seed_node_ip_addresses": {
+      "resource_manager_id": {
         "computed": true,
         "description_kind": "plain",
-        "type": [
-          "list",
-          "string"
-        ]
+        "type": "string"
       },
-      "sku_name": {
-        "computed": true,
+      "role_name": {
         "description_kind": "plain",
         "optional": true,
+        "type": "string"
+      },
+      "role_type": {
+        "computed": true,
+        "description_kind": "plain",
+        "type": "string"
+      },
+      "vault_base_url": {
+        "description_kind": "plain",
+        "required": true,
         "type": "string"
       }
     },
     "block_types": {
+      "permission": {
+        "block": {
+          "attributes": {
+            "actions": {
+              "description_kind": "plain",
+              "optional": true,
+              "type": [
+                "list",
+                "string"
+              ]
+            },
+            "data_actions": {
+              "description_kind": "plain",
+              "optional": true,
+              "type": [
+                "set",
+                "string"
+              ]
+            },
+            "not_actions": {
+              "description_kind": "plain",
+              "optional": true,
+              "type": [
+                "list",
+                "string"
+              ]
+            },
+            "not_data_actions": {
+              "description_kind": "plain",
+              "optional": true,
+              "type": [
+                "set",
+                "string"
+              ]
+            }
+          },
+          "description_kind": "plain"
+        },
+        "nesting_mode": "list"
+      },
       "timeouts": {
         "block": {
           "attributes": {
@@ -120,8 +121,8 @@ const azurermCosmosdbCassandraDatacenter = `{
   "version": 0
 }`
 
-func AzurermCosmosdbCassandraDatacenterSchema() *tfjson.Schema {
+func AzurermKeyVaultManagedHardwareSecurityModuleRoleDefinitionSchema() *tfjson.Schema {
 	var result tfjson.Schema
-	_ = json.Unmarshal([]byte(azurermCosmosdbCassandraDatacenter), &result)
+	_ = json.Unmarshal([]byte(azurermKeyVaultManagedHardwareSecurityModuleRoleDefinition), &result)
 	return &result
 }

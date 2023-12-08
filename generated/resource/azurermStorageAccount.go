@@ -124,6 +124,26 @@ const azurermStorageAccount = `{
         "description_kind": "plain",
         "type": "string"
       },
+      "primary_blob_internet_endpoint": {
+        "computed": true,
+        "description_kind": "plain",
+        "type": "string"
+      },
+      "primary_blob_internet_host": {
+        "computed": true,
+        "description_kind": "plain",
+        "type": "string"
+      },
+      "primary_blob_microsoft_endpoint": {
+        "computed": true,
+        "description_kind": "plain",
+        "type": "string"
+      },
+      "primary_blob_microsoft_host": {
+        "computed": true,
+        "description_kind": "plain",
+        "type": "string"
+      },
       "primary_connection_string": {
         "computed": true,
         "description_kind": "plain",
@@ -140,12 +160,52 @@ const azurermStorageAccount = `{
         "description_kind": "plain",
         "type": "string"
       },
+      "primary_dfs_internet_endpoint": {
+        "computed": true,
+        "description_kind": "plain",
+        "type": "string"
+      },
+      "primary_dfs_internet_host": {
+        "computed": true,
+        "description_kind": "plain",
+        "type": "string"
+      },
+      "primary_dfs_microsoft_endpoint": {
+        "computed": true,
+        "description_kind": "plain",
+        "type": "string"
+      },
+      "primary_dfs_microsoft_host": {
+        "computed": true,
+        "description_kind": "plain",
+        "type": "string"
+      },
       "primary_file_endpoint": {
         "computed": true,
         "description_kind": "plain",
         "type": "string"
       },
       "primary_file_host": {
+        "computed": true,
+        "description_kind": "plain",
+        "type": "string"
+      },
+      "primary_file_internet_endpoint": {
+        "computed": true,
+        "description_kind": "plain",
+        "type": "string"
+      },
+      "primary_file_internet_host": {
+        "computed": true,
+        "description_kind": "plain",
+        "type": "string"
+      },
+      "primary_file_microsoft_endpoint": {
+        "computed": true,
+        "description_kind": "plain",
+        "type": "string"
+      },
+      "primary_file_microsoft_host": {
         "computed": true,
         "description_kind": "plain",
         "type": "string"
@@ -165,6 +225,16 @@ const azurermStorageAccount = `{
         "description_kind": "plain",
         "type": "string"
       },
+      "primary_queue_microsoft_endpoint": {
+        "computed": true,
+        "description_kind": "plain",
+        "type": "string"
+      },
+      "primary_queue_microsoft_host": {
+        "computed": true,
+        "description_kind": "plain",
+        "type": "string"
+      },
       "primary_table_endpoint": {
         "computed": true,
         "description_kind": "plain",
@@ -175,12 +245,42 @@ const azurermStorageAccount = `{
         "description_kind": "plain",
         "type": "string"
       },
+      "primary_table_microsoft_endpoint": {
+        "computed": true,
+        "description_kind": "plain",
+        "type": "string"
+      },
+      "primary_table_microsoft_host": {
+        "computed": true,
+        "description_kind": "plain",
+        "type": "string"
+      },
       "primary_web_endpoint": {
         "computed": true,
         "description_kind": "plain",
         "type": "string"
       },
       "primary_web_host": {
+        "computed": true,
+        "description_kind": "plain",
+        "type": "string"
+      },
+      "primary_web_internet_endpoint": {
+        "computed": true,
+        "description_kind": "plain",
+        "type": "string"
+      },
+      "primary_web_internet_host": {
+        "computed": true,
+        "description_kind": "plain",
+        "type": "string"
+      },
+      "primary_web_microsoft_endpoint": {
+        "computed": true,
+        "description_kind": "plain",
+        "type": "string"
+      },
+      "primary_web_microsoft_host": {
         "computed": true,
         "description_kind": "plain",
         "type": "string"
@@ -222,6 +322,26 @@ const azurermStorageAccount = `{
         "description_kind": "plain",
         "type": "string"
       },
+      "secondary_blob_internet_endpoint": {
+        "computed": true,
+        "description_kind": "plain",
+        "type": "string"
+      },
+      "secondary_blob_internet_host": {
+        "computed": true,
+        "description_kind": "plain",
+        "type": "string"
+      },
+      "secondary_blob_microsoft_endpoint": {
+        "computed": true,
+        "description_kind": "plain",
+        "type": "string"
+      },
+      "secondary_blob_microsoft_host": {
+        "computed": true,
+        "description_kind": "plain",
+        "type": "string"
+      },
       "secondary_connection_string": {
         "computed": true,
         "description_kind": "plain",
@@ -238,12 +358,52 @@ const azurermStorageAccount = `{
         "description_kind": "plain",
         "type": "string"
       },
+      "secondary_dfs_internet_endpoint": {
+        "computed": true,
+        "description_kind": "plain",
+        "type": "string"
+      },
+      "secondary_dfs_internet_host": {
+        "computed": true,
+        "description_kind": "plain",
+        "type": "string"
+      },
+      "secondary_dfs_microsoft_endpoint": {
+        "computed": true,
+        "description_kind": "plain",
+        "type": "string"
+      },
+      "secondary_dfs_microsoft_host": {
+        "computed": true,
+        "description_kind": "plain",
+        "type": "string"
+      },
       "secondary_file_endpoint": {
         "computed": true,
         "description_kind": "plain",
         "type": "string"
       },
       "secondary_file_host": {
+        "computed": true,
+        "description_kind": "plain",
+        "type": "string"
+      },
+      "secondary_file_internet_endpoint": {
+        "computed": true,
+        "description_kind": "plain",
+        "type": "string"
+      },
+      "secondary_file_internet_host": {
+        "computed": true,
+        "description_kind": "plain",
+        "type": "string"
+      },
+      "secondary_file_microsoft_endpoint": {
+        "computed": true,
+        "description_kind": "plain",
+        "type": "string"
+      },
+      "secondary_file_microsoft_host": {
         "computed": true,
         "description_kind": "plain",
         "type": "string"
@@ -263,6 +423,16 @@ const azurermStorageAccount = `{
         "description_kind": "plain",
         "type": "string"
       },
+      "secondary_queue_microsoft_endpoint": {
+        "computed": true,
+        "description_kind": "plain",
+        "type": "string"
+      },
+      "secondary_queue_microsoft_host": {
+        "computed": true,
+        "description_kind": "plain",
+        "type": "string"
+      },
       "secondary_table_endpoint": {
         "computed": true,
         "description_kind": "plain",
@@ -273,12 +443,42 @@ const azurermStorageAccount = `{
         "description_kind": "plain",
         "type": "string"
       },
+      "secondary_table_microsoft_endpoint": {
+        "computed": true,
+        "description_kind": "plain",
+        "type": "string"
+      },
+      "secondary_table_microsoft_host": {
+        "computed": true,
+        "description_kind": "plain",
+        "type": "string"
+      },
       "secondary_web_endpoint": {
         "computed": true,
         "description_kind": "plain",
         "type": "string"
       },
       "secondary_web_host": {
+        "computed": true,
+        "description_kind": "plain",
+        "type": "string"
+      },
+      "secondary_web_internet_endpoint": {
+        "computed": true,
+        "description_kind": "plain",
+        "type": "string"
+      },
+      "secondary_web_internet_host": {
+        "computed": true,
+        "description_kind": "plain",
+        "type": "string"
+      },
+      "secondary_web_microsoft_endpoint": {
+        "computed": true,
+        "description_kind": "plain",
+        "type": "string"
+      },
+      "secondary_web_microsoft_host": {
         "computed": true,
         "description_kind": "plain",
         "type": "string"

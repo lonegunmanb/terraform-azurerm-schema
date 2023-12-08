@@ -1,4 +1,4 @@
-package resource
+package data
 
 import (
 	"encoding/json"
@@ -6,10 +6,18 @@ import (
 	tfjson "github.com/hashicorp/terraform-json"
 )
 
-const azurermRedisLinkedServer = `{
+const azurermKeyVaultManagedHardwareSecurityModuleRoleDefinition = `{
   "block": {
     "attributes": {
-      "geo_replicated_primary_host_name": {
+      "assignable_scopes": {
+        "computed": true,
+        "description_kind": "plain",
+        "type": [
+          "list",
+          "string"
+        ]
+      },
+      "description": {
         "computed": true,
         "description_kind": "plain",
         "type": "string"
@@ -20,32 +28,55 @@ const azurermRedisLinkedServer = `{
         "optional": true,
         "type": "string"
       },
-      "linked_redis_cache_id": {
-        "description_kind": "plain",
-        "required": true,
-        "type": "string"
-      },
-      "linked_redis_cache_location": {
-        "description_kind": "plain",
-        "required": true,
-        "type": "string"
-      },
       "name": {
+        "description_kind": "plain",
+        "required": true,
+        "type": "string"
+      },
+      "permission": {
+        "computed": true,
+        "description_kind": "plain",
+        "type": [
+          "list",
+          [
+            "object",
+            {
+              "actions": [
+                "list",
+                "string"
+              ],
+              "data_actions": [
+                "list",
+                "string"
+              ],
+              "not_actions": [
+                "list",
+                "string"
+              ],
+              "not_data_actions": [
+                "list",
+                "string"
+              ]
+            }
+          ]
+        ]
+      },
+      "resource_manager_id": {
         "computed": true,
         "description_kind": "plain",
         "type": "string"
       },
-      "resource_group_name": {
+      "role_name": {
+        "computed": true,
         "description_kind": "plain",
-        "required": true,
         "type": "string"
       },
-      "server_role": {
+      "role_type": {
+        "computed": true,
         "description_kind": "plain",
-        "required": true,
         "type": "string"
       },
-      "target_redis_cache_name": {
+      "vault_base_url": {
         "description_kind": "plain",
         "required": true,
         "type": "string"
@@ -55,16 +86,6 @@ const azurermRedisLinkedServer = `{
       "timeouts": {
         "block": {
           "attributes": {
-            "create": {
-              "description_kind": "plain",
-              "optional": true,
-              "type": "string"
-            },
-            "delete": {
-              "description_kind": "plain",
-              "optional": true,
-              "type": "string"
-            },
             "read": {
               "description_kind": "plain",
               "optional": true,
@@ -78,11 +99,11 @@ const azurermRedisLinkedServer = `{
     },
     "description_kind": "plain"
   },
-  "version": 1
+  "version": 0
 }`
 
-func AzurermRedisLinkedServerSchema() *tfjson.Schema {
+func AzurermKeyVaultManagedHardwareSecurityModuleRoleDefinitionSchema() *tfjson.Schema {
 	var result tfjson.Schema
-	_ = json.Unmarshal([]byte(azurermRedisLinkedServer), &result)
+	_ = json.Unmarshal([]byte(azurermKeyVaultManagedHardwareSecurityModuleRoleDefinition), &result)
 	return &result
 }

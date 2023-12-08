@@ -37,6 +37,11 @@ const azurermMssqlDatabase = `{
         "optional": true,
         "type": "string"
       },
+      "enclave_type": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "string"
+      },
       "geo_backup_enabled": {
         "description_kind": "plain",
         "optional": true,

@@ -128,6 +128,34 @@ const azurermContainerAppEnvironment = `{
           "description_kind": "plain"
         },
         "nesting_mode": "single"
+      },
+      "workload_profile": {
+        "block": {
+          "attributes": {
+            "maximum_count": {
+              "description_kind": "plain",
+              "required": true,
+              "type": "number"
+            },
+            "minimum_count": {
+              "description_kind": "plain",
+              "required": true,
+              "type": "number"
+            },
+            "name": {
+              "description_kind": "plain",
+              "required": true,
+              "type": "string"
+            },
+            "workload_profile_type": {
+              "description_kind": "plain",
+              "required": true,
+              "type": "string"
+            }
+          },
+          "description_kind": "plain"
+        },
+        "nesting_mode": "set"
       }
     },
     "description_kind": "plain"

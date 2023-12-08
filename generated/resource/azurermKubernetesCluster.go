@@ -248,6 +248,11 @@ const azurermKubernetesCluster = `{
         "optional": true,
         "type": "string"
       },
+      "support_plan": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "string"
+      },
       "tags": {
         "description_kind": "plain",
         "optional": true,

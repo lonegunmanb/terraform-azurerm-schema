@@ -22,6 +22,15 @@ const azurermCosmosdbAccount = `{
           ]
         ]
       },
+      "connection_strings": {
+        "computed": true,
+        "description_kind": "plain",
+        "sensitive": true,
+        "type": [
+          "list",
+          "string"
+        ]
+      },
       "consistency_policy": {
         "computed": true,
         "description_kind": "plain",
@@ -119,7 +128,31 @@ const azurermCosmosdbAccount = `{
         "sensitive": true,
         "type": "string"
       },
+      "primary_mongodb_connection_string": {
+        "computed": true,
+        "description_kind": "plain",
+        "sensitive": true,
+        "type": "string"
+      },
       "primary_readonly_key": {
+        "computed": true,
+        "description_kind": "plain",
+        "sensitive": true,
+        "type": "string"
+      },
+      "primary_readonly_mongodb_connection_string": {
+        "computed": true,
+        "description_kind": "plain",
+        "sensitive": true,
+        "type": "string"
+      },
+      "primary_readonly_sql_connection_string": {
+        "computed": true,
+        "description_kind": "plain",
+        "sensitive": true,
+        "type": "string"
+      },
+      "primary_sql_connection_string": {
         "computed": true,
         "description_kind": "plain",
         "sensitive": true,
@@ -144,7 +177,31 @@ const azurermCosmosdbAccount = `{
         "sensitive": true,
         "type": "string"
       },
+      "secondary_mongodb_connection_string": {
+        "computed": true,
+        "description_kind": "plain",
+        "sensitive": true,
+        "type": "string"
+      },
       "secondary_readonly_key": {
+        "computed": true,
+        "description_kind": "plain",
+        "sensitive": true,
+        "type": "string"
+      },
+      "secondary_readonly_mongodb_connection_string": {
+        "computed": true,
+        "description_kind": "plain",
+        "sensitive": true,
+        "type": "string"
+      },
+      "secondary_readonly_sql_connection_string": {
+        "computed": true,
+        "description_kind": "plain",
+        "sensitive": true,
+        "type": "string"
+      },
+      "secondary_sql_connection_string": {
         "computed": true,
         "description_kind": "plain",
         "sensitive": true,

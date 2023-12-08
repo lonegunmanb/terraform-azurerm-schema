@@ -6,43 +6,18 @@ import (
 	tfjson "github.com/hashicorp/terraform-json"
 )
 
-const azurermCosmosdbCassandraDatacenter = `{
+const azurermElasticSan = `{
   "block": {
     "attributes": {
-      "availability_zones_enabled": {
-        "description_kind": "plain",
-        "optional": true,
-        "type": "bool"
-      },
-      "backup_storage_customer_key_uri": {
-        "description_kind": "plain",
-        "optional": true,
-        "type": "string"
-      },
-      "base64_encoded_yaml_fragment": {
-        "description_kind": "plain",
-        "optional": true,
-        "type": "string"
-      },
-      "cassandra_cluster_id": {
+      "base_size_in_tib": {
         "description_kind": "plain",
         "required": true,
-        "type": "string"
+        "type": "number"
       },
-      "delegated_management_subnet_id": {
-        "description_kind": "plain",
-        "required": true,
-        "type": "string"
-      },
-      "disk_count": {
+      "extended_size_in_tib": {
         "description_kind": "plain",
         "optional": true,
         "type": "number"
-      },
-      "disk_sku": {
-        "description_kind": "plain",
-        "optional": true,
-        "type": "string"
       },
       "id": {
         "computed": true,
@@ -55,37 +30,79 @@ const azurermCosmosdbCassandraDatacenter = `{
         "required": true,
         "type": "string"
       },
-      "managed_disk_customer_key_uri": {
-        "description_kind": "plain",
-        "optional": true,
-        "type": "string"
-      },
       "name": {
         "description_kind": "plain",
         "required": true,
         "type": "string"
       },
-      "node_count": {
+      "resource_group_name": {
+        "description_kind": "plain",
+        "required": true,
+        "type": "string"
+      },
+      "tags": {
         "description_kind": "plain",
         "optional": true,
-        "type": "number"
-      },
-      "seed_node_ip_addresses": {
-        "computed": true,
-        "description_kind": "plain",
         "type": [
-          "list",
+          "map",
           "string"
         ]
       },
-      "sku_name": {
+      "total_iops": {
         "computed": true,
         "description_kind": "plain",
+        "type": "number"
+      },
+      "total_mbps": {
+        "computed": true,
+        "description_kind": "plain",
+        "type": "number"
+      },
+      "total_size_in_tib": {
+        "computed": true,
+        "description_kind": "plain",
+        "type": "number"
+      },
+      "total_volume_size_in_gib": {
+        "computed": true,
+        "description_kind": "plain",
+        "type": "number"
+      },
+      "volume_group_count": {
+        "computed": true,
+        "description_kind": "plain",
+        "type": "number"
+      },
+      "zones": {
+        "description_kind": "plain",
         "optional": true,
-        "type": "string"
+        "type": [
+          "set",
+          "string"
+        ]
       }
     },
     "block_types": {
+      "sku": {
+        "block": {
+          "attributes": {
+            "name": {
+              "description_kind": "plain",
+              "required": true,
+              "type": "string"
+            },
+            "tier": {
+              "description_kind": "plain",
+              "optional": true,
+              "type": "string"
+            }
+          },
+          "description_kind": "plain"
+        },
+        "max_items": 1,
+        "min_items": 1,
+        "nesting_mode": "list"
+      },
       "timeouts": {
         "block": {
           "attributes": {
@@ -120,8 +137,8 @@ const azurermCosmosdbCassandraDatacenter = `{
   "version": 0
 }`
 
-func AzurermCosmosdbCassandraDatacenterSchema() *tfjson.Schema {
+func AzurermElasticSanSchema() *tfjson.Schema {
 	var result tfjson.Schema
-	_ = json.Unmarshal([]byte(azurermCosmosdbCassandraDatacenter), &result)
+	_ = json.Unmarshal([]byte(azurermElasticSan), &result)
 	return &result
 }

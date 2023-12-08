@@ -9,6 +9,11 @@ import (
 const azurermMssqlElasticpool = `{
   "block": {
     "attributes": {
+      "enclave_type": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "string"
+      },
       "id": {
         "computed": true,
         "description_kind": "plain",
