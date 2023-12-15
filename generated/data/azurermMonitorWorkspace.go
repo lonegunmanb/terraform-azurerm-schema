@@ -9,6 +9,16 @@ import (
 const azurermMonitorWorkspace = `{
   "block": {
     "attributes": {
+      "default_data_collection_endpoint_id": {
+        "computed": true,
+        "description_kind": "plain",
+        "type": "string"
+      },
+      "default_data_collection_rule_id": {
+        "computed": true,
+        "description_kind": "plain",
+        "type": "string"
+      },
       "id": {
         "computed": true,
         "description_kind": "plain",

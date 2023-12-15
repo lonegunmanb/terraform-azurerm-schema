@@ -375,6 +375,48 @@ const azurermContainerApp = `{
                   }
                 ]
               ],
+              "init_container": [
+                "list",
+                [
+                  "object",
+                  {
+                    "args": [
+                      "list",
+                      "string"
+                    ],
+                    "command": [
+                      "list",
+                      "string"
+                    ],
+                    "cpu": "number",
+                    "env": [
+                      "list",
+                      [
+                        "object",
+                        {
+                          "name": "string",
+                          "secret_name": "string",
+                          "value": "string"
+                        }
+                      ]
+                    ],
+                    "ephemeral_storage": "string",
+                    "image": "string",
+                    "memory": "string",
+                    "name": "string",
+                    "volume_mounts": [
+                      "list",
+                      [
+                        "object",
+                        {
+                          "name": "string",
+                          "path": "string"
+                        }
+                      ]
+                    ]
+                  }
+                ]
+              ],
               "max_replicas": "number",
               "min_replicas": "number",
               "revision_suffix": "string",
@@ -412,6 +454,11 @@ const azurermContainerApp = `{
             }
           ]
         ]
+      },
+      "workload_profile_name": {
+        "computed": true,
+        "description_kind": "plain",
+        "type": "string"
       }
     },
     "block_types": {

@@ -297,6 +297,11 @@ const azurermRedisCache = `{
               "optional": true,
               "sensitive": true,
               "type": "string"
+            },
+            "storage_account_subscription_id": {
+              "description_kind": "plain",
+              "optional": true,
+              "type": "string"
             }
           },
           "description_kind": "plain"

@@ -39,6 +39,16 @@ const azurermHpcCacheNfsTarget = `{
         "description_kind": "plain",
         "required": true,
         "type": "string"
+      },
+      "verification_timer_in_seconds": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "number"
+      },
+      "write_back_timer_in_seconds": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "number"
       }
     },
     "block_types": {

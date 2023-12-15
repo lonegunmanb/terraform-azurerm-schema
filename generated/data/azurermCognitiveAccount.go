@@ -20,6 +20,25 @@ const azurermCognitiveAccount = `{
         "optional": true,
         "type": "string"
       },
+      "identity": {
+        "computed": true,
+        "description_kind": "plain",
+        "type": [
+          "list",
+          [
+            "object",
+            {
+              "identity_ids": [
+                "list",
+                "string"
+              ],
+              "principal_id": "string",
+              "tenant_id": "string",
+              "type": "string"
+            }
+          ]
+        ]
+      },
       "kind": {
         "computed": true,
         "description_kind": "plain",

@@ -108,7 +108,8 @@ const azurermRedisCache = `{
               "rdb_backup_enabled": "bool",
               "rdb_backup_frequency": "number",
               "rdb_backup_max_snapshot_count": "number",
-              "rdb_storage_connection_string": "string"
+              "rdb_storage_connection_string": "string",
+              "storage_account_subscription_id": "string"
             }
           ]
         ]

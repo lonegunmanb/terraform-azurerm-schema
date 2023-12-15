@@ -35,6 +35,11 @@ const azurermLogAnalyticsWorkspace = `{
         "optional": true,
         "type": "string"
       },
+      "immediate_data_purge_on_30_days_enabled": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "bool"
+      },
       "internet_ingestion_enabled": {
         "description_kind": "plain",
         "optional": true,

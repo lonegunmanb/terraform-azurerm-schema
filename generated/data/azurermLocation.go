@@ -6,10 +6,10 @@ import (
 	tfjson "github.com/hashicorp/terraform-json"
 )
 
-const azurermSharedImageGallery = `{
+const azurermLocation = `{
   "block": {
     "attributes": {
-      "description": {
+      "display_name": {
         "computed": true,
         "description_kind": "plain",
         "type": "string"
@@ -20,41 +20,24 @@ const azurermSharedImageGallery = `{
         "optional": true,
         "type": "string"
       },
-      "image_names": {
+      "location": {
+        "description_kind": "plain",
+        "required": true,
+        "type": "string"
+      },
+      "zone_mappings": {
         "computed": true,
         "description_kind": "plain",
         "type": [
           "list",
-          "string"
+          [
+            "object",
+            {
+              "logical_zone": "string",
+              "physical_zone": "string"
+            }
+          ]
         ]
-      },
-      "location": {
-        "computed": true,
-        "description_kind": "plain",
-        "type": "string"
-      },
-      "name": {
-        "description_kind": "plain",
-        "required": true,
-        "type": "string"
-      },
-      "resource_group_name": {
-        "description_kind": "plain",
-        "required": true,
-        "type": "string"
-      },
-      "tags": {
-        "computed": true,
-        "description_kind": "plain",
-        "type": [
-          "map",
-          "string"
-        ]
-      },
-      "unique_name": {
-        "computed": true,
-        "description_kind": "plain",
-        "type": "string"
       }
     },
     "block_types": {
@@ -77,8 +60,8 @@ const azurermSharedImageGallery = `{
   "version": 0
 }`
 
-func AzurermSharedImageGallerySchema() *tfjson.Schema {
+func AzurermLocationSchema() *tfjson.Schema {
 	var result tfjson.Schema
-	_ = json.Unmarshal([]byte(azurermSharedImageGallery), &result)
+	_ = json.Unmarshal([]byte(azurermLocation), &result)
 	return &result
 }

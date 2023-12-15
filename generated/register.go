@@ -1211,6 +1211,7 @@ func init() {
 	dataSources["azurerm_linux_function_app"] = data.AzurermLinuxFunctionAppSchema()  
 	dataSources["azurerm_linux_web_app"] = data.AzurermLinuxWebAppSchema()  
 	dataSources["azurerm_local_network_gateway"] = data.AzurermLocalNetworkGatewaySchema()  
+	dataSources["azurerm_location"] = data.AzurermLocationSchema()  
 	dataSources["azurerm_log_analytics_workspace"] = data.AzurermLogAnalyticsWorkspaceSchema()  
 	dataSources["azurerm_logic_app_integration_account"] = data.AzurermLogicAppIntegrationAccountSchema()  
 	dataSources["azurerm_logic_app_standard"] = data.AzurermLogicAppStandardSchema()  
