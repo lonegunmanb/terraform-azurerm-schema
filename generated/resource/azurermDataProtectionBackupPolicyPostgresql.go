@@ -38,6 +38,11 @@ const azurermDataProtectionBackupPolicyPostgresql = `{
         "required": true,
         "type": "string"
       },
+      "time_zone": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "string"
+      },
       "vault_name": {
         "description_kind": "plain",
         "required": true,

@@ -6,18 +6,10 @@ import (
 	tfjson "github.com/hashicorp/terraform-json"
 )
 
-const azurermDataProtectionBackupPolicyDisk = `{
+const azurermAutomationPowershell72Module = `{
   "block": {
     "attributes": {
-      "backup_repeating_time_intervals": {
-        "description_kind": "plain",
-        "required": true,
-        "type": [
-          "list",
-          "string"
-        ]
-      },
-      "default_retention_duration": {
+      "automation_account_id": {
         "description_kind": "plain",
         "required": true,
         "type": "string"
@@ -32,57 +24,43 @@ const azurermDataProtectionBackupPolicyDisk = `{
         "description_kind": "plain",
         "required": true,
         "type": "string"
-      },
-      "time_zone": {
-        "description_kind": "plain",
-        "optional": true,
-        "type": "string"
-      },
-      "vault_id": {
-        "description_kind": "plain",
-        "required": true,
-        "type": "string"
       }
     },
     "block_types": {
-      "retention_rule": {
+      "module_link": {
         "block": {
           "attributes": {
-            "duration": {
+            "uri": {
               "description_kind": "plain",
               "required": true,
               "type": "string"
-            },
-            "name": {
-              "description_kind": "plain",
-              "required": true,
-              "type": "string"
-            },
-            "priority": {
-              "description_kind": "plain",
-              "required": true,
-              "type": "number"
             }
           },
           "block_types": {
-            "criteria": {
+            "hash": {
               "block": {
                 "attributes": {
-                  "absolute_criteria": {
+                  "algorithm": {
                     "description_kind": "plain",
-                    "optional": true,
+                    "required": true,
+                    "type": "string"
+                  },
+                  "value": {
+                    "description_kind": "plain",
+                    "required": true,
                     "type": "string"
                   }
                 },
                 "description_kind": "plain"
               },
               "max_items": 1,
-              "min_items": 1,
               "nesting_mode": "list"
             }
           },
           "description_kind": "plain"
         },
+        "max_items": 1,
+        "min_items": 1,
         "nesting_mode": "list"
       },
       "timeouts": {
@@ -102,6 +80,11 @@ const azurermDataProtectionBackupPolicyDisk = `{
               "description_kind": "plain",
               "optional": true,
               "type": "string"
+            },
+            "update": {
+              "description_kind": "plain",
+              "optional": true,
+              "type": "string"
             }
           },
           "description_kind": "plain"
@@ -114,8 +97,8 @@ const azurermDataProtectionBackupPolicyDisk = `{
   "version": 0
 }`
 
-func AzurermDataProtectionBackupPolicyDiskSchema() *tfjson.Schema {
+func AzurermAutomationPowershell72ModuleSchema() *tfjson.Schema {
 	var result tfjson.Schema
-	_ = json.Unmarshal([]byte(azurermDataProtectionBackupPolicyDisk), &result)
+	_ = json.Unmarshal([]byte(azurermAutomationPowershell72Module), &result)
 	return &result
 }

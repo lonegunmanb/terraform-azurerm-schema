@@ -285,6 +285,11 @@ const azurermLogicAppStandard = `{
               "optional": true,
               "type": "number"
             },
+            "public_network_access_enabled": {
+              "description_kind": "plain",
+              "optional": true,
+              "type": "bool"
+            },
             "runtime_scale_monitoring_enabled": {
               "description_kind": "plain",
               "optional": true,

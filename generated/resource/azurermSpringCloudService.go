@@ -30,6 +30,11 @@ const azurermSpringCloudService = `{
         "optional": true,
         "type": "bool"
       },
+      "managed_environment_id": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "string"
+      },
       "name": {
         "description_kind": "plain",
         "required": true,
@@ -82,6 +87,12 @@ const azurermSpringCloudService = `{
         "type": "string"
       },
       "sku_name": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "string"
+      },
+      "sku_tier": {
+        "computed": true,
         "description_kind": "plain",
         "optional": true,
         "type": "string"

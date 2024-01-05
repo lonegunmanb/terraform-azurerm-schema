@@ -588,6 +588,7 @@ const azurermKubernetesCluster = `{
               "type": "string"
             },
             "node_taints": {
+              "deprecated": true,
               "description_kind": "plain",
               "optional": true,
               "type": [
