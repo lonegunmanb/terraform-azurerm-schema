@@ -587,6 +587,7 @@ const azurermApplicationGateway = `{
           [
             "object",
             {
+              "data": "string",
               "id": "string",
               "name": "string"
             }

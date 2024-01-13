@@ -210,6 +210,38 @@ const azurermContainerApp = `{
               "max_items": 1,
               "nesting_mode": "list"
             },
+            "ip_security_restriction": {
+              "block": {
+                "attributes": {
+                  "action": {
+                    "description": "The action. Allow or Deny.",
+                    "description_kind": "plain",
+                    "required": true,
+                    "type": "string"
+                  },
+                  "description": {
+                    "description": "Describe the IP restriction rule that is being sent to the container-app.",
+                    "description_kind": "plain",
+                    "optional": true,
+                    "type": "string"
+                  },
+                  "ip_address_range": {
+                    "description": "CIDR notation to match incoming IP address.",
+                    "description_kind": "plain",
+                    "required": true,
+                    "type": "string"
+                  },
+                  "name": {
+                    "description": "Name for the IP restriction rule.",
+                    "description_kind": "plain",
+                    "required": true,
+                    "type": "string"
+                  }
+                },
+                "description_kind": "plain"
+              },
+              "nesting_mode": "list"
+            },
             "traffic_weight": {
               "block": {
                 "attributes": {

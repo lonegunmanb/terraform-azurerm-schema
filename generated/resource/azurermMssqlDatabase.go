@@ -151,6 +151,16 @@ const azurermMssqlDatabase = `{
         "optional": true,
         "type": "bool"
       },
+      "transparent_data_encryption_key_automatic_rotation_enabled": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "bool"
+      },
+      "transparent_data_encryption_key_vault_key_id": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "string"
+      },
       "zone_redundant": {
         "computed": true,
         "description_kind": "plain",
@@ -159,6 +169,28 @@ const azurermMssqlDatabase = `{
       }
     },
     "block_types": {
+      "identity": {
+        "block": {
+          "attributes": {
+            "identity_ids": {
+              "description_kind": "plain",
+              "required": true,
+              "type": [
+                "set",
+                "string"
+              ]
+            },
+            "type": {
+              "description_kind": "plain",
+              "required": true,
+              "type": "string"
+            }
+          },
+          "description_kind": "plain"
+        },
+        "max_items": 1,
+        "nesting_mode": "list"
+      },
       "import": {
         "block": {
           "attributes": {

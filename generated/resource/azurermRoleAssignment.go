@@ -49,6 +49,7 @@ const azurermRoleAssignment = `{
       "principal_type": {
         "computed": true,
         "description_kind": "plain",
+        "optional": true,
         "type": "string"
       },
       "role_definition_id": {

@@ -53,6 +53,11 @@ const azurermCdnFrontdoorFirewallPolicy = `{
         "optional": true,
         "type": "string"
       },
+      "request_body_check_enabled": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "bool"
+      },
       "resource_group_name": {
         "description_kind": "plain",
         "required": true,

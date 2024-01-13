@@ -87,6 +87,11 @@ const azurermContainerGroup = `{
         "required": true,
         "type": "string"
       },
+      "priority": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "string"
+      },
       "resource_group_name": {
         "description_kind": "plain",
         "required": true,

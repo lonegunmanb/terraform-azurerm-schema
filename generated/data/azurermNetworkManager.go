@@ -6,15 +6,31 @@ import (
 	tfjson "github.com/hashicorp/terraform-json"
 )
 
-const azurermMssqlServer = `{
+const azurermNetworkManager = `{
   "block": {
     "attributes": {
-      "administrator_login": {
+      "cross_tenant_scopes": {
         "computed": true,
         "description_kind": "plain",
-        "type": "string"
+        "type": [
+          "list",
+          [
+            "object",
+            {
+              "management_groups": [
+                "list",
+                "string"
+              ],
+              "subscriptions": [
+                "list",
+                "string"
+              ],
+              "tenant_id": "string"
+            }
+          ]
+        ]
       },
-      "fully_qualified_domain_name": {
+      "description": {
         "computed": true,
         "description_kind": "plain",
         "type": "string"
@@ -24,25 +40,6 @@ const azurermMssqlServer = `{
         "description_kind": "plain",
         "optional": true,
         "type": "string"
-      },
-      "identity": {
-        "computed": true,
-        "description_kind": "plain",
-        "type": [
-          "list",
-          [
-            "object",
-            {
-              "identity_ids": [
-                "list",
-                "string"
-              ],
-              "principal_id": "string",
-              "tenant_id": "string",
-              "type": "string"
-            }
-          ]
-        ]
       },
       "location": {
         "computed": true,
@@ -59,7 +56,27 @@ const azurermMssqlServer = `{
         "required": true,
         "type": "string"
       },
-      "restorable_dropped_database_ids": {
+      "scope": {
+        "computed": true,
+        "description_kind": "plain",
+        "type": [
+          "list",
+          [
+            "object",
+            {
+              "management_group_ids": [
+                "list",
+                "string"
+              ],
+              "subscription_ids": [
+                "list",
+                "string"
+              ]
+            }
+          ]
+        ]
+      },
+      "scope_accesses": {
         "computed": true,
         "description_kind": "plain",
         "type": [
@@ -74,16 +91,6 @@ const azurermMssqlServer = `{
           "map",
           "string"
         ]
-      },
-      "transparent_data_encryption_key_vault_key_id": {
-        "computed": true,
-        "description_kind": "plain",
-        "type": "string"
-      },
-      "version": {
-        "computed": true,
-        "description_kind": "plain",
-        "type": "string"
       }
     },
     "block_types": {
@@ -106,8 +113,8 @@ const azurermMssqlServer = `{
   "version": 0
 }`
 
-func AzurermMssqlServerSchema() *tfjson.Schema {
+func AzurermNetworkManagerSchema() *tfjson.Schema {
 	var result tfjson.Schema
-	_ = json.Unmarshal([]byte(azurermMssqlServer), &result)
+	_ = json.Unmarshal([]byte(azurermNetworkManager), &result)
 	return &result
 }

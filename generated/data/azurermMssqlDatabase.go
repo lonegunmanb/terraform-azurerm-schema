@@ -30,6 +30,23 @@ const azurermMssqlDatabase = `{
         "optional": true,
         "type": "string"
       },
+      "identity": {
+        "computed": true,
+        "description_kind": "plain",
+        "type": [
+          "list",
+          [
+            "object",
+            {
+              "identity_ids": [
+                "list",
+                "string"
+              ],
+              "type": "string"
+            }
+          ]
+        ]
+      },
       "license_type": {
         "computed": true,
         "description_kind": "plain",
@@ -77,6 +94,21 @@ const azurermMssqlDatabase = `{
           "map",
           "string"
         ]
+      },
+      "transparent_data_encryption_enabled": {
+        "computed": true,
+        "description_kind": "plain",
+        "type": "bool"
+      },
+      "transparent_data_encryption_key_automatic_rotation_enabled": {
+        "computed": true,
+        "description_kind": "plain",
+        "type": "bool"
+      },
+      "transparent_data_encryption_key_vault_key_id": {
+        "computed": true,
+        "description_kind": "plain",
+        "type": "string"
       },
       "zone_redundant": {
         "computed": true,
