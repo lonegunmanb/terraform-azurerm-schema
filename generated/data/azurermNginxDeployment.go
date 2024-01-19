@@ -6,38 +6,54 @@ import (
 	tfjson "github.com/hashicorp/terraform-json"
 )
 
-const azurermMssqlManagedInstance = `{
+const azurermNginxDeployment = `{
   "block": {
     "attributes": {
-      "administrator_login": {
+      "capacity": {
+        "computed": true,
+        "description_kind": "plain",
+        "type": "number"
+      },
+      "diagnose_support_enabled": {
+        "computed": true,
+        "description_kind": "plain",
+        "type": "bool"
+      },
+      "email": {
         "computed": true,
         "description_kind": "plain",
         "type": "string"
       },
-      "collation": {
+      "frontend_private": {
         "computed": true,
         "description_kind": "plain",
-        "type": "string"
+        "type": [
+          "list",
+          [
+            "object",
+            {
+              "allocation_method": "string",
+              "ip_address": "string",
+              "subnet_id": "string"
+            }
+          ]
+        ]
       },
-      "customer_managed_key_id": {
+      "frontend_public": {
         "computed": true,
         "description_kind": "plain",
-        "type": "string"
-      },
-      "dns_zone": {
-        "computed": true,
-        "description_kind": "plain",
-        "type": "string"
-      },
-      "dns_zone_partner_id": {
-        "computed": true,
-        "description_kind": "plain",
-        "type": "string"
-      },
-      "fqdn": {
-        "computed": true,
-        "description_kind": "plain",
-        "type": "string"
+        "type": [
+          "list",
+          [
+            "object",
+            {
+              "ip_address": [
+                "list",
+                "string"
+              ]
+            }
+          ]
+        ]
       },
       "id": {
         "computed": true,
@@ -64,7 +80,7 @@ const azurermMssqlManagedInstance = `{
           ]
         ]
       },
-      "license_type": {
+      "ip_address": {
         "computed": true,
         "description_kind": "plain",
         "type": "string"
@@ -74,7 +90,21 @@ const azurermMssqlManagedInstance = `{
         "description_kind": "plain",
         "type": "string"
       },
-      "minimum_tls_version": {
+      "logging_storage_account": {
+        "computed": true,
+        "description_kind": "plain",
+        "type": [
+          "list",
+          [
+            "object",
+            {
+              "container_name": "string",
+              "name": "string"
+            }
+          ]
+        ]
+      },
+      "managed_resource_group": {
         "computed": true,
         "description_kind": "plain",
         "type": "string"
@@ -84,37 +114,30 @@ const azurermMssqlManagedInstance = `{
         "required": true,
         "type": "string"
       },
-      "proxy_override": {
+      "network_interface": {
+        "computed": true,
+        "description_kind": "plain",
+        "type": [
+          "list",
+          [
+            "object",
+            {
+              "subnet_id": "string"
+            }
+          ]
+        ]
+      },
+      "nginx_version": {
         "computed": true,
         "description_kind": "plain",
         "type": "string"
-      },
-      "public_data_endpoint_enabled": {
-        "computed": true,
-        "description_kind": "plain",
-        "type": "bool"
       },
       "resource_group_name": {
         "description_kind": "plain",
         "required": true,
         "type": "string"
       },
-      "sku_name": {
-        "computed": true,
-        "description_kind": "plain",
-        "type": "string"
-      },
-      "storage_account_type": {
-        "computed": true,
-        "description_kind": "plain",
-        "type": "string"
-      },
-      "storage_size_in_gb": {
-        "computed": true,
-        "description_kind": "plain",
-        "type": "number"
-      },
-      "subnet_id": {
+      "sku": {
         "computed": true,
         "description_kind": "plain",
         "type": "string"
@@ -126,16 +149,6 @@ const azurermMssqlManagedInstance = `{
           "map",
           "string"
         ]
-      },
-      "timezone_id": {
-        "computed": true,
-        "description_kind": "plain",
-        "type": "string"
-      },
-      "vcores": {
-        "computed": true,
-        "description_kind": "plain",
-        "type": "number"
       }
     },
     "block_types": {
@@ -158,8 +171,8 @@ const azurermMssqlManagedInstance = `{
   "version": 0
 }`
 
-func AzurermMssqlManagedInstanceSchema() *tfjson.Schema {
+func AzurermNginxDeploymentSchema() *tfjson.Schema {
 	var result tfjson.Schema
-	_ = json.Unmarshal([]byte(azurermMssqlManagedInstance), &result)
+	_ = json.Unmarshal([]byte(azurermNginxDeployment), &result)
 	return &result
 }

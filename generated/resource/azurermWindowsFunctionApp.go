@@ -1742,7 +1742,7 @@ const azurermWindowsFunctionApp = `{
     },
     "description_kind": "plain"
   },
-  "version": 0
+  "version": 1
 }`
 
 func AzurermWindowsFunctionAppSchema() *tfjson.Schema {

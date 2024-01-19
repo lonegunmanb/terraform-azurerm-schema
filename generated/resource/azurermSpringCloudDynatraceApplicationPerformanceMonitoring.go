@@ -6,13 +6,34 @@ import (
 	tfjson "github.com/hashicorp/terraform-json"
 )
 
-const azurermServicePlan = `{
+const azurermSpringCloudDynatraceApplicationPerformanceMonitoring = `{
   "block": {
     "attributes": {
-      "app_service_environment_id": {
+      "api_token": {
+        "description_kind": "plain",
+        "optional": true,
+        "sensitive": true,
+        "type": "string"
+      },
+      "api_url": {
         "description_kind": "plain",
         "optional": true,
         "type": "string"
+      },
+      "connection_point": {
+        "description_kind": "plain",
+        "required": true,
+        "type": "string"
+      },
+      "environment_id": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "string"
+      },
+      "globally_enabled": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "bool"
       },
       "id": {
         "computed": true,
@@ -20,70 +41,27 @@ const azurermServicePlan = `{
         "optional": true,
         "type": "string"
       },
-      "kind": {
-        "computed": true,
-        "description_kind": "plain",
-        "type": "string"
-      },
-      "location": {
-        "description_kind": "plain",
-        "required": true,
-        "type": "string"
-      },
-      "maximum_elastic_worker_count": {
-        "computed": true,
-        "description_kind": "plain",
-        "optional": true,
-        "type": "number"
-      },
       "name": {
         "description_kind": "plain",
         "required": true,
         "type": "string"
       },
-      "os_type": {
+      "spring_cloud_service_id": {
         "description_kind": "plain",
         "required": true,
         "type": "string"
       },
-      "per_site_scaling_enabled": {
-        "description_kind": "plain",
-        "optional": true,
-        "type": "bool"
-      },
-      "reserved": {
-        "computed": true,
-        "description_kind": "plain",
-        "type": "bool"
-      },
-      "resource_group_name": {
+      "tenant": {
         "description_kind": "plain",
         "required": true,
+        "sensitive": true,
         "type": "string"
       },
-      "sku_name": {
+      "tenant_token": {
         "description_kind": "plain",
         "required": true,
+        "sensitive": true,
         "type": "string"
-      },
-      "tags": {
-        "description_kind": "plain",
-        "optional": true,
-        "type": [
-          "map",
-          "string"
-        ]
-      },
-      "worker_count": {
-        "computed": true,
-        "description_kind": "plain",
-        "optional": true,
-        "type": "number"
-      },
-      "zone_balancing_enabled": {
-        "description_kind": "plain",
-        "optional": true,
-        "type": "bool"
       }
     },
     "block_types": {
@@ -118,11 +96,11 @@ const azurermServicePlan = `{
     },
     "description_kind": "plain"
   },
-  "version": 1
+  "version": 0
 }`
 
-func AzurermServicePlanSchema() *tfjson.Schema {
+func AzurermSpringCloudDynatraceApplicationPerformanceMonitoringSchema() *tfjson.Schema {
 	var result tfjson.Schema
-	_ = json.Unmarshal([]byte(azurermServicePlan), &result)
+	_ = json.Unmarshal([]byte(azurermSpringCloudDynatraceApplicationPerformanceMonitoring), &result)
 	return &result
 }

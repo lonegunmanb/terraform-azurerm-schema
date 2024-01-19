@@ -65,6 +65,25 @@ const azurermMssqlManagedDatabase = `{
         "max_items": 1,
         "nesting_mode": "list"
       },
+      "point_in_time_restore": {
+        "block": {
+          "attributes": {
+            "restore_point_in_time": {
+              "description_kind": "plain",
+              "required": true,
+              "type": "string"
+            },
+            "source_database_id": {
+              "description_kind": "plain",
+              "required": true,
+              "type": "string"
+            }
+          },
+          "description_kind": "plain"
+        },
+        "max_items": 1,
+        "nesting_mode": "list"
+      },
       "timeouts": {
         "block": {
           "attributes": {

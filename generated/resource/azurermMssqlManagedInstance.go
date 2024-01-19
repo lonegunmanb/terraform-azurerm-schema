@@ -25,6 +25,11 @@ const azurermMssqlManagedInstance = `{
         "optional": true,
         "type": "string"
       },
+      "dns_zone": {
+        "computed": true,
+        "description_kind": "plain",
+        "type": "string"
+      },
       "dns_zone_partner_id": {
         "description_kind": "plain",
         "optional": true,

@@ -1715,7 +1715,7 @@ const azurermWindowsFunctionAppSlot = `{
     },
     "description_kind": "plain"
   },
-  "version": 0
+  "version": 1
 }`
 
 func AzurermWindowsFunctionAppSlotSchema() *tfjson.Schema {

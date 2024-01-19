@@ -1454,7 +1454,7 @@ const azurermLinuxFunctionAppSlot = `{
                     "type": "string"
                   },
                   "python_version": {
-                    "description": "The version of Python to use. Possible values include ` + "`" + `3.11` + "`" + `, ` + "`" + `3.10` + "`" + `, ` + "`" + `3.9` + "`" + `, ` + "`" + `3.8` + "`" + `, and ` + "`" + `3.7` + "`" + `.",
+                    "description": "The version of Python to use. Possible values include ` + "`" + `3.12` + "`" + `, ` + "`" + `3.11` + "`" + `, ` + "`" + `3.10` + "`" + `, ` + "`" + `3.9` + "`" + `, ` + "`" + `3.8` + "`" + `, and ` + "`" + `3.7` + "`" + `.",
                     "description_kind": "plain",
                     "optional": true,
                     "type": "string"
@@ -1766,7 +1766,7 @@ const azurermLinuxFunctionAppSlot = `{
     },
     "description_kind": "plain"
   },
-  "version": 0
+  "version": 1
 }`
 
 func AzurermLinuxFunctionAppSlotSchema() *tfjson.Schema {
