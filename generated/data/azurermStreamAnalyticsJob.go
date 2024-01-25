@@ -85,6 +85,11 @@ const azurermStreamAnalyticsJob = `{
         "required": true,
         "type": "string"
       },
+      "sku_name": {
+        "computed": true,
+        "description_kind": "plain",
+        "type": "string"
+      },
       "start_mode": {
         "computed": true,
         "description_kind": "plain",

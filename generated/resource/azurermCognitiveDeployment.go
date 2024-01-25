@@ -52,7 +52,7 @@ const azurermCognitiveDeployment = `{
             },
             "version": {
               "description_kind": "plain",
-              "required": true,
+              "optional": true,
               "type": "string"
             }
           },

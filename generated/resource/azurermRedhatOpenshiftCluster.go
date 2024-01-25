@@ -6,29 +6,12 @@ import (
 	tfjson "github.com/hashicorp/terraform-json"
 )
 
-const azurermApiManagementApi = `{
+const azurermRedhatOpenshiftCluster = `{
   "block": {
     "attributes": {
-      "api_management_name": {
-        "description_kind": "plain",
-        "required": true,
-        "type": "string"
-      },
-      "api_type": {
+      "console_url": {
         "computed": true,
         "description_kind": "plain",
-        "optional": true,
-        "type": "string"
-      },
-      "description": {
-        "description_kind": "plain",
-        "optional": true,
-        "type": "string"
-      },
-      "display_name": {
-        "computed": true,
-        "description_kind": "plain",
-        "optional": true,
         "type": "string"
       },
       "id": {
@@ -37,212 +20,136 @@ const azurermApiManagementApi = `{
         "optional": true,
         "type": "string"
       },
-      "is_current": {
-        "computed": true,
+      "location": {
         "description_kind": "plain",
-        "type": "bool"
-      },
-      "is_online": {
-        "computed": true,
-        "description_kind": "plain",
-        "type": "bool"
+        "required": true,
+        "type": "string"
       },
       "name": {
         "description_kind": "plain",
         "required": true,
         "type": "string"
       },
-      "path": {
-        "computed": true,
-        "description_kind": "plain",
-        "optional": true,
-        "type": "string"
-      },
-      "protocols": {
-        "computed": true,
-        "description_kind": "plain",
-        "optional": true,
-        "type": [
-          "set",
-          "string"
-        ]
-      },
       "resource_group_name": {
         "description_kind": "plain",
         "required": true,
         "type": "string"
       },
-      "revision": {
-        "description_kind": "plain",
-        "required": true,
-        "type": "string"
-      },
-      "revision_description": {
+      "tags": {
         "description_kind": "plain",
         "optional": true,
-        "type": "string"
-      },
-      "service_url": {
-        "computed": true,
-        "description_kind": "plain",
-        "optional": true,
-        "type": "string"
-      },
-      "soap_pass_through": {
-        "computed": true,
-        "deprecated": true,
-        "description_kind": "plain",
-        "optional": true,
-        "type": "bool"
-      },
-      "source_api_id": {
-        "description_kind": "plain",
-        "optional": true,
-        "type": "string"
-      },
-      "subscription_required": {
-        "description_kind": "plain",
-        "optional": true,
-        "type": "bool"
-      },
-      "terms_of_service_url": {
-        "description_kind": "plain",
-        "optional": true,
-        "type": "string"
-      },
-      "version": {
-        "computed": true,
-        "description_kind": "plain",
-        "optional": true,
-        "type": "string"
-      },
-      "version_description": {
-        "description_kind": "plain",
-        "optional": true,
-        "type": "string"
-      },
-      "version_set_id": {
-        "computed": true,
-        "description_kind": "plain",
-        "optional": true,
-        "type": "string"
+        "type": [
+          "map",
+          "string"
+        ]
       }
     },
     "block_types": {
-      "contact": {
+      "api_server_profile": {
         "block": {
           "attributes": {
-            "email": {
+            "ip_address": {
+              "computed": true,
               "description_kind": "plain",
-              "optional": true,
-              "type": "string"
-            },
-            "name": {
-              "description_kind": "plain",
-              "optional": true,
               "type": "string"
             },
             "url": {
+              "computed": true,
               "description_kind": "plain",
-              "optional": true,
+              "type": "string"
+            },
+            "visibility": {
+              "description_kind": "plain",
+              "required": true,
               "type": "string"
             }
           },
           "description_kind": "plain"
         },
         "max_items": 1,
+        "min_items": 1,
         "nesting_mode": "list"
       },
-      "import": {
+      "cluster_profile": {
         "block": {
           "attributes": {
-            "content_format": {
+            "domain": {
               "description_kind": "plain",
               "required": true,
               "type": "string"
             },
-            "content_value": {
+            "fips_enabled": {
+              "description_kind": "plain",
+              "optional": true,
+              "type": "bool"
+            },
+            "pull_secret": {
+              "description_kind": "plain",
+              "optional": true,
+              "sensitive": true,
+              "type": "string"
+            },
+            "resource_group_id": {
+              "computed": true,
+              "description_kind": "plain",
+              "type": "string"
+            },
+            "version": {
               "description_kind": "plain",
               "required": true,
               "type": "string"
             }
           },
-          "block_types": {
-            "wsdl_selector": {
-              "block": {
-                "attributes": {
-                  "endpoint_name": {
-                    "description_kind": "plain",
-                    "required": true,
-                    "type": "string"
-                  },
-                  "service_name": {
-                    "description_kind": "plain",
-                    "required": true,
-                    "type": "string"
-                  }
-                },
-                "description_kind": "plain"
-              },
-              "max_items": 1,
-              "nesting_mode": "list"
-            }
-          },
           "description_kind": "plain"
         },
         "max_items": 1,
+        "min_items": 1,
         "nesting_mode": "list"
       },
-      "license": {
+      "ingress_profile": {
         "block": {
           "attributes": {
+            "ip_address": {
+              "computed": true,
+              "description_kind": "plain",
+              "type": "string"
+            },
             "name": {
+              "computed": true,
               "description_kind": "plain",
-              "optional": true,
               "type": "string"
             },
-            "url": {
+            "visibility": {
               "description_kind": "plain",
-              "optional": true,
+              "required": true,
               "type": "string"
             }
           },
           "description_kind": "plain"
         },
         "max_items": 1,
+        "min_items": 1,
         "nesting_mode": "list"
       },
-      "oauth2_authorization": {
+      "main_profile": {
         "block": {
           "attributes": {
-            "authorization_server_name": {
-              "description_kind": "plain",
-              "required": true,
-              "type": "string"
-            },
-            "scope": {
+            "disk_encryption_set_id": {
               "description_kind": "plain",
               "optional": true,
               "type": "string"
-            }
-          },
-          "description_kind": "plain"
-        },
-        "max_items": 1,
-        "nesting_mode": "list"
-      },
-      "openid_authentication": {
-        "block": {
-          "attributes": {
-            "bearer_token_sending_methods": {
+            },
+            "encryption_at_host_enabled": {
               "description_kind": "plain",
               "optional": true,
-              "type": [
-                "set",
-                "string"
-              ]
+              "type": "bool"
             },
-            "openid_provider_name": {
+            "subnet_id": {
+              "description_kind": "plain",
+              "required": true,
+              "type": "string"
+            },
+            "vm_size": {
               "description_kind": "plain",
               "required": true,
               "type": "string"
@@ -251,17 +158,23 @@ const azurermApiManagementApi = `{
           "description_kind": "plain"
         },
         "max_items": 1,
+        "min_items": 1,
         "nesting_mode": "list"
       },
-      "subscription_key_parameter_names": {
+      "network_profile": {
         "block": {
           "attributes": {
-            "header": {
+            "outbound_type": {
+              "description_kind": "plain",
+              "optional": true,
+              "type": "string"
+            },
+            "pod_cidr": {
               "description_kind": "plain",
               "required": true,
               "type": "string"
             },
-            "query": {
+            "service_cidr": {
               "description_kind": "plain",
               "required": true,
               "type": "string"
@@ -270,6 +183,28 @@ const azurermApiManagementApi = `{
           "description_kind": "plain"
         },
         "max_items": 1,
+        "min_items": 1,
+        "nesting_mode": "list"
+      },
+      "service_principal": {
+        "block": {
+          "attributes": {
+            "client_id": {
+              "description_kind": "plain",
+              "required": true,
+              "type": "string"
+            },
+            "client_secret": {
+              "description_kind": "plain",
+              "required": true,
+              "sensitive": true,
+              "type": "string"
+            }
+          },
+          "description_kind": "plain"
+        },
+        "max_items": 1,
+        "min_items": 1,
         "nesting_mode": "list"
       },
       "timeouts": {
@@ -299,15 +234,55 @@ const azurermApiManagementApi = `{
           "description_kind": "plain"
         },
         "nesting_mode": "single"
+      },
+      "worker_profile": {
+        "block": {
+          "attributes": {
+            "disk_encryption_set_id": {
+              "description_kind": "plain",
+              "optional": true,
+              "type": "string"
+            },
+            "disk_size_gb": {
+              "description_kind": "plain",
+              "required": true,
+              "type": "number"
+            },
+            "encryption_at_host_enabled": {
+              "description_kind": "plain",
+              "optional": true,
+              "type": "bool"
+            },
+            "node_count": {
+              "description_kind": "plain",
+              "required": true,
+              "type": "number"
+            },
+            "subnet_id": {
+              "description_kind": "plain",
+              "required": true,
+              "type": "string"
+            },
+            "vm_size": {
+              "description_kind": "plain",
+              "required": true,
+              "type": "string"
+            }
+          },
+          "description_kind": "plain"
+        },
+        "max_items": 1,
+        "min_items": 1,
+        "nesting_mode": "list"
       }
     },
     "description_kind": "plain"
   },
-  "version": 1
+  "version": 0
 }`
 
-func AzurermApiManagementApiSchema() *tfjson.Schema {
+func AzurermRedhatOpenshiftClusterSchema() *tfjson.Schema {
 	var result tfjson.Schema
-	_ = json.Unmarshal([]byte(azurermApiManagementApi), &result)
+	_ = json.Unmarshal([]byte(azurermRedhatOpenshiftCluster), &result)
 	return &result
 }

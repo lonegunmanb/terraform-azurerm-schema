@@ -9,6 +9,11 @@ import (
 const azurermDataFactoryIntegrationRuntimeAzureSsis = `{
   "block": {
     "attributes": {
+      "credential_name": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "string"
+      },
       "data_factory_id": {
         "description_kind": "plain",
         "required": true,

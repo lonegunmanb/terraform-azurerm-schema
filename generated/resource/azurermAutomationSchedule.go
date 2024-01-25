@@ -97,6 +97,7 @@ const azurermAutomationSchedule = `{
           },
           "description_kind": "plain"
         },
+        "max_items": 1,
         "nesting_mode": "list"
       },
       "timeouts": {

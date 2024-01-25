@@ -6,37 +6,15 @@ import (
 	tfjson "github.com/hashicorp/terraform-json"
 )
 
-const azurermStreamAnalyticsJob = `{
+const azurermElasticSanVolumeGroup = `{
   "block": {
     "attributes": {
-      "compatibility_level": {
-        "computed": true,
+      "elastic_san_id": {
         "description_kind": "plain",
-        "optional": true,
+        "required": true,
         "type": "string"
       },
-      "content_storage_policy": {
-        "description_kind": "plain",
-        "optional": true,
-        "type": "string"
-      },
-      "data_locale": {
-        "computed": true,
-        "description_kind": "plain",
-        "optional": true,
-        "type": "string"
-      },
-      "events_late_arrival_max_delay_in_seconds": {
-        "description_kind": "plain",
-        "optional": true,
-        "type": "number"
-      },
-      "events_out_of_order_max_delay_in_seconds": {
-        "description_kind": "plain",
-        "optional": true,
-        "type": "number"
-      },
-      "events_out_of_order_policy": {
+      "encryption_type": {
         "description_kind": "plain",
         "optional": true,
         "type": "string"
@@ -47,69 +25,63 @@ const azurermStreamAnalyticsJob = `{
         "optional": true,
         "type": "string"
       },
-      "job_id": {
-        "computed": true,
-        "description_kind": "plain",
-        "type": "string"
-      },
-      "location": {
-        "description_kind": "plain",
-        "required": true,
-        "type": "string"
-      },
       "name": {
         "description_kind": "plain",
         "required": true,
         "type": "string"
       },
-      "output_error_policy": {
-        "description_kind": "plain",
-        "optional": true,
-        "type": "string"
-      },
-      "resource_group_name": {
-        "description_kind": "plain",
-        "required": true,
-        "type": "string"
-      },
-      "sku_name": {
-        "description_kind": "plain",
-        "optional": true,
-        "type": "string"
-      },
-      "stream_analytics_cluster_id": {
-        "description_kind": "plain",
-        "optional": true,
-        "type": "string"
-      },
-      "streaming_units": {
-        "description_kind": "plain",
-        "optional": true,
-        "type": "number"
-      },
-      "tags": {
-        "description_kind": "plain",
-        "optional": true,
-        "type": [
-          "map",
-          "string"
-        ]
-      },
-      "transformation_query": {
-        "description_kind": "plain",
-        "required": true,
-        "type": "string"
-      },
-      "type": {
+      "protocol_type": {
         "description_kind": "plain",
         "optional": true,
         "type": "string"
       }
     },
     "block_types": {
+      "encryption": {
+        "block": {
+          "attributes": {
+            "current_versioned_key_expiration_timestamp": {
+              "computed": true,
+              "description_kind": "plain",
+              "type": "string"
+            },
+            "current_versioned_key_id": {
+              "computed": true,
+              "description_kind": "plain",
+              "type": "string"
+            },
+            "key_vault_key_id": {
+              "description_kind": "plain",
+              "required": true,
+              "type": "string"
+            },
+            "last_key_rotation_timestamp": {
+              "computed": true,
+              "description_kind": "plain",
+              "type": "string"
+            },
+            "user_assigned_identity_id": {
+              "description_kind": "plain",
+              "optional": true,
+              "type": "string"
+            }
+          },
+          "description_kind": "plain"
+        },
+        "max_items": 1,
+        "nesting_mode": "list"
+      },
       "identity": {
         "block": {
           "attributes": {
+            "identity_ids": {
+              "description_kind": "plain",
+              "optional": true,
+              "type": [
+                "set",
+                "string"
+              ]
+            },
             "principal_id": {
               "computed": true,
               "description_kind": "plain",
@@ -131,23 +103,17 @@ const azurermStreamAnalyticsJob = `{
         "max_items": 1,
         "nesting_mode": "list"
       },
-      "job_storage_account": {
+      "network_rule": {
         "block": {
           "attributes": {
-            "account_key": {
-              "description_kind": "plain",
-              "required": true,
-              "sensitive": true,
-              "type": "string"
-            },
-            "account_name": {
-              "description_kind": "plain",
-              "required": true,
-              "type": "string"
-            },
-            "authentication_mode": {
+            "action": {
               "description_kind": "plain",
               "optional": true,
+              "type": "string"
+            },
+            "subnet_id": {
+              "description_kind": "plain",
+              "required": true,
               "type": "string"
             }
           },
@@ -186,11 +152,11 @@ const azurermStreamAnalyticsJob = `{
     },
     "description_kind": "plain"
   },
-  "version": 1
+  "version": 0
 }`
 
-func AzurermStreamAnalyticsJobSchema() *tfjson.Schema {
+func AzurermElasticSanVolumeGroupSchema() *tfjson.Schema {
 	var result tfjson.Schema
-	_ = json.Unmarshal([]byte(azurermStreamAnalyticsJob), &result)
+	_ = json.Unmarshal([]byte(azurermElasticSanVolumeGroup), &result)
 	return &result
 }

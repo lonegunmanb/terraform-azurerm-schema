@@ -1,4 +1,4 @@
-package data
+package resource
 
 import (
 	"encoding/json"
@@ -6,76 +6,60 @@ import (
 	tfjson "github.com/hashicorp/terraform-json"
 )
 
-const azurermNetappAccount = `{
+const azurermNetappAccountEncryption = `{
   "block": {
     "attributes": {
+      "encryption_key": {
+        "description": "The versionless encryption key url.",
+        "description_kind": "plain",
+        "required": true,
+        "type": "string"
+      },
       "id": {
         "computed": true,
         "description_kind": "plain",
         "optional": true,
         "type": "string"
       },
-      "location": {
-        "computed": true,
-        "description_kind": "plain",
-        "type": "string"
-      },
-      "name": {
+      "netapp_account_id": {
+        "description": "The ID of the NetApp Account where encryption will be set.",
         "description_kind": "plain",
         "required": true,
         "type": "string"
       },
-      "resource_group_name": {
+      "system_assigned_identity_principal_id": {
+        "description": "The Principal ID of the System Assigned Identity to use for encryption.",
         "description_kind": "plain",
-        "required": true,
+        "optional": true,
         "type": "string"
       },
-      "tags": {
-        "computed": true,
+      "user_assigned_identity_id": {
+        "description": "The resource ID of the User Assigned Identity to use for encryption.",
         "description_kind": "plain",
-        "type": [
-          "map",
-          "string"
-        ]
+        "optional": true,
+        "type": "string"
       }
     },
     "block_types": {
-      "identity": {
-        "block": {
-          "attributes": {
-            "identity_ids": {
-              "description_kind": "plain",
-              "optional": true,
-              "type": [
-                "set",
-                "string"
-              ]
-            },
-            "principal_id": {
-              "computed": true,
-              "description_kind": "plain",
-              "type": "string"
-            },
-            "tenant_id": {
-              "computed": true,
-              "description_kind": "plain",
-              "type": "string"
-            },
-            "type": {
-              "description_kind": "plain",
-              "required": true,
-              "type": "string"
-            }
-          },
-          "description_kind": "plain"
-        },
-        "max_items": 1,
-        "nesting_mode": "list"
-      },
       "timeouts": {
         "block": {
           "attributes": {
+            "create": {
+              "description_kind": "plain",
+              "optional": true,
+              "type": "string"
+            },
+            "delete": {
+              "description_kind": "plain",
+              "optional": true,
+              "type": "string"
+            },
             "read": {
+              "description_kind": "plain",
+              "optional": true,
+              "type": "string"
+            },
+            "update": {
               "description_kind": "plain",
               "optional": true,
               "type": "string"
@@ -91,8 +75,8 @@ const azurermNetappAccount = `{
   "version": 0
 }`
 
-func AzurermNetappAccountSchema() *tfjson.Schema {
+func AzurermNetappAccountEncryptionSchema() *tfjson.Schema {
 	var result tfjson.Schema
-	_ = json.Unmarshal([]byte(azurermNetappAccount), &result)
+	_ = json.Unmarshal([]byte(azurermNetappAccountEncryption), &result)
 	return &result
 }

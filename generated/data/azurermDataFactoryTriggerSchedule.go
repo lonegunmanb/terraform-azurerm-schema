@@ -6,31 +6,38 @@ import (
 	tfjson "github.com/hashicorp/terraform-json"
 )
 
-const azurermNetappVolume = `{
+const azurermDataFactoryTriggerSchedule = `{
   "block": {
     "attributes": {
-      "account_name": {
+      "activated": {
+        "computed": true,
         "description_kind": "plain",
-        "required": true,
-        "type": "string"
+        "type": "bool"
       },
-      "data_protection_replication": {
+      "annotations": {
         "computed": true,
         "description_kind": "plain",
         "type": [
           "list",
-          [
-            "object",
-            {
-              "endpoint_type": "string",
-              "remote_volume_location": "string",
-              "remote_volume_resource_id": "string",
-              "replication_frequency": "string"
-            }
-          ]
+          "string"
         ]
       },
-      "encryption_key_source": {
+      "data_factory_id": {
+        "description_kind": "plain",
+        "required": true,
+        "type": "string"
+      },
+      "description": {
+        "computed": true,
+        "description_kind": "plain",
+        "type": "string"
+      },
+      "end_time": {
+        "computed": true,
+        "description_kind": "plain",
+        "type": "string"
+      },
+      "frequency": {
         "computed": true,
         "description_kind": "plain",
         "type": "string"
@@ -41,78 +48,65 @@ const azurermNetappVolume = `{
         "optional": true,
         "type": "string"
       },
-      "key_vault_private_endpoint_id": {
+      "interval": {
         "computed": true,
         "description_kind": "plain",
-        "type": "string"
-      },
-      "location": {
-        "computed": true,
-        "description_kind": "plain",
-        "type": "string"
-      },
-      "mount_ip_addresses": {
-        "computed": true,
-        "description_kind": "plain",
-        "type": [
-          "list",
-          "string"
-        ]
+        "type": "number"
       },
       "name": {
         "description_kind": "plain",
         "required": true,
         "type": "string"
       },
-      "network_features": {
+      "pipeline_name": {
         "computed": true,
         "description_kind": "plain",
         "type": "string"
       },
-      "pool_name": {
-        "description_kind": "plain",
-        "required": true,
-        "type": "string"
-      },
-      "protocols": {
+      "schedule": {
         "computed": true,
         "description_kind": "plain",
         "type": [
           "list",
-          "string"
+          [
+            "object",
+            {
+              "days_of_month": [
+                "list",
+                "number"
+              ],
+              "days_of_week": [
+                "list",
+                "string"
+              ],
+              "hours": [
+                "list",
+                "number"
+              ],
+              "minutes": [
+                "list",
+                "number"
+              ],
+              "monthly": [
+                "list",
+                [
+                  "object",
+                  {
+                    "week": "number",
+                    "weekday": "string"
+                  }
+                ]
+              ]
+            }
+          ]
         ]
       },
-      "resource_group_name": {
-        "description_kind": "plain",
-        "required": true,
-        "type": "string"
-      },
-      "security_style": {
-        "description_kind": "plain",
-        "optional": true,
-        "type": "string"
-      },
-      "service_level": {
+      "start_time": {
         "computed": true,
         "description_kind": "plain",
         "type": "string"
       },
-      "storage_quota_in_gb": {
-        "computed": true,
-        "description_kind": "plain",
-        "type": "number"
-      },
-      "subnet_id": {
-        "computed": true,
-        "description_kind": "plain",
-        "type": "string"
-      },
-      "volume_path": {
-        "computed": true,
-        "description_kind": "plain",
-        "type": "string"
-      },
-      "zone": {
+      "time_zone": {
         "computed": true,
         "description_kind": "plain",
         "type": "string"
@@ -138,8 +132,8 @@ const azurermNetappVolume = `{
   "version": 0
 }`
 
-func AzurermNetappVolumeSchema() *tfjson.Schema {
+func AzurermDataFactoryTriggerScheduleSchema() *tfjson.Schema {
 	var result tfjson.Schema
-	_ = json.Unmarshal([]byte(azurermNetappVolume), &result)
+	_ = json.Unmarshal([]byte(azurermDataFactoryTriggerSchedule), &result)
 	return &result
 }

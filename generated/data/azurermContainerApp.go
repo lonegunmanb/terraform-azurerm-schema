@@ -84,6 +84,18 @@ const azurermContainerApp = `{
               "exposed_port": "number",
               "external_enabled": "bool",
               "fqdn": "string",
+              "ip_security_restriction": [
+                "list",
+                [
+                  "object",
+                  {
+                    "action": "string",
+                    "description": "string",
+                    "ip_address_range": "string",
+                    "name": "string"
+                  }
+                ]
+              ],
               "target_port": "number",
               "traffic_weight": [
                 "list",

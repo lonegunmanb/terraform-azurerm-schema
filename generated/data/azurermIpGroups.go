@@ -6,7 +6,7 @@ import (
 	tfjson "github.com/hashicorp/terraform-json"
 )
 
-const azurermNetappAccount = `{
+const azurermIpGroups = `{
   "block": {
     "attributes": {
       "id": {
@@ -14,6 +14,14 @@ const azurermNetappAccount = `{
         "description_kind": "plain",
         "optional": true,
         "type": "string"
+      },
+      "ids": {
+        "computed": true,
+        "description_kind": "plain",
+        "type": [
+          "list",
+          "string"
+        ]
       },
       "location": {
         "computed": true,
@@ -24,6 +32,14 @@ const azurermNetappAccount = `{
         "description_kind": "plain",
         "required": true,
         "type": "string"
+      },
+      "names": {
+        "computed": true,
+        "description_kind": "plain",
+        "type": [
+          "list",
+          "string"
+        ]
       },
       "resource_group_name": {
         "description_kind": "plain",
@@ -40,38 +56,6 @@ const azurermNetappAccount = `{
       }
     },
     "block_types": {
-      "identity": {
-        "block": {
-          "attributes": {
-            "identity_ids": {
-              "description_kind": "plain",
-              "optional": true,
-              "type": [
-                "set",
-                "string"
-              ]
-            },
-            "principal_id": {
-              "computed": true,
-              "description_kind": "plain",
-              "type": "string"
-            },
-            "tenant_id": {
-              "computed": true,
-              "description_kind": "plain",
-              "type": "string"
-            },
-            "type": {
-              "description_kind": "plain",
-              "required": true,
-              "type": "string"
-            }
-          },
-          "description_kind": "plain"
-        },
-        "max_items": 1,
-        "nesting_mode": "list"
-      },
       "timeouts": {
         "block": {
           "attributes": {
@@ -91,8 +75,8 @@ const azurermNetappAccount = `{
   "version": 0
 }`
 
-func AzurermNetappAccountSchema() *tfjson.Schema {
+func AzurermIpGroupsSchema() *tfjson.Schema {
 	var result tfjson.Schema
-	_ = json.Unmarshal([]byte(azurermNetappAccount), &result)
+	_ = json.Unmarshal([]byte(azurermIpGroups), &result)
 	return &result
 }

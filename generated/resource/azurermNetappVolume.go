@@ -25,7 +25,19 @@ const azurermNetappVolume = `{
         "optional": true,
         "type": "string"
       },
+      "encryption_key_source": {
+        "computed": true,
+        "description_kind": "plain",
+        "optional": true,
+        "type": "string"
+      },
       "id": {
+        "computed": true,
+        "description_kind": "plain",
+        "optional": true,
+        "type": "string"
+      },
+      "key_vault_private_endpoint_id": {
         "computed": true,
         "description_kind": "plain",
         "optional": true,
