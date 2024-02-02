@@ -6,23 +6,18 @@ import (
 	tfjson "github.com/hashicorp/terraform-json"
 )
 
-const azurermSpringCloudApiPortal = `{
+const azurermSpringCloudElasticApplicationPerformanceMonitoring = `{
   "block": {
     "attributes": {
-      "api_try_out_enabled": {
+      "application_packages": {
         "description_kind": "plain",
-        "optional": true,
-        "type": "bool"
-      },
-      "gateway_ids": {
-        "description_kind": "plain",
-        "optional": true,
+        "required": true,
         "type": [
-          "set",
+          "list",
           "string"
         ]
       },
-      "https_only_enabled": {
+      "globally_enabled": {
         "description_kind": "plain",
         "optional": true,
         "type": "bool"
@@ -33,65 +28,28 @@ const azurermSpringCloudApiPortal = `{
         "optional": true,
         "type": "string"
       },
-      "instance_count": {
-        "description_kind": "plain",
-        "optional": true,
-        "type": "number"
-      },
       "name": {
         "description_kind": "plain",
         "required": true,
         "type": "string"
       },
-      "public_network_access_enabled": {
+      "server_url": {
         "description_kind": "plain",
-        "optional": true,
-        "type": "bool"
+        "required": true,
+        "type": "string"
+      },
+      "service_name": {
+        "description_kind": "plain",
+        "required": true,
+        "type": "string"
       },
       "spring_cloud_service_id": {
         "description_kind": "plain",
         "required": true,
         "type": "string"
-      },
-      "url": {
-        "computed": true,
-        "description_kind": "plain",
-        "type": "string"
       }
     },
     "block_types": {
-      "sso": {
-        "block": {
-          "attributes": {
-            "client_id": {
-              "description_kind": "plain",
-              "optional": true,
-              "type": "string"
-            },
-            "client_secret": {
-              "description_kind": "plain",
-              "optional": true,
-              "type": "string"
-            },
-            "issuer_uri": {
-              "description_kind": "plain",
-              "optional": true,
-              "type": "string"
-            },
-            "scope": {
-              "description_kind": "plain",
-              "optional": true,
-              "type": [
-                "set",
-                "string"
-              ]
-            }
-          },
-          "description_kind": "plain"
-        },
-        "max_items": 1,
-        "nesting_mode": "list"
-      },
       "timeouts": {
         "block": {
           "attributes": {
@@ -123,11 +81,11 @@ const azurermSpringCloudApiPortal = `{
     },
     "description_kind": "plain"
   },
-  "version": 1
+  "version": 0
 }`
 
-func AzurermSpringCloudApiPortalSchema() *tfjson.Schema {
+func AzurermSpringCloudElasticApplicationPerformanceMonitoringSchema() *tfjson.Schema {
 	var result tfjson.Schema
-	_ = json.Unmarshal([]byte(azurermSpringCloudApiPortal), &result)
+	_ = json.Unmarshal([]byte(azurermSpringCloudElasticApplicationPerformanceMonitoring), &result)
 	return &result
 }

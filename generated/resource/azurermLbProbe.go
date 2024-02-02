@@ -54,7 +54,6 @@ const azurermLbProbe = `{
         "type": "number"
       },
       "protocol": {
-        "computed": true,
         "description_kind": "plain",
         "optional": true,
         "type": "string"

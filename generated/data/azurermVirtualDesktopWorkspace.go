@@ -1,4 +1,4 @@
-package resource
+package data
 
 import (
 	"encoding/json"
@@ -6,23 +6,17 @@ import (
 	tfjson "github.com/hashicorp/terraform-json"
 )
 
-const azurermBotChannelEmail = `{
+const azurermVirtualDesktopWorkspace = `{
   "block": {
     "attributes": {
-      "bot_name": {
+      "description": {
+        "computed": true,
         "description_kind": "plain",
-        "required": true,
         "type": "string"
       },
-      "email_address": {
+      "friendly_name": {
+        "computed": true,
         "description_kind": "plain",
-        "required": true,
-        "type": "string"
-      },
-      "email_password": {
-        "description_kind": "plain",
-        "optional": true,
-        "sensitive": true,
         "type": "string"
       },
       "id": {
@@ -32,42 +26,39 @@ const azurermBotChannelEmail = `{
         "type": "string"
       },
       "location": {
+        "computed": true,
+        "description_kind": "plain",
+        "type": "string"
+      },
+      "name": {
         "description_kind": "plain",
         "required": true,
         "type": "string"
       },
-      "magic_code": {
+      "public_network_access_enabled": {
+        "computed": true,
         "description_kind": "plain",
-        "optional": true,
-        "sensitive": true,
-        "type": "string"
+        "type": "bool"
       },
       "resource_group_name": {
         "description_kind": "plain",
         "required": true,
         "type": "string"
+      },
+      "tags": {
+        "computed": true,
+        "description_kind": "plain",
+        "type": [
+          "map",
+          "string"
+        ]
       }
     },
     "block_types": {
       "timeouts": {
         "block": {
           "attributes": {
-            "create": {
-              "description_kind": "plain",
-              "optional": true,
-              "type": "string"
-            },
-            "delete": {
-              "description_kind": "plain",
-              "optional": true,
-              "type": "string"
-            },
             "read": {
-              "description_kind": "plain",
-              "optional": true,
-              "type": "string"
-            },
-            "update": {
               "description_kind": "plain",
               "optional": true,
               "type": "string"
@@ -83,8 +74,8 @@ const azurermBotChannelEmail = `{
   "version": 0
 }`
 
-func AzurermBotChannelEmailSchema() *tfjson.Schema {
+func AzurermVirtualDesktopWorkspaceSchema() *tfjson.Schema {
 	var result tfjson.Schema
-	_ = json.Unmarshal([]byte(azurermBotChannelEmail), &result)
+	_ = json.Unmarshal([]byte(azurermVirtualDesktopWorkspace), &result)
 	return &result
 }

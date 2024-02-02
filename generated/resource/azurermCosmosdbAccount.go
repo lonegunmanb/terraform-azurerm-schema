@@ -124,6 +124,11 @@ const azurermCosmosdbAccount = `{
         "required": true,
         "type": "string"
       },
+      "partition_merge_enabled": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "bool"
+      },
       "primary_key": {
         "computed": true,
         "description_kind": "plain",
@@ -451,6 +456,14 @@ const azurermCosmosdbAccount = `{
               "description_kind": "plain",
               "required": true,
               "type": "string"
+            },
+            "tables_to_restore": {
+              "description_kind": "plain",
+              "optional": true,
+              "type": [
+                "list",
+                "string"
+              ]
             }
           },
           "block_types": {
@@ -474,6 +487,27 @@ const azurermCosmosdbAccount = `{
                 "description_kind": "plain"
               },
               "nesting_mode": "set"
+            },
+            "gremlin_database": {
+              "block": {
+                "attributes": {
+                  "graph_names": {
+                    "description_kind": "plain",
+                    "optional": true,
+                    "type": [
+                      "list",
+                      "string"
+                    ]
+                  },
+                  "name": {
+                    "description_kind": "plain",
+                    "required": true,
+                    "type": "string"
+                  }
+                },
+                "description_kind": "plain"
+              },
+              "nesting_mode": "list"
             }
           },
           "description_kind": "plain"

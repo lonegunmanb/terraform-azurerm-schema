@@ -471,6 +471,14 @@ const azurermKubernetesClusterNodePool = `{
       "node_network_profile": {
         "block": {
           "attributes": {
+            "application_security_group_ids": {
+              "description_kind": "plain",
+              "optional": true,
+              "type": [
+                "list",
+                "string"
+              ]
+            },
             "node_public_ip_tags": {
               "description_kind": "plain",
               "optional": true,
@@ -478,6 +486,31 @@ const azurermKubernetesClusterNodePool = `{
                 "map",
                 "string"
               ]
+            }
+          },
+          "block_types": {
+            "allowed_host_ports": {
+              "block": {
+                "attributes": {
+                  "port_end": {
+                    "description_kind": "plain",
+                    "optional": true,
+                    "type": "number"
+                  },
+                  "port_start": {
+                    "description_kind": "plain",
+                    "optional": true,
+                    "type": "number"
+                  },
+                  "protocol": {
+                    "description_kind": "plain",
+                    "optional": true,
+                    "type": "string"
+                  }
+                },
+                "description_kind": "plain"
+              },
+              "nesting_mode": "list"
             }
           },
           "description_kind": "plain"

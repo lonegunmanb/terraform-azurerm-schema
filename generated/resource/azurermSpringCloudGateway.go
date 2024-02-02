@@ -187,6 +187,44 @@ const azurermSpringCloudGateway = `{
         "max_items": 1,
         "nesting_mode": "list"
       },
+      "local_response_cache_per_instance": {
+        "block": {
+          "attributes": {
+            "size": {
+              "description_kind": "plain",
+              "optional": true,
+              "type": "string"
+            },
+            "time_to_live": {
+              "description_kind": "plain",
+              "optional": true,
+              "type": "string"
+            }
+          },
+          "description_kind": "plain"
+        },
+        "max_items": 1,
+        "nesting_mode": "list"
+      },
+      "local_response_cache_per_route": {
+        "block": {
+          "attributes": {
+            "size": {
+              "description_kind": "plain",
+              "optional": true,
+              "type": "string"
+            },
+            "time_to_live": {
+              "description_kind": "plain",
+              "optional": true,
+              "type": "string"
+            }
+          },
+          "description_kind": "plain"
+        },
+        "max_items": 1,
+        "nesting_mode": "list"
+      },
       "quota": {
         "block": {
           "attributes": {

@@ -6,23 +6,45 @@ import (
 	tfjson "github.com/hashicorp/terraform-json"
 )
 
-const azurermSpringCloudApiPortal = `{
+const azurermSpringCloudNewRelicApplicationPerformanceMonitoring = `{
   "block": {
     "attributes": {
-      "api_try_out_enabled": {
+      "agent_enabled": {
         "description_kind": "plain",
         "optional": true,
         "type": "bool"
       },
-      "gateway_ids": {
+      "app_name": {
+        "description_kind": "plain",
+        "required": true,
+        "type": "string"
+      },
+      "app_server_port": {
         "description_kind": "plain",
         "optional": true,
-        "type": [
-          "set",
-          "string"
-        ]
+        "type": "number"
       },
-      "https_only_enabled": {
+      "audit_mode_enabled": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "bool"
+      },
+      "auto_app_naming_enabled": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "bool"
+      },
+      "auto_transaction_naming_enabled": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "bool"
+      },
+      "custom_tracing_enabled": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "bool"
+      },
+      "globally_enabled": {
         "description_kind": "plain",
         "optional": true,
         "type": "bool"
@@ -33,65 +55,32 @@ const azurermSpringCloudApiPortal = `{
         "optional": true,
         "type": "string"
       },
-      "instance_count": {
+      "labels": {
         "description_kind": "plain",
         "optional": true,
-        "type": "number"
+        "type": [
+          "map",
+          "string"
+        ]
+      },
+      "license_key": {
+        "description_kind": "plain",
+        "required": true,
+        "sensitive": true,
+        "type": "string"
       },
       "name": {
         "description_kind": "plain",
         "required": true,
         "type": "string"
       },
-      "public_network_access_enabled": {
-        "description_kind": "plain",
-        "optional": true,
-        "type": "bool"
-      },
       "spring_cloud_service_id": {
         "description_kind": "plain",
         "required": true,
         "type": "string"
-      },
-      "url": {
-        "computed": true,
-        "description_kind": "plain",
-        "type": "string"
       }
     },
     "block_types": {
-      "sso": {
-        "block": {
-          "attributes": {
-            "client_id": {
-              "description_kind": "plain",
-              "optional": true,
-              "type": "string"
-            },
-            "client_secret": {
-              "description_kind": "plain",
-              "optional": true,
-              "type": "string"
-            },
-            "issuer_uri": {
-              "description_kind": "plain",
-              "optional": true,
-              "type": "string"
-            },
-            "scope": {
-              "description_kind": "plain",
-              "optional": true,
-              "type": [
-                "set",
-                "string"
-              ]
-            }
-          },
-          "description_kind": "plain"
-        },
-        "max_items": 1,
-        "nesting_mode": "list"
-      },
       "timeouts": {
         "block": {
           "attributes": {
@@ -123,11 +112,11 @@ const azurermSpringCloudApiPortal = `{
     },
     "description_kind": "plain"
   },
-  "version": 1
+  "version": 0
 }`
 
-func AzurermSpringCloudApiPortalSchema() *tfjson.Schema {
+func AzurermSpringCloudNewRelicApplicationPerformanceMonitoringSchema() *tfjson.Schema {
 	var result tfjson.Schema
-	_ = json.Unmarshal([]byte(azurermSpringCloudApiPortal), &result)
+	_ = json.Unmarshal([]byte(azurermSpringCloudNewRelicApplicationPerformanceMonitoring), &result)
 	return &result
 }

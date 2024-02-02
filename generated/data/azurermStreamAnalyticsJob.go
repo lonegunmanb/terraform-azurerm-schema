@@ -48,6 +48,10 @@ const azurermStreamAnalyticsJob = `{
           [
             "object",
             {
+              "identity_ids": [
+                "list",
+                "string"
+              ],
               "principal_id": "string",
               "tenant_id": "string",
               "type": "string"

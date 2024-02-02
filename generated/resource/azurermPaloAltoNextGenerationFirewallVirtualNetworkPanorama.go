@@ -186,6 +186,14 @@ const azurermPaloAltoNextGenerationFirewallVirtualNetworkPanorama = `{
                 "list",
                 "string"
               ]
+            },
+            "trusted_address_ranges": {
+              "description_kind": "plain",
+              "optional": true,
+              "type": [
+                "list",
+                "string"
+              ]
             }
           },
           "block_types": {

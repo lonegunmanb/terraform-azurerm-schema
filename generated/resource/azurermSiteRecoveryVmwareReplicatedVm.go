@@ -6,37 +6,25 @@ import (
 	tfjson "github.com/hashicorp/terraform-json"
 )
 
-const azurermStreamAnalyticsJob = `{
+const azurermSiteRecoveryVmwareReplicatedVm = `{
   "block": {
     "attributes": {
-      "compatibility_level": {
-        "computed": true,
+      "appliance_name": {
+        "description_kind": "plain",
+        "required": true,
+        "type": "string"
+      },
+      "default_log_storage_account_id": {
         "description_kind": "plain",
         "optional": true,
         "type": "string"
       },
-      "content_storage_policy": {
+      "default_recovery_disk_type": {
         "description_kind": "plain",
         "optional": true,
         "type": "string"
       },
-      "data_locale": {
-        "computed": true,
-        "description_kind": "plain",
-        "optional": true,
-        "type": "string"
-      },
-      "events_late_arrival_max_delay_in_seconds": {
-        "description_kind": "plain",
-        "optional": true,
-        "type": "number"
-      },
-      "events_out_of_order_max_delay_in_seconds": {
-        "description_kind": "plain",
-        "optional": true,
-        "type": "number"
-      },
-      "events_out_of_order_policy": {
+      "default_target_disk_encryption_set_id": {
         "description_kind": "plain",
         "optional": true,
         "type": "string"
@@ -47,14 +35,14 @@ const azurermStreamAnalyticsJob = `{
         "optional": true,
         "type": "string"
       },
-      "job_id": {
-        "computed": true,
+      "license_type": {
         "description_kind": "plain",
+        "optional": true,
         "type": "string"
       },
-      "location": {
+      "multi_vm_group_name": {
         "description_kind": "plain",
-        "required": true,
+        "optional": true,
         "type": "string"
       },
       "name": {
@@ -62,73 +50,92 @@ const azurermStreamAnalyticsJob = `{
         "required": true,
         "type": "string"
       },
-      "output_error_policy": {
-        "description_kind": "plain",
-        "optional": true,
-        "type": "string"
-      },
-      "resource_group_name": {
+      "physical_server_credential_name": {
         "description_kind": "plain",
         "required": true,
         "type": "string"
       },
-      "sku_name": {
-        "description_kind": "plain",
-        "optional": true,
-        "type": "string"
-      },
-      "stream_analytics_cluster_id": {
-        "description_kind": "plain",
-        "optional": true,
-        "type": "string"
-      },
-      "streaming_units": {
-        "description_kind": "plain",
-        "optional": true,
-        "type": "number"
-      },
-      "tags": {
-        "description_kind": "plain",
-        "optional": true,
-        "type": [
-          "map",
-          "string"
-        ]
-      },
-      "transformation_query": {
+      "recovery_replication_policy_id": {
         "description_kind": "plain",
         "required": true,
         "type": "string"
       },
-      "type": {
+      "recovery_vault_id": {
+        "description_kind": "plain",
+        "required": true,
+        "type": "string"
+      },
+      "source_vm_name": {
+        "description_kind": "plain",
+        "required": true,
+        "type": "string"
+      },
+      "target_availability_set_id": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "string"
+      },
+      "target_boot_diagnostics_storage_account_id": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "string"
+      },
+      "target_network_id": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "string"
+      },
+      "target_proximity_placement_group_id": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "string"
+      },
+      "target_resource_group_id": {
+        "description_kind": "plain",
+        "required": true,
+        "type": "string"
+      },
+      "target_vm_name": {
+        "description_kind": "plain",
+        "required": true,
+        "type": "string"
+      },
+      "target_vm_size": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "string"
+      },
+      "target_zone": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "string"
+      },
+      "test_network_id": {
         "description_kind": "plain",
         "optional": true,
         "type": "string"
       }
     },
     "block_types": {
-      "identity": {
+      "managed_disk": {
         "block": {
           "attributes": {
-            "identity_ids": {
+            "disk_id": {
+              "description_kind": "plain",
+              "required": true,
+              "type": "string"
+            },
+            "log_storage_account_id": {
               "description_kind": "plain",
               "optional": true,
-              "type": [
-                "set",
-                "string"
-              ]
-            },
-            "principal_id": {
-              "computed": true,
-              "description_kind": "plain",
               "type": "string"
             },
-            "tenant_id": {
-              "computed": true,
+            "target_disk_encryption_set_id": {
               "description_kind": "plain",
+              "optional": true,
               "type": "string"
             },
-            "type": {
+            "target_disk_type": {
               "description_kind": "plain",
               "required": true,
               "type": "string"
@@ -136,24 +143,32 @@ const azurermStreamAnalyticsJob = `{
           },
           "description_kind": "plain"
         },
-        "max_items": 1,
         "nesting_mode": "list"
       },
-      "job_storage_account": {
+      "network_interface": {
         "block": {
           "attributes": {
-            "account_key": {
+            "is_primary": {
               "description_kind": "plain",
               "required": true,
-              "sensitive": true,
-              "type": "string"
+              "type": "bool"
             },
-            "account_name": {
+            "source_mac_address": {
               "description_kind": "plain",
               "required": true,
               "type": "string"
             },
-            "authentication_mode": {
+            "target_static_ip": {
+              "description_kind": "plain",
+              "optional": true,
+              "type": "string"
+            },
+            "target_subnet_name": {
+              "description_kind": "plain",
+              "optional": true,
+              "type": "string"
+            },
+            "test_subnet_name": {
               "description_kind": "plain",
               "optional": true,
               "type": "string"
@@ -194,11 +209,11 @@ const azurermStreamAnalyticsJob = `{
     },
     "description_kind": "plain"
   },
-  "version": 1
+  "version": 0
 }`
 
-func AzurermStreamAnalyticsJobSchema() *tfjson.Schema {
+func AzurermSiteRecoveryVmwareReplicatedVmSchema() *tfjson.Schema {
 	var result tfjson.Schema
-	_ = json.Unmarshal([]byte(azurermStreamAnalyticsJob), &result)
+	_ = json.Unmarshal([]byte(azurermSiteRecoveryVmwareReplicatedVm), &result)
 	return &result
 }

@@ -197,6 +197,14 @@ const azurermPaloAltoNextGenerationFirewallVirtualHubPanorama = `{
                 "string"
               ]
             },
+            "trusted_address_ranges": {
+              "description_kind": "plain",
+              "optional": true,
+              "type": [
+                "list",
+                "string"
+              ]
+            },
             "trusted_subnet_id": {
               "computed": true,
               "description_kind": "plain",
