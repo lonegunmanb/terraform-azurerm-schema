@@ -6,38 +6,28 @@ import (
 	tfjson "github.com/hashicorp/terraform-json"
 )
 
-const azurermLogAnalyticsWorkspaceTable = `{
+const azurermChaosStudioCapability = `{
   "block": {
     "attributes": {
+      "capability_type": {
+        "description_kind": "plain",
+        "required": true,
+        "type": "string"
+      },
+      "chaos_studio_target_id": {
+        "description_kind": "plain",
+        "required": true,
+        "type": "string"
+      },
       "id": {
         "computed": true,
         "description_kind": "plain",
         "optional": true,
         "type": "string"
       },
-      "name": {
+      "urn": {
+        "computed": true,
         "description_kind": "plain",
-        "required": true,
-        "type": "string"
-      },
-      "plan": {
-        "description_kind": "plain",
-        "optional": true,
-        "type": "string"
-      },
-      "retention_in_days": {
-        "description_kind": "plain",
-        "optional": true,
-        "type": "number"
-      },
-      "total_retention_in_days": {
-        "description_kind": "plain",
-        "optional": true,
-        "type": "number"
-      },
-      "workspace_id": {
-        "description_kind": "plain",
-        "required": true,
         "type": "string"
       }
     },
@@ -59,11 +49,6 @@ const azurermLogAnalyticsWorkspaceTable = `{
               "description_kind": "plain",
               "optional": true,
               "type": "string"
-            },
-            "update": {
-              "description_kind": "plain",
-              "optional": true,
-              "type": "string"
             }
           },
           "description_kind": "plain"
@@ -76,8 +61,8 @@ const azurermLogAnalyticsWorkspaceTable = `{
   "version": 0
 }`
 
-func AzurermLogAnalyticsWorkspaceTableSchema() *tfjson.Schema {
+func AzurermChaosStudioCapabilitySchema() *tfjson.Schema {
 	var result tfjson.Schema
-	_ = json.Unmarshal([]byte(azurermLogAnalyticsWorkspaceTable), &result)
+	_ = json.Unmarshal([]byte(azurermChaosStudioCapability), &result)
 	return &result
 }

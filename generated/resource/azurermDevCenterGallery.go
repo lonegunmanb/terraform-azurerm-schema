@@ -6,9 +6,14 @@ import (
 	tfjson "github.com/hashicorp/terraform-json"
 )
 
-const azurermLogAnalyticsWorkspaceTable = `{
+const azurermDevCenterGallery = `{
   "block": {
     "attributes": {
+      "dev_center_id": {
+        "description_kind": "plain",
+        "required": true,
+        "type": "string"
+      },
       "id": {
         "computed": true,
         "description_kind": "plain",
@@ -20,22 +25,7 @@ const azurermLogAnalyticsWorkspaceTable = `{
         "required": true,
         "type": "string"
       },
-      "plan": {
-        "description_kind": "plain",
-        "optional": true,
-        "type": "string"
-      },
-      "retention_in_days": {
-        "description_kind": "plain",
-        "optional": true,
-        "type": "number"
-      },
-      "total_retention_in_days": {
-        "description_kind": "plain",
-        "optional": true,
-        "type": "number"
-      },
-      "workspace_id": {
+      "shared_gallery_id": {
         "description_kind": "plain",
         "required": true,
         "type": "string"
@@ -59,11 +49,6 @@ const azurermLogAnalyticsWorkspaceTable = `{
               "description_kind": "plain",
               "optional": true,
               "type": "string"
-            },
-            "update": {
-              "description_kind": "plain",
-              "optional": true,
-              "type": "string"
             }
           },
           "description_kind": "plain"
@@ -76,8 +61,8 @@ const azurermLogAnalyticsWorkspaceTable = `{
   "version": 0
 }`
 
-func AzurermLogAnalyticsWorkspaceTableSchema() *tfjson.Schema {
+func AzurermDevCenterGallerySchema() *tfjson.Schema {
 	var result tfjson.Schema
-	_ = json.Unmarshal([]byte(azurermLogAnalyticsWorkspaceTable), &result)
+	_ = json.Unmarshal([]byte(azurermDevCenterGallery), &result)
 	return &result
 }

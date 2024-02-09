@@ -82,6 +82,11 @@ const azurermStorageAccount = `{
         "optional": true,
         "type": "bool"
       },
+      "local_user_enabled": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "bool"
+      },
       "location": {
         "description_kind": "plain",
         "required": true,

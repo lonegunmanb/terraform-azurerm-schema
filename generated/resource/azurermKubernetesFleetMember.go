@@ -6,36 +6,31 @@ import (
 	tfjson "github.com/hashicorp/terraform-json"
 )
 
-const azurermLogAnalyticsWorkspaceTable = `{
+const azurermKubernetesFleetMember = `{
   "block": {
     "attributes": {
+      "group": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "string"
+      },
       "id": {
         "computed": true,
         "description_kind": "plain",
         "optional": true,
         "type": "string"
       },
-      "name": {
+      "kubernetes_cluster_id": {
         "description_kind": "plain",
         "required": true,
         "type": "string"
       },
-      "plan": {
+      "kubernetes_fleet_id": {
         "description_kind": "plain",
-        "optional": true,
+        "required": true,
         "type": "string"
       },
-      "retention_in_days": {
-        "description_kind": "plain",
-        "optional": true,
-        "type": "number"
-      },
-      "total_retention_in_days": {
-        "description_kind": "plain",
-        "optional": true,
-        "type": "number"
-      },
-      "workspace_id": {
+      "name": {
         "description_kind": "plain",
         "required": true,
         "type": "string"
@@ -76,8 +71,8 @@ const azurermLogAnalyticsWorkspaceTable = `{
   "version": 0
 }`
 
-func AzurermLogAnalyticsWorkspaceTableSchema() *tfjson.Schema {
+func AzurermKubernetesFleetMemberSchema() *tfjson.Schema {
 	var result tfjson.Schema
-	_ = json.Unmarshal([]byte(azurermLogAnalyticsWorkspaceTable), &result)
+	_ = json.Unmarshal([]byte(azurermKubernetesFleetMember), &result)
 	return &result
 }

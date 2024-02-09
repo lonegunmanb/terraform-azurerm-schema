@@ -55,6 +55,11 @@ const azurermMachineLearningWorkspace = `{
         "required": true,
         "type": "string"
       },
+      "kind": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "string"
+      },
       "location": {
         "description_kind": "plain",
         "required": true,
@@ -131,6 +136,30 @@ const azurermMachineLearningWorkspace = `{
               "type": "string"
             },
             "user_assigned_identity_id": {
+              "description_kind": "plain",
+              "optional": true,
+              "type": "string"
+            }
+          },
+          "description_kind": "plain"
+        },
+        "max_items": 1,
+        "nesting_mode": "list"
+      },
+      "feature_store": {
+        "block": {
+          "attributes": {
+            "computer_spark_runtime_version": {
+              "description_kind": "plain",
+              "optional": true,
+              "type": "string"
+            },
+            "offline_connection_name": {
+              "description_kind": "plain",
+              "optional": true,
+              "type": "string"
+            },
+            "online_connection_name": {
               "description_kind": "plain",
               "optional": true,
               "type": "string"

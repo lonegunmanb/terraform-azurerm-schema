@@ -6,26 +6,60 @@ import (
 	tfjson "github.com/hashicorp/terraform-json"
 )
 
-const azurermTrafficManagerAzureEndpoint = `{
+const azurermSpringCloudAppDynamicsApplicationPerformanceMonitoring = `{
   "block": {
     "attributes": {
-      "always_serve_enabled": {
+      "agent_account_access_key": {
+        "description_kind": "plain",
+        "required": true,
+        "sensitive": true,
+        "type": "string"
+      },
+      "agent_account_name": {
+        "description_kind": "plain",
+        "required": true,
+        "sensitive": true,
+        "type": "string"
+      },
+      "agent_application_name": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "string"
+      },
+      "agent_node_name": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "string"
+      },
+      "agent_tier_name": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "string"
+      },
+      "agent_unique_host_id": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "string"
+      },
+      "controller_host_name": {
+        "description_kind": "plain",
+        "required": true,
+        "type": "string"
+      },
+      "controller_port": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "number"
+      },
+      "controller_ssl_enabled": {
         "description_kind": "plain",
         "optional": true,
         "type": "bool"
       },
-      "enabled": {
+      "globally_enabled": {
         "description_kind": "plain",
         "optional": true,
         "type": "bool"
-      },
-      "geo_mappings": {
-        "description_kind": "plain",
-        "optional": true,
-        "type": [
-          "list",
-          "string"
-        ]
       },
       "id": {
         "computed": true,
@@ -38,71 +72,13 @@ const azurermTrafficManagerAzureEndpoint = `{
         "required": true,
         "type": "string"
       },
-      "priority": {
-        "computed": true,
-        "description_kind": "plain",
-        "optional": true,
-        "type": "number"
-      },
-      "profile_id": {
+      "spring_cloud_service_id": {
         "description_kind": "plain",
         "required": true,
         "type": "string"
-      },
-      "target_resource_id": {
-        "description_kind": "plain",
-        "required": true,
-        "type": "string"
-      },
-      "weight": {
-        "computed": true,
-        "description_kind": "plain",
-        "optional": true,
-        "type": "number"
       }
     },
     "block_types": {
-      "custom_header": {
-        "block": {
-          "attributes": {
-            "name": {
-              "description_kind": "plain",
-              "required": true,
-              "type": "string"
-            },
-            "value": {
-              "description_kind": "plain",
-              "required": true,
-              "type": "string"
-            }
-          },
-          "description_kind": "plain"
-        },
-        "nesting_mode": "list"
-      },
-      "subnet": {
-        "block": {
-          "attributes": {
-            "first": {
-              "description_kind": "plain",
-              "required": true,
-              "type": "string"
-            },
-            "last": {
-              "description_kind": "plain",
-              "optional": true,
-              "type": "string"
-            },
-            "scope": {
-              "description_kind": "plain",
-              "optional": true,
-              "type": "number"
-            }
-          },
-          "description_kind": "plain"
-        },
-        "nesting_mode": "list"
-      },
       "timeouts": {
         "block": {
           "attributes": {
@@ -137,8 +113,8 @@ const azurermTrafficManagerAzureEndpoint = `{
   "version": 0
 }`
 
-func AzurermTrafficManagerAzureEndpointSchema() *tfjson.Schema {
+func AzurermSpringCloudAppDynamicsApplicationPerformanceMonitoringSchema() *tfjson.Schema {
 	var result tfjson.Schema
-	_ = json.Unmarshal([]byte(azurermTrafficManagerAzureEndpoint), &result)
+	_ = json.Unmarshal([]byte(azurermSpringCloudAppDynamicsApplicationPerformanceMonitoring), &result)
 	return &result
 }

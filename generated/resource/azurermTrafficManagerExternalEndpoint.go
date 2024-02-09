@@ -9,6 +9,11 @@ import (
 const azurermTrafficManagerExternalEndpoint = `{
   "block": {
     "attributes": {
+      "always_serve_enabled": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "bool"
+      },
       "enabled": {
         "description_kind": "plain",
         "optional": true,

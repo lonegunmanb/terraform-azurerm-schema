@@ -6,38 +6,33 @@ import (
 	tfjson "github.com/hashicorp/terraform-json"
 )
 
-const azurermLogAnalyticsWorkspaceTable = `{
+const azurermIotcentralOrganization = `{
   "block": {
     "attributes": {
+      "display_name": {
+        "description_kind": "plain",
+        "required": true,
+        "type": "string"
+      },
       "id": {
         "computed": true,
         "description_kind": "plain",
         "optional": true,
         "type": "string"
       },
-      "name": {
+      "iotcentral_application_id": {
         "description_kind": "plain",
         "required": true,
         "type": "string"
       },
-      "plan": {
-        "description_kind": "plain",
-        "optional": true,
-        "type": "string"
-      },
-      "retention_in_days": {
-        "description_kind": "plain",
-        "optional": true,
-        "type": "number"
-      },
-      "total_retention_in_days": {
-        "description_kind": "plain",
-        "optional": true,
-        "type": "number"
-      },
-      "workspace_id": {
+      "organization_id": {
         "description_kind": "plain",
         "required": true,
+        "type": "string"
+      },
+      "parent_organization_id": {
+        "description_kind": "plain",
+        "optional": true,
         "type": "string"
       }
     },
@@ -76,8 +71,8 @@ const azurermLogAnalyticsWorkspaceTable = `{
   "version": 0
 }`
 
-func AzurermLogAnalyticsWorkspaceTableSchema() *tfjson.Schema {
+func AzurermIotcentralOrganizationSchema() *tfjson.Schema {
 	var result tfjson.Schema
-	_ = json.Unmarshal([]byte(azurermLogAnalyticsWorkspaceTable), &result)
+	_ = json.Unmarshal([]byte(azurermIotcentralOrganization), &result)
 	return &result
 }

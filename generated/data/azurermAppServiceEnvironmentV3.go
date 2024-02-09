@@ -114,6 +114,11 @@ const azurermAppServiceEnvironmentV3 = `{
         "description_kind": "plain",
         "type": "string"
       },
+      "remote_debugging_enabled": {
+        "computed": true,
+        "description_kind": "plain",
+        "type": "bool"
+      },
       "resource_group_name": {
         "description_kind": "plain",
         "required": true,
