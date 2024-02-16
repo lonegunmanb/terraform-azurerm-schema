@@ -319,13 +319,11 @@ const azurermCosmosdbAccount = `{
               "type": "string"
             },
             "max_interval_in_seconds": {
-              "computed": true,
               "description_kind": "plain",
               "optional": true,
               "type": "number"
             },
             "max_staleness_prefix": {
-              "computed": true,
               "description_kind": "plain",
               "optional": true,
               "type": "number"

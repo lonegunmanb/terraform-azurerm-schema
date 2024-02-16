@@ -138,6 +138,56 @@ const azurermDashboardGrafana = `{
         "max_items": 1,
         "nesting_mode": "list"
       },
+      "smtp": {
+        "block": {
+          "attributes": {
+            "enabled": {
+              "description_kind": "plain",
+              "optional": true,
+              "type": "bool"
+            },
+            "from_address": {
+              "description_kind": "plain",
+              "required": true,
+              "type": "string"
+            },
+            "from_name": {
+              "description_kind": "plain",
+              "optional": true,
+              "type": "string"
+            },
+            "host": {
+              "description_kind": "plain",
+              "required": true,
+              "type": "string"
+            },
+            "password": {
+              "description_kind": "plain",
+              "required": true,
+              "sensitive": true,
+              "type": "string"
+            },
+            "start_tls_policy": {
+              "description_kind": "plain",
+              "required": true,
+              "type": "string"
+            },
+            "user": {
+              "description_kind": "plain",
+              "required": true,
+              "type": "string"
+            },
+            "verification_skip_enabled": {
+              "description_kind": "plain",
+              "optional": true,
+              "type": "bool"
+            }
+          },
+          "description_kind": "plain"
+        },
+        "max_items": 1,
+        "nesting_mode": "list"
+      },
       "timeouts": {
         "block": {
           "attributes": {

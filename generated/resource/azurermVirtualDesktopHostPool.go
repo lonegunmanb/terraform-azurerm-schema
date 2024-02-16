@@ -88,6 +88,11 @@ const azurermVirtualDesktopHostPool = `{
         "description_kind": "plain",
         "optional": true,
         "type": "bool"
+      },
+      "vm_template": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "string"
       }
     },
     "block_types": {

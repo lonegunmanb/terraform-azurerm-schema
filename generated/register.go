@@ -1397,6 +1397,7 @@ func init() {
 	dataSources["azurerm_traffic_manager_geographical_location"] = data.AzurermTrafficManagerGeographicalLocationSchema()  
 	dataSources["azurerm_traffic_manager_profile"] = data.AzurermTrafficManagerProfileSchema()  
 	dataSources["azurerm_user_assigned_identity"] = data.AzurermUserAssignedIdentitySchema()  
+	dataSources["azurerm_virtual_desktop_application_group"] = data.AzurermVirtualDesktopApplicationGroupSchema()  
 	dataSources["azurerm_virtual_desktop_host_pool"] = data.AzurermVirtualDesktopHostPoolSchema()  
 	dataSources["azurerm_virtual_desktop_workspace"] = data.AzurermVirtualDesktopWorkspaceSchema()  
 	dataSources["azurerm_virtual_hub"] = data.AzurermVirtualHubSchema()  

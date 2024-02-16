@@ -42,6 +42,12 @@ const azurermCostAnomalyAlert = `{
         "description_kind": "plain",
         "required": true,
         "type": "string"
+      },
+      "subscription_id": {
+        "computed": true,
+        "description_kind": "plain",
+        "optional": true,
+        "type": "string"
       }
     },
     "block_types": {

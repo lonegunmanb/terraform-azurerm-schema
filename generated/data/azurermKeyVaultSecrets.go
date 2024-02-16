@@ -38,7 +38,11 @@ const azurermKeyVaultSecrets = `{
             {
               "enabled": "bool",
               "id": "string",
-              "name": "string"
+              "name": "string",
+              "tags": [
+                "map",
+                "string"
+              ]
             }
           ]
         ]

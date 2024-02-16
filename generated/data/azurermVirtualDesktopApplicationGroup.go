@@ -6,27 +6,23 @@ import (
 	tfjson "github.com/hashicorp/terraform-json"
 )
 
-const azurermKeyVaultCertificates = `{
+const azurermVirtualDesktopApplicationGroup = `{
   "block": {
     "attributes": {
-      "certificates": {
+      "description": {
         "computed": true,
         "description_kind": "plain",
-        "type": [
-          "list",
-          [
-            "object",
-            {
-              "enabled": "bool",
-              "id": "string",
-              "name": "string",
-              "tags": [
-                "map",
-                "string"
-              ]
-            }
-          ]
-        ]
+        "type": "string"
+      },
+      "friendly_name": {
+        "computed": true,
+        "description_kind": "plain",
+        "type": "string"
+      },
+      "host_pool_id": {
+        "computed": true,
+        "description_kind": "plain",
+        "type": "string"
       },
       "id": {
         "computed": true,
@@ -34,23 +30,38 @@ const azurermKeyVaultCertificates = `{
         "optional": true,
         "type": "string"
       },
-      "include_pending": {
+      "location": {
+        "computed": true,
         "description_kind": "plain",
-        "optional": true,
-        "type": "bool"
+        "type": "string"
       },
-      "key_vault_id": {
+      "name": {
         "description_kind": "plain",
         "required": true,
         "type": "string"
       },
-      "names": {
+      "resource_group_name": {
+        "description_kind": "plain",
+        "required": true,
+        "type": "string"
+      },
+      "tags": {
         "computed": true,
         "description_kind": "plain",
         "type": [
-          "list",
+          "map",
           "string"
         ]
+      },
+      "type": {
+        "computed": true,
+        "description_kind": "plain",
+        "type": "string"
+      },
+      "workspace_id": {
+        "computed": true,
+        "description_kind": "plain",
+        "type": "string"
       }
     },
     "block_types": {
@@ -73,8 +84,8 @@ const azurermKeyVaultCertificates = `{
   "version": 0
 }`
 
-func AzurermKeyVaultCertificatesSchema() *tfjson.Schema {
+func AzurermVirtualDesktopApplicationGroupSchema() *tfjson.Schema {
 	var result tfjson.Schema
-	_ = json.Unmarshal([]byte(azurermKeyVaultCertificates), &result)
+	_ = json.Unmarshal([]byte(azurermVirtualDesktopApplicationGroup), &result)
 	return &result
 }

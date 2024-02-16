@@ -715,6 +715,25 @@ const azurermOrchestratedVirtualMachineScaleSet = `{
                   }
                 },
                 "block_types": {
+                  "additional_unattend_content": {
+                    "block": {
+                      "attributes": {
+                        "content": {
+                          "description_kind": "plain",
+                          "required": true,
+                          "sensitive": true,
+                          "type": "string"
+                        },
+                        "setting": {
+                          "description_kind": "plain",
+                          "required": true,
+                          "type": "string"
+                        }
+                      },
+                      "description_kind": "plain"
+                    },
+                    "nesting_mode": "list"
+                  },
                   "secret": {
                     "block": {
                       "attributes": {

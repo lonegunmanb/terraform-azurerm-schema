@@ -80,7 +80,7 @@ const azurermDataFactory = `{
             },
             "git_url": {
               "description_kind": "plain",
-              "required": true,
+              "optional": true,
               "type": "string"
             },
             "publishing_enabled": {
