@@ -1,4 +1,4 @@
-package resource
+package data
 
 import (
 	"encoding/json"
@@ -6,13 +6,13 @@ import (
 	tfjson "github.com/hashicorp/terraform-json"
 )
 
-const azurermSecurityCenterSetting = `{
+const azurermStorageTableEntities = `{
   "block": {
     "attributes": {
-      "enabled": {
+      "filter": {
         "description_kind": "plain",
         "required": true,
-        "type": "bool"
+        "type": "string"
       },
       "id": {
         "computed": true,
@@ -20,7 +20,30 @@ const azurermSecurityCenterSetting = `{
         "optional": true,
         "type": "string"
       },
-      "setting_name": {
+      "items": {
+        "computed": true,
+        "description_kind": "plain",
+        "type": [
+          "list",
+          [
+            "object",
+            {
+              "partition_key": "string",
+              "properties": [
+                "map",
+                "string"
+              ],
+              "row_key": "string"
+            }
+          ]
+        ]
+      },
+      "storage_account_name": {
+        "description_kind": "plain",
+        "required": true,
+        "type": "string"
+      },
+      "table_name": {
         "description_kind": "plain",
         "required": true,
         "type": "string"
@@ -30,22 +53,7 @@ const azurermSecurityCenterSetting = `{
       "timeouts": {
         "block": {
           "attributes": {
-            "create": {
-              "description_kind": "plain",
-              "optional": true,
-              "type": "string"
-            },
-            "delete": {
-              "description_kind": "plain",
-              "optional": true,
-              "type": "string"
-            },
             "read": {
-              "description_kind": "plain",
-              "optional": true,
-              "type": "string"
-            },
-            "update": {
               "description_kind": "plain",
               "optional": true,
               "type": "string"
@@ -58,11 +66,11 @@ const azurermSecurityCenterSetting = `{
     },
     "description_kind": "plain"
   },
-  "version": 1
+  "version": 0
 }`
 
-func AzurermSecurityCenterSettingSchema() *tfjson.Schema {
+func AzurermStorageTableEntitiesSchema() *tfjson.Schema {
 	var result tfjson.Schema
-	_ = json.Unmarshal([]byte(azurermSecurityCenterSetting), &result)
+	_ = json.Unmarshal([]byte(azurermStorageTableEntities), &result)
 	return &result
 }

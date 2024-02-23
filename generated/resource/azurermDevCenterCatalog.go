@@ -6,10 +6,10 @@ import (
 	tfjson "github.com/hashicorp/terraform-json"
 )
 
-const azurermDataProtectionBackupVault = `{
+const azurermDevCenterCatalog = `{
   "block": {
     "attributes": {
-      "datastore_type": {
+      "dev_center_id": {
         "description_kind": "plain",
         "required": true,
         "type": "string"
@@ -20,17 +20,7 @@ const azurermDataProtectionBackupVault = `{
         "optional": true,
         "type": "string"
       },
-      "location": {
-        "description_kind": "plain",
-        "required": true,
-        "type": "string"
-      },
       "name": {
-        "description_kind": "plain",
-        "required": true,
-        "type": "string"
-      },
-      "redundancy": {
         "description_kind": "plain",
         "required": true,
         "type": "string"
@@ -39,41 +29,57 @@ const azurermDataProtectionBackupVault = `{
         "description_kind": "plain",
         "required": true,
         "type": "string"
-      },
-      "retention_duration_in_days": {
-        "description_kind": "plain",
-        "optional": true,
-        "type": "number"
-      },
-      "soft_delete": {
-        "description_kind": "plain",
-        "optional": true,
-        "type": "string"
-      },
-      "tags": {
-        "description_kind": "plain",
-        "optional": true,
-        "type": [
-          "map",
-          "string"
-        ]
       }
     },
     "block_types": {
-      "identity": {
+      "catalog_adogit": {
         "block": {
           "attributes": {
-            "principal_id": {
-              "computed": true,
+            "branch": {
               "description_kind": "plain",
+              "required": true,
               "type": "string"
             },
-            "tenant_id": {
-              "computed": true,
+            "key_vault_key_url": {
               "description_kind": "plain",
+              "required": true,
               "type": "string"
             },
-            "type": {
+            "path": {
+              "description_kind": "plain",
+              "required": true,
+              "type": "string"
+            },
+            "uri": {
+              "description_kind": "plain",
+              "required": true,
+              "type": "string"
+            }
+          },
+          "description_kind": "plain"
+        },
+        "max_items": 1,
+        "nesting_mode": "list"
+      },
+      "catalog_github": {
+        "block": {
+          "attributes": {
+            "branch": {
+              "description_kind": "plain",
+              "required": true,
+              "type": "string"
+            },
+            "key_vault_key_url": {
+              "description_kind": "plain",
+              "required": true,
+              "type": "string"
+            },
+            "path": {
+              "description_kind": "plain",
+              "required": true,
+              "type": "string"
+            },
+            "uri": {
               "description_kind": "plain",
               "required": true,
               "type": "string"
@@ -118,8 +124,8 @@ const azurermDataProtectionBackupVault = `{
   "version": 0
 }`
 
-func AzurermDataProtectionBackupVaultSchema() *tfjson.Schema {
+func AzurermDevCenterCatalogSchema() *tfjson.Schema {
 	var result tfjson.Schema
-	_ = json.Unmarshal([]byte(azurermDataProtectionBackupVault), &result)
+	_ = json.Unmarshal([]byte(azurermDevCenterCatalog), &result)
 	return &result
 }

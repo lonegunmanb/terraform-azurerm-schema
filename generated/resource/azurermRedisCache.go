@@ -239,6 +239,11 @@ const azurermRedisCache = `{
               "sensitive": true,
               "type": "string"
             },
+            "data_persistence_authentication_method": {
+              "description_kind": "plain",
+              "optional": true,
+              "type": "string"
+            },
             "enable_authentication": {
               "description_kind": "plain",
               "optional": true,

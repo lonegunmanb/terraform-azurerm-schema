@@ -70,6 +70,11 @@ const azurermServicebusNamespace = `{
         "required": true,
         "type": "string"
       },
+      "premium_messaging_partitions": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "number"
+      },
       "public_network_access_enabled": {
         "description_kind": "plain",
         "optional": true,

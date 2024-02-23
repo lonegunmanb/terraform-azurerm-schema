@@ -6,13 +6,18 @@ import (
 	tfjson "github.com/hashicorp/terraform-json"
 )
 
-const azurermSecurityCenterSetting = `{
+const azurermSystemCenterVirtualMachineManagerServer = `{
   "block": {
     "attributes": {
-      "enabled": {
+      "custom_location_id": {
         "description_kind": "plain",
         "required": true,
-        "type": "bool"
+        "type": "string"
+      },
+      "fqdn": {
+        "description_kind": "plain",
+        "required": true,
+        "type": "string"
       },
       "id": {
         "computed": true,
@@ -20,7 +25,41 @@ const azurermSecurityCenterSetting = `{
         "optional": true,
         "type": "string"
       },
-      "setting_name": {
+      "location": {
+        "description_kind": "plain",
+        "required": true,
+        "type": "string"
+      },
+      "name": {
+        "description_kind": "plain",
+        "required": true,
+        "type": "string"
+      },
+      "password": {
+        "description_kind": "plain",
+        "required": true,
+        "sensitive": true,
+        "type": "string"
+      },
+      "port": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "number"
+      },
+      "resource_group_name": {
+        "description_kind": "plain",
+        "required": true,
+        "type": "string"
+      },
+      "tags": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": [
+          "map",
+          "string"
+        ]
+      },
+      "username": {
         "description_kind": "plain",
         "required": true,
         "type": "string"
@@ -58,11 +97,11 @@ const azurermSecurityCenterSetting = `{
     },
     "description_kind": "plain"
   },
-  "version": 1
+  "version": 0
 }`
 
-func AzurermSecurityCenterSettingSchema() *tfjson.Schema {
+func AzurermSystemCenterVirtualMachineManagerServerSchema() *tfjson.Schema {
 	var result tfjson.Schema
-	_ = json.Unmarshal([]byte(azurermSecurityCenterSetting), &result)
+	_ = json.Unmarshal([]byte(azurermSystemCenterVirtualMachineManagerServer), &result)
 	return &result
 }

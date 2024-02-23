@@ -6,39 +6,20 @@ import (
 	tfjson "github.com/hashicorp/terraform-json"
 )
 
-const azurermServicebusNamespace = `{
+const azurermExpressRouteCircuitPeering = `{
   "block": {
     "attributes": {
-      "capacity": {
+      "azure_asn": {
         "computed": true,
         "description_kind": "plain",
         "type": "number"
       },
-      "default_primary_connection_string": {
-        "computed": true,
+      "express_route_circuit_name": {
         "description_kind": "plain",
-        "sensitive": true,
+        "required": true,
         "type": "string"
       },
-      "default_primary_key": {
-        "computed": true,
-        "description_kind": "plain",
-        "sensitive": true,
-        "type": "string"
-      },
-      "default_secondary_connection_string": {
-        "computed": true,
-        "description_kind": "plain",
-        "sensitive": true,
-        "type": "string"
-      },
-      "default_secondary_key": {
-        "computed": true,
-        "description_kind": "plain",
-        "sensitive": true,
-        "type": "string"
-      },
-      "endpoint": {
+      "gateway_manager_etag": {
         "computed": true,
         "description_kind": "plain",
         "type": "string"
@@ -49,43 +30,60 @@ const azurermServicebusNamespace = `{
         "optional": true,
         "type": "string"
       },
-      "location": {
+      "ipv4_enabled": {
         "computed": true,
         "description_kind": "plain",
-        "type": "string"
+        "type": "bool"
       },
-      "name": {
+      "peer_asn": {
+        "computed": true,
+        "description_kind": "plain",
+        "type": "number"
+      },
+      "peering_type": {
         "description_kind": "plain",
         "required": true,
         "type": "string"
       },
-      "premium_messaging_partitions": {
+      "primary_azure_port": {
         "computed": true,
         "description_kind": "plain",
-        "type": "number"
+        "type": "string"
+      },
+      "primary_peer_address_prefix": {
+        "computed": true,
+        "description_kind": "plain",
+        "type": "string"
       },
       "resource_group_name": {
         "description_kind": "plain",
         "required": true,
         "type": "string"
       },
-      "sku": {
+      "route_filter_id": {
         "computed": true,
         "description_kind": "plain",
         "type": "string"
       },
-      "tags": {
+      "secondary_azure_port": {
         "computed": true,
         "description_kind": "plain",
-        "type": [
-          "map",
-          "string"
-        ]
+        "type": "string"
       },
-      "zone_redundant": {
+      "secondary_peer_address_prefix": {
         "computed": true,
         "description_kind": "plain",
-        "type": "bool"
+        "type": "string"
+      },
+      "shared_key": {
+        "computed": true,
+        "description_kind": "plain",
+        "type": "string"
+      },
+      "vlan_id": {
+        "computed": true,
+        "description_kind": "plain",
+        "type": "number"
       }
     },
     "block_types": {
@@ -108,8 +106,8 @@ const azurermServicebusNamespace = `{
   "version": 0
 }`
 
-func AzurermServicebusNamespaceSchema() *tfjson.Schema {
+func AzurermExpressRouteCircuitPeeringSchema() *tfjson.Schema {
 	var result tfjson.Schema
-	_ = json.Unmarshal([]byte(azurermServicebusNamespace), &result)
+	_ = json.Unmarshal([]byte(azurermExpressRouteCircuitPeering), &result)
 	return &result
 }

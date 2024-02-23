@@ -203,13 +203,15 @@ const azurermOrchestratedVirtualMachineScaleSet = `{
               "type": "string"
             },
             "disk_size_gb": {
+              "computed": true,
               "description_kind": "plain",
-              "required": true,
+              "optional": true,
               "type": "number"
             },
             "lun": {
+              "computed": true,
               "description_kind": "plain",
-              "required": true,
+              "optional": true,
               "type": "number"
             },
             "storage_account_type": {

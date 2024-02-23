@@ -111,6 +111,12 @@ const azurermPostgresqlFlexibleServer = `{
         "optional": true,
         "type": "number"
       },
+      "storage_tier": {
+        "computed": true,
+        "description_kind": "plain",
+        "optional": true,
+        "type": "string"
+      },
       "tags": {
         "description_kind": "plain",
         "optional": true,
@@ -171,7 +177,7 @@ const azurermPostgresqlFlexibleServer = `{
             },
             "key_vault_key_id": {
               "description_kind": "plain",
-              "optional": true,
+              "required": true,
               "type": "string"
             },
             "primary_user_assigned_identity_id": {

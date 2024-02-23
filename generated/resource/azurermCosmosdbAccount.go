@@ -272,6 +272,12 @@ const azurermCosmosdbAccount = `{
               "optional": true,
               "type": "string"
             },
+            "tier": {
+              "computed": true,
+              "description_kind": "plain",
+              "optional": true,
+              "type": "string"
+            },
             "type": {
               "description_kind": "plain",
               "required": true,

@@ -98,6 +98,7 @@ const azurermRedisCache = `{
               "aof_backup_enabled": "bool",
               "aof_storage_connection_string_0": "string",
               "aof_storage_connection_string_1": "string",
+              "data_persistence_authentication_method": "string",
               "enable_authentication": "bool",
               "maxclients": "number",
               "maxfragmentationmemory_reserved": "number",
