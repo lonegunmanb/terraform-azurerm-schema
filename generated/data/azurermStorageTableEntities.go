@@ -38,6 +38,14 @@ const azurermStorageTableEntities = `{
           ]
         ]
       },
+      "select": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": [
+          "list",
+          "string"
+        ]
+      },
       "storage_account_name": {
         "description_kind": "plain",
         "required": true,

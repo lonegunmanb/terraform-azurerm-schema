@@ -14,6 +14,11 @@ const azurermNetappPool = `{
         "required": true,
         "type": "string"
       },
+      "encryption_type": {
+        "computed": true,
+        "description_kind": "plain",
+        "type": "string"
+      },
       "id": {
         "computed": true,
         "description_kind": "plain",

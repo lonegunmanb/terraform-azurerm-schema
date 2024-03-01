@@ -9,6 +9,11 @@ import (
 const azurermNginxDeployment = `{
   "block": {
     "attributes": {
+      "automatic_upgrade_channel": {
+        "computed": true,
+        "description_kind": "plain",
+        "type": "string"
+      },
       "capacity": {
         "computed": true,
         "description_kind": "plain",

@@ -469,6 +469,7 @@ func init() {
 	resources["azurerm_kubernetes_cluster_trusted_access_role_binding"] = resource.AzurermKubernetesClusterTrustedAccessRoleBindingSchema()  
 	resources["azurerm_kubernetes_fleet_manager"] = resource.AzurermKubernetesFleetManagerSchema()  
 	resources["azurerm_kubernetes_fleet_member"] = resource.AzurermKubernetesFleetMemberSchema()  
+	resources["azurerm_kubernetes_fleet_update_run"] = resource.AzurermKubernetesFleetUpdateRunSchema()  
 	resources["azurerm_kubernetes_fleet_update_strategy"] = resource.AzurermKubernetesFleetUpdateStrategySchema()  
 	resources["azurerm_kubernetes_flux_configuration"] = resource.AzurermKubernetesFluxConfigurationSchema()  
 	resources["azurerm_kusto_attached_database_configuration"] = resource.AzurermKustoAttachedDatabaseConfigurationSchema()  

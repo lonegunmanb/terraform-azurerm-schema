@@ -25,6 +25,11 @@ const azurermSpringCloudConfigurationService = `{
         "required": true,
         "type": "string"
       },
+      "refresh_interval_in_seconds": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "number"
+      },
       "spring_cloud_service_id": {
         "description_kind": "plain",
         "required": true,

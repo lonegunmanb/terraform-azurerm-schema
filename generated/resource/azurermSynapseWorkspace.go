@@ -202,6 +202,11 @@ const azurermSynapseWorkspace = `{
               "description_kind": "plain",
               "required": true,
               "type": "string"
+            },
+            "user_assigned_identity_id": {
+              "description_kind": "plain",
+              "optional": true,
+              "type": "string"
             }
           },
           "description_kind": "plain"

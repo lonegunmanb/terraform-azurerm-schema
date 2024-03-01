@@ -105,7 +105,17 @@ const azurermMssqlDatabase = `{
         "optional": true,
         "type": "string"
       },
+      "recovery_point_id": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "string"
+      },
       "restore_dropped_database_id": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "string"
+      },
+      "restore_long_term_retention_backup_id": {
         "description_kind": "plain",
         "optional": true,
         "type": "string"

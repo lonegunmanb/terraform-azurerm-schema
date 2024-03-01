@@ -95,6 +95,12 @@ const azurermCosmosdbAccount = `{
         "required": true,
         "type": "string"
       },
+      "minimal_tls_version": {
+        "computed": true,
+        "description_kind": "plain",
+        "optional": true,
+        "type": "string"
+      },
       "mongo_server_version": {
         "computed": true,
         "description_kind": "plain",

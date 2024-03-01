@@ -9,6 +9,14 @@ import (
 const azurermSpringCloudGateway = `{
   "block": {
     "attributes": {
+      "application_performance_monitoring_ids": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": [
+          "list",
+          "string"
+        ]
+      },
       "application_performance_monitoring_types": {
         "description_kind": "plain",
         "optional": true,

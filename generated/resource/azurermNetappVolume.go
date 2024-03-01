@@ -97,6 +97,16 @@ const azurermNetappVolume = `{
         "required": true,
         "type": "string"
       },
+      "smb_access_based_enumeration_enabled": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "bool"
+      },
+      "smb_non_browsable_enabled": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "bool"
+      },
       "snapshot_directory_visible": {
         "computed": true,
         "description_kind": "plain",

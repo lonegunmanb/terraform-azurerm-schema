@@ -97,6 +97,16 @@ const azurermNetappVolume = `{
         "description_kind": "plain",
         "type": "string"
       },
+      "smb_access_based_enumeration_enabled": {
+        "computed": true,
+        "description_kind": "plain",
+        "type": "bool"
+      },
+      "smb_non_browsable_enabled": {
+        "computed": true,
+        "description_kind": "plain",
+        "type": "bool"
+      },
       "storage_quota_in_gb": {
         "computed": true,
         "description_kind": "plain",

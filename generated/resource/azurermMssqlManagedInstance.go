@@ -123,6 +123,11 @@ const azurermMssqlManagedInstance = `{
         "description_kind": "plain",
         "required": true,
         "type": "number"
+      },
+      "zone_redundant_enabled": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "bool"
       }
     },
     "block_types": {

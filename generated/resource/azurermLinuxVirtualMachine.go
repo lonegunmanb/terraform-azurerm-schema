@@ -67,6 +67,12 @@ const azurermLinuxVirtualMachine = `{
         "optional": true,
         "type": "bool"
       },
+      "disk_controller_type": {
+        "computed": true,
+        "description_kind": "plain",
+        "optional": true,
+        "type": "string"
+      },
       "edge_zone": {
         "description_kind": "plain",
         "optional": true,
@@ -225,6 +231,11 @@ const azurermLinuxVirtualMachine = `{
         "optional": true,
         "type": "string"
       },
+      "vm_agent_platform_updates_enabled": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "bool"
+      },
       "vtpm_enabled": {
         "description_kind": "plain",
         "optional": true,
@@ -286,6 +297,11 @@ const azurermLinuxVirtualMachine = `{
       "gallery_application": {
         "block": {
           "attributes": {
+            "automatic_upgrade_enabled": {
+              "description_kind": "plain",
+              "optional": true,
+              "type": "bool"
+            },
             "configuration_blob_uri": {
               "description_kind": "plain",
               "optional": true,
@@ -300,6 +316,11 @@ const azurermLinuxVirtualMachine = `{
               "description_kind": "plain",
               "optional": true,
               "type": "string"
+            },
+            "treat_failure_as_deployment_failure_enabled": {
+              "description_kind": "plain",
+              "optional": true,
+              "type": "bool"
             },
             "version_id": {
               "description_kind": "plain",
@@ -415,6 +436,20 @@ const azurermLinuxVirtualMachine = `{
         },
         "max_items": 1,
         "min_items": 1,
+        "nesting_mode": "list"
+      },
+      "os_image_notification": {
+        "block": {
+          "attributes": {
+            "timeout": {
+              "description_kind": "plain",
+              "optional": true,
+              "type": "string"
+            }
+          },
+          "description_kind": "plain"
+        },
+        "max_items": 1,
         "nesting_mode": "list"
       },
       "plan": {
