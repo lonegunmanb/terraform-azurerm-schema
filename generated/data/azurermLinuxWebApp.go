@@ -725,6 +725,7 @@ const azurermLinuxWebApp = `{
                   "object",
                   {
                     "action": "string",
+                    "description": "string",
                     "headers": [
                       "list",
                       [
@@ -757,6 +758,7 @@ const azurermLinuxWebApp = `{
                   }
                 ]
               ],
+              "ip_restriction_default_action": "string",
               "linux_fx_version": "string",
               "load_balancing_mode": "string",
               "local_mysql_enabled": "bool",
@@ -770,6 +772,7 @@ const azurermLinuxWebApp = `{
                   "object",
                   {
                     "action": "string",
+                    "description": "string",
                     "headers": [
                       "list",
                       [
@@ -802,6 +805,7 @@ const azurermLinuxWebApp = `{
                   }
                 ]
               ],
+              "scm_ip_restriction_default_action": "string",
               "scm_minimum_tls_version": "string",
               "scm_type": "string",
               "scm_use_main_ip_restriction": "bool",

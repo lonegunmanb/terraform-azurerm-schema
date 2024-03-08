@@ -1348,6 +1348,11 @@ const azurermLinuxWebAppSlot = `{
               "optional": true,
               "type": "bool"
             },
+            "ip_restriction_default_action": {
+              "description_kind": "plain",
+              "optional": true,
+              "type": "string"
+            },
             "linux_fx_version": {
               "computed": true,
               "description_kind": "plain",
@@ -1380,6 +1385,11 @@ const azurermLinuxWebAppSlot = `{
             },
             "remote_debugging_version": {
               "computed": true,
+              "description_kind": "plain",
+              "optional": true,
+              "type": "string"
+            },
+            "scm_ip_restriction_default_action": {
               "description_kind": "plain",
               "optional": true,
               "type": "string"
@@ -1670,6 +1680,12 @@ const azurermLinuxWebAppSlot = `{
                     "optional": true,
                     "type": "string"
                   },
+                  "description": {
+                    "description": "The description of the IP restriction rule.",
+                    "description_kind": "plain",
+                    "optional": true,
+                    "type": "string"
+                  },
                   "headers": {
                     "description_kind": "plain",
                     "optional": true,
@@ -1739,6 +1755,12 @@ const azurermLinuxWebAppSlot = `{
                 "attributes": {
                   "action": {
                     "description": "The action to take. Possible values are ` + "`" + `Allow` + "`" + ` or ` + "`" + `Deny` + "`" + `.",
+                    "description_kind": "plain",
+                    "optional": true,
+                    "type": "string"
+                  },
+                  "description": {
+                    "description": "The description of the IP restriction rule.",
                     "description_kind": "plain",
                     "optional": true,
                     "type": "string"

@@ -6,26 +6,12 @@ import (
 	tfjson "github.com/hashicorp/terraform-json"
 )
 
-const azurermStaticSite = `{
+const azurermSystemCenterVirtualMachineManagerAvailabilitySet = `{
   "block": {
     "attributes": {
-      "api_key": {
-        "computed": true,
+      "custom_location_id": {
         "description_kind": "plain",
-        "sensitive": true,
-        "type": "string"
-      },
-      "app_settings": {
-        "description_kind": "plain",
-        "optional": true,
-        "type": [
-          "map",
-          "string"
-        ]
-      },
-      "default_host_name": {
-        "computed": true,
-        "description_kind": "plain",
+        "required": true,
         "type": "string"
       },
       "id": {
@@ -49,14 +35,9 @@ const azurermStaticSite = `{
         "required": true,
         "type": "string"
       },
-      "sku_size": {
+      "system_center_virtual_machine_manager_server_id": {
         "description_kind": "plain",
-        "optional": true,
-        "type": "string"
-      },
-      "sku_tier": {
-        "description_kind": "plain",
-        "optional": true,
+        "required": true,
         "type": "string"
       },
       "tags": {
@@ -69,38 +50,6 @@ const azurermStaticSite = `{
       }
     },
     "block_types": {
-      "identity": {
-        "block": {
-          "attributes": {
-            "identity_ids": {
-              "description_kind": "plain",
-              "optional": true,
-              "type": [
-                "set",
-                "string"
-              ]
-            },
-            "principal_id": {
-              "computed": true,
-              "description_kind": "plain",
-              "type": "string"
-            },
-            "tenant_id": {
-              "computed": true,
-              "description_kind": "plain",
-              "type": "string"
-            },
-            "type": {
-              "description_kind": "plain",
-              "required": true,
-              "type": "string"
-            }
-          },
-          "description_kind": "plain"
-        },
-        "max_items": 1,
-        "nesting_mode": "list"
-      },
       "timeouts": {
         "block": {
           "attributes": {
@@ -130,14 +79,13 @@ const azurermStaticSite = `{
         "nesting_mode": "single"
       }
     },
-    "deprecated": true,
     "description_kind": "plain"
   },
   "version": 0
 }`
 
-func AzurermStaticSiteSchema() *tfjson.Schema {
+func AzurermSystemCenterVirtualMachineManagerAvailabilitySetSchema() *tfjson.Schema {
 	var result tfjson.Schema
-	_ = json.Unmarshal([]byte(azurermStaticSite), &result)
+	_ = json.Unmarshal([]byte(azurermSystemCenterVirtualMachineManagerAvailabilitySet), &result)
 	return &result
 }

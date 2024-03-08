@@ -46,6 +46,7 @@ const azurermPrivateDnsResolverInboundEndpoint = `{
             "private_ip_address": {
               "computed": true,
               "description_kind": "plain",
+              "optional": true,
               "type": "string"
             },
             "private_ip_allocation_method": {

@@ -6,65 +6,38 @@ import (
 	tfjson "github.com/hashicorp/terraform-json"
 )
 
-const azurermKubernetesFleetManager = `{
+const azurermStaticWebAppCustomDomain = `{
   "block": {
     "attributes": {
+      "domain_name": {
+        "description_kind": "plain",
+        "required": true,
+        "type": "string"
+      },
       "id": {
         "computed": true,
         "description_kind": "plain",
         "optional": true,
         "type": "string"
       },
-      "location": {
+      "static_web_app_id": {
         "description_kind": "plain",
         "required": true,
         "type": "string"
       },
-      "name": {
+      "validation_token": {
+        "computed": true,
+        "description_kind": "plain",
+        "sensitive": true,
+        "type": "string"
+      },
+      "validation_type": {
         "description_kind": "plain",
         "required": true,
         "type": "string"
-      },
-      "resource_group_name": {
-        "description_kind": "plain",
-        "required": true,
-        "type": "string"
-      },
-      "tags": {
-        "description_kind": "plain",
-        "optional": true,
-        "type": [
-          "map",
-          "string"
-        ]
       }
     },
     "block_types": {
-      "hub_profile": {
-        "block": {
-          "attributes": {
-            "dns_prefix": {
-              "description_kind": "plain",
-              "required": true,
-              "type": "string"
-            },
-            "fqdn": {
-              "computed": true,
-              "description_kind": "plain",
-              "type": "string"
-            },
-            "kubernetes_version": {
-              "computed": true,
-              "description_kind": "plain",
-              "type": "string"
-            }
-          },
-          "deprecated": true,
-          "description_kind": "plain"
-        },
-        "max_items": 1,
-        "nesting_mode": "list"
-      },
       "timeouts": {
         "block": {
           "attributes": {
@@ -82,11 +55,6 @@ const azurermKubernetesFleetManager = `{
               "description_kind": "plain",
               "optional": true,
               "type": "string"
-            },
-            "update": {
-              "description_kind": "plain",
-              "optional": true,
-              "type": "string"
             }
           },
           "description_kind": "plain"
@@ -99,8 +67,8 @@ const azurermKubernetesFleetManager = `{
   "version": 0
 }`
 
-func AzurermKubernetesFleetManagerSchema() *tfjson.Schema {
+func AzurermStaticWebAppCustomDomainSchema() *tfjson.Schema {
 	var result tfjson.Schema
-	_ = json.Unmarshal([]byte(azurermKubernetesFleetManager), &result)
+	_ = json.Unmarshal([]byte(azurermStaticWebAppCustomDomain), &result)
 	return &result
 }

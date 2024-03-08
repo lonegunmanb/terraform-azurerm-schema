@@ -53,6 +53,11 @@ const azurermAppServiceCertificate = `{
         "description_kind": "plain",
         "type": "string"
       },
+      "key_vault_id": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "string"
+      },
       "key_vault_secret_id": {
         "description_kind": "plain",
         "optional": true,

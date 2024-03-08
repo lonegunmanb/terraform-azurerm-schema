@@ -205,6 +205,7 @@ const azurermContainerApp = `{
                     "type": "string"
                   }
                 },
+                "deprecated": true,
                 "description_kind": "plain"
               },
               "max_items": 1,

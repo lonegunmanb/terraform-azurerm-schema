@@ -722,6 +722,7 @@ const azurermWindowsWebApp = `{
                   "object",
                   {
                     "action": "string",
+                    "description": "string",
                     "headers": [
                       "list",
                       [
@@ -754,6 +755,7 @@ const azurermWindowsWebApp = `{
                   }
                 ]
               ],
+              "ip_restriction_default_action": "string",
               "load_balancing_mode": "string",
               "local_mysql_enabled": "bool",
               "managed_pipeline_mode": "string",
@@ -766,6 +768,7 @@ const azurermWindowsWebApp = `{
                   "object",
                   {
                     "action": "string",
+                    "description": "string",
                     "headers": [
                       "list",
                       [
@@ -798,6 +801,7 @@ const azurermWindowsWebApp = `{
                   }
                 ]
               ],
+              "scm_ip_restriction_default_action": "string",
               "scm_minimum_tls_version": "string",
               "scm_type": "string",
               "scm_use_main_ip_restriction": "bool",

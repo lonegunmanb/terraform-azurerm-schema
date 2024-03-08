@@ -1310,6 +1310,11 @@ const azurermLinuxFunctionAppSlot = `{
               "optional": true,
               "type": "bool"
             },
+            "ip_restriction_default_action": {
+              "description_kind": "plain",
+              "optional": true,
+              "type": "string"
+            },
             "linux_fx_version": {
               "computed": true,
               "description": "The Linux FX Version",
@@ -1359,6 +1364,11 @@ const azurermLinuxFunctionAppSlot = `{
               "description_kind": "plain",
               "optional": true,
               "type": "bool"
+            },
+            "scm_ip_restriction_default_action": {
+              "description_kind": "plain",
+              "optional": true,
+              "type": "string"
             },
             "scm_minimum_tls_version": {
               "description": "Configures the minimum version of TLS required for SSL requests to the SCM site Possible values include: ` + "`" + `1.0` + "`" + `, ` + "`" + `1.1` + "`" + `, and  ` + "`" + `1.2` + "`" + `. Defaults to ` + "`" + `1.2` + "`" + `.",
@@ -1552,6 +1562,12 @@ const azurermLinuxFunctionAppSlot = `{
                     "optional": true,
                     "type": "string"
                   },
+                  "description": {
+                    "description": "The description of the IP restriction rule.",
+                    "description_kind": "plain",
+                    "optional": true,
+                    "type": "string"
+                  },
                   "headers": {
                     "description_kind": "plain",
                     "optional": true,
@@ -1621,6 +1637,12 @@ const azurermLinuxFunctionAppSlot = `{
                 "attributes": {
                   "action": {
                     "description": "The action to take. Possible values are ` + "`" + `Allow` + "`" + ` or ` + "`" + `Deny` + "`" + `.",
+                    "description_kind": "plain",
+                    "optional": true,
+                    "type": "string"
+                  },
+                  "description": {
+                    "description": "The description of the IP restriction rule.",
                     "description_kind": "plain",
                     "optional": true,
                     "type": "string"

@@ -1340,6 +1340,11 @@ const azurermWindowsWebAppSlot = `{
               "optional": true,
               "type": "bool"
             },
+            "ip_restriction_default_action": {
+              "description_kind": "plain",
+              "optional": true,
+              "type": "string"
+            },
             "load_balancing_mode": {
               "description_kind": "plain",
               "optional": true,
@@ -1367,6 +1372,11 @@ const azurermWindowsWebAppSlot = `{
             },
             "remote_debugging_version": {
               "computed": true,
+              "description_kind": "plain",
+              "optional": true,
+              "type": "string"
+            },
+            "scm_ip_restriction_default_action": {
               "description_kind": "plain",
               "optional": true,
               "type": "string"
@@ -1722,6 +1732,12 @@ const azurermWindowsWebAppSlot = `{
                     "optional": true,
                     "type": "string"
                   },
+                  "description": {
+                    "description": "The description of the IP restriction rule.",
+                    "description_kind": "plain",
+                    "optional": true,
+                    "type": "string"
+                  },
                   "headers": {
                     "description_kind": "plain",
                     "optional": true,
@@ -1791,6 +1807,12 @@ const azurermWindowsWebAppSlot = `{
                 "attributes": {
                   "action": {
                     "description": "The action to take. Possible values are ` + "`" + `Allow` + "`" + ` or ` + "`" + `Deny` + "`" + `.",
+                    "description_kind": "plain",
+                    "optional": true,
+                    "type": "string"
+                  },
+                  "description": {
+                    "description": "The description of the IP restriction rule.",
                     "description_kind": "plain",
                     "optional": true,
                     "type": "string"

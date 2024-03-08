@@ -6,10 +6,21 @@ import (
 	tfjson "github.com/hashicorp/terraform-json"
 )
 
-const azurermStaticSiteCustomDomain = `{
+const azurermContainerAppCustomDomain = `{
   "block": {
     "attributes": {
-      "domain_name": {
+      "certificate_binding_type": {
+        "description": "The Binding type. Possible values include ` + "`" + `Disabled` + "`" + ` and ` + "`" + `SniEnabled` + "`" + `.",
+        "description_kind": "plain",
+        "required": true,
+        "type": "string"
+      },
+      "container_app_environment_certificate_id": {
+        "description_kind": "plain",
+        "required": true,
+        "type": "string"
+      },
+      "container_app_id": {
         "description_kind": "plain",
         "required": true,
         "type": "string"
@@ -20,20 +31,10 @@ const azurermStaticSiteCustomDomain = `{
         "optional": true,
         "type": "string"
       },
-      "static_site_id": {
+      "name": {
+        "description": "The hostname of the Certificate. Must be the CN or a named SAN in the certificate.",
         "description_kind": "plain",
         "required": true,
-        "type": "string"
-      },
-      "validation_token": {
-        "computed": true,
-        "description_kind": "plain",
-        "sensitive": true,
-        "type": "string"
-      },
-      "validation_type": {
-        "description_kind": "plain",
-        "optional": true,
         "type": "string"
       }
     },
@@ -62,14 +63,13 @@ const azurermStaticSiteCustomDomain = `{
         "nesting_mode": "single"
       }
     },
-    "deprecated": true,
     "description_kind": "plain"
   },
   "version": 0
 }`
 
-func AzurermStaticSiteCustomDomainSchema() *tfjson.Schema {
+func AzurermContainerAppCustomDomainSchema() *tfjson.Schema {
 	var result tfjson.Schema
-	_ = json.Unmarshal([]byte(azurermStaticSiteCustomDomain), &result)
+	_ = json.Unmarshal([]byte(azurermContainerAppCustomDomain), &result)
 	return &result
 }

@@ -6,32 +6,31 @@ import (
 	tfjson "github.com/hashicorp/terraform-json"
 )
 
-const azurermStreamAnalyticsOutputBlob = `{
+const azurermStaticWebApp = `{
   "block": {
     "attributes": {
-      "authentication_mode": {
+      "api_key": {
+        "computed": true,
         "description_kind": "plain",
-        "optional": true,
+        "sensitive": true,
         "type": "string"
       },
-      "batch_max_wait_time": {
+      "app_settings": {
         "description_kind": "plain",
         "optional": true,
-        "type": "string"
+        "type": [
+          "map",
+          "string"
+        ]
       },
-      "batch_min_rows": {
+      "configuration_file_changes_enabled": {
         "description_kind": "plain",
         "optional": true,
-        "type": "number"
+        "type": "bool"
       },
-      "blob_write_mode": {
+      "default_host_name": {
+        "computed": true,
         "description_kind": "plain",
-        "optional": true,
-        "type": "string"
-      },
-      "date_format": {
-        "description_kind": "plain",
-        "required": true,
         "type": "string"
       },
       "id": {
@@ -40,65 +39,85 @@ const azurermStreamAnalyticsOutputBlob = `{
         "optional": true,
         "type": "string"
       },
+      "location": {
+        "description_kind": "plain",
+        "required": true,
+        "type": "string"
+      },
       "name": {
         "description_kind": "plain",
         "required": true,
         "type": "string"
       },
-      "path_pattern": {
+      "preview_environments_enabled": {
         "description_kind": "plain",
-        "required": true,
-        "type": "string"
+        "optional": true,
+        "type": "bool"
       },
       "resource_group_name": {
         "description_kind": "plain",
         "required": true,
         "type": "string"
       },
-      "storage_account_key": {
+      "sku_size": {
         "description_kind": "plain",
         "optional": true,
-        "sensitive": true,
         "type": "string"
       },
-      "storage_account_name": {
+      "sku_tier": {
         "description_kind": "plain",
-        "required": true,
+        "optional": true,
         "type": "string"
       },
-      "storage_container_name": {
+      "tags": {
         "description_kind": "plain",
-        "required": true,
-        "type": "string"
-      },
-      "stream_analytics_job_name": {
-        "description_kind": "plain",
-        "required": true,
-        "type": "string"
-      },
-      "time_format": {
-        "description_kind": "plain",
-        "required": true,
-        "type": "string"
+        "optional": true,
+        "type": [
+          "map",
+          "string"
+        ]
       }
     },
     "block_types": {
-      "serialization": {
+      "basic_auth": {
         "block": {
           "attributes": {
-            "encoding": {
+            "environments": {
               "description_kind": "plain",
-              "optional": true,
+              "required": true,
               "type": "string"
             },
-            "field_delimiter": {
+            "password": {
+              "description_kind": "plain",
+              "required": true,
+              "sensitive": true,
+              "type": "string"
+            }
+          },
+          "description_kind": "plain"
+        },
+        "max_items": 1,
+        "nesting_mode": "list"
+      },
+      "identity": {
+        "block": {
+          "attributes": {
+            "identity_ids": {
               "description_kind": "plain",
               "optional": true,
+              "type": [
+                "set",
+                "string"
+              ]
+            },
+            "principal_id": {
+              "computed": true,
+              "description_kind": "plain",
               "type": "string"
             },
-            "format": {
+            "tenant_id": {
+              "computed": true,
               "description_kind": "plain",
-              "optional": true,
               "type": "string"
             },
             "type": {
@@ -110,7 +129,6 @@ const azurermStreamAnalyticsOutputBlob = `{
           "description_kind": "plain"
         },
         "max_items": 1,
-        "min_items": 1,
         "nesting_mode": "list"
       },
       "timeouts": {
@@ -144,11 +162,11 @@ const azurermStreamAnalyticsOutputBlob = `{
     },
     "description_kind": "plain"
   },
-  "version": 1
+  "version": 0
 }`
 
-func AzurermStreamAnalyticsOutputBlobSchema() *tfjson.Schema {
+func AzurermStaticWebAppSchema() *tfjson.Schema {
 	var result tfjson.Schema
-	_ = json.Unmarshal([]byte(azurermStreamAnalyticsOutputBlob), &result)
+	_ = json.Unmarshal([]byte(azurermStaticWebApp), &result)
 	return &result
 }

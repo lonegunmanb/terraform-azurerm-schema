@@ -6,30 +6,10 @@ import (
 	tfjson "github.com/hashicorp/terraform-json"
 )
 
-const azurermStreamAnalyticsOutputBlob = `{
+const azurermDataProtectionBackupInstanceKubernetesCluster = `{
   "block": {
     "attributes": {
-      "authentication_mode": {
-        "description_kind": "plain",
-        "optional": true,
-        "type": "string"
-      },
-      "batch_max_wait_time": {
-        "description_kind": "plain",
-        "optional": true,
-        "type": "string"
-      },
-      "batch_min_rows": {
-        "description_kind": "plain",
-        "optional": true,
-        "type": "number"
-      },
-      "blob_write_mode": {
-        "description_kind": "plain",
-        "optional": true,
-        "type": "string"
-      },
-      "date_format": {
+      "backup_policy_id": {
         "description_kind": "plain",
         "required": true,
         "type": "string"
@@ -40,77 +20,90 @@ const azurermStreamAnalyticsOutputBlob = `{
         "optional": true,
         "type": "string"
       },
+      "kubernetes_cluster_id": {
+        "description_kind": "plain",
+        "required": true,
+        "type": "string"
+      },
+      "location": {
+        "description_kind": "plain",
+        "required": true,
+        "type": "string"
+      },
       "name": {
         "description_kind": "plain",
         "required": true,
         "type": "string"
       },
-      "path_pattern": {
+      "snapshot_resource_group_name": {
         "description_kind": "plain",
         "required": true,
         "type": "string"
       },
-      "resource_group_name": {
-        "description_kind": "plain",
-        "required": true,
-        "type": "string"
-      },
-      "storage_account_key": {
-        "description_kind": "plain",
-        "optional": true,
-        "sensitive": true,
-        "type": "string"
-      },
-      "storage_account_name": {
-        "description_kind": "plain",
-        "required": true,
-        "type": "string"
-      },
-      "storage_container_name": {
-        "description_kind": "plain",
-        "required": true,
-        "type": "string"
-      },
-      "stream_analytics_job_name": {
-        "description_kind": "plain",
-        "required": true,
-        "type": "string"
-      },
-      "time_format": {
+      "vault_id": {
         "description_kind": "plain",
         "required": true,
         "type": "string"
       }
     },
     "block_types": {
-      "serialization": {
+      "backup_datasource_parameters": {
         "block": {
           "attributes": {
-            "encoding": {
+            "cluster_scoped_resources_enabled": {
               "description_kind": "plain",
               "optional": true,
-              "type": "string"
+              "type": "bool"
             },
-            "field_delimiter": {
+            "excluded_namespaces": {
               "description_kind": "plain",
               "optional": true,
-              "type": "string"
+              "type": [
+                "list",
+                "string"
+              ]
             },
-            "format": {
+            "excluded_resource_types": {
               "description_kind": "plain",
               "optional": true,
-              "type": "string"
+              "type": [
+                "list",
+                "string"
+              ]
             },
-            "type": {
+            "included_namespaces": {
               "description_kind": "plain",
-              "required": true,
-              "type": "string"
+              "optional": true,
+              "type": [
+                "list",
+                "string"
+              ]
+            },
+            "included_resource_types": {
+              "description_kind": "plain",
+              "optional": true,
+              "type": [
+                "list",
+                "string"
+              ]
+            },
+            "label_selectors": {
+              "description_kind": "plain",
+              "optional": true,
+              "type": [
+                "list",
+                "string"
+              ]
+            },
+            "volume_snapshot_enabled": {
+              "description_kind": "plain",
+              "optional": true,
+              "type": "bool"
             }
           },
           "description_kind": "plain"
         },
         "max_items": 1,
-        "min_items": 1,
         "nesting_mode": "list"
       },
       "timeouts": {
@@ -130,11 +123,6 @@ const azurermStreamAnalyticsOutputBlob = `{
               "description_kind": "plain",
               "optional": true,
               "type": "string"
-            },
-            "update": {
-              "description_kind": "plain",
-              "optional": true,
-              "type": "string"
             }
           },
           "description_kind": "plain"
@@ -144,11 +132,11 @@ const azurermStreamAnalyticsOutputBlob = `{
     },
     "description_kind": "plain"
   },
-  "version": 1
+  "version": 0
 }`
 
-func AzurermStreamAnalyticsOutputBlobSchema() *tfjson.Schema {
+func AzurermDataProtectionBackupInstanceKubernetesClusterSchema() *tfjson.Schema {
 	var result tfjson.Schema
-	_ = json.Unmarshal([]byte(azurermStreamAnalyticsOutputBlob), &result)
+	_ = json.Unmarshal([]byte(azurermDataProtectionBackupInstanceKubernetesCluster), &result)
 	return &result
 }

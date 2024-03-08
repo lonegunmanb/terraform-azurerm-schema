@@ -621,6 +621,7 @@ const azurermLinuxFunctionApp = `{
                   "object",
                   {
                     "action": "string",
+                    "description": "string",
                     "headers": [
                       "list",
                       [
@@ -653,6 +654,7 @@ const azurermLinuxFunctionApp = `{
                   }
                 ]
               ],
+              "ip_restriction_default_action": "string",
               "linux_fx_version": "string",
               "load_balancing_mode": "string",
               "managed_pipeline_mode": "string",
@@ -667,6 +669,7 @@ const azurermLinuxFunctionApp = `{
                   "object",
                   {
                     "action": "string",
+                    "description": "string",
                     "headers": [
                       "list",
                       [
@@ -699,6 +702,7 @@ const azurermLinuxFunctionApp = `{
                   }
                 ]
               ],
+              "scm_ip_restriction_default_action": "string",
               "scm_minimum_tls_version": "string",
               "scm_type": "string",
               "scm_use_main_ip_restriction": "bool",

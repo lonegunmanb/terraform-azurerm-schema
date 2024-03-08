@@ -95,6 +95,7 @@ const azurermRedisCache = `{
           [
             "object",
             {
+              "active_directory_authentication_enabled": "bool",
               "aof_backup_enabled": "bool",
               "aof_storage_connection_string_0": "string",
               "aof_storage_connection_string_1": "string",

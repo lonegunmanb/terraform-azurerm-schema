@@ -33,6 +33,12 @@ const azurermFunctionAppHostKeys = `{
         "sensitive": true,
         "type": "string"
       },
+      "event_grid_extension_key": {
+        "computed": true,
+        "description_kind": "plain",
+        "sensitive": true,
+        "type": "string"
+      },
       "id": {
         "computed": true,
         "description_kind": "plain",

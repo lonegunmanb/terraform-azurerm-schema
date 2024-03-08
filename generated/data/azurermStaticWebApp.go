@@ -6,18 +6,43 @@ import (
 	tfjson "github.com/hashicorp/terraform-json"
 )
 
-const azurermRoleDefinition = `{
+const azurermStaticWebApp = `{
   "block": {
     "attributes": {
-      "assignable_scopes": {
+      "api_key": {
+        "computed": true,
+        "description_kind": "plain",
+        "sensitive": true,
+        "type": "string"
+      },
+      "app_settings": {
         "computed": true,
         "description_kind": "plain",
         "type": [
-          "list",
+          "map",
           "string"
         ]
       },
-      "description": {
+      "basic_auth": {
+        "computed": true,
+        "description_kind": "plain",
+        "sensitive": true,
+        "type": [
+          "list",
+          [
+            "object",
+            {
+              "environments": "string"
+            }
+          ]
+        ]
+      },
+      "configuration_file_changes_enabled": {
+        "computed": true,
+        "description_kind": "plain",
+        "type": "bool"
+      },
+      "default_host_name": {
         "computed": true,
         "description_kind": "plain",
         "type": "string"
@@ -28,13 +53,7 @@ const azurermRoleDefinition = `{
         "optional": true,
         "type": "string"
       },
-      "name": {
-        "computed": true,
-        "description_kind": "plain",
-        "optional": true,
-        "type": "string"
-      },
-      "permissions": {
+      "identity": {
         "computed": true,
         "description_kind": "plain",
         "type": [
@@ -42,43 +61,54 @@ const azurermRoleDefinition = `{
           [
             "object",
             {
-              "actions": [
+              "identity_ids": [
                 "list",
                 "string"
               ],
-              "condition": "string",
-              "condition_version": "string",
-              "data_actions": [
-                "set",
-                "string"
-              ],
-              "not_actions": [
-                "list",
-                "string"
-              ],
-              "not_data_actions": [
-                "set",
-                "string"
-              ]
+              "principal_id": "string",
+              "tenant_id": "string",
+              "type": "string"
             }
           ]
         ]
       },
-      "role_definition_id": {
-        "computed": true,
-        "description_kind": "plain",
-        "optional": true,
-        "type": "string"
-      },
-      "scope": {
-        "description_kind": "plain",
-        "optional": true,
-        "type": "string"
-      },
-      "type": {
+      "location": {
         "computed": true,
         "description_kind": "plain",
         "type": "string"
+      },
+      "name": {
+        "description_kind": "plain",
+        "required": true,
+        "type": "string"
+      },
+      "preview_environments_enabled": {
+        "computed": true,
+        "description_kind": "plain",
+        "type": "bool"
+      },
+      "resource_group_name": {
+        "description_kind": "plain",
+        "required": true,
+        "type": "string"
+      },
+      "sku_size": {
+        "computed": true,
+        "description_kind": "plain",
+        "type": "string"
+      },
+      "sku_tier": {
+        "computed": true,
+        "description_kind": "plain",
+        "type": "string"
+      },
+      "tags": {
+        "computed": true,
+        "description_kind": "plain",
+        "type": [
+          "map",
+          "string"
+        ]
       }
     },
     "block_types": {
@@ -101,8 +131,8 @@ const azurermRoleDefinition = `{
   "version": 0
 }`
 
-func AzurermRoleDefinitionSchema() *tfjson.Schema {
+func AzurermStaticWebAppSchema() *tfjson.Schema {
 	var result tfjson.Schema
-	_ = json.Unmarshal([]byte(azurermRoleDefinition), &result)
+	_ = json.Unmarshal([]byte(azurermStaticWebApp), &result)
 	return &result
 }
