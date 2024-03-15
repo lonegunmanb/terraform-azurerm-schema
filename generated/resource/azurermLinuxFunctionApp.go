@@ -1460,7 +1460,7 @@ const azurermLinuxFunctionApp = `{
                     "type": "string"
                   },
                   "node_version": {
-                    "description": "The version of Node to use. Possible values include ` + "`" + `12` + "`" + `, ` + "`" + `14` + "`" + `, ` + "`" + `16` + "`" + ` and ` + "`" + `18` + "`" + `",
+                    "description": "The version of Node to use. Possible values include ` + "`" + `12` + "`" + `, ` + "`" + `14` + "`" + `, ` + "`" + `16` + "`" + `, ` + "`" + `18` + "`" + ` and ` + "`" + `20` + "`" + `",
                     "description_kind": "plain",
                     "optional": true,
                     "type": "string"

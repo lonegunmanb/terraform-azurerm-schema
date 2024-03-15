@@ -19,6 +19,11 @@ const azurermStackHciCluster = `{
         "required": true,
         "type": "string"
       },
+      "cloud_id": {
+        "computed": true,
+        "description_kind": "plain",
+        "type": "string"
+      },
       "id": {
         "computed": true,
         "description_kind": "plain",
@@ -40,6 +45,16 @@ const azurermStackHciCluster = `{
         "required": true,
         "type": "string"
       },
+      "resource_provider_object_id": {
+        "computed": true,
+        "description_kind": "plain",
+        "type": "string"
+      },
+      "service_endpoint": {
+        "computed": true,
+        "description_kind": "plain",
+        "type": "string"
+      },
       "tags": {
         "description_kind": "plain",
         "optional": true,
@@ -56,6 +71,30 @@ const azurermStackHciCluster = `{
       }
     },
     "block_types": {
+      "identity": {
+        "block": {
+          "attributes": {
+            "principal_id": {
+              "computed": true,
+              "description_kind": "plain",
+              "type": "string"
+            },
+            "tenant_id": {
+              "computed": true,
+              "description_kind": "plain",
+              "type": "string"
+            },
+            "type": {
+              "description_kind": "plain",
+              "required": true,
+              "type": "string"
+            }
+          },
+          "description_kind": "plain"
+        },
+        "max_items": 1,
+        "nesting_mode": "list"
+      },
       "timeouts": {
         "block": {
           "attributes": {

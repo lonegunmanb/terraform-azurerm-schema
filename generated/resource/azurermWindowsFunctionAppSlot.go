@@ -1378,7 +1378,7 @@ const azurermWindowsFunctionAppSlot = `{
               "type": "bool"
             },
             "use_32_bit_worker": {
-              "description": "Should the Windows Web App use a 32-bit worker.",
+              "description": "Should the Windows Function App use a 32-bit worker.",
               "description_kind": "plain",
               "optional": true,
               "type": "bool"
