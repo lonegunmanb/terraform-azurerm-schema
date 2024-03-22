@@ -6,14 +6,9 @@ import (
 	tfjson "github.com/hashicorp/terraform-json"
 )
 
-const azurermIotTimeSeriesInsightsAccessPolicy = `{
+const azurermElasticSanVolume = `{
   "block": {
     "attributes": {
-      "description": {
-        "description_kind": "plain",
-        "optional": true,
-        "type": "string"
-      },
       "id": {
         "computed": true,
         "description_kind": "plain",
@@ -25,26 +20,57 @@ const azurermIotTimeSeriesInsightsAccessPolicy = `{
         "required": true,
         "type": "string"
       },
-      "principal_object_id": {
+      "size_in_gib": {
+        "description_kind": "plain",
+        "required": true,
+        "type": "number"
+      },
+      "target_iqn": {
+        "computed": true,
+        "description_kind": "plain",
+        "type": "string"
+      },
+      "target_portal_hostname": {
+        "computed": true,
+        "description_kind": "plain",
+        "type": "string"
+      },
+      "target_portal_port": {
+        "computed": true,
+        "description_kind": "plain",
+        "type": "number"
+      },
+      "volume_group_id": {
         "description_kind": "plain",
         "required": true,
         "type": "string"
       },
-      "roles": {
+      "volume_id": {
+        "computed": true,
         "description_kind": "plain",
-        "required": true,
-        "type": [
-          "set",
-          "string"
-        ]
-      },
-      "time_series_insights_environment_id": {
-        "description_kind": "plain",
-        "required": true,
         "type": "string"
       }
     },
     "block_types": {
+      "create_source": {
+        "block": {
+          "attributes": {
+            "source_id": {
+              "description_kind": "plain",
+              "required": true,
+              "type": "string"
+            },
+            "source_type": {
+              "description_kind": "plain",
+              "required": true,
+              "type": "string"
+            }
+          },
+          "description_kind": "plain"
+        },
+        "max_items": 1,
+        "nesting_mode": "list"
+      },
       "timeouts": {
         "block": {
           "attributes": {
@@ -74,14 +100,13 @@ const azurermIotTimeSeriesInsightsAccessPolicy = `{
         "nesting_mode": "single"
       }
     },
-    "deprecated": true,
     "description_kind": "plain"
   },
-  "version": 1
+  "version": 0
 }`
 
-func AzurermIotTimeSeriesInsightsAccessPolicySchema() *tfjson.Schema {
+func AzurermElasticSanVolumeSchema() *tfjson.Schema {
 	var result tfjson.Schema
-	_ = json.Unmarshal([]byte(azurermIotTimeSeriesInsightsAccessPolicy), &result)
+	_ = json.Unmarshal([]byte(azurermElasticSanVolume), &result)
 	return &result
 }

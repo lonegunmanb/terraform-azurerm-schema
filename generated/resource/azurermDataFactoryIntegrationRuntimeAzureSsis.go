@@ -107,6 +107,25 @@ const azurermDataFactoryIntegrationRuntimeAzureSsis = `{
         "max_items": 1,
         "nesting_mode": "list"
       },
+      "copy_compute_scale": {
+        "block": {
+          "attributes": {
+            "data_integration_unit": {
+              "description_kind": "plain",
+              "optional": true,
+              "type": "number"
+            },
+            "time_to_live": {
+              "description_kind": "plain",
+              "optional": true,
+              "type": "number"
+            }
+          },
+          "description_kind": "plain"
+        },
+        "max_items": 1,
+        "nesting_mode": "list"
+      },
       "custom_setup_script": {
         "block": {
           "attributes": {
@@ -292,6 +311,30 @@ const azurermDataFactoryIntegrationRuntimeAzureSsis = `{
           },
           "description_kind": "plain"
         },
+        "nesting_mode": "list"
+      },
+      "pipeline_external_compute_scale": {
+        "block": {
+          "attributes": {
+            "number_of_external_nodes": {
+              "description_kind": "plain",
+              "optional": true,
+              "type": "number"
+            },
+            "number_of_pipeline_nodes": {
+              "description_kind": "plain",
+              "optional": true,
+              "type": "number"
+            },
+            "time_to_live": {
+              "description_kind": "plain",
+              "optional": true,
+              "type": "number"
+            }
+          },
+          "description_kind": "plain"
+        },
+        "max_items": 1,
         "nesting_mode": "list"
       },
       "proxy": {

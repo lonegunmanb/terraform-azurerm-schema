@@ -81,6 +81,29 @@ const azurermNginxDeployment = `{
       }
     },
     "block_types": {
+      "auto_scale_profile": {
+        "block": {
+          "attributes": {
+            "max_capacity": {
+              "description_kind": "plain",
+              "required": true,
+              "type": "number"
+            },
+            "min_capacity": {
+              "description_kind": "plain",
+              "required": true,
+              "type": "number"
+            },
+            "name": {
+              "description_kind": "plain",
+              "required": true,
+              "type": "string"
+            }
+          },
+          "description_kind": "plain"
+        },
+        "nesting_mode": "list"
+      },
       "frontend_private": {
         "block": {
           "attributes": {

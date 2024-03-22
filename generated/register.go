@@ -356,6 +356,7 @@ func init() {
 	resources["azurerm_dns_zone"] = resource.AzurermDnsZoneSchema()  
 	resources["azurerm_elastic_cloud_elasticsearch"] = resource.AzurermElasticCloudElasticsearchSchema()  
 	resources["azurerm_elastic_san"] = resource.AzurermElasticSanSchema()  
+	resources["azurerm_elastic_san_volume"] = resource.AzurermElasticSanVolumeSchema()  
 	resources["azurerm_elastic_san_volume_group"] = resource.AzurermElasticSanVolumeGroupSchema()  
 	resources["azurerm_email_communication_service"] = resource.AzurermEmailCommunicationServiceSchema()  
 	resources["azurerm_eventgrid_domain"] = resource.AzurermEventgridDomainSchema()  

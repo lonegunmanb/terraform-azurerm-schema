@@ -141,12 +141,12 @@ const azurermContainerAppEnvironment = `{
           "attributes": {
             "maximum_count": {
               "description_kind": "plain",
-              "required": true,
+              "optional": true,
               "type": "number"
             },
             "minimum_count": {
               "description_kind": "plain",
-              "required": true,
+              "optional": true,
               "type": "number"
             },
             "name": {

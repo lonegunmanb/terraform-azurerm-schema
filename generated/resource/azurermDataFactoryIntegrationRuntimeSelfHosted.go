@@ -39,6 +39,11 @@ const azurermDataFactoryIntegrationRuntimeSelfHosted = `{
         "computed": true,
         "description_kind": "plain",
         "type": "string"
+      },
+      "self_contained_interactive_authoring_enabled": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "bool"
       }
     },
     "block_types": {

@@ -109,6 +109,20 @@ const azurermCosmosdbPostgresqlCluster = `{
         "required": true,
         "type": "string"
       },
+      "servers": {
+        "computed": true,
+        "description_kind": "plain",
+        "type": [
+          "list",
+          [
+            "object",
+            {
+              "fqdn": "string",
+              "name": "string"
+            }
+          ]
+        ]
+      },
       "shards_on_coordinator_enabled": {
         "computed": true,
         "description_kind": "plain",

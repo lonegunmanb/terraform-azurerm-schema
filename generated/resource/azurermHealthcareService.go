@@ -17,6 +17,11 @@ const azurermHealthcareService = `{
           "string"
         ]
       },
+      "configuration_export_storage_account_name": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "string"
+      },
       "cosmosdb_key_vault_key_versionless_id": {
         "description_kind": "plain",
         "optional": true,
@@ -128,6 +133,30 @@ const azurermHealthcareService = `{
               "description_kind": "plain",
               "optional": true,
               "type": "number"
+            }
+          },
+          "description_kind": "plain"
+        },
+        "max_items": 1,
+        "nesting_mode": "list"
+      },
+      "identity": {
+        "block": {
+          "attributes": {
+            "principal_id": {
+              "computed": true,
+              "description_kind": "plain",
+              "type": "string"
+            },
+            "tenant_id": {
+              "computed": true,
+              "description_kind": "plain",
+              "type": "string"
+            },
+            "type": {
+              "description_kind": "plain",
+              "required": true,
+              "type": "string"
             }
           },
           "description_kind": "plain"

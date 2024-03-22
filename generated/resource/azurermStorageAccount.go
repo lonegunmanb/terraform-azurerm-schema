@@ -50,6 +50,11 @@ const azurermStorageAccount = `{
         "optional": true,
         "type": "bool"
       },
+      "dns_endpoint_type": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "string"
+      },
       "edge_zone": {
         "description_kind": "plain",
         "optional": true,

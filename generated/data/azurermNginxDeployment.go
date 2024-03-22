@@ -9,6 +9,21 @@ import (
 const azurermNginxDeployment = `{
   "block": {
     "attributes": {
+      "auto_scale_profile": {
+        "computed": true,
+        "description_kind": "plain",
+        "type": [
+          "list",
+          [
+            "object",
+            {
+              "max_capacity": "number",
+              "min_capacity": "number",
+              "name": "string"
+            }
+          ]
+        ]
+      },
       "automatic_upgrade_channel": {
         "computed": true,
         "description_kind": "plain",
