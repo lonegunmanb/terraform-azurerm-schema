@@ -16,7 +16,7 @@ const azurermStackHciCluster = `{
       },
       "client_id": {
         "description_kind": "plain",
-        "required": true,
+        "optional": true,
         "type": "string"
       },
       "cloud_id": {

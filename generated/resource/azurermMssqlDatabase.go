@@ -38,6 +38,7 @@ const azurermMssqlDatabase = `{
         "type": "string"
       },
       "enclave_type": {
+        "computed": true,
         "description_kind": "plain",
         "optional": true,
         "type": "string"
@@ -127,6 +128,12 @@ const azurermMssqlDatabase = `{
         "type": "string"
       },
       "sample_name": {
+        "computed": true,
+        "description_kind": "plain",
+        "optional": true,
+        "type": "string"
+      },
+      "secondary_type": {
         "computed": true,
         "description_kind": "plain",
         "optional": true,

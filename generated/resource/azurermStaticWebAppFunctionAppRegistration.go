@@ -6,26 +6,13 @@ import (
 	tfjson "github.com/hashicorp/terraform-json"
 )
 
-const azurermApplicationInsightsSmartDetectionRule = `{
+const azurermStaticWebAppFunctionAppRegistration = `{
   "block": {
     "attributes": {
-      "additional_email_recipients": {
-        "description_kind": "plain",
-        "optional": true,
-        "type": [
-          "set",
-          "string"
-        ]
-      },
-      "application_insights_id": {
+      "function_app_id": {
         "description_kind": "plain",
         "required": true,
         "type": "string"
-      },
-      "enabled": {
-        "description_kind": "plain",
-        "optional": true,
-        "type": "bool"
       },
       "id": {
         "computed": true,
@@ -33,15 +20,10 @@ const azurermApplicationInsightsSmartDetectionRule = `{
         "optional": true,
         "type": "string"
       },
-      "name": {
+      "static_web_app_id": {
         "description_kind": "plain",
         "required": true,
         "type": "string"
-      },
-      "send_emails_to_subscription_owners": {
-        "description_kind": "plain",
-        "optional": true,
-        "type": "bool"
       }
     },
     "block_types": {
@@ -62,11 +44,6 @@ const azurermApplicationInsightsSmartDetectionRule = `{
               "description_kind": "plain",
               "optional": true,
               "type": "string"
-            },
-            "update": {
-              "description_kind": "plain",
-              "optional": true,
-              "type": "string"
             }
           },
           "description_kind": "plain"
@@ -76,11 +53,11 @@ const azurermApplicationInsightsSmartDetectionRule = `{
     },
     "description_kind": "plain"
   },
-  "version": 2
+  "version": 0
 }`
 
-func AzurermApplicationInsightsSmartDetectionRuleSchema() *tfjson.Schema {
+func AzurermStaticWebAppFunctionAppRegistrationSchema() *tfjson.Schema {
 	var result tfjson.Schema
-	_ = json.Unmarshal([]byte(azurermApplicationInsightsSmartDetectionRule), &result)
+	_ = json.Unmarshal([]byte(azurermStaticWebAppFunctionAppRegistration), &result)
 	return &result
 }

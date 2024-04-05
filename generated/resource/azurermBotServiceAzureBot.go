@@ -9,6 +9,11 @@ import (
 const azurermBotServiceAzureBot = `{
   "block": {
     "attributes": {
+      "cmk_key_vault_key_url": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "string"
+      },
       "developer_app_insights_api_key": {
         "description_kind": "plain",
         "optional": true,

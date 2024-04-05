@@ -37,6 +37,12 @@ const azurermNetappVolume = `{
         "optional": true,
         "type": "string"
       },
+      "kerberos_enabled": {
+        "description": "Enable to allow Kerberos secured volumes. Requires appropriate export rules as well as the parent ` + "`" + `azurerm_netapp_account` + "`" + ` having a defined AD connection.",
+        "description_kind": "plain",
+        "optional": true,
+        "type": "bool"
+      },
       "key_vault_private_endpoint_id": {
         "computed": true,
         "description_kind": "plain",
@@ -98,11 +104,19 @@ const azurermNetappVolume = `{
         "type": "string"
       },
       "smb_access_based_enumeration_enabled": {
+        "description": "Enable access based enumeration setting for SMB/Dual Protocol volume. When enabled, users who do not have permission to access a shared folder or file underneath it, do not see that shared resource displayed in their environment.",
+        "description_kind": "plain",
+        "optional": true,
+        "type": "bool"
+      },
+      "smb_continuous_availability_enabled": {
+        "description": "Continuous availability option should be used only for SQL and FSLogix workloads. Using it for any other SMB workloads is not supported.",
         "description_kind": "plain",
         "optional": true,
         "type": "bool"
       },
       "smb_non_browsable_enabled": {
+        "description": "Enable non browsable share setting for SMB/Dual Protocol volume. When enabled, it restricts windows clients to browse the share",
         "description_kind": "plain",
         "optional": true,
         "type": "bool"
@@ -202,6 +216,36 @@ const azurermNetappVolume = `{
                 "set",
                 "string"
               ]
+            },
+            "kerberos_5_read_only_enabled": {
+              "description_kind": "plain",
+              "optional": true,
+              "type": "bool"
+            },
+            "kerberos_5_read_write_enabled": {
+              "description_kind": "plain",
+              "optional": true,
+              "type": "bool"
+            },
+            "kerberos_5i_read_only_enabled": {
+              "description_kind": "plain",
+              "optional": true,
+              "type": "bool"
+            },
+            "kerberos_5i_read_write_enabled": {
+              "description_kind": "plain",
+              "optional": true,
+              "type": "bool"
+            },
+            "kerberos_5p_read_only_enabled": {
+              "description_kind": "plain",
+              "optional": true,
+              "type": "bool"
+            },
+            "kerberos_5p_read_write_enabled": {
+              "description_kind": "plain",
+              "optional": true,
+              "type": "bool"
             },
             "protocols_enabled": {
               "computed": true,

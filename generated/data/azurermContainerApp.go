@@ -175,10 +175,12 @@ const azurermContainerApp = `{
         "description_kind": "plain",
         "sensitive": true,
         "type": [
-          "list",
+          "set",
           [
             "object",
             {
+              "identity": "string",
+              "key_vault_secret_id": "string",
               "name": "string",
               "value": "string"
             }

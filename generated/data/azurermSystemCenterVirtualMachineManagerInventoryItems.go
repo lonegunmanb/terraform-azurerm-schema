@@ -1,4 +1,4 @@
-package resource
+package data
 
 import (
 	"encoding/json"
@@ -6,7 +6,7 @@ import (
 	tfjson "github.com/hashicorp/terraform-json"
 )
 
-const azurermDatabricksWorkspaceRootDbfsCustomerManagedKey = `{
+const azurermSystemCenterVirtualMachineManagerInventoryItems = `{
   "block": {
     "attributes": {
       "id": {
@@ -15,17 +15,27 @@ const azurermDatabricksWorkspaceRootDbfsCustomerManagedKey = `{
         "optional": true,
         "type": "string"
       },
-      "key_vault_id": {
+      "inventory_items": {
+        "computed": true,
         "description_kind": "plain",
-        "optional": true,
-        "type": "string"
+        "type": [
+          "list",
+          [
+            "object",
+            {
+              "id": "string",
+              "name": "string",
+              "uuid": "string"
+            }
+          ]
+        ]
       },
-      "key_vault_key_id": {
+      "inventory_type": {
         "description_kind": "plain",
         "required": true,
         "type": "string"
       },
-      "workspace_id": {
+      "system_center_virtual_machine_manager_server_id": {
         "description_kind": "plain",
         "required": true,
         "type": "string"
@@ -35,22 +45,7 @@ const azurermDatabricksWorkspaceRootDbfsCustomerManagedKey = `{
       "timeouts": {
         "block": {
           "attributes": {
-            "create": {
-              "description_kind": "plain",
-              "optional": true,
-              "type": "string"
-            },
-            "delete": {
-              "description_kind": "plain",
-              "optional": true,
-              "type": "string"
-            },
             "read": {
-              "description_kind": "plain",
-              "optional": true,
-              "type": "string"
-            },
-            "update": {
               "description_kind": "plain",
               "optional": true,
               "type": "string"
@@ -66,8 +61,8 @@ const azurermDatabricksWorkspaceRootDbfsCustomerManagedKey = `{
   "version": 0
 }`
 
-func AzurermDatabricksWorkspaceRootDbfsCustomerManagedKeySchema() *tfjson.Schema {
+func AzurermSystemCenterVirtualMachineManagerInventoryItemsSchema() *tfjson.Schema {
 	var result tfjson.Schema
-	_ = json.Unmarshal([]byte(azurermDatabricksWorkspaceRootDbfsCustomerManagedKey), &result)
+	_ = json.Unmarshal([]byte(azurermSystemCenterVirtualMachineManagerInventoryItems), &result)
 	return &result
 }

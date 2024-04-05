@@ -317,17 +317,28 @@ const azurermContainerApp = `{
       "secret": {
         "block": {
           "attributes": {
+            "identity": {
+              "description": "The identity to use for accessing key vault reference.",
+              "description_kind": "plain",
+              "optional": true,
+              "type": "string"
+            },
+            "key_vault_secret_id": {
+              "description": "The Key Vault Secret ID. Could be either one of ` + "`" + `id` + "`" + ` or ` + "`" + `versionless_id` + "`" + `.",
+              "description_kind": "plain",
+              "optional": true,
+              "type": "string"
+            },
             "name": {
-              "description": "The Secret name.",
+              "description": "The secret name.",
               "description_kind": "plain",
               "required": true,
-              "sensitive": true,
               "type": "string"
             },
             "value": {
               "description": "The value for this secret.",
               "description_kind": "plain",
-              "required": true,
+              "optional": true,
               "sensitive": true,
               "type": "string"
             }

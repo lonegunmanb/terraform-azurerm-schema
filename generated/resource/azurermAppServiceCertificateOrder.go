@@ -162,7 +162,7 @@ const azurermAppServiceCertificateOrder = `{
     },
     "description_kind": "plain"
   },
-  "version": 0
+  "version": 1
 }`
 
 func AzurermAppServiceCertificateOrderSchema() *tfjson.Schema {

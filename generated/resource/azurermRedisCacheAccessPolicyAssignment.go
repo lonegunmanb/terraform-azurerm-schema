@@ -6,26 +6,13 @@ import (
 	tfjson "github.com/hashicorp/terraform-json"
 )
 
-const azurermApplicationInsightsSmartDetectionRule = `{
+const azurermRedisCacheAccessPolicyAssignment = `{
   "block": {
     "attributes": {
-      "additional_email_recipients": {
-        "description_kind": "plain",
-        "optional": true,
-        "type": [
-          "set",
-          "string"
-        ]
-      },
-      "application_insights_id": {
+      "access_policy_name": {
         "description_kind": "plain",
         "required": true,
         "type": "string"
-      },
-      "enabled": {
-        "description_kind": "plain",
-        "optional": true,
-        "type": "bool"
       },
       "id": {
         "computed": true,
@@ -38,10 +25,20 @@ const azurermApplicationInsightsSmartDetectionRule = `{
         "required": true,
         "type": "string"
       },
-      "send_emails_to_subscription_owners": {
+      "object_id": {
         "description_kind": "plain",
-        "optional": true,
-        "type": "bool"
+        "required": true,
+        "type": "string"
+      },
+      "object_id_alias": {
+        "description_kind": "plain",
+        "required": true,
+        "type": "string"
+      },
+      "redis_cache_id": {
+        "description_kind": "plain",
+        "required": true,
+        "type": "string"
       }
     },
     "block_types": {
@@ -62,11 +59,6 @@ const azurermApplicationInsightsSmartDetectionRule = `{
               "description_kind": "plain",
               "optional": true,
               "type": "string"
-            },
-            "update": {
-              "description_kind": "plain",
-              "optional": true,
-              "type": "string"
             }
           },
           "description_kind": "plain"
@@ -76,11 +68,11 @@ const azurermApplicationInsightsSmartDetectionRule = `{
     },
     "description_kind": "plain"
   },
-  "version": 2
+  "version": 0
 }`
 
-func AzurermApplicationInsightsSmartDetectionRuleSchema() *tfjson.Schema {
+func AzurermRedisCacheAccessPolicyAssignmentSchema() *tfjson.Schema {
 	var result tfjson.Schema
-	_ = json.Unmarshal([]byte(azurermApplicationInsightsSmartDetectionRule), &result)
+	_ = json.Unmarshal([]byte(azurermRedisCacheAccessPolicyAssignment), &result)
 	return &result
 }

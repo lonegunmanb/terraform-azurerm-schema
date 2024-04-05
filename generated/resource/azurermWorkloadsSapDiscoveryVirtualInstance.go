@@ -6,22 +6,18 @@ import (
 	tfjson "github.com/hashicorp/terraform-json"
 )
 
-const azurermMssqlServerExtendedAuditingPolicy = `{
+const azurermWorkloadsSapDiscoveryVirtualInstance = `{
   "block": {
     "attributes": {
-      "audit_actions_and_groups": {
-        "computed": true,
+      "central_server_virtual_machine_id": {
         "description_kind": "plain",
-        "optional": true,
-        "type": [
-          "list",
-          "string"
-        ]
+        "required": true,
+        "type": "string"
       },
-      "enabled": {
+      "environment": {
         "description_kind": "plain",
-        "optional": true,
-        "type": "bool"
+        "required": true,
+        "type": "string"
       },
       "id": {
         "computed": true,
@@ -29,50 +25,68 @@ const azurermMssqlServerExtendedAuditingPolicy = `{
         "optional": true,
         "type": "string"
       },
-      "log_monitoring_enabled": {
-        "description_kind": "plain",
-        "optional": true,
-        "type": "bool"
-      },
-      "predicate_expression": {
-        "description_kind": "plain",
-        "optional": true,
-        "type": "string"
-      },
-      "retention_in_days": {
-        "description_kind": "plain",
-        "optional": true,
-        "type": "number"
-      },
-      "server_id": {
+      "location": {
         "description_kind": "plain",
         "required": true,
         "type": "string"
       },
-      "storage_account_access_key": {
-        "description_kind": "plain",
-        "optional": true,
-        "sensitive": true,
-        "type": "string"
-      },
-      "storage_account_access_key_is_secondary": {
-        "description_kind": "plain",
-        "optional": true,
-        "type": "bool"
-      },
-      "storage_account_subscription_id": {
-        "description_kind": "plain",
-        "optional": true,
-        "sensitive": true,
-        "type": "string"
-      },
-      "storage_endpoint": {
+      "managed_resource_group_name": {
         "description_kind": "plain",
         "optional": true,
         "type": "string"
+      },
+      "managed_storage_account_name": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "string"
+      },
+      "name": {
+        "description_kind": "plain",
+        "required": true,
+        "type": "string"
+      },
+      "resource_group_name": {
+        "description_kind": "plain",
+        "required": true,
+        "type": "string"
+      },
+      "sap_product": {
+        "description_kind": "plain",
+        "required": true,
+        "type": "string"
+      },
+      "tags": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": [
+          "map",
+          "string"
+        ]
       }
     },
     "block_types": {
+      "identity": {
+        "block": {
+          "attributes": {
+            "identity_ids": {
+              "description_kind": "plain",
+              "required": true,
+              "type": [
+                "set",
+                "string"
+              ]
+            },
+            "type": {
+              "description_kind": "plain",
+              "required": true,
+              "type": "string"
+            }
+          },
+          "description_kind": "plain"
+        },
+        "max_items": 1,
+        "nesting_mode": "list"
+      },
       "timeouts": {
         "block": {
           "attributes": {
@@ -107,8 +121,8 @@ const azurermMssqlServerExtendedAuditingPolicy = `{
   "version": 0
 }`
 
-func AzurermMssqlServerExtendedAuditingPolicySchema() *tfjson.Schema {
+func AzurermWorkloadsSapDiscoveryVirtualInstanceSchema() *tfjson.Schema {
 	var result tfjson.Schema
-	_ = json.Unmarshal([]byte(azurermMssqlServerExtendedAuditingPolicy), &result)
+	_ = json.Unmarshal([]byte(azurermWorkloadsSapDiscoveryVirtualInstance), &result)
 	return &result
 }

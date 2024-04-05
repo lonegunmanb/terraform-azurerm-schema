@@ -10,6 +10,7 @@ const azurermMssqlElasticpool = `{
   "block": {
     "attributes": {
       "enclave_type": {
+        "computed": true,
         "description_kind": "plain",
         "optional": true,
         "type": "string"

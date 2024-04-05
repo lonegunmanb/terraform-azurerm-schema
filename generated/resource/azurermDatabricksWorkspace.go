@@ -40,6 +40,11 @@ const azurermDatabricksWorkspace = `{
         "required": true,
         "type": "string"
       },
+      "managed_disk_cmk_key_vault_id": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "string"
+      },
       "managed_disk_cmk_key_vault_key_id": {
         "description_kind": "plain",
         "optional": true,
@@ -72,6 +77,11 @@ const azurermDatabricksWorkspace = `{
       },
       "managed_resource_group_name": {
         "computed": true,
+        "description_kind": "plain",
+        "optional": true,
+        "type": "string"
+      },
+      "managed_services_cmk_key_vault_id": {
         "description_kind": "plain",
         "optional": true,
         "type": "string"
