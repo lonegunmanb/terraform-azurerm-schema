@@ -9,6 +9,12 @@ import (
 const azurermStorageDataLakeGen2Filesystem = `{
   "block": {
     "attributes": {
+      "default_encryption_scope": {
+        "computed": true,
+        "description_kind": "plain",
+        "optional": true,
+        "type": "string"
+      },
       "group": {
         "computed": true,
         "description_kind": "plain",

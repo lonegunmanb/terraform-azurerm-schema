@@ -19,8 +19,15 @@ const azurermCosmosdbAccount = `{
         "optional": true,
         "type": "bool"
       },
+      "automatic_failover_enabled": {
+        "computed": true,
+        "description_kind": "plain",
+        "optional": true,
+        "type": "bool"
+      },
       "connection_strings": {
         "computed": true,
+        "deprecated": true,
         "description_kind": "plain",
         "sensitive": true,
         "type": [
@@ -40,16 +47,22 @@ const azurermCosmosdbAccount = `{
         "type": "string"
       },
       "enable_automatic_failover": {
+        "computed": true,
+        "deprecated": true,
         "description_kind": "plain",
         "optional": true,
         "type": "bool"
       },
       "enable_free_tier": {
+        "computed": true,
+        "deprecated": true,
         "description_kind": "plain",
         "optional": true,
         "type": "bool"
       },
       "enable_multiple_write_locations": {
+        "computed": true,
+        "deprecated": true,
         "description_kind": "plain",
         "optional": true,
         "type": "bool"
@@ -58,6 +71,12 @@ const azurermCosmosdbAccount = `{
         "computed": true,
         "description_kind": "plain",
         "type": "string"
+      },
+      "free_tier_enabled": {
+        "computed": true,
+        "description_kind": "plain",
+        "optional": true,
+        "type": "bool"
       },
       "id": {
         "computed": true,
@@ -106,6 +125,12 @@ const azurermCosmosdbAccount = `{
         "description_kind": "plain",
         "optional": true,
         "type": "string"
+      },
+      "multiple_write_locations_enabled": {
+        "computed": true,
+        "description_kind": "plain",
+        "optional": true,
+        "type": "bool"
       },
       "name": {
         "description_kind": "plain",

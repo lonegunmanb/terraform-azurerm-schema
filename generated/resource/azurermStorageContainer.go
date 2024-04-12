@@ -14,6 +14,17 @@ const azurermStorageContainer = `{
         "optional": true,
         "type": "string"
       },
+      "default_encryption_scope": {
+        "computed": true,
+        "description_kind": "plain",
+        "optional": true,
+        "type": "string"
+      },
+      "encryption_scope_override_enabled": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "bool"
+      },
       "has_immutability_policy": {
         "computed": true,
         "description_kind": "plain",
