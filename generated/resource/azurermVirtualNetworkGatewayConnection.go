@@ -95,6 +95,11 @@ const azurermVirtualNetworkGatewayConnection = `{
         "optional": true,
         "type": "string"
       },
+      "private_link_fast_path_enabled": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "bool"
+      },
       "resource_group_name": {
         "description_kind": "plain",
         "required": true,

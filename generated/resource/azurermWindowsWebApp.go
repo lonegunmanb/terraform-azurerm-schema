@@ -1727,6 +1727,29 @@ const azurermWindowsWebApp = `{
               "max_items": 1,
               "nesting_mode": "list"
             },
+            "handler_mapping": {
+              "block": {
+                "attributes": {
+                  "arguments": {
+                    "description_kind": "plain",
+                    "optional": true,
+                    "type": "string"
+                  },
+                  "extension": {
+                    "description_kind": "plain",
+                    "required": true,
+                    "type": "string"
+                  },
+                  "script_processor_path": {
+                    "description_kind": "plain",
+                    "required": true,
+                    "type": "string"
+                  }
+                },
+                "description_kind": "plain"
+              },
+              "nesting_mode": "set"
+            },
             "ip_restriction": {
               "block": {
                 "attributes": {

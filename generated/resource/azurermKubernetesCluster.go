@@ -451,21 +451,25 @@ const azurermKubernetesCluster = `{
               "type": "bool"
             },
             "client_app_id": {
+              "deprecated": true,
               "description_kind": "plain",
               "optional": true,
               "type": "string"
             },
             "managed": {
+              "deprecated": true,
               "description_kind": "plain",
               "optional": true,
               "type": "bool"
             },
             "server_app_id": {
+              "deprecated": true,
               "description_kind": "plain",
               "optional": true,
               "type": "string"
             },
             "server_app_secret": {
+              "deprecated": true,
               "description_kind": "plain",
               "optional": true,
               "sensitive": true,

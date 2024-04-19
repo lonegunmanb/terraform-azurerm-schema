@@ -63,6 +63,11 @@ const azurermManagementGroup = `{
           "list",
           "string"
         ]
+      },
+      "tenant_scoped_id": {
+        "computed": true,
+        "description_kind": "plain",
+        "type": "string"
       }
     },
     "block_types": {

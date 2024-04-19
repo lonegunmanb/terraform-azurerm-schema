@@ -45,6 +45,11 @@ const azurermExpressRouteConnection = `{
         "required": true,
         "type": "string"
       },
+      "private_link_fast_path_enabled": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "bool"
+      },
       "routing_weight": {
         "description_kind": "plain",
         "optional": true,

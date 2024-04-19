@@ -27,6 +27,8 @@ const azurermOrchestratedVirtualMachineScaleSet = `{
                 "list",
                 "string"
               ],
+              "principal_id": "string",
+              "tenant_id": "string",
               "type": "string"
             }
           ]

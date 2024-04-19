@@ -31,8 +31,10 @@ const azurermMachineLearningComputeInstance = `{
         "type": "bool"
       },
       "location": {
+        "computed": true,
+        "deprecated": true,
         "description_kind": "plain",
-        "required": true,
+        "optional": true,
         "type": "string"
       },
       "machine_learning_workspace_id": {

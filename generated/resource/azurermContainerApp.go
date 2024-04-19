@@ -227,7 +227,7 @@ const azurermContainerApp = `{
                     "type": "string"
                   },
                   "ip_address_range": {
-                    "description": "CIDR notation to match incoming IP address.",
+                    "description": "The incoming IP address or range of IP addresses (in CIDR notation).",
                     "description_kind": "plain",
                     "required": true,
                     "type": "string"

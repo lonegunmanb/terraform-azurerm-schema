@@ -145,7 +145,7 @@ const azurermApplicationInsights = `{
     },
     "description_kind": "plain"
   },
-  "version": 1
+  "version": 2
 }`
 
 func AzurermApplicationInsightsSchema() *tfjson.Schema {

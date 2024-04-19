@@ -312,6 +312,62 @@ const azurermHdinsightInteractiveQueryCluster = `{
         "max_items": 1,
         "nesting_mode": "list"
       },
+      "private_link_configuration": {
+        "block": {
+          "attributes": {
+            "group_id": {
+              "description_kind": "plain",
+              "required": true,
+              "type": "string"
+            },
+            "name": {
+              "description_kind": "plain",
+              "required": true,
+              "type": "string"
+            }
+          },
+          "block_types": {
+            "ip_configuration": {
+              "block": {
+                "attributes": {
+                  "name": {
+                    "description_kind": "plain",
+                    "required": true,
+                    "type": "string"
+                  },
+                  "primary": {
+                    "description_kind": "plain",
+                    "optional": true,
+                    "type": "bool"
+                  },
+                  "private_ip_address": {
+                    "description_kind": "plain",
+                    "optional": true,
+                    "type": "string"
+                  },
+                  "private_ip_allocation_method": {
+                    "description_kind": "plain",
+                    "optional": true,
+                    "type": "string"
+                  },
+                  "subnet_id": {
+                    "description_kind": "plain",
+                    "optional": true,
+                    "type": "string"
+                  }
+                },
+                "description_kind": "plain"
+              },
+              "max_items": 1,
+              "min_items": 1,
+              "nesting_mode": "list"
+            }
+          },
+          "description_kind": "plain"
+        },
+        "max_items": 1,
+        "nesting_mode": "list"
+      },
       "roles": {
         "block": {
           "block_types": {

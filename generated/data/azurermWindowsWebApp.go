@@ -713,6 +713,17 @@ const azurermWindowsWebApp = `{
               ],
               "detailed_error_logging_enabled": "bool",
               "ftps_state": "string",
+              "handler_mapping": [
+                "set",
+                [
+                  "object",
+                  {
+                    "arguments": "string",
+                    "extension": "string",
+                    "script_processor_path": "string"
+                  }
+                ]
+              ],
               "health_check_eviction_time_in_min": "number",
               "health_check_path": "string",
               "http2_enabled": "bool",
