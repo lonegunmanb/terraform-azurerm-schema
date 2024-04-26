@@ -12,12 +12,12 @@ const azurermContainerAppCustomDomain = `{
       "certificate_binding_type": {
         "description": "The Binding type. Possible values include ` + "`" + `Disabled` + "`" + ` and ` + "`" + `SniEnabled` + "`" + `.",
         "description_kind": "plain",
-        "required": true,
+        "optional": true,
         "type": "string"
       },
       "container_app_environment_certificate_id": {
         "description_kind": "plain",
-        "required": true,
+        "optional": true,
         "type": "string"
       },
       "container_app_id": {
