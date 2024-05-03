@@ -6,13 +6,13 @@ import (
 	tfjson "github.com/hashicorp/terraform-json"
 )
 
-const azurermKeyVaultManagedHardwareSecurityModuleRoleDefinition = `{
+const azurermStorageSyncServerEndpoint = `{
   "block": {
     "attributes": {
-      "description": {
+      "cloud_tiering_enabled": {
         "description_kind": "plain",
         "optional": true,
-        "type": "string"
+        "type": "bool"
       },
       "id": {
         "computed": true,
@@ -20,8 +20,12 @@ const azurermKeyVaultManagedHardwareSecurityModuleRoleDefinition = `{
         "optional": true,
         "type": "string"
       },
-      "managed_hsm_id": {
-        "computed": true,
+      "initial_download_policy": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "string"
+      },
+      "local_cache_mode": {
         "description_kind": "plain",
         "optional": true,
         "type": "string"
@@ -31,69 +35,33 @@ const azurermKeyVaultManagedHardwareSecurityModuleRoleDefinition = `{
         "required": true,
         "type": "string"
       },
-      "resource_manager_id": {
-        "computed": true,
+      "registered_server_id": {
         "description_kind": "plain",
+        "required": true,
         "type": "string"
       },
-      "role_name": {
+      "server_local_path": {
+        "description_kind": "plain",
+        "required": true,
+        "type": "string"
+      },
+      "storage_sync_group_id": {
+        "description_kind": "plain",
+        "required": true,
+        "type": "string"
+      },
+      "tier_files_older_than_days": {
         "description_kind": "plain",
         "optional": true,
-        "type": "string"
+        "type": "number"
       },
-      "role_type": {
-        "computed": true,
-        "description_kind": "plain",
-        "type": "string"
-      },
-      "vault_base_url": {
-        "computed": true,
+      "volume_free_space_percent": {
         "description_kind": "plain",
         "optional": true,
-        "type": "string"
+        "type": "number"
       }
     },
     "block_types": {
-      "permission": {
-        "block": {
-          "attributes": {
-            "actions": {
-              "description_kind": "plain",
-              "optional": true,
-              "type": [
-                "list",
-                "string"
-              ]
-            },
-            "data_actions": {
-              "description_kind": "plain",
-              "optional": true,
-              "type": [
-                "set",
-                "string"
-              ]
-            },
-            "not_actions": {
-              "description_kind": "plain",
-              "optional": true,
-              "type": [
-                "list",
-                "string"
-              ]
-            },
-            "not_data_actions": {
-              "description_kind": "plain",
-              "optional": true,
-              "type": [
-                "set",
-                "string"
-              ]
-            }
-          },
-          "description_kind": "plain"
-        },
-        "nesting_mode": "list"
-      },
       "timeouts": {
         "block": {
           "attributes": {
@@ -125,11 +93,11 @@ const azurermKeyVaultManagedHardwareSecurityModuleRoleDefinition = `{
     },
     "description_kind": "plain"
   },
-  "version": 1
+  "version": 0
 }`
 
-func AzurermKeyVaultManagedHardwareSecurityModuleRoleDefinitionSchema() *tfjson.Schema {
+func AzurermStorageSyncServerEndpointSchema() *tfjson.Schema {
 	var result tfjson.Schema
-	_ = json.Unmarshal([]byte(azurermKeyVaultManagedHardwareSecurityModuleRoleDefinition), &result)
+	_ = json.Unmarshal([]byte(azurermStorageSyncServerEndpoint), &result)
 	return &result
 }

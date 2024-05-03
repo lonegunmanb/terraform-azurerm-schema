@@ -30,6 +30,14 @@ const azurermStorageSync = `{
         "required": true,
         "type": "string"
       },
+      "registered_servers": {
+        "computed": true,
+        "description_kind": "plain",
+        "type": [
+          "list",
+          "string"
+        ]
+      },
       "resource_group_name": {
         "description_kind": "plain",
         "required": true,

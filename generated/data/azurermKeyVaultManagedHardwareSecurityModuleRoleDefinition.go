@@ -28,6 +28,12 @@ const azurermKeyVaultManagedHardwareSecurityModuleRoleDefinition = `{
         "optional": true,
         "type": "string"
       },
+      "managed_hsm_id": {
+        "computed": true,
+        "description_kind": "plain",
+        "optional": true,
+        "type": "string"
+      },
       "name": {
         "description_kind": "plain",
         "required": true,
@@ -77,8 +83,9 @@ const azurermKeyVaultManagedHardwareSecurityModuleRoleDefinition = `{
         "type": "string"
       },
       "vault_base_url": {
+        "computed": true,
         "description_kind": "plain",
-        "required": true,
+        "optional": true,
         "type": "string"
       }
     },

@@ -722,7 +722,12 @@ const azurermStorageAccount = `{
           "attributes": {
             "key_vault_key_id": {
               "description_kind": "plain",
-              "required": true,
+              "optional": true,
+              "type": "string"
+            },
+            "managed_hsm_key_id": {
+              "description_kind": "plain",
+              "optional": true,
               "type": "string"
             },
             "user_assigned_identity_id": {

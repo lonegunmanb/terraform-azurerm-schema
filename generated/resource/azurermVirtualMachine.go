@@ -133,11 +133,16 @@ const azurermVirtualMachine = `{
               "description_kind": "plain",
               "optional": true,
               "type": [
-                "list",
+                "set",
                 "string"
               ]
             },
             "principal_id": {
+              "computed": true,
+              "description_kind": "plain",
+              "type": "string"
+            },
+            "tenant_id": {
               "computed": true,
               "description_kind": "plain",
               "type": "string"

@@ -15,8 +15,8 @@ const azurermBatchAccount = `{
         "type": "string"
       },
       "encryption": {
+        "computed": true,
         "description_kind": "plain",
-        "optional": true,
         "type": [
           "list",
           [

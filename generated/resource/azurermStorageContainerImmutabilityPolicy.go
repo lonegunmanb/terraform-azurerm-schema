@@ -6,7 +6,7 @@ import (
 	tfjson "github.com/hashicorp/terraform-json"
 )
 
-const azurermKeyVaultManagedHardwareSecurityModuleRoleAssignment = `{
+const azurermStorageContainerImmutabilityPolicy = `{
   "block": {
     "attributes": {
       "id": {
@@ -15,42 +15,29 @@ const azurermKeyVaultManagedHardwareSecurityModuleRoleAssignment = `{
         "optional": true,
         "type": "string"
       },
-      "managed_hsm_id": {
-        "computed": true,
+      "immutability_period_in_days": {
+        "description_kind": "plain",
+        "required": true,
+        "type": "number"
+      },
+      "locked": {
         "description_kind": "plain",
         "optional": true,
-        "type": "string"
+        "type": "bool"
       },
-      "name": {
-        "description_kind": "plain",
-        "required": true,
-        "type": "string"
-      },
-      "principal_id": {
-        "description_kind": "plain",
-        "required": true,
-        "type": "string"
-      },
-      "resource_id": {
-        "computed": true,
-        "description_kind": "plain",
-        "type": "string"
-      },
-      "role_definition_id": {
-        "description_kind": "plain",
-        "required": true,
-        "type": "string"
-      },
-      "scope": {
-        "description_kind": "plain",
-        "required": true,
-        "type": "string"
-      },
-      "vault_base_url": {
-        "computed": true,
-        "deprecated": true,
+      "protected_append_writes_all_enabled": {
         "description_kind": "plain",
         "optional": true,
+        "type": "bool"
+      },
+      "protected_append_writes_enabled": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "bool"
+      },
+      "storage_container_resource_manager_id": {
+        "description_kind": "plain",
+        "required": true,
         "type": "string"
       }
     },
@@ -72,6 +59,11 @@ const azurermKeyVaultManagedHardwareSecurityModuleRoleAssignment = `{
               "description_kind": "plain",
               "optional": true,
               "type": "string"
+            },
+            "update": {
+              "description_kind": "plain",
+              "optional": true,
+              "type": "string"
             }
           },
           "description_kind": "plain"
@@ -81,11 +73,11 @@ const azurermKeyVaultManagedHardwareSecurityModuleRoleAssignment = `{
     },
     "description_kind": "plain"
   },
-  "version": 1
+  "version": 0
 }`
 
-func AzurermKeyVaultManagedHardwareSecurityModuleRoleAssignmentSchema() *tfjson.Schema {
+func AzurermStorageContainerImmutabilityPolicySchema() *tfjson.Schema {
 	var result tfjson.Schema
-	_ = json.Unmarshal([]byte(azurermKeyVaultManagedHardwareSecurityModuleRoleAssignment), &result)
+	_ = json.Unmarshal([]byte(azurermStorageContainerImmutabilityPolicy), &result)
 	return &result
 }

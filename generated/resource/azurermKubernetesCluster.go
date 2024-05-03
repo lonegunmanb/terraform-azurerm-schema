@@ -1528,6 +1528,24 @@ const azurermKubernetesCluster = `{
               "optional": true,
               "type": "string"
             },
+            "outbound_ip_address_ids": {
+              "computed": true,
+              "description_kind": "plain",
+              "optional": true,
+              "type": [
+                "set",
+                "string"
+              ]
+            },
+            "outbound_ip_prefix_ids": {
+              "computed": true,
+              "description_kind": "plain",
+              "optional": true,
+              "type": [
+                "set",
+                "string"
+              ]
+            },
             "outbound_type": {
               "description_kind": "plain",
               "optional": true,
@@ -1594,7 +1612,6 @@ const azurermKubernetesCluster = `{
                     "type": "number"
                   },
                   "outbound_ip_address_ids": {
-                    "computed": true,
                     "description_kind": "plain",
                     "optional": true,
                     "type": [
@@ -1603,7 +1620,6 @@ const azurermKubernetesCluster = `{
                     ]
                   },
                   "outbound_ip_prefix_ids": {
-                    "computed": true,
                     "description_kind": "plain",
                     "optional": true,
                     "type": [

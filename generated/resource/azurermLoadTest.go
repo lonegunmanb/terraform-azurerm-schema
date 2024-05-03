@@ -50,6 +50,42 @@ const azurermLoadTest = `{
       }
     },
     "block_types": {
+      "encryption": {
+        "block": {
+          "attributes": {
+            "key_url": {
+              "description_kind": "plain",
+              "required": true,
+              "type": "string"
+            }
+          },
+          "block_types": {
+            "identity": {
+              "block": {
+                "attributes": {
+                  "identity_id": {
+                    "description_kind": "plain",
+                    "required": true,
+                    "type": "string"
+                  },
+                  "type": {
+                    "description_kind": "plain",
+                    "required": true,
+                    "type": "string"
+                  }
+                },
+                "description_kind": "plain"
+              },
+              "max_items": 1,
+              "min_items": 1,
+              "nesting_mode": "list"
+            }
+          },
+          "description_kind": "plain"
+        },
+        "max_items": 1,
+        "nesting_mode": "list"
+      },
       "identity": {
         "block": {
           "attributes": {
