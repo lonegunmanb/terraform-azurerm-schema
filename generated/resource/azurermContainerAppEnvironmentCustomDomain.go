@@ -6,60 +6,39 @@ import (
 	tfjson "github.com/hashicorp/terraform-json"
 )
 
-const azurermLogAnalyticsSavedSearch = `{
+const azurermContainerAppEnvironmentCustomDomain = `{
   "block": {
     "attributes": {
-      "category": {
+      "certificate_blob_base64": {
+        "description": "The Custom Domain Certificate Private Key as a base64 encoded PFX or PEM.",
         "description_kind": "plain",
         "required": true,
         "type": "string"
       },
-      "display_name": {
+      "certificate_password": {
+        "description": "The Custom Domain Certificate password.",
+        "description_kind": "plain",
+        "required": true,
+        "sensitive": true,
+        "type": "string"
+      },
+      "container_app_environment_id": {
+        "description": "The Container App Managed Environment ID to configure this Custom Domain on.",
         "description_kind": "plain",
         "required": true,
         "type": "string"
       },
-      "function_alias": {
+      "dns_suffix": {
+        "description": "The Custom Domain DNS suffix for this Container App Environment.",
         "description_kind": "plain",
-        "optional": true,
+        "required": true,
         "type": "string"
-      },
-      "function_parameters": {
-        "description_kind": "plain",
-        "optional": true,
-        "type": [
-          "list",
-          "string"
-        ]
       },
       "id": {
         "computed": true,
         "description_kind": "plain",
         "optional": true,
         "type": "string"
-      },
-      "log_analytics_workspace_id": {
-        "description_kind": "plain",
-        "required": true,
-        "type": "string"
-      },
-      "name": {
-        "description_kind": "plain",
-        "required": true,
-        "type": "string"
-      },
-      "query": {
-        "description_kind": "plain",
-        "required": true,
-        "type": "string"
-      },
-      "tags": {
-        "description_kind": "plain",
-        "optional": true,
-        "type": [
-          "map",
-          "string"
-        ]
       }
     },
     "block_types": {
@@ -80,6 +59,11 @@ const azurermLogAnalyticsSavedSearch = `{
               "description_kind": "plain",
               "optional": true,
               "type": "string"
+            },
+            "update": {
+              "description_kind": "plain",
+              "optional": true,
+              "type": "string"
             }
           },
           "description_kind": "plain"
@@ -89,11 +73,11 @@ const azurermLogAnalyticsSavedSearch = `{
     },
     "description_kind": "plain"
   },
-  "version": 1
+  "version": 0
 }`
 
-func AzurermLogAnalyticsSavedSearchSchema() *tfjson.Schema {
+func AzurermContainerAppEnvironmentCustomDomainSchema() *tfjson.Schema {
 	var result tfjson.Schema
-	_ = json.Unmarshal([]byte(azurermLogAnalyticsSavedSearch), &result)
+	_ = json.Unmarshal([]byte(azurermContainerAppEnvironmentCustomDomain), &result)
 	return &result
 }

@@ -672,6 +672,18 @@ const azurermWindowsWebApp = `{
                               }
                             ]
                           ],
+                          "slow_request_with_path": [
+                            "list",
+                            [
+                              "object",
+                              {
+                                "count": "number",
+                                "interval": "string",
+                                "path": "string",
+                                "time_taken": "string"
+                              }
+                            ]
+                          ],
                           "status_code": [
                             "list",
                             [

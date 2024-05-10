@@ -9,6 +9,12 @@ import (
 const azurermContainerAppEnvironment = `{
   "block": {
     "attributes": {
+      "custom_domain_verification_id": {
+        "computed": true,
+        "description": "The ID of the Custom Domain Verification for this Container App Environment.",
+        "description_kind": "plain",
+        "type": "string"
+      },
       "default_domain": {
         "computed": true,
         "description": "The default publicly resolvable name of this Container App Environment",

@@ -816,6 +816,11 @@ const azurermWindowsVirtualMachineScaleSet = `{
               "required": true,
               "type": "number"
             },
+            "maximum_surge_instances_enabled": {
+              "description_kind": "plain",
+              "optional": true,
+              "type": "bool"
+            },
             "pause_time_between_batches": {
               "description_kind": "plain",
               "required": true,

@@ -6,31 +6,13 @@ import (
 	tfjson "github.com/hashicorp/terraform-json"
 )
 
-const azurermLogAnalyticsSavedSearch = `{
+const azurermVirtualMachineAutomanageConfigurationAssignment = `{
   "block": {
     "attributes": {
-      "category": {
+      "configuration_id": {
         "description_kind": "plain",
         "required": true,
         "type": "string"
-      },
-      "display_name": {
-        "description_kind": "plain",
-        "required": true,
-        "type": "string"
-      },
-      "function_alias": {
-        "description_kind": "plain",
-        "optional": true,
-        "type": "string"
-      },
-      "function_parameters": {
-        "description_kind": "plain",
-        "optional": true,
-        "type": [
-          "list",
-          "string"
-        ]
       },
       "id": {
         "computed": true,
@@ -38,28 +20,10 @@ const azurermLogAnalyticsSavedSearch = `{
         "optional": true,
         "type": "string"
       },
-      "log_analytics_workspace_id": {
+      "virtual_machine_id": {
         "description_kind": "plain",
         "required": true,
         "type": "string"
-      },
-      "name": {
-        "description_kind": "plain",
-        "required": true,
-        "type": "string"
-      },
-      "query": {
-        "description_kind": "plain",
-        "required": true,
-        "type": "string"
-      },
-      "tags": {
-        "description_kind": "plain",
-        "optional": true,
-        "type": [
-          "map",
-          "string"
-        ]
       }
     },
     "block_types": {
@@ -89,11 +53,11 @@ const azurermLogAnalyticsSavedSearch = `{
     },
     "description_kind": "plain"
   },
-  "version": 1
+  "version": 0
 }`
 
-func AzurermLogAnalyticsSavedSearchSchema() *tfjson.Schema {
+func AzurermVirtualMachineAutomanageConfigurationAssignmentSchema() *tfjson.Schema {
 	var result tfjson.Schema
-	_ = json.Unmarshal([]byte(azurermLogAnalyticsSavedSearch), &result)
+	_ = json.Unmarshal([]byte(azurermVirtualMachineAutomanageConfigurationAssignment), &result)
 	return &result
 }

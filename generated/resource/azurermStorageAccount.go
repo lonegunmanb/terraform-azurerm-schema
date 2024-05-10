@@ -671,6 +671,11 @@ const azurermStorageAccount = `{
                     "description_kind": "plain",
                     "optional": true,
                     "type": "number"
+                  },
+                  "permanent_delete_enabled": {
+                    "description_kind": "plain",
+                    "optional": true,
+                    "type": "bool"
                   }
                 },
                 "description_kind": "plain"

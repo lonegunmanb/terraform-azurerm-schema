@@ -6,31 +6,58 @@ import (
 	tfjson "github.com/hashicorp/terraform-json"
 )
 
-const azurermSubnet = `{
+const azurermNetworkManagerConnectivityConfiguration = `{
   "block": {
     "attributes": {
-      "address_prefix": {
-        "computed": true,
-        "description_kind": "plain",
-        "type": "string"
-      },
-      "address_prefixes": {
+      "applies_to_group": {
         "computed": true,
         "description_kind": "plain",
         "type": [
           "list",
-          "string"
+          [
+            "object",
+            {
+              "global_mesh_enabled": "bool",
+              "group_connectivity": "string",
+              "network_group_id": "string",
+              "use_hub_gateway": "bool"
+            }
+          ]
         ]
       },
-      "enforce_private_link_endpoint_network_policies": {
+      "connectivity_topology": {
+        "computed": true,
+        "description_kind": "plain",
+        "type": "string"
+      },
+      "delete_existing_peering_enabled": {
         "computed": true,
         "description_kind": "plain",
         "type": "bool"
       },
-      "enforce_private_link_service_network_policies": {
+      "description": {
+        "computed": true,
+        "description_kind": "plain",
+        "type": "string"
+      },
+      "global_mesh_enabled": {
         "computed": true,
         "description_kind": "plain",
         "type": "bool"
+      },
+      "hub": {
+        "computed": true,
+        "description_kind": "plain",
+        "type": [
+          "list",
+          [
+            "object",
+            {
+              "resource_id": "string",
+              "resource_type": "string"
+            }
+          ]
+        ]
       },
       "id": {
         "computed": true,
@@ -43,46 +70,7 @@ const azurermSubnet = `{
         "required": true,
         "type": "string"
       },
-      "network_security_group_id": {
-        "computed": true,
-        "description_kind": "plain",
-        "type": "string"
-      },
-      "private_endpoint_network_policies": {
-        "computed": true,
-        "description_kind": "plain",
-        "type": "string"
-      },
-      "private_endpoint_network_policies_enabled": {
-        "computed": true,
-        "deprecated": true,
-        "description_kind": "plain",
-        "type": "bool"
-      },
-      "private_link_service_network_policies_enabled": {
-        "computed": true,
-        "description_kind": "plain",
-        "type": "bool"
-      },
-      "resource_group_name": {
-        "description_kind": "plain",
-        "required": true,
-        "type": "string"
-      },
-      "route_table_id": {
-        "computed": true,
-        "description_kind": "plain",
-        "type": "string"
-      },
-      "service_endpoints": {
-        "computed": true,
-        "description_kind": "plain",
-        "type": [
-          "list",
-          "string"
-        ]
-      },
-      "virtual_network_name": {
+      "network_manager_id": {
         "description_kind": "plain",
         "required": true,
         "type": "string"
@@ -108,8 +96,8 @@ const azurermSubnet = `{
   "version": 0
 }`
 
-func AzurermSubnetSchema() *tfjson.Schema {
+func AzurermNetworkManagerConnectivityConfigurationSchema() *tfjson.Schema {
 	var result tfjson.Schema
-	_ = json.Unmarshal([]byte(azurermSubnet), &result)
+	_ = json.Unmarshal([]byte(azurermNetworkManagerConnectivityConfiguration), &result)
 	return &result
 }

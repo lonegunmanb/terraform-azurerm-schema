@@ -6,23 +6,29 @@ import (
 	tfjson "github.com/hashicorp/terraform-json"
 )
 
-const azurermBastionHost = `{
+const azurermDataFactoryCredentialServicePrincipal = `{
   "block": {
     "attributes": {
-      "copy_paste_enabled": {
+      "annotations": {
+        "description": "(Optional) List of string annotations.",
         "description_kind": "plain",
         "optional": true,
-        "type": "bool"
+        "type": [
+          "list",
+          "string"
+        ]
       },
-      "dns_name": {
-        "computed": true,
+      "data_factory_id": {
+        "description": "The resource ID of the parent Data Factory",
         "description_kind": "plain",
+        "required": true,
         "type": "string"
       },
-      "file_copy_enabled": {
+      "description": {
+        "description": "(Optional) Short text description",
         "description_kind": "plain",
         "optional": true,
-        "type": "bool"
+        "type": "string"
       },
       "id": {
         "computed": true,
@@ -30,84 +36,48 @@ const azurermBastionHost = `{
         "optional": true,
         "type": "string"
       },
-      "ip_connect_enabled": {
-        "description_kind": "plain",
-        "optional": true,
-        "type": "bool"
-      },
-      "kerberos_enabled": {
-        "description_kind": "plain",
-        "optional": true,
-        "type": "bool"
-      },
-      "location": {
-        "description_kind": "plain",
-        "required": true,
-        "type": "string"
-      },
       "name": {
+        "description": "The desired name of the credential resource",
         "description_kind": "plain",
         "required": true,
         "type": "string"
       },
-      "resource_group_name": {
+      "service_principal_id": {
+        "description": "The Client ID of the Service Principal",
         "description_kind": "plain",
         "required": true,
         "type": "string"
       },
-      "scale_units": {
+      "tenant_id": {
+        "description": "The Tenant ID of the Service Principal",
         "description_kind": "plain",
-        "optional": true,
-        "type": "number"
-      },
-      "shareable_link_enabled": {
-        "description_kind": "plain",
-        "optional": true,
-        "type": "bool"
-      },
-      "sku": {
-        "description_kind": "plain",
-        "optional": true,
+        "required": true,
         "type": "string"
-      },
-      "tags": {
-        "description_kind": "plain",
-        "optional": true,
-        "type": [
-          "map",
-          "string"
-        ]
-      },
-      "tunneling_enabled": {
-        "description_kind": "plain",
-        "optional": true,
-        "type": "bool"
       }
     },
     "block_types": {
-      "ip_configuration": {
+      "service_principal_key": {
         "block": {
           "attributes": {
-            "name": {
+            "linked_service_name": {
               "description_kind": "plain",
               "required": true,
               "type": "string"
             },
-            "public_ip_address_id": {
+            "secret_name": {
               "description_kind": "plain",
               "required": true,
               "type": "string"
             },
-            "subnet_id": {
+            "secret_version": {
               "description_kind": "plain",
-              "required": true,
+              "optional": true,
               "type": "string"
             }
           },
           "description_kind": "plain"
         },
         "max_items": 1,
-        "min_items": 1,
         "nesting_mode": "list"
       },
       "timeouts": {
@@ -144,8 +114,8 @@ const azurermBastionHost = `{
   "version": 0
 }`
 
-func AzurermBastionHostSchema() *tfjson.Schema {
+func AzurermDataFactoryCredentialServicePrincipalSchema() *tfjson.Schema {
 	var result tfjson.Schema
-	_ = json.Unmarshal([]byte(azurermBastionHost), &result)
+	_ = json.Unmarshal([]byte(azurermDataFactoryCredentialServicePrincipal), &result)
 	return &result
 }

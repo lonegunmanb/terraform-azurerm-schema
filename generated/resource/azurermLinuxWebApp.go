@@ -1574,6 +1574,7 @@ const azurermLinuxWebApp = `{
                                 "type": "string"
                               },
                               "path": {
+                                "deprecated": true,
                                 "description_kind": "plain",
                                 "optional": true,
                                 "type": "string"
@@ -1587,6 +1588,34 @@ const azurermLinuxWebApp = `{
                             "description_kind": "plain"
                           },
                           "max_items": 1,
+                          "nesting_mode": "list"
+                        },
+                        "slow_request_with_path": {
+                          "block": {
+                            "attributes": {
+                              "count": {
+                                "description_kind": "plain",
+                                "required": true,
+                                "type": "number"
+                              },
+                              "interval": {
+                                "description_kind": "plain",
+                                "required": true,
+                                "type": "string"
+                              },
+                              "path": {
+                                "description_kind": "plain",
+                                "optional": true,
+                                "type": "string"
+                              },
+                              "time_taken": {
+                                "description_kind": "plain",
+                                "required": true,
+                                "type": "string"
+                              }
+                            },
+                            "description_kind": "plain"
+                          },
                           "nesting_mode": "list"
                         },
                         "status_code": {

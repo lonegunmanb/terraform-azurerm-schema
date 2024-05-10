@@ -42,8 +42,15 @@ const azurermSubnet = `{
         "required": true,
         "type": "string"
       },
+      "private_endpoint_network_policies": {
+        "computed": true,
+        "description_kind": "plain",
+        "optional": true,
+        "type": "string"
+      },
       "private_endpoint_network_policies_enabled": {
         "computed": true,
+        "deprecated": true,
         "description_kind": "plain",
         "optional": true,
         "type": "bool"

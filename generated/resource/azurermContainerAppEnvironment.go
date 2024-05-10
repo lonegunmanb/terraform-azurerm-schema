@@ -9,6 +9,12 @@ import (
 const azurermContainerAppEnvironment = `{
   "block": {
     "attributes": {
+      "custom_domain_verification_id": {
+        "computed": true,
+        "description": "The ID of the Custom Domain Verification for this Container App Environment.",
+        "description_kind": "plain",
+        "type": "string"
+      },
       "dapr_application_insights_connection_string": {
         "description": "Application Insights connection string used by Dapr to export Service to Service communication telemetry.",
         "description_kind": "plain",

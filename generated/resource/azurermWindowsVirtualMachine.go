@@ -261,6 +261,11 @@ const azurermWindowsVirtualMachine = `{
       "additional_capabilities": {
         "block": {
           "attributes": {
+            "hibernation_enabled": {
+              "description_kind": "plain",
+              "optional": true,
+              "type": "bool"
+            },
             "ultra_ssd_enabled": {
               "description_kind": "plain",
               "optional": true,

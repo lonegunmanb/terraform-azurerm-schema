@@ -6,31 +6,18 @@ import (
 	tfjson "github.com/hashicorp/terraform-json"
 )
 
-const azurermLogAnalyticsSavedSearch = `{
+const azurermVirtualMachineGalleryApplicationAssignment = `{
   "block": {
     "attributes": {
-      "category": {
-        "description_kind": "plain",
-        "required": true,
-        "type": "string"
-      },
-      "display_name": {
-        "description_kind": "plain",
-        "required": true,
-        "type": "string"
-      },
-      "function_alias": {
+      "configuration_blob_uri": {
         "description_kind": "plain",
         "optional": true,
         "type": "string"
       },
-      "function_parameters": {
+      "gallery_application_version_id": {
         "description_kind": "plain",
-        "optional": true,
-        "type": [
-          "list",
-          "string"
-        ]
+        "required": true,
+        "type": "string"
       },
       "id": {
         "computed": true,
@@ -38,28 +25,20 @@ const azurermLogAnalyticsSavedSearch = `{
         "optional": true,
         "type": "string"
       },
-      "log_analytics_workspace_id": {
-        "description_kind": "plain",
-        "required": true,
-        "type": "string"
-      },
-      "name": {
-        "description_kind": "plain",
-        "required": true,
-        "type": "string"
-      },
-      "query": {
-        "description_kind": "plain",
-        "required": true,
-        "type": "string"
-      },
-      "tags": {
+      "order": {
         "description_kind": "plain",
         "optional": true,
-        "type": [
-          "map",
-          "string"
-        ]
+        "type": "number"
+      },
+      "tag": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "string"
+      },
+      "virtual_machine_id": {
+        "description_kind": "plain",
+        "required": true,
+        "type": "string"
       }
     },
     "block_types": {
@@ -80,6 +59,11 @@ const azurermLogAnalyticsSavedSearch = `{
               "description_kind": "plain",
               "optional": true,
               "type": "string"
+            },
+            "update": {
+              "description_kind": "plain",
+              "optional": true,
+              "type": "string"
             }
           },
           "description_kind": "plain"
@@ -89,11 +73,11 @@ const azurermLogAnalyticsSavedSearch = `{
     },
     "description_kind": "plain"
   },
-  "version": 1
+  "version": 0
 }`
 
-func AzurermLogAnalyticsSavedSearchSchema() *tfjson.Schema {
+func AzurermVirtualMachineGalleryApplicationAssignmentSchema() *tfjson.Schema {
 	var result tfjson.Schema
-	_ = json.Unmarshal([]byte(azurermLogAnalyticsSavedSearch), &result)
+	_ = json.Unmarshal([]byte(azurermVirtualMachineGalleryApplicationAssignment), &result)
 	return &result
 }
