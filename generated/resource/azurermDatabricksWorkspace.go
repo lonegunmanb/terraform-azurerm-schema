@@ -9,7 +9,17 @@ import (
 const azurermDatabricksWorkspace = `{
   "block": {
     "attributes": {
+      "access_connector_id": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "string"
+      },
       "customer_managed_key_enabled": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "bool"
+      },
+      "default_storage_firewall_enabled": {
         "description_kind": "plain",
         "optional": true,
         "type": "bool"

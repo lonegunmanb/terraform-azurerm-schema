@@ -9,6 +9,11 @@ import (
 const azurermKubernetesServiceVersions = `{
   "block": {
     "attributes": {
+      "default_version": {
+        "computed": true,
+        "description_kind": "plain",
+        "type": "string"
+      },
       "id": {
         "computed": true,
         "description_kind": "plain",

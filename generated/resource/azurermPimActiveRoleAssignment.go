@@ -16,31 +16,32 @@ const azurermPimActiveRoleAssignment = `{
         "type": "string"
       },
       "justification": {
-        "description": "The justification of the role assignment.",
+        "computed": true,
+        "description": "The justification for this role assignment",
         "description_kind": "plain",
         "optional": true,
         "type": "string"
       },
       "principal_id": {
-        "description": "The principal id.",
+        "description": "Object ID of the principal for this role assignment",
         "description_kind": "plain",
         "required": true,
         "type": "string"
       },
       "principal_type": {
         "computed": true,
-        "description": "The type of principal.",
+        "description": "Type of principal to which the role will be assigned",
         "description_kind": "plain",
         "type": "string"
       },
       "role_definition_id": {
-        "description": "The role definition id.",
+        "description": "Role definition ID for this role assignment",
         "description_kind": "plain",
         "required": true,
         "type": "string"
       },
       "scope": {
-        "description": "The scope.",
+        "description": "Scope for this role assignment, should be a valid resource ID",
         "description_kind": "plain",
         "required": true,
         "type": "string"
@@ -52,7 +53,7 @@ const azurermPimActiveRoleAssignment = `{
           "attributes": {
             "start_date_time": {
               "computed": true,
-              "description": "The start date time.",
+              "description": "The start date/time of the role assignment",
               "description_kind": "plain",
               "optional": true,
               "type": "string"
@@ -64,21 +65,21 @@ const azurermPimActiveRoleAssignment = `{
                 "attributes": {
                   "duration_days": {
                     "computed": true,
-                    "description": "The duration of the assignment in days.",
+                    "description": "The duration of the role assignment in days",
                     "description_kind": "plain",
                     "optional": true,
                     "type": "number"
                   },
                   "duration_hours": {
                     "computed": true,
-                    "description": "The duration of the assignment in hours.",
+                    "description": "The duration of the role assignment in hours",
                     "description_kind": "plain",
                     "optional": true,
                     "type": "number"
                   },
                   "end_date_time": {
                     "computed": true,
-                    "description": "The end date time of the assignment.",
+                    "description": "The end date/time of the role assignment",
                     "description_kind": "plain",
                     "optional": true,
                     "type": "string"
@@ -90,7 +91,7 @@ const azurermPimActiveRoleAssignment = `{
               "nesting_mode": "list"
             }
           },
-          "description": "The schedule details of this role assignment.",
+          "description": "The schedule details for this role assignment",
           "description_kind": "plain"
         },
         "max_items": 1,
@@ -100,19 +101,19 @@ const azurermPimActiveRoleAssignment = `{
         "block": {
           "attributes": {
             "number": {
-              "description": "The ticket number.",
+              "description": "User-supplied ticket number to be included with the request",
               "description_kind": "plain",
               "optional": true,
               "type": "string"
             },
             "system": {
-              "description": "The ticket system.",
+              "description": "User-supplied ticket system name to be included with the request",
               "description_kind": "plain",
               "optional": true,
               "type": "string"
             }
           },
-          "description": "The ticket details.",
+          "description": "Ticket details relating to the assignment",
           "description_kind": "plain"
         },
         "max_items": 1,

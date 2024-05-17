@@ -1453,7 +1453,7 @@ const azurermWindowsFunctionAppSlot = `{
                     "type": "string"
                   },
                   "powershell_core_version": {
-                    "description": "The PowerShell Core version to use. Possible values are ` + "`" + `7` + "`" + `, and ` + "`" + `7.2` + "`" + `",
+                    "description": "The PowerShell Core version to use. Possible values are ` + "`" + `7` + "`" + `, ` + "`" + `7.2` + "`" + `, and ` + "`" + `7.4` + "`" + `",
                     "description_kind": "plain",
                     "optional": true,
                     "type": "string"

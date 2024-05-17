@@ -6,12 +6,17 @@ import (
 	tfjson "github.com/hashicorp/terraform-json"
 )
 
-const azurermLogAnalyticsCluster = `{
+const azurermKeyVaultManagedHardwareSecurityModuleKey = `{
   "block": {
     "attributes": {
-      "cluster_id": {
-        "computed": true,
+      "curve": {
         "description_kind": "plain",
+        "optional": true,
+        "type": "string"
+      },
+      "expiration_date": {
+        "description_kind": "plain",
+        "optional": true,
         "type": "string"
       },
       "id": {
@@ -20,7 +25,25 @@ const azurermLogAnalyticsCluster = `{
         "optional": true,
         "type": "string"
       },
-      "location": {
+      "key_opts": {
+        "description_kind": "plain",
+        "required": true,
+        "type": [
+          "set",
+          "string"
+        ]
+      },
+      "key_size": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "number"
+      },
+      "key_type": {
+        "description_kind": "plain",
+        "required": true,
+        "type": "string"
+      },
+      "managed_hsm_id": {
         "description_kind": "plain",
         "required": true,
         "type": "string"
@@ -30,15 +53,10 @@ const azurermLogAnalyticsCluster = `{
         "required": true,
         "type": "string"
       },
-      "resource_group_name": {
-        "description_kind": "plain",
-        "required": true,
-        "type": "string"
-      },
-      "size_gb": {
+      "not_before_date": {
         "description_kind": "plain",
         "optional": true,
-        "type": "number"
+        "type": "string"
       },
       "tags": {
         "description_kind": "plain",
@@ -47,42 +65,14 @@ const azurermLogAnalyticsCluster = `{
           "map",
           "string"
         ]
+      },
+      "versioned_id": {
+        "computed": true,
+        "description_kind": "plain",
+        "type": "string"
       }
     },
     "block_types": {
-      "identity": {
-        "block": {
-          "attributes": {
-            "identity_ids": {
-              "description_kind": "plain",
-              "optional": true,
-              "type": [
-                "set",
-                "string"
-              ]
-            },
-            "principal_id": {
-              "computed": true,
-              "description_kind": "plain",
-              "type": "string"
-            },
-            "tenant_id": {
-              "computed": true,
-              "description_kind": "plain",
-              "type": "string"
-            },
-            "type": {
-              "description_kind": "plain",
-              "required": true,
-              "type": "string"
-            }
-          },
-          "description_kind": "plain"
-        },
-        "max_items": 1,
-        "min_items": 1,
-        "nesting_mode": "list"
-      },
       "timeouts": {
         "block": {
           "attributes": {
@@ -117,8 +107,8 @@ const azurermLogAnalyticsCluster = `{
   "version": 0
 }`
 
-func AzurermLogAnalyticsClusterSchema() *tfjson.Schema {
+func AzurermKeyVaultManagedHardwareSecurityModuleKeySchema() *tfjson.Schema {
 	var result tfjson.Schema
-	_ = json.Unmarshal([]byte(azurermLogAnalyticsCluster), &result)
+	_ = json.Unmarshal([]byte(azurermKeyVaultManagedHardwareSecurityModuleKey), &result)
 	return &result
 }

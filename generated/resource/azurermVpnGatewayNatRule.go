@@ -51,6 +51,7 @@ const azurermVpnGatewayNatRule = `{
         "type": "string"
       },
       "resource_group_name": {
+        "deprecated": true,
         "description_kind": "plain",
         "required": true,
         "type": "string"

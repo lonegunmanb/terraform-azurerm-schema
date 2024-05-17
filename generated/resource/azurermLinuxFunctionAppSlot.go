@@ -1458,7 +1458,7 @@ const azurermLinuxFunctionAppSlot = `{
                     "type": "string"
                   },
                   "powershell_core_version": {
-                    "description": "The version of PowerShell Core to use. Possibles values are ` + "`" + `7` + "`" + `, and ` + "`" + `7.2` + "`" + `",
+                    "description": "The version of PowerShell Core to use. Possibles values are ` + "`" + `7` + "`" + `, ` + "`" + `7.2` + "`" + `, and ` + "`" + `7.4` + "`" + `",
                     "description_kind": "plain",
                     "optional": true,
                     "type": "string"
