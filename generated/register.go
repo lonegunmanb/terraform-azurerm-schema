@@ -56,6 +56,7 @@ func init() {
 	resources["azurerm_api_management_notification_recipient_user"] = resource.AzurermApiManagementNotificationRecipientUserSchema()  
 	resources["azurerm_api_management_openid_connect_provider"] = resource.AzurermApiManagementOpenidConnectProviderSchema()  
 	resources["azurerm_api_management_policy"] = resource.AzurermApiManagementPolicySchema()  
+	resources["azurerm_api_management_policy_fragment"] = resource.AzurermApiManagementPolicyFragmentSchema()  
 	resources["azurerm_api_management_product"] = resource.AzurermApiManagementProductSchema()  
 	resources["azurerm_api_management_product_api"] = resource.AzurermApiManagementProductApiSchema()  
 	resources["azurerm_api_management_product_group"] = resource.AzurermApiManagementProductGroupSchema()  

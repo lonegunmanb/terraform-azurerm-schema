@@ -20,20 +20,17 @@ const azurermBotChannelsRegistration = `{
         "type": "string"
       },
       "developer_app_insights_api_key": {
-        "computed": true,
         "description_kind": "plain",
         "optional": true,
         "sensitive": true,
         "type": "string"
       },
       "developer_app_insights_application_id": {
-        "computed": true,
         "description_kind": "plain",
         "optional": true,
         "type": "string"
       },
       "developer_app_insights_key": {
-        "computed": true,
         "description_kind": "plain",
         "optional": true,
         "type": "string"

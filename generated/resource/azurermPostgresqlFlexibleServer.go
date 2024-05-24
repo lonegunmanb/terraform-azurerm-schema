@@ -80,8 +80,8 @@ const azurermPostgresqlFlexibleServer = `{
         "type": "string"
       },
       "public_network_access_enabled": {
-        "computed": true,
         "description_kind": "plain",
+        "optional": true,
         "type": "bool"
       },
       "replication_role": {

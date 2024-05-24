@@ -6,32 +6,20 @@ import (
 	tfjson "github.com/hashicorp/terraform-json"
 )
 
-const azurermBotWebApp = `{
+const azurermApiManagementPolicyFragment = `{
   "block": {
     "attributes": {
-      "developer_app_insights_api_key": {
+      "api_management_id": {
         "description_kind": "plain",
-        "optional": true,
-        "sensitive": true,
+        "required": true,
         "type": "string"
       },
-      "developer_app_insights_application_id": {
-        "description_kind": "plain",
-        "optional": true,
-        "type": "string"
-      },
-      "developer_app_insights_key": {
+      "description": {
         "description_kind": "plain",
         "optional": true,
         "type": "string"
       },
-      "display_name": {
-        "computed": true,
-        "description_kind": "plain",
-        "optional": true,
-        "type": "string"
-      },
-      "endpoint": {
+      "format": {
         "description_kind": "plain",
         "optional": true,
         "type": "string"
@@ -42,52 +30,15 @@ const azurermBotWebApp = `{
         "optional": true,
         "type": "string"
       },
-      "location": {
-        "description_kind": "plain",
-        "required": true,
-        "type": "string"
-      },
-      "luis_app_ids": {
-        "description_kind": "plain",
-        "optional": true,
-        "type": [
-          "list",
-          "string"
-        ]
-      },
-      "luis_key": {
-        "description_kind": "plain",
-        "optional": true,
-        "sensitive": true,
-        "type": "string"
-      },
-      "microsoft_app_id": {
-        "description_kind": "plain",
-        "required": true,
-        "type": "string"
-      },
       "name": {
         "description_kind": "plain",
         "required": true,
         "type": "string"
       },
-      "resource_group_name": {
+      "value": {
         "description_kind": "plain",
         "required": true,
         "type": "string"
-      },
-      "sku": {
-        "description_kind": "plain",
-        "required": true,
-        "type": "string"
-      },
-      "tags": {
-        "description_kind": "plain",
-        "optional": true,
-        "type": [
-          "map",
-          "string"
-        ]
       }
     },
     "block_types": {
@@ -125,8 +76,8 @@ const azurermBotWebApp = `{
   "version": 0
 }`
 
-func AzurermBotWebAppSchema() *tfjson.Schema {
+func AzurermApiManagementPolicyFragmentSchema() *tfjson.Schema {
 	var result tfjson.Schema
-	_ = json.Unmarshal([]byte(azurermBotWebApp), &result)
+	_ = json.Unmarshal([]byte(azurermApiManagementPolicyFragment), &result)
 	return &result
 }

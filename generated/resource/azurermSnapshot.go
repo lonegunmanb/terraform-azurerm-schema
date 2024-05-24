@@ -14,6 +14,11 @@ const azurermSnapshot = `{
         "required": true,
         "type": "string"
       },
+      "disk_access_id": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "string"
+      },
       "disk_size_gb": {
         "computed": true,
         "description_kind": "plain",

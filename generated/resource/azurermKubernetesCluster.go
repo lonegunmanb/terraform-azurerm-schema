@@ -1897,6 +1897,7 @@ const azurermKubernetesCluster = `{
             },
             "vertical_pod_autoscaler_controlled_values": {
               "computed": true,
+              "deprecated": true,
               "description_kind": "plain",
               "type": "string"
             },
@@ -1907,6 +1908,7 @@ const azurermKubernetesCluster = `{
             },
             "vertical_pod_autoscaler_update_mode": {
               "computed": true,
+              "deprecated": true,
               "description_kind": "plain",
               "type": "string"
             }
