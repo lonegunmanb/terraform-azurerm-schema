@@ -1,4 +1,4 @@
-package resource
+package data
 
 import (
 	"encoding/json"
@@ -6,15 +6,15 @@ import (
 	tfjson "github.com/hashicorp/terraform-json"
 )
 
-const azurermLogicAppTriggerCustom = `{
+const azurermContainerRegistryCacheRule = `{
   "block": {
     "attributes": {
-      "body": {
+      "container_registry_id": {
         "description_kind": "plain",
         "required": true,
         "type": "string"
       },
-      "callback_url": {
+      "credential_set_id": {
         "computed": true,
         "description_kind": "plain",
         "type": "string"
@@ -25,14 +25,19 @@ const azurermLogicAppTriggerCustom = `{
         "optional": true,
         "type": "string"
       },
-      "logic_app_id": {
+      "name": {
         "description_kind": "plain",
         "required": true,
         "type": "string"
       },
-      "name": {
+      "source_repo": {
+        "computed": true,
         "description_kind": "plain",
-        "required": true,
+        "type": "string"
+      },
+      "target_repo": {
+        "computed": true,
+        "description_kind": "plain",
         "type": "string"
       }
     },
@@ -40,22 +45,7 @@ const azurermLogicAppTriggerCustom = `{
       "timeouts": {
         "block": {
           "attributes": {
-            "create": {
-              "description_kind": "plain",
-              "optional": true,
-              "type": "string"
-            },
-            "delete": {
-              "description_kind": "plain",
-              "optional": true,
-              "type": "string"
-            },
             "read": {
-              "description_kind": "plain",
-              "optional": true,
-              "type": "string"
-            },
-            "update": {
               "description_kind": "plain",
               "optional": true,
               "type": "string"
@@ -71,8 +61,8 @@ const azurermLogicAppTriggerCustom = `{
   "version": 0
 }`
 
-func AzurermLogicAppTriggerCustomSchema() *tfjson.Schema {
+func AzurermContainerRegistryCacheRuleSchema() *tfjson.Schema {
 	var result tfjson.Schema
-	_ = json.Unmarshal([]byte(azurermLogicAppTriggerCustom), &result)
+	_ = json.Unmarshal([]byte(azurermContainerRegistryCacheRule), &result)
 	return &result
 }

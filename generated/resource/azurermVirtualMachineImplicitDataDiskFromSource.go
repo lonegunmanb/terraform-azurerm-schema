@@ -6,18 +6,23 @@ import (
 	tfjson "github.com/hashicorp/terraform-json"
 )
 
-const azurermLogicAppTriggerCustom = `{
+const azurermVirtualMachineImplicitDataDiskFromSource = `{
   "block": {
     "attributes": {
-      "body": {
+      "caching": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "string"
+      },
+      "create_option": {
         "description_kind": "plain",
         "required": true,
         "type": "string"
       },
-      "callback_url": {
-        "computed": true,
+      "disk_size_gb": {
         "description_kind": "plain",
-        "type": "string"
+        "required": true,
+        "type": "number"
       },
       "id": {
         "computed": true,
@@ -25,15 +30,30 @@ const azurermLogicAppTriggerCustom = `{
         "optional": true,
         "type": "string"
       },
-      "logic_app_id": {
+      "lun": {
         "description_kind": "plain",
         "required": true,
-        "type": "string"
+        "type": "number"
       },
       "name": {
         "description_kind": "plain",
         "required": true,
         "type": "string"
+      },
+      "source_resource_id": {
+        "description_kind": "plain",
+        "required": true,
+        "type": "string"
+      },
+      "virtual_machine_id": {
+        "description_kind": "plain",
+        "required": true,
+        "type": "string"
+      },
+      "write_accelerator_enabled": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "bool"
       }
     },
     "block_types": {
@@ -71,8 +91,8 @@ const azurermLogicAppTriggerCustom = `{
   "version": 0
 }`
 
-func AzurermLogicAppTriggerCustomSchema() *tfjson.Schema {
+func AzurermVirtualMachineImplicitDataDiskFromSourceSchema() *tfjson.Schema {
 	var result tfjson.Schema
-	_ = json.Unmarshal([]byte(azurermLogicAppTriggerCustom), &result)
+	_ = json.Unmarshal([]byte(azurermVirtualMachineImplicitDataDiskFromSource), &result)
 	return &result
 }

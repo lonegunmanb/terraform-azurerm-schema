@@ -244,6 +244,39 @@ const azurermContainerAppJob = `{
               "type": "string"
             }
           },
+          "deprecated": true,
+          "description_kind": "plain"
+        },
+        "nesting_mode": "list"
+      },
+      "registry": {
+        "block": {
+          "attributes": {
+            "identity": {
+              "description": "ID of the System or User Managed Identity used to pull images from the Container Registry",
+              "description_kind": "plain",
+              "optional": true,
+              "type": "string"
+            },
+            "password_secret_name": {
+              "description": "The name of the Secret Reference containing the password value for this user on the Container Registry.",
+              "description_kind": "plain",
+              "optional": true,
+              "type": "string"
+            },
+            "server": {
+              "description": "The hostname for the Container Registry.",
+              "description_kind": "plain",
+              "required": true,
+              "type": "string"
+            },
+            "username": {
+              "description": "The username to use for this Container Registry.",
+              "description_kind": "plain",
+              "optional": true,
+              "type": "string"
+            }
+          },
           "description_kind": "plain"
         },
         "nesting_mode": "list"
@@ -271,6 +304,39 @@ const azurermContainerAppJob = `{
         },
         "max_items": 1,
         "nesting_mode": "list"
+      },
+      "secret": {
+        "block": {
+          "attributes": {
+            "identity": {
+              "description": "The identity to use for accessing key vault reference.",
+              "description_kind": "plain",
+              "optional": true,
+              "type": "string"
+            },
+            "key_vault_secret_id": {
+              "description": "The Key Vault Secret ID. Could be either one of ` + "`" + `id` + "`" + ` or ` + "`" + `versionless_id` + "`" + `.",
+              "description_kind": "plain",
+              "optional": true,
+              "type": "string"
+            },
+            "name": {
+              "description": "The secret name.",
+              "description_kind": "plain",
+              "required": true,
+              "type": "string"
+            },
+            "value": {
+              "description": "The value for this secret.",
+              "description_kind": "plain",
+              "optional": true,
+              "sensitive": true,
+              "type": "string"
+            }
+          },
+          "description_kind": "plain"
+        },
+        "nesting_mode": "set"
       },
       "secrets": {
         "block": {
@@ -301,6 +367,7 @@ const azurermContainerAppJob = `{
               "type": "string"
             }
           },
+          "deprecated": true,
           "description_kind": "plain"
         },
         "nesting_mode": "set"

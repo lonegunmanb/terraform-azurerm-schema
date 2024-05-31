@@ -1290,7 +1290,7 @@ const azurermWindowsFunctionApp = `{
             },
             "health_check_eviction_time_in_min": {
               "computed": true,
-              "description": "The amount of time in minutes that a node is unhealthy before being removed from the load balancer. Possible values are between ` + "`" + `2` + "`" + ` and ` + "`" + `10` + "`" + `. Defaults to ` + "`" + `10` + "`" + `. Only valid in conjunction with ` + "`" + `health_check_path` + "`" + `",
+              "description": "The amount of time in minutes that a node is unhealthy before being removed from the load balancer. Possible values are between ` + "`" + `2` + "`" + ` and ` + "`" + `10` + "`" + `. Only valid in conjunction with ` + "`" + `health_check_path` + "`" + `",
               "description_kind": "plain",
               "optional": true,
               "type": "number"

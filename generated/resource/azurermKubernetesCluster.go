@@ -29,6 +29,11 @@ const azurermKubernetesCluster = `{
         "optional": true,
         "type": "bool"
       },
+      "cost_analysis_enabled": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "bool"
+      },
       "current_kubernetes_version": {
         "computed": true,
         "description_kind": "plain",
@@ -997,10 +1002,20 @@ const azurermKubernetesCluster = `{
             "upgrade_settings": {
               "block": {
                 "attributes": {
+                  "drain_timeout_in_minutes": {
+                    "description_kind": "plain",
+                    "optional": true,
+                    "type": "number"
+                  },
                   "max_surge": {
                     "description_kind": "plain",
                     "required": true,
                     "type": "string"
+                  },
+                  "node_soak_duration_in_minutes": {
+                    "description_kind": "plain",
+                    "optional": true,
+                    "type": "number"
                   }
                 },
                 "description_kind": "plain"

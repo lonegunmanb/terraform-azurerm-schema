@@ -6,17 +6,18 @@ import (
 	tfjson "github.com/hashicorp/terraform-json"
 )
 
-const azurermLogicAppTriggerCustom = `{
+const azurermContainerRegistryCacheRule = `{
   "block": {
     "attributes": {
-      "body": {
+      "container_registry_id": {
         "description_kind": "plain",
         "required": true,
         "type": "string"
       },
-      "callback_url": {
-        "computed": true,
+      "credential_set_id": {
+        "description": "The ARM resource ID of the credential store which is associated with the cache rule.",
         "description_kind": "plain",
+        "optional": true,
         "type": "string"
       },
       "id": {
@@ -25,12 +26,20 @@ const azurermLogicAppTriggerCustom = `{
         "optional": true,
         "type": "string"
       },
-      "logic_app_id": {
+      "name": {
+        "description": "The name of the cache rule.",
         "description_kind": "plain",
         "required": true,
         "type": "string"
       },
-      "name": {
+      "source_repo": {
+        "description": "The full source repository path such as 'docker.io/library/ubuntu'.",
+        "description_kind": "plain",
+        "required": true,
+        "type": "string"
+      },
+      "target_repo": {
+        "description": "The target repository namespace such as 'ubuntu'.",
         "description_kind": "plain",
         "required": true,
         "type": "string"
@@ -71,8 +80,8 @@ const azurermLogicAppTriggerCustom = `{
   "version": 0
 }`
 
-func AzurermLogicAppTriggerCustomSchema() *tfjson.Schema {
+func AzurermContainerRegistryCacheRuleSchema() *tfjson.Schema {
 	var result tfjson.Schema
-	_ = json.Unmarshal([]byte(azurermLogicAppTriggerCustom), &result)
+	_ = json.Unmarshal([]byte(azurermContainerRegistryCacheRule), &result)
 	return &result
 }

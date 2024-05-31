@@ -1,4 +1,4 @@
-package resource
+package data
 
 import (
 	"encoding/json"
@@ -6,31 +6,49 @@ import (
 	tfjson "github.com/hashicorp/terraform-json"
 )
 
-const azurermLogicAppTriggerCustom = `{
+const azurermStorageTable = `{
   "block": {
     "attributes": {
-      "body": {
-        "description_kind": "plain",
-        "required": true,
-        "type": "string"
-      },
-      "callback_url": {
+      "acl": {
         "computed": true,
         "description_kind": "plain",
-        "type": "string"
+        "type": [
+          "set",
+          [
+            "object",
+            {
+              "access_policy": [
+                "list",
+                [
+                  "object",
+                  {
+                    "expiry": "string",
+                    "permissions": "string",
+                    "start": "string"
+                  }
+                ]
+              ],
+              "id": "string"
+            }
+          ]
+        ]
       },
       "id": {
         "computed": true,
         "description_kind": "plain",
-        "optional": true,
         "type": "string"
       },
-      "logic_app_id": {
+      "name": {
         "description_kind": "plain",
         "required": true,
         "type": "string"
       },
-      "name": {
+      "resource_manager_id": {
+        "computed": true,
+        "description_kind": "plain",
+        "type": "string"
+      },
+      "storage_account_name": {
         "description_kind": "plain",
         "required": true,
         "type": "string"
@@ -40,22 +58,7 @@ const azurermLogicAppTriggerCustom = `{
       "timeouts": {
         "block": {
           "attributes": {
-            "create": {
-              "description_kind": "plain",
-              "optional": true,
-              "type": "string"
-            },
-            "delete": {
-              "description_kind": "plain",
-              "optional": true,
-              "type": "string"
-            },
             "read": {
-              "description_kind": "plain",
-              "optional": true,
-              "type": "string"
-            },
-            "update": {
               "description_kind": "plain",
               "optional": true,
               "type": "string"
@@ -71,8 +74,8 @@ const azurermLogicAppTriggerCustom = `{
   "version": 0
 }`
 
-func AzurermLogicAppTriggerCustomSchema() *tfjson.Schema {
+func AzurermStorageTableSchema() *tfjson.Schema {
 	var result tfjson.Schema
-	_ = json.Unmarshal([]byte(azurermLogicAppTriggerCustom), &result)
+	_ = json.Unmarshal([]byte(azurermStorageTable), &result)
 	return &result
 }

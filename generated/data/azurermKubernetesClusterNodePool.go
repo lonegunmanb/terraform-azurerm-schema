@@ -142,7 +142,9 @@ const azurermKubernetesClusterNodePool = `{
           [
             "object",
             {
-              "max_surge": "string"
+              "drain_timeout_in_minutes": "number",
+              "max_surge": "string",
+              "node_soak_duration_in_minutes": "number"
             }
           ]
         ]

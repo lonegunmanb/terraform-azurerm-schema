@@ -218,6 +218,25 @@ const azurermMachineLearningWorkspace = `{
         "max_items": 1,
         "nesting_mode": "list"
       },
+      "serverless_compute": {
+        "block": {
+          "attributes": {
+            "public_ip_enabled": {
+              "description_kind": "plain",
+              "optional": true,
+              "type": "bool"
+            },
+            "subnet_id": {
+              "description_kind": "plain",
+              "optional": true,
+              "type": "string"
+            }
+          },
+          "description_kind": "plain"
+        },
+        "max_items": 1,
+        "nesting_mode": "list"
+      },
       "timeouts": {
         "block": {
           "attributes": {

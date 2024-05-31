@@ -82,6 +82,11 @@ const azurermBastionHost = `{
         "description_kind": "plain",
         "optional": true,
         "type": "bool"
+      },
+      "virtual_network_id": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "string"
       }
     },
     "block_types": {
@@ -107,7 +112,6 @@ const azurermBastionHost = `{
           "description_kind": "plain"
         },
         "max_items": 1,
-        "min_items": 1,
         "nesting_mode": "list"
       },
       "timeouts": {
