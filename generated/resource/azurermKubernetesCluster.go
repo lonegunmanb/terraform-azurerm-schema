@@ -1831,9 +1831,18 @@ const azurermKubernetesCluster = `{
         "block": {
           "attributes": {
             "dns_zone_id": {
+              "deprecated": true,
               "description_kind": "plain",
-              "required": true,
+              "optional": true,
               "type": "string"
+            },
+            "dns_zone_ids": {
+              "description_kind": "plain",
+              "optional": true,
+              "type": [
+                "list",
+                "string"
+              ]
             },
             "web_app_routing_identity": {
               "computed": true,

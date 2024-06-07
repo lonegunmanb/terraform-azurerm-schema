@@ -112,6 +112,7 @@ const azurermVirtualNetworkGatewayConnection = `{
         "type": "number"
       },
       "shared_key": {
+        "computed": true,
         "description_kind": "plain",
         "optional": true,
         "sensitive": true,

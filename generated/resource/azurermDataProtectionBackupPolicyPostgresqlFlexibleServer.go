@@ -6,12 +6,12 @@ import (
 	tfjson "github.com/hashicorp/terraform-json"
 )
 
-const azurermDataProtectionBackupPolicyBlobStorage = `{
+const azurermDataProtectionBackupPolicyPostgresqlFlexibleServer = `{
   "block": {
     "attributes": {
       "backup_repeating_time_intervals": {
         "description_kind": "plain",
-        "optional": true,
+        "required": true,
         "type": [
           "list",
           "string"
@@ -28,25 +28,7 @@ const azurermDataProtectionBackupPolicyBlobStorage = `{
         "required": true,
         "type": "string"
       },
-      "operational_default_retention_duration": {
-        "computed": true,
-        "description_kind": "plain",
-        "optional": true,
-        "type": "string"
-      },
-      "retention_duration": {
-        "computed": true,
-        "deprecated": true,
-        "description_kind": "plain",
-        "optional": true,
-        "type": "string"
-      },
       "time_zone": {
-        "description_kind": "plain",
-        "optional": true,
-        "type": "string"
-      },
-      "vault_default_retention_duration": {
         "description_kind": "plain",
         "optional": true,
         "type": "string"
@@ -58,6 +40,35 @@ const azurermDataProtectionBackupPolicyBlobStorage = `{
       }
     },
     "block_types": {
+      "default_retention_rule": {
+        "block": {
+          "block_types": {
+            "life_cycle": {
+              "block": {
+                "attributes": {
+                  "data_store_type": {
+                    "description_kind": "plain",
+                    "required": true,
+                    "type": "string"
+                  },
+                  "duration": {
+                    "description_kind": "plain",
+                    "required": true,
+                    "type": "string"
+                  }
+                },
+                "description_kind": "plain"
+              },
+              "min_items": 1,
+              "nesting_mode": "list"
+            }
+          },
+          "description_kind": "plain"
+        },
+        "max_items": 1,
+        "min_items": 1,
+        "nesting_mode": "list"
+      },
       "retention_rule": {
         "block": {
           "attributes": {
@@ -80,14 +91,6 @@ const azurermDataProtectionBackupPolicyBlobStorage = `{
                     "description_kind": "plain",
                     "optional": true,
                     "type": "string"
-                  },
-                  "days_of_month": {
-                    "description_kind": "plain",
-                    "optional": true,
-                    "type": [
-                      "set",
-                      "number"
-                    ]
                   },
                   "days_of_week": {
                     "description_kind": "plain",
@@ -144,7 +147,6 @@ const azurermDataProtectionBackupPolicyBlobStorage = `{
                 },
                 "description_kind": "plain"
               },
-              "max_items": 1,
               "min_items": 1,
               "nesting_mode": "list"
             }
@@ -182,8 +184,8 @@ const azurermDataProtectionBackupPolicyBlobStorage = `{
   "version": 0
 }`
 
-func AzurermDataProtectionBackupPolicyBlobStorageSchema() *tfjson.Schema {
+func AzurermDataProtectionBackupPolicyPostgresqlFlexibleServerSchema() *tfjson.Schema {
 	var result tfjson.Schema
-	_ = json.Unmarshal([]byte(azurermDataProtectionBackupPolicyBlobStorage), &result)
+	_ = json.Unmarshal([]byte(azurermDataProtectionBackupPolicyPostgresqlFlexibleServer), &result)
 	return &result
 }

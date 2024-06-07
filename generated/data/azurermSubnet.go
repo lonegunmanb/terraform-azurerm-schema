@@ -22,6 +22,11 @@ const azurermSubnet = `{
           "string"
         ]
       },
+      "default_outbound_access_enabled": {
+        "computed": true,
+        "description_kind": "plain",
+        "type": "bool"
+      },
       "enforce_private_link_endpoint_network_policies": {
         "computed": true,
         "description_kind": "plain",

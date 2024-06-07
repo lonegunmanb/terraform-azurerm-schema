@@ -157,6 +157,7 @@ const azurermNginxDeployment = `{
               "nesting_mode": "set"
             }
           },
+          "deprecated": true,
           "description_kind": "plain"
         },
         "max_items": 1,

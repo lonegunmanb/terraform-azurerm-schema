@@ -304,6 +304,7 @@ func init() {
 	resources["azurerm_data_protection_backup_policy_disk"] = resource.AzurermDataProtectionBackupPolicyDiskSchema()  
 	resources["azurerm_data_protection_backup_policy_kubernetes_cluster"] = resource.AzurermDataProtectionBackupPolicyKubernetesClusterSchema()  
 	resources["azurerm_data_protection_backup_policy_postgresql"] = resource.AzurermDataProtectionBackupPolicyPostgresqlSchema()  
+	resources["azurerm_data_protection_backup_policy_postgresql_flexible_server"] = resource.AzurermDataProtectionBackupPolicyPostgresqlFlexibleServerSchema()  
 	resources["azurerm_data_protection_backup_vault"] = resource.AzurermDataProtectionBackupVaultSchema()  
 	resources["azurerm_data_protection_resource_guard"] = resource.AzurermDataProtectionResourceGuardSchema()  
 	resources["azurerm_data_share"] = resource.AzurermDataShareSchema()  
