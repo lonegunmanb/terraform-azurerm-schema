@@ -1503,6 +1503,8 @@ const azurermKubernetesCluster = `{
               "type": "string"
             },
             "ebpf_data_plane": {
+              "computed": true,
+              "deprecated": true,
               "description_kind": "plain",
               "optional": true,
               "type": "string"
@@ -1517,6 +1519,12 @@ const azurermKubernetesCluster = `{
               ]
             },
             "load_balancer_sku": {
+              "description_kind": "plain",
+              "optional": true,
+              "type": "string"
+            },
+            "network_data_plane": {
+              "computed": true,
               "description_kind": "plain",
               "optional": true,
               "type": "string"

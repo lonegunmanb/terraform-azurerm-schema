@@ -20,7 +20,6 @@ const azurermNetappVolume = `{
         "type": "bool"
       },
       "create_from_snapshot_resource_id": {
-        "computed": true,
         "description_kind": "plain",
         "optional": true,
         "type": "string"
@@ -248,7 +247,6 @@ const azurermNetappVolume = `{
               "type": "bool"
             },
             "protocols_enabled": {
-              "computed": true,
               "description_kind": "plain",
               "optional": true,
               "type": [

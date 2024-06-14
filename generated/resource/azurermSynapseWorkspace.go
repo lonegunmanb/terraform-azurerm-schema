@@ -11,6 +11,7 @@ const azurermSynapseWorkspace = `{
     "attributes": {
       "aad_admin": {
         "computed": true,
+        "deprecated": true,
         "description_kind": "plain",
         "optional": true,
         "type": [
@@ -100,6 +101,7 @@ const azurermSynapseWorkspace = `{
       },
       "sql_aad_admin": {
         "computed": true,
+        "deprecated": true,
         "description_kind": "plain",
         "optional": true,
         "type": [

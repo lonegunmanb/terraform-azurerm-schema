@@ -52,7 +52,6 @@ const azurermLbBackendAddressPoolAddress = `{
         "type": "string"
       },
       "virtual_network_id": {
-        "description": "For regional load balancer, user needs to specify ` + "`" + `virtual_network_id` + "`" + ` and ` + "`" + `ip_address` + "`" + `",
         "description_kind": "plain",
         "optional": true,
         "type": "string"

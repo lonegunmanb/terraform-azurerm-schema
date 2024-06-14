@@ -57,6 +57,11 @@ const azurermLbBackendAddressPool = `{
           "string"
         ]
       },
+      "synchronous_mode": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "string"
+      },
       "virtual_network_id": {
         "description_kind": "plain",
         "optional": true,

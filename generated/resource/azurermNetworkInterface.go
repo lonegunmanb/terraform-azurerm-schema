@@ -9,6 +9,12 @@ import (
 const azurermNetworkInterface = `{
   "block": {
     "attributes": {
+      "accelerated_networking_enabled": {
+        "computed": true,
+        "description_kind": "plain",
+        "optional": true,
+        "type": "bool"
+      },
       "applied_dns_servers": {
         "computed": true,
         "description_kind": "plain",
@@ -42,11 +48,15 @@ const azurermNetworkInterface = `{
         "type": "string"
       },
       "enable_accelerated_networking": {
+        "computed": true,
+        "deprecated": true,
         "description_kind": "plain",
         "optional": true,
         "type": "bool"
       },
       "enable_ip_forwarding": {
+        "computed": true,
+        "deprecated": true,
         "description_kind": "plain",
         "optional": true,
         "type": "bool"
@@ -67,6 +77,12 @@ const azurermNetworkInterface = `{
         "computed": true,
         "description_kind": "plain",
         "type": "string"
+      },
+      "ip_forwarding_enabled": {
+        "computed": true,
+        "description_kind": "plain",
+        "optional": true,
+        "type": "bool"
       },
       "location": {
         "description_kind": "plain",
