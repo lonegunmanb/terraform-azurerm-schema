@@ -9,6 +9,11 @@ import (
 const azurermHdinsightCluster = `{
   "block": {
     "attributes": {
+      "cluster_id": {
+        "computed": true,
+        "description_kind": "plain",
+        "type": "string"
+      },
       "cluster_version": {
         "computed": true,
         "description_kind": "plain",

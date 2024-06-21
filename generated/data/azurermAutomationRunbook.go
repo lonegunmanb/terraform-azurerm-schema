@@ -1,4 +1,4 @@
-package resource
+package data
 
 import (
 	"encoding/json"
@@ -6,28 +6,53 @@ import (
 	tfjson "github.com/hashicorp/terraform-json"
 )
 
-const azurermMonitorPrivateLinkScope = `{
+const azurermAutomationRunbook = `{
   "block": {
     "attributes": {
+      "automation_account_name": {
+        "description_kind": "plain",
+        "required": true,
+        "type": "string"
+      },
+      "content": {
+        "computed": true,
+        "description_kind": "plain",
+        "type": "string"
+      },
+      "description": {
+        "computed": true,
+        "description_kind": "plain",
+        "type": "string"
+      },
       "id": {
         "computed": true,
         "description_kind": "plain",
         "optional": true,
         "type": "string"
       },
-      "ingestion_access_mode": {
+      "location": {
+        "computed": true,
         "description_kind": "plain",
-        "optional": true,
         "type": "string"
+      },
+      "log_activity_trace_level": {
+        "computed": true,
+        "description_kind": "plain",
+        "type": "number"
+      },
+      "log_progress": {
+        "computed": true,
+        "description_kind": "plain",
+        "type": "bool"
+      },
+      "log_verbose": {
+        "computed": true,
+        "description_kind": "plain",
+        "type": "bool"
       },
       "name": {
         "description_kind": "plain",
         "required": true,
-        "type": "string"
-      },
-      "query_access_mode": {
-        "description_kind": "plain",
-        "optional": true,
         "type": "string"
       },
       "resource_group_name": {
@@ -35,9 +60,14 @@ const azurermMonitorPrivateLinkScope = `{
         "required": true,
         "type": "string"
       },
-      "tags": {
+      "runbook_type": {
+        "computed": true,
         "description_kind": "plain",
-        "optional": true,
+        "type": "string"
+      },
+      "tags": {
+        "computed": true,
+        "description_kind": "plain",
         "type": [
           "map",
           "string"
@@ -48,22 +78,7 @@ const azurermMonitorPrivateLinkScope = `{
       "timeouts": {
         "block": {
           "attributes": {
-            "create": {
-              "description_kind": "plain",
-              "optional": true,
-              "type": "string"
-            },
-            "delete": {
-              "description_kind": "plain",
-              "optional": true,
-              "type": "string"
-            },
             "read": {
-              "description_kind": "plain",
-              "optional": true,
-              "type": "string"
-            },
-            "update": {
               "description_kind": "plain",
               "optional": true,
               "type": "string"
@@ -79,8 +94,8 @@ const azurermMonitorPrivateLinkScope = `{
   "version": 0
 }`
 
-func AzurermMonitorPrivateLinkScopeSchema() *tfjson.Schema {
+func AzurermAutomationRunbookSchema() *tfjson.Schema {
 	var result tfjson.Schema
-	_ = json.Unmarshal([]byte(azurermMonitorPrivateLinkScope), &result)
+	_ = json.Unmarshal([]byte(azurermAutomationRunbook), &result)
 	return &result
 }

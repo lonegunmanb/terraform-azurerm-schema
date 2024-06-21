@@ -6,18 +6,23 @@ import (
 	tfjson "github.com/hashicorp/terraform-json"
 )
 
-const azurermMonitorPrivateLinkScope = `{
+const azurermDataProtectionBackupInstancePostgresqlFlexibleServer = `{
   "block": {
     "attributes": {
+      "backup_policy_id": {
+        "description_kind": "plain",
+        "required": true,
+        "type": "string"
+      },
       "id": {
         "computed": true,
         "description_kind": "plain",
         "optional": true,
         "type": "string"
       },
-      "ingestion_access_mode": {
+      "location": {
         "description_kind": "plain",
-        "optional": true,
+        "required": true,
         "type": "string"
       },
       "name": {
@@ -25,23 +30,15 @@ const azurermMonitorPrivateLinkScope = `{
         "required": true,
         "type": "string"
       },
-      "query_access_mode": {
-        "description_kind": "plain",
-        "optional": true,
-        "type": "string"
-      },
-      "resource_group_name": {
+      "server_id": {
         "description_kind": "plain",
         "required": true,
         "type": "string"
       },
-      "tags": {
+      "vault_id": {
         "description_kind": "plain",
-        "optional": true,
-        "type": [
-          "map",
-          "string"
-        ]
+        "required": true,
+        "type": "string"
       }
     },
     "block_types": {
@@ -79,8 +76,8 @@ const azurermMonitorPrivateLinkScope = `{
   "version": 0
 }`
 
-func AzurermMonitorPrivateLinkScopeSchema() *tfjson.Schema {
+func AzurermDataProtectionBackupInstancePostgresqlFlexibleServerSchema() *tfjson.Schema {
 	var result tfjson.Schema
-	_ = json.Unmarshal([]byte(azurermMonitorPrivateLinkScope), &result)
+	_ = json.Unmarshal([]byte(azurermDataProtectionBackupInstancePostgresqlFlexibleServer), &result)
 	return &result
 }

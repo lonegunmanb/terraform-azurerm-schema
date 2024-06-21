@@ -20,6 +20,12 @@ const azurermMapsAccount = `{
         "optional": true,
         "type": "bool"
       },
+      "location": {
+        "computed": true,
+        "description_kind": "plain",
+        "optional": true,
+        "type": "string"
+      },
       "name": {
         "description_kind": "plain",
         "required": true,
@@ -62,6 +68,73 @@ const azurermMapsAccount = `{
       }
     },
     "block_types": {
+      "cors": {
+        "block": {
+          "attributes": {
+            "allowed_origins": {
+              "description_kind": "plain",
+              "required": true,
+              "type": [
+                "list",
+                "string"
+              ]
+            }
+          },
+          "description_kind": "plain"
+        },
+        "max_items": 1,
+        "nesting_mode": "list"
+      },
+      "data_store": {
+        "block": {
+          "attributes": {
+            "storage_account_id": {
+              "description_kind": "plain",
+              "optional": true,
+              "type": "string"
+            },
+            "unique_name": {
+              "description_kind": "plain",
+              "required": true,
+              "type": "string"
+            }
+          },
+          "description_kind": "plain"
+        },
+        "nesting_mode": "list"
+      },
+      "identity": {
+        "block": {
+          "attributes": {
+            "identity_ids": {
+              "description_kind": "plain",
+              "optional": true,
+              "type": [
+                "set",
+                "string"
+              ]
+            },
+            "principal_id": {
+              "computed": true,
+              "description_kind": "plain",
+              "type": "string"
+            },
+            "tenant_id": {
+              "computed": true,
+              "description_kind": "plain",
+              "type": "string"
+            },
+            "type": {
+              "description_kind": "plain",
+              "required": true,
+              "type": "string"
+            }
+          },
+          "description_kind": "plain"
+        },
+        "max_items": 1,
+        "nesting_mode": "list"
+      },
       "timeouts": {
         "block": {
           "attributes": {

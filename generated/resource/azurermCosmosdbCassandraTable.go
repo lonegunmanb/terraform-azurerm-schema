@@ -20,7 +20,6 @@ const azurermCosmosdbCassandraTable = `{
         "type": "string"
       },
       "default_ttl": {
-        "computed": true,
         "description_kind": "plain",
         "optional": true,
         "type": "number"

@@ -10,7 +10,6 @@ const azurermMachineLearningDatastoreDatalakeGen2 = `{
   "block": {
     "attributes": {
       "authority_url": {
-        "computed": true,
         "description_kind": "plain",
         "optional": true,
         "type": "string"

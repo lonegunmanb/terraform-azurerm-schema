@@ -15,52 +15,6 @@ const azurermSiteRecoveryReplicatedVm = `{
         "optional": true,
         "type": "string"
       },
-      "managed_disk": {
-        "description_kind": "plain",
-        "optional": true,
-        "type": [
-          "set",
-          [
-            "object",
-            {
-              "disk_id": "string",
-              "staging_storage_account_id": "string",
-              "target_disk_encryption": [
-                "list",
-                [
-                  "object",
-                  {
-                    "disk_encryption_key": [
-                      "list",
-                      [
-                        "object",
-                        {
-                          "secret_url": "string",
-                          "vault_id": "string"
-                        }
-                      ]
-                    ],
-                    "key_encryption_key": [
-                      "list",
-                      [
-                        "object",
-                        {
-                          "key_url": "string",
-                          "vault_id": "string"
-                        }
-                      ]
-                    ]
-                  }
-                ]
-              ],
-              "target_disk_encryption_set_id": "string",
-              "target_disk_type": "string",
-              "target_replica_disk_type": "string",
-              "target_resource_group_id": "string"
-            }
-          ]
-        ]
-      },
       "multi_vm_group_name": {
         "description_kind": "plain",
         "optional": true,
@@ -183,24 +137,97 @@ const azurermSiteRecoveryReplicatedVm = `{
         "description_kind": "plain",
         "optional": true,
         "type": "string"
-      },
-      "unmanaged_disk": {
-        "description_kind": "plain",
-        "optional": true,
-        "type": [
-          "set",
-          [
-            "object",
-            {
-              "disk_uri": "string",
-              "staging_storage_account_id": "string",
-              "target_storage_account_id": "string"
-            }
-          ]
-        ]
       }
     },
     "block_types": {
+      "managed_disk": {
+        "block": {
+          "attributes": {
+            "disk_id": {
+              "description_kind": "plain",
+              "required": true,
+              "type": "string"
+            },
+            "staging_storage_account_id": {
+              "description_kind": "plain",
+              "required": true,
+              "type": "string"
+            },
+            "target_disk_encryption_set_id": {
+              "description_kind": "plain",
+              "optional": true,
+              "type": "string"
+            },
+            "target_disk_type": {
+              "description_kind": "plain",
+              "required": true,
+              "type": "string"
+            },
+            "target_replica_disk_type": {
+              "description_kind": "plain",
+              "required": true,
+              "type": "string"
+            },
+            "target_resource_group_id": {
+              "description_kind": "plain",
+              "required": true,
+              "type": "string"
+            }
+          },
+          "block_types": {
+            "target_disk_encryption": {
+              "block": {
+                "block_types": {
+                  "disk_encryption_key": {
+                    "block": {
+                      "attributes": {
+                        "secret_url": {
+                          "description_kind": "plain",
+                          "required": true,
+                          "type": "string"
+                        },
+                        "vault_id": {
+                          "description_kind": "plain",
+                          "required": true,
+                          "type": "string"
+                        }
+                      },
+                      "description_kind": "plain"
+                    },
+                    "max_items": 1,
+                    "min_items": 1,
+                    "nesting_mode": "list"
+                  },
+                  "key_encryption_key": {
+                    "block": {
+                      "attributes": {
+                        "key_url": {
+                          "description_kind": "plain",
+                          "required": true,
+                          "type": "string"
+                        },
+                        "vault_id": {
+                          "description_kind": "plain",
+                          "required": true,
+                          "type": "string"
+                        }
+                      },
+                      "description_kind": "plain"
+                    },
+                    "max_items": 1,
+                    "nesting_mode": "list"
+                  }
+                },
+                "description_kind": "plain"
+              },
+              "max_items": 1,
+              "nesting_mode": "list"
+            }
+          },
+          "description_kind": "plain"
+        },
+        "nesting_mode": "set"
+      },
       "timeouts": {
         "block": {
           "attributes": {
@@ -228,6 +255,29 @@ const azurermSiteRecoveryReplicatedVm = `{
           "description_kind": "plain"
         },
         "nesting_mode": "single"
+      },
+      "unmanaged_disk": {
+        "block": {
+          "attributes": {
+            "disk_uri": {
+              "description_kind": "plain",
+              "required": true,
+              "type": "string"
+            },
+            "staging_storage_account_id": {
+              "description_kind": "plain",
+              "required": true,
+              "type": "string"
+            },
+            "target_storage_account_id": {
+              "description_kind": "plain",
+              "required": true,
+              "type": "string"
+            }
+          },
+          "description_kind": "plain"
+        },
+        "nesting_mode": "set"
       }
     },
     "description_kind": "plain"

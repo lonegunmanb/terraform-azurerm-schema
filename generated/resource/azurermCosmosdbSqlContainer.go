@@ -25,7 +25,6 @@ const azurermCosmosdbSqlContainer = `{
         "type": "string"
       },
       "default_ttl": {
-        "computed": true,
         "description_kind": "plain",
         "optional": true,
         "type": "number"
@@ -41,10 +40,26 @@ const azurermCosmosdbSqlContainer = `{
         "required": true,
         "type": "string"
       },
-      "partition_key_path": {
+      "partition_key_kind": {
         "description_kind": "plain",
-        "required": true,
+        "optional": true,
         "type": "string"
+      },
+      "partition_key_path": {
+        "computed": true,
+        "deprecated": true,
+        "description_kind": "plain",
+        "optional": true,
+        "type": "string"
+      },
+      "partition_key_paths": {
+        "computed": true,
+        "description_kind": "plain",
+        "optional": true,
+        "type": [
+          "list",
+          "string"
+        ]
       },
       "partition_key_version": {
         "description_kind": "plain",

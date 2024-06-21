@@ -6,18 +6,23 @@ import (
 	tfjson "github.com/hashicorp/terraform-json"
 )
 
-const azurermMonitorPrivateLinkScope = `{
+const azurermSystemCenterVirtualMachineManagerVirtualNetwork = `{
   "block": {
     "attributes": {
+      "custom_location_id": {
+        "description_kind": "plain",
+        "required": true,
+        "type": "string"
+      },
       "id": {
         "computed": true,
         "description_kind": "plain",
         "optional": true,
         "type": "string"
       },
-      "ingestion_access_mode": {
+      "location": {
         "description_kind": "plain",
-        "optional": true,
+        "required": true,
         "type": "string"
       },
       "name": {
@@ -25,12 +30,12 @@ const azurermMonitorPrivateLinkScope = `{
         "required": true,
         "type": "string"
       },
-      "query_access_mode": {
+      "resource_group_name": {
         "description_kind": "plain",
-        "optional": true,
+        "required": true,
         "type": "string"
       },
-      "resource_group_name": {
+      "system_center_virtual_machine_manager_server_inventory_item_id": {
         "description_kind": "plain",
         "required": true,
         "type": "string"
@@ -79,8 +84,8 @@ const azurermMonitorPrivateLinkScope = `{
   "version": 0
 }`
 
-func AzurermMonitorPrivateLinkScopeSchema() *tfjson.Schema {
+func AzurermSystemCenterVirtualMachineManagerVirtualNetworkSchema() *tfjson.Schema {
 	var result tfjson.Schema
-	_ = json.Unmarshal([]byte(azurermMonitorPrivateLinkScope), &result)
+	_ = json.Unmarshal([]byte(azurermSystemCenterVirtualMachineManagerVirtualNetwork), &result)
 	return &result
 }

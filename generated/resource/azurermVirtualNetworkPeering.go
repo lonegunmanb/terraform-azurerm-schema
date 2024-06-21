@@ -30,10 +30,36 @@ const azurermVirtualNetworkPeering = `{
         "optional": true,
         "type": "string"
       },
+      "local_subnet_names": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": [
+          "list",
+          "string"
+        ]
+      },
       "name": {
         "description_kind": "plain",
         "required": true,
         "type": "string"
+      },
+      "only_ipv6_peering_enabled": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "bool"
+      },
+      "peer_complete_virtual_networks_enabled": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "bool"
+      },
+      "remote_subnet_names": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": [
+          "list",
+          "string"
+        ]
       },
       "remote_virtual_network_id": {
         "description_kind": "plain",

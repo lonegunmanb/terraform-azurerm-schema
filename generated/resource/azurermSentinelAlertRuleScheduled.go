@@ -214,10 +214,81 @@ const azurermSentinelAlertRuleScheduled = `{
         "max_items": 1,
         "nesting_mode": "list"
       },
+      "incident": {
+        "block": {
+          "attributes": {
+            "create_incident_enabled": {
+              "description_kind": "plain",
+              "required": true,
+              "type": "bool"
+            }
+          },
+          "block_types": {
+            "grouping": {
+              "block": {
+                "attributes": {
+                  "by_alert_details": {
+                    "description_kind": "plain",
+                    "optional": true,
+                    "type": [
+                      "list",
+                      "string"
+                    ]
+                  },
+                  "by_custom_details": {
+                    "description_kind": "plain",
+                    "optional": true,
+                    "type": [
+                      "list",
+                      "string"
+                    ]
+                  },
+                  "by_entities": {
+                    "description_kind": "plain",
+                    "optional": true,
+                    "type": [
+                      "list",
+                      "string"
+                    ]
+                  },
+                  "enabled": {
+                    "description_kind": "plain",
+                    "optional": true,
+                    "type": "bool"
+                  },
+                  "entity_matching_method": {
+                    "description_kind": "plain",
+                    "optional": true,
+                    "type": "string"
+                  },
+                  "lookback_duration": {
+                    "description_kind": "plain",
+                    "optional": true,
+                    "type": "string"
+                  },
+                  "reopen_closed_incidents": {
+                    "description_kind": "plain",
+                    "optional": true,
+                    "type": "bool"
+                  }
+                },
+                "description_kind": "plain"
+              },
+              "max_items": 1,
+              "min_items": 1,
+              "nesting_mode": "list"
+            }
+          },
+          "description_kind": "plain"
+        },
+        "max_items": 1,
+        "nesting_mode": "list"
+      },
       "incident_configuration": {
         "block": {
           "attributes": {
             "create_incident": {
+              "deprecated": true,
               "description_kind": "plain",
               "required": true,
               "type": "bool"
@@ -238,6 +309,7 @@ const azurermSentinelAlertRuleScheduled = `{
                     "type": "string"
                   },
                   "group_by_alert_details": {
+                    "deprecated": true,
                     "description_kind": "plain",
                     "optional": true,
                     "type": [
@@ -246,6 +318,7 @@ const azurermSentinelAlertRuleScheduled = `{
                     ]
                   },
                   "group_by_custom_details": {
+                    "deprecated": true,
                     "description_kind": "plain",
                     "optional": true,
                     "type": [
@@ -254,6 +327,7 @@ const azurermSentinelAlertRuleScheduled = `{
                     ]
                   },
                   "group_by_entities": {
+                    "deprecated": true,
                     "description_kind": "plain",
                     "optional": true,
                     "type": [
@@ -279,6 +353,7 @@ const azurermSentinelAlertRuleScheduled = `{
               "nesting_mode": "list"
             }
           },
+          "deprecated": true,
           "description_kind": "plain"
         },
         "max_items": 1,

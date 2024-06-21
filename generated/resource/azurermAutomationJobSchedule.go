@@ -39,6 +39,11 @@ const azurermAutomationJobSchedule = `{
         "required": true,
         "type": "string"
       },
+      "resource_manager_id": {
+        "computed": true,
+        "description_kind": "plain",
+        "type": "string"
+      },
       "run_on": {
         "description_kind": "plain",
         "optional": true,
@@ -82,7 +87,7 @@ const azurermAutomationJobSchedule = `{
     },
     "description_kind": "plain"
   },
-  "version": 0
+  "version": 1
 }`
 
 func AzurermAutomationJobScheduleSchema() *tfjson.Schema {
