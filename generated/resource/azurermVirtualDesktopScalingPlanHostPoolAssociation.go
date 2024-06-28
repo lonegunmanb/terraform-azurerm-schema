@@ -6,26 +6,26 @@ import (
 	tfjson "github.com/hashicorp/terraform-json"
 )
 
-const azurermRedisCacheAccessPolicy = `{
+const azurermVirtualDesktopScalingPlanHostPoolAssociation = `{
   "block": {
     "attributes": {
+      "enabled": {
+        "description_kind": "plain",
+        "required": true,
+        "type": "bool"
+      },
+      "host_pool_id": {
+        "description_kind": "plain",
+        "required": true,
+        "type": "string"
+      },
       "id": {
         "computed": true,
         "description_kind": "plain",
         "optional": true,
         "type": "string"
       },
-      "name": {
-        "description_kind": "plain",
-        "required": true,
-        "type": "string"
-      },
-      "permissions": {
-        "description_kind": "plain",
-        "required": true,
-        "type": "string"
-      },
-      "redis_cache_id": {
+      "scaling_plan_id": {
         "description_kind": "plain",
         "required": true,
         "type": "string"
@@ -66,8 +66,8 @@ const azurermRedisCacheAccessPolicy = `{
   "version": 0
 }`
 
-func AzurermRedisCacheAccessPolicySchema() *tfjson.Schema {
+func AzurermVirtualDesktopScalingPlanHostPoolAssociationSchema() *tfjson.Schema {
 	var result tfjson.Schema
-	_ = json.Unmarshal([]byte(azurermRedisCacheAccessPolicy), &result)
+	_ = json.Unmarshal([]byte(azurermVirtualDesktopScalingPlanHostPoolAssociation), &result)
 	return &result
 }

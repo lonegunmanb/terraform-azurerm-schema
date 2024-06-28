@@ -72,7 +72,6 @@ const azurermLocalNetworkGateway = `{
               "type": "string"
             },
             "peer_weight": {
-              "computed": true,
               "description_kind": "plain",
               "optional": true,
               "type": "number"

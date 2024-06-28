@@ -68,7 +68,6 @@ const azurermNetworkInterface = `{
         "type": "string"
       },
       "internal_dns_name_label": {
-        "computed": true,
         "description_kind": "plain",
         "optional": true,
         "type": "string"

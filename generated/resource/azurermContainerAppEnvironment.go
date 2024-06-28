@@ -41,7 +41,6 @@ const azurermContainerAppEnvironment = `{
         "type": "string"
       },
       "infrastructure_resource_group_name": {
-        "computed": true,
         "description": "Name of the platform-managed resource group created for the Managed Environment to host infrastructure resources. **Note:** Only valid if a ` + "`" + `workload_profile` + "`" + ` is specified. If ` + "`" + `infrastructure_subnet_id` + "`" + ` is specified, this resource group will be created in the same subscription as ` + "`" + `infrastructure_subnet_id` + "`" + `.",
         "description_kind": "plain",
         "optional": true,

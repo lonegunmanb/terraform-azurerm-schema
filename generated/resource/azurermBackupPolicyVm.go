@@ -235,6 +235,40 @@ const azurermBackupPolicyVm = `{
         "max_items": 1,
         "nesting_mode": "list"
       },
+      "tiering_policy": {
+        "block": {
+          "block_types": {
+            "archived_restore_point": {
+              "block": {
+                "attributes": {
+                  "duration": {
+                    "description_kind": "plain",
+                    "optional": true,
+                    "type": "number"
+                  },
+                  "duration_type": {
+                    "description_kind": "plain",
+                    "optional": true,
+                    "type": "string"
+                  },
+                  "mode": {
+                    "description_kind": "plain",
+                    "required": true,
+                    "type": "string"
+                  }
+                },
+                "description_kind": "plain"
+              },
+              "max_items": 1,
+              "min_items": 1,
+              "nesting_mode": "list"
+            }
+          },
+          "description_kind": "plain"
+        },
+        "max_items": 1,
+        "nesting_mode": "list"
+      },
       "timeouts": {
         "block": {
           "attributes": {

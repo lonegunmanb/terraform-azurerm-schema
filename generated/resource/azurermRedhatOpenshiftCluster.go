@@ -83,6 +83,11 @@ const azurermRedhatOpenshiftCluster = `{
               "optional": true,
               "type": "bool"
             },
+            "managed_resource_group_name": {
+              "description_kind": "plain",
+              "optional": true,
+              "type": "string"
+            },
             "pull_secret": {
               "description_kind": "plain",
               "optional": true,
@@ -173,6 +178,11 @@ const azurermRedhatOpenshiftCluster = `{
               "description_kind": "plain",
               "required": true,
               "type": "string"
+            },
+            "preconfigured_network_security_group_enabled": {
+              "description_kind": "plain",
+              "optional": true,
+              "type": "bool"
             },
             "service_cidr": {
               "description_kind": "plain",

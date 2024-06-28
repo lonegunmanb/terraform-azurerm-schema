@@ -357,7 +357,6 @@ const azurermContainerApp = `{
               "type": "number"
             },
             "min_replicas": {
-              "computed": true,
               "description": "The minimum number of replicas for this container.",
               "description_kind": "plain",
               "optional": true,

@@ -89,7 +89,6 @@ const azurermNetworkConnectionMonitor = `{
               "type": "string"
             },
             "target_resource_id": {
-              "computed": true,
               "description_kind": "plain",
               "optional": true,
               "type": "string"

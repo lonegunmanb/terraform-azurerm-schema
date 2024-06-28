@@ -6,23 +6,41 @@ import (
 	tfjson "github.com/hashicorp/terraform-json"
 )
 
-const azurermNginxCertificate = `{
+const azurermLoadTest = `{
   "block": {
     "attributes": {
-      "certificate_virtual_path": {
+      "data_plane_uri": {
         "computed": true,
         "description_kind": "plain",
         "type": "string"
       },
-      "error_code": {
+      "description": {
         "computed": true,
         "description_kind": "plain",
         "type": "string"
       },
-      "error_message": {
+      "encryption": {
         "computed": true,
         "description_kind": "plain",
-        "type": "string"
+        "type": [
+          "list",
+          [
+            "object",
+            {
+              "identity": [
+                "list",
+                [
+                  "object",
+                  {
+                    "identity_id": "string",
+                    "type": "string"
+                  }
+                ]
+              ],
+              "key_url": "string"
+            }
+          ]
+        ]
       },
       "id": {
         "computed": true,
@@ -30,22 +48,26 @@ const azurermNginxCertificate = `{
         "optional": true,
         "type": "string"
       },
-      "key_vault_secret_creation_date": {
+      "identity": {
         "computed": true,
         "description_kind": "plain",
-        "type": "string"
+        "type": [
+          "list",
+          [
+            "object",
+            {
+              "identity_ids": [
+                "list",
+                "string"
+              ],
+              "principal_id": "string",
+              "tenant_id": "string",
+              "type": "string"
+            }
+          ]
+        ]
       },
-      "key_vault_secret_id": {
-        "computed": true,
-        "description_kind": "plain",
-        "type": "string"
-      },
-      "key_vault_secret_version": {
-        "computed": true,
-        "description_kind": "plain",
-        "type": "string"
-      },
-      "key_virtual_path": {
+      "location": {
         "computed": true,
         "description_kind": "plain",
         "type": "string"
@@ -55,15 +77,18 @@ const azurermNginxCertificate = `{
         "required": true,
         "type": "string"
       },
-      "nginx_deployment_id": {
+      "resource_group_name": {
         "description_kind": "plain",
         "required": true,
         "type": "string"
       },
-      "sha1_thumbprint": {
+      "tags": {
         "computed": true,
         "description_kind": "plain",
-        "type": "string"
+        "type": [
+          "map",
+          "string"
+        ]
       }
     },
     "block_types": {
@@ -86,8 +111,8 @@ const azurermNginxCertificate = `{
   "version": 0
 }`
 
-func AzurermNginxCertificateSchema() *tfjson.Schema {
+func AzurermLoadTestSchema() *tfjson.Schema {
 	var result tfjson.Schema
-	_ = json.Unmarshal([]byte(azurermNginxCertificate), &result)
+	_ = json.Unmarshal([]byte(azurermLoadTest), &result)
 	return &result
 }

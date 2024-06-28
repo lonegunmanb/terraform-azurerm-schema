@@ -25,6 +25,11 @@ const azurermMonitorDataCollectionEndpoint = `{
         "optional": true,
         "type": "string"
       },
+      "immutable_id": {
+        "computed": true,
+        "description_kind": "plain",
+        "type": "string"
+      },
       "kind": {
         "computed": true,
         "description_kind": "plain",
