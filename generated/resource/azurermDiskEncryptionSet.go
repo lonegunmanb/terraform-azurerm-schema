@@ -32,7 +32,7 @@ const azurermDiskEncryptionSet = `{
       },
       "key_vault_key_id": {
         "description_kind": "plain",
-        "required": true,
+        "optional": true,
         "type": "string"
       },
       "key_vault_key_url": {
@@ -43,6 +43,11 @@ const azurermDiskEncryptionSet = `{
       "location": {
         "description_kind": "plain",
         "required": true,
+        "type": "string"
+      },
+      "managed_hsm_key_id": {
+        "description_kind": "plain",
+        "optional": true,
         "type": "string"
       },
       "name": {

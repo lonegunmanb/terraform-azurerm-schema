@@ -77,7 +77,6 @@ const azurermEventhubNamespace = `{
         "type": "string"
       },
       "maximum_throughput_units": {
-        "computed": true,
         "description_kind": "plain",
         "optional": true,
         "type": "number"

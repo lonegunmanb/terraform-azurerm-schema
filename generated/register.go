@@ -804,6 +804,7 @@ func init() {
 	resources["azurerm_resource_policy_exemption"] = resource.AzurermResourcePolicyExemptionSchema()  
 	resources["azurerm_resource_policy_remediation"] = resource.AzurermResourcePolicyRemediationSchema()  
 	resources["azurerm_resource_provider_registration"] = resource.AzurermResourceProviderRegistrationSchema()  
+	resources["azurerm_restore_point_collection"] = resource.AzurermRestorePointCollectionSchema()  
 	resources["azurerm_role_assignment"] = resource.AzurermRoleAssignmentSchema()  
 	resources["azurerm_role_definition"] = resource.AzurermRoleDefinitionSchema()  
 	resources["azurerm_role_management_policy"] = resource.AzurermRoleManagementPolicySchema()  
