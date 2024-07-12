@@ -6,13 +6,21 @@ import (
 	tfjson "github.com/hashicorp/terraform-json"
 )
 
-const azurermCommunicationService = `{
+const azurermVirtualMachineRestorePoint = `{
   "block": {
     "attributes": {
-      "data_location": {
+      "crash_consistency_mode_enabled": {
         "description_kind": "plain",
         "optional": true,
-        "type": "string"
+        "type": "bool"
+      },
+      "excluded_disks": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": [
+          "set",
+          "string"
+        ]
       },
       "id": {
         "computed": true,
@@ -25,42 +33,10 @@ const azurermCommunicationService = `{
         "required": true,
         "type": "string"
       },
-      "primary_connection_string": {
-        "computed": true,
-        "description_kind": "plain",
-        "sensitive": true,
-        "type": "string"
-      },
-      "primary_key": {
-        "computed": true,
-        "description_kind": "plain",
-        "sensitive": true,
-        "type": "string"
-      },
-      "resource_group_name": {
+      "virtual_machine_restore_point_collection_id": {
         "description_kind": "plain",
         "required": true,
         "type": "string"
-      },
-      "secondary_connection_string": {
-        "computed": true,
-        "description_kind": "plain",
-        "sensitive": true,
-        "type": "string"
-      },
-      "secondary_key": {
-        "computed": true,
-        "description_kind": "plain",
-        "sensitive": true,
-        "type": "string"
-      },
-      "tags": {
-        "description_kind": "plain",
-        "optional": true,
-        "type": [
-          "map",
-          "string"
-        ]
       }
     },
     "block_types": {
@@ -81,11 +57,6 @@ const azurermCommunicationService = `{
               "description_kind": "plain",
               "optional": true,
               "type": "string"
-            },
-            "update": {
-              "description_kind": "plain",
-              "optional": true,
-              "type": "string"
             }
           },
           "description_kind": "plain"
@@ -95,11 +66,11 @@ const azurermCommunicationService = `{
     },
     "description_kind": "plain"
   },
-  "version": 1
+  "version": 0
 }`
 
-func AzurermCommunicationServiceSchema() *tfjson.Schema {
+func AzurermVirtualMachineRestorePointSchema() *tfjson.Schema {
 	var result tfjson.Schema
-	_ = json.Unmarshal([]byte(azurermCommunicationService), &result)
+	_ = json.Unmarshal([]byte(azurermVirtualMachineRestorePoint), &result)
 	return &result
 }

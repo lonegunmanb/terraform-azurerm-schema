@@ -15,6 +15,12 @@ const azurermServicebusSubscription = `{
         "optional": true,
         "type": "string"
       },
+      "batched_operations_enabled": {
+        "computed": true,
+        "description_kind": "plain",
+        "optional": true,
+        "type": "bool"
+      },
       "client_scoped_subscription_enabled": {
         "description_kind": "plain",
         "optional": true,
@@ -37,6 +43,8 @@ const azurermServicebusSubscription = `{
         "type": "string"
       },
       "enable_batched_operations": {
+        "computed": true,
+        "deprecated": true,
         "description_kind": "plain",
         "optional": true,
         "type": "bool"

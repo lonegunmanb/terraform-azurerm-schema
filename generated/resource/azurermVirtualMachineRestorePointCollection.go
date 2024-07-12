@@ -6,18 +6,18 @@ import (
 	tfjson "github.com/hashicorp/terraform-json"
 )
 
-const azurermCommunicationService = `{
+const azurermVirtualMachineRestorePointCollection = `{
   "block": {
     "attributes": {
-      "data_location": {
-        "description_kind": "plain",
-        "optional": true,
-        "type": "string"
-      },
       "id": {
         "computed": true,
         "description_kind": "plain",
         "optional": true,
+        "type": "string"
+      },
+      "location": {
+        "description_kind": "plain",
+        "required": true,
         "type": "string"
       },
       "name": {
@@ -25,33 +25,14 @@ const azurermCommunicationService = `{
         "required": true,
         "type": "string"
       },
-      "primary_connection_string": {
-        "computed": true,
-        "description_kind": "plain",
-        "sensitive": true,
-        "type": "string"
-      },
-      "primary_key": {
-        "computed": true,
-        "description_kind": "plain",
-        "sensitive": true,
-        "type": "string"
-      },
       "resource_group_name": {
         "description_kind": "plain",
         "required": true,
         "type": "string"
       },
-      "secondary_connection_string": {
-        "computed": true,
+      "source_virtual_machine_id": {
         "description_kind": "plain",
-        "sensitive": true,
-        "type": "string"
-      },
-      "secondary_key": {
-        "computed": true,
-        "description_kind": "plain",
-        "sensitive": true,
+        "required": true,
         "type": "string"
       },
       "tags": {
@@ -93,13 +74,14 @@ const azurermCommunicationService = `{
         "nesting_mode": "single"
       }
     },
+    "deprecated": true,
     "description_kind": "plain"
   },
-  "version": 1
+  "version": 0
 }`
 
-func AzurermCommunicationServiceSchema() *tfjson.Schema {
+func AzurermVirtualMachineRestorePointCollectionSchema() *tfjson.Schema {
 	var result tfjson.Schema
-	_ = json.Unmarshal([]byte(azurermCommunicationService), &result)
+	_ = json.Unmarshal([]byte(azurermVirtualMachineRestorePointCollection), &result)
 	return &result
 }

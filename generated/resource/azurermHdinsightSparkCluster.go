@@ -15,7 +15,6 @@ const azurermHdinsightSparkCluster = `{
         "type": "string"
       },
       "encryption_in_transit_enabled": {
-        "computed": true,
         "description_kind": "plain",
         "optional": true,
         "type": "bool"

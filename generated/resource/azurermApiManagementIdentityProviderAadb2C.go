@@ -29,6 +29,11 @@ const azurermApiManagementIdentityProviderAadb2C = `{
         "required": true,
         "type": "string"
       },
+      "client_library": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "string"
+      },
       "client_secret": {
         "description_kind": "plain",
         "required": true,

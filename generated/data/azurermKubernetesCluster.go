@@ -451,6 +451,19 @@ const azurermKubernetesCluster = `{
           [
             "object",
             {
+              "certificate_authority": [
+                "list",
+                [
+                  "object",
+                  {
+                    "cert_chain_object_name": "string",
+                    "cert_object_name": "string",
+                    "key_object_name": "string",
+                    "key_vault_id": "string",
+                    "root_cert_object_name": "string"
+                  }
+                ]
+              ],
               "external_ingress_gateway_enabled": "bool",
               "internal_ingress_gateway_enabled": "bool",
               "mode": "string"

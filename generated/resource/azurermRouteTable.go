@@ -9,7 +9,15 @@ import (
 const azurermRouteTable = `{
   "block": {
     "attributes": {
+      "bgp_route_propagation_enabled": {
+        "computed": true,
+        "description_kind": "plain",
+        "optional": true,
+        "type": "bool"
+      },
       "disable_bgp_route_propagation": {
+        "computed": true,
+        "deprecated": true,
         "description_kind": "plain",
         "optional": true,
         "type": "bool"

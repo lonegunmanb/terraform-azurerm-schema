@@ -10,7 +10,6 @@ const azurermRecoveryServicesVault = `{
   "block": {
     "attributes": {
       "classic_vmware_replication_enabled": {
-        "computed": true,
         "description_kind": "plain",
         "optional": true,
         "type": "bool"

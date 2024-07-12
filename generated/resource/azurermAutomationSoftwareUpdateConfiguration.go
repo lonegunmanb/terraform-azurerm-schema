@@ -76,6 +76,7 @@ const azurermAutomationSoftwareUpdateConfiguration = `{
           "attributes": {
             "classification_included": {
               "computed": true,
+              "deprecated": true,
               "description_kind": "plain",
               "optional": true,
               "type": "string"

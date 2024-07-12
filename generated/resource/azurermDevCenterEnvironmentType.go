@@ -6,12 +6,12 @@ import (
 	tfjson "github.com/hashicorp/terraform-json"
 )
 
-const azurermCommunicationService = `{
+const azurermDevCenterEnvironmentType = `{
   "block": {
     "attributes": {
-      "data_location": {
+      "dev_center_id": {
         "description_kind": "plain",
-        "optional": true,
+        "required": true,
         "type": "string"
       },
       "id": {
@@ -23,35 +23,6 @@ const azurermCommunicationService = `{
       "name": {
         "description_kind": "plain",
         "required": true,
-        "type": "string"
-      },
-      "primary_connection_string": {
-        "computed": true,
-        "description_kind": "plain",
-        "sensitive": true,
-        "type": "string"
-      },
-      "primary_key": {
-        "computed": true,
-        "description_kind": "plain",
-        "sensitive": true,
-        "type": "string"
-      },
-      "resource_group_name": {
-        "description_kind": "plain",
-        "required": true,
-        "type": "string"
-      },
-      "secondary_connection_string": {
-        "computed": true,
-        "description_kind": "plain",
-        "sensitive": true,
-        "type": "string"
-      },
-      "secondary_key": {
-        "computed": true,
-        "description_kind": "plain",
-        "sensitive": true,
         "type": "string"
       },
       "tags": {
@@ -95,11 +66,11 @@ const azurermCommunicationService = `{
     },
     "description_kind": "plain"
   },
-  "version": 1
+  "version": 0
 }`
 
-func AzurermCommunicationServiceSchema() *tfjson.Schema {
+func AzurermDevCenterEnvironmentTypeSchema() *tfjson.Schema {
 	var result tfjson.Schema
-	_ = json.Unmarshal([]byte(azurermCommunicationService), &result)
+	_ = json.Unmarshal([]byte(azurermDevCenterEnvironmentType), &result)
 	return &result
 }

@@ -6,14 +6,9 @@ import (
 	tfjson "github.com/hashicorp/terraform-json"
 )
 
-const azurermCommunicationService = `{
+const azurermElasticSanVolumeSnapshot = `{
   "block": {
     "attributes": {
-      "data_location": {
-        "computed": true,
-        "description_kind": "plain",
-        "type": "string"
-      },
       "id": {
         "computed": true,
         "description_kind": "plain",
@@ -25,42 +20,25 @@ const azurermCommunicationService = `{
         "required": true,
         "type": "string"
       },
-      "primary_connection_string": {
+      "source_id": {
         "computed": true,
         "description_kind": "plain",
-        "sensitive": true,
         "type": "string"
       },
-      "primary_key": {
+      "source_volume_size_in_gib": {
         "computed": true,
         "description_kind": "plain",
-        "sensitive": true,
-        "type": "string"
+        "type": "number"
       },
-      "resource_group_name": {
+      "volume_group_id": {
         "description_kind": "plain",
         "required": true,
         "type": "string"
       },
-      "secondary_connection_string": {
+      "volume_name": {
         "computed": true,
         "description_kind": "plain",
-        "sensitive": true,
         "type": "string"
-      },
-      "secondary_key": {
-        "computed": true,
-        "description_kind": "plain",
-        "sensitive": true,
-        "type": "string"
-      },
-      "tags": {
-        "computed": true,
-        "description_kind": "plain",
-        "type": [
-          "map",
-          "string"
-        ]
       }
     },
     "block_types": {
@@ -83,8 +61,8 @@ const azurermCommunicationService = `{
   "version": 0
 }`
 
-func AzurermCommunicationServiceSchema() *tfjson.Schema {
+func AzurermElasticSanVolumeSnapshotSchema() *tfjson.Schema {
 	var result tfjson.Schema
-	_ = json.Unmarshal([]byte(azurermCommunicationService), &result)
+	_ = json.Unmarshal([]byte(azurermElasticSanVolumeSnapshot), &result)
 	return &result
 }

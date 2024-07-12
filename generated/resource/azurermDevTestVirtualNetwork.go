@@ -69,6 +69,35 @@ const azurermDevTestVirtualNetwork = `{
               "type": "string"
             }
           },
+          "block_types": {
+            "shared_public_ip_address": {
+              "block": {
+                "block_types": {
+                  "allowed_ports": {
+                    "block": {
+                      "attributes": {
+                        "backend_port": {
+                          "description_kind": "plain",
+                          "optional": true,
+                          "type": "number"
+                        },
+                        "transport_protocol": {
+                          "description_kind": "plain",
+                          "optional": true,
+                          "type": "string"
+                        }
+                      },
+                      "description_kind": "plain"
+                    },
+                    "nesting_mode": "list"
+                  }
+                },
+                "description_kind": "plain"
+              },
+              "max_items": 1,
+              "nesting_mode": "list"
+            }
+          },
           "description_kind": "plain"
         },
         "max_items": 1,

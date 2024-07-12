@@ -15,6 +15,12 @@ const azurermServicebusQueue = `{
         "optional": true,
         "type": "string"
       },
+      "batched_operations_enabled": {
+        "computed": true,
+        "description_kind": "plain",
+        "optional": true,
+        "type": "bool"
+      },
       "dead_lettering_on_message_expiration": {
         "description_kind": "plain",
         "optional": true,
@@ -33,16 +39,25 @@ const azurermServicebusQueue = `{
         "type": "string"
       },
       "enable_batched_operations": {
+        "deprecated": true,
         "description_kind": "plain",
         "optional": true,
         "type": "bool"
       },
       "enable_express": {
+        "deprecated": true,
         "description_kind": "plain",
         "optional": true,
         "type": "bool"
       },
       "enable_partitioning": {
+        "deprecated": true,
+        "description_kind": "plain",
+        "optional": true,
+        "type": "bool"
+      },
+      "express_enabled": {
+        "computed": true,
         "description_kind": "plain",
         "optional": true,
         "type": "bool"
@@ -95,6 +110,12 @@ const azurermServicebusQueue = `{
         "description_kind": "plain",
         "required": true,
         "type": "string"
+      },
+      "partitioning_enabled": {
+        "computed": true,
+        "description_kind": "plain",
+        "optional": true,
+        "type": "bool"
       },
       "requires_duplicate_detection": {
         "description_kind": "plain",
