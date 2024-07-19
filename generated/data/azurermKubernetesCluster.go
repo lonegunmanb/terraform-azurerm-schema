@@ -30,6 +30,7 @@ const azurermKubernetesCluster = `{
           [
             "object",
             {
+              "auto_scaling_enabled": "bool",
               "count": "number",
               "enable_auto_scaling": "bool",
               "enable_node_public_ip": "bool",
@@ -41,6 +42,7 @@ const azurermKubernetesCluster = `{
                 "map",
                 "string"
               ],
+              "node_public_ip_enabled": "bool",
               "node_public_ip_prefix_id": "string",
               "node_taints": [
                 "list",

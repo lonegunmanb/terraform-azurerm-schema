@@ -74,6 +74,11 @@ const azurermStorageAccount = `{
           ]
         ]
       },
+      "dns_endpoint_type": {
+        "computed": true,
+        "description_kind": "plain",
+        "type": "string"
+      },
       "enable_https_traffic_only": {
         "computed": true,
         "description_kind": "plain",

@@ -99,6 +99,8 @@ const azurermServicebusNamespace = `{
         ]
       },
       "zone_redundant": {
+        "computed": true,
+        "deprecated": true,
         "description_kind": "plain",
         "optional": true,
         "type": "bool"

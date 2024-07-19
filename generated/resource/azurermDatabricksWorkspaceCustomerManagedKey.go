@@ -21,7 +21,6 @@ const azurermDatabricksWorkspaceCustomerManagedKey = `{
         "type": "string"
       },
       "workspace_id": {
-        "deprecated": true,
         "description_kind": "plain",
         "required": true,
         "type": "string"
@@ -57,6 +56,7 @@ const azurermDatabricksWorkspaceCustomerManagedKey = `{
         "nesting_mode": "single"
       }
     },
+    "deprecated": true,
     "description_kind": "plain"
   },
   "version": 1

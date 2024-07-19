@@ -81,7 +81,6 @@ const azurermLbRule = `{
         "type": "string"
       },
       "probe_id": {
-        "computed": true,
         "description_kind": "plain",
         "optional": true,
         "type": "string"

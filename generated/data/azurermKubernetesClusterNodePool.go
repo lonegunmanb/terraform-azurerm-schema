@@ -9,6 +9,11 @@ import (
 const azurermKubernetesClusterNodePool = `{
   "block": {
     "attributes": {
+      "auto_scaling_enabled": {
+        "computed": true,
+        "description_kind": "plain",
+        "type": "bool"
+      },
       "enable_auto_scaling": {
         "computed": true,
         "description_kind": "plain",
@@ -72,6 +77,11 @@ const azurermKubernetesClusterNodePool = `{
           "map",
           "string"
         ]
+      },
+      "node_public_ip_enabled": {
+        "computed": true,
+        "description_kind": "plain",
+        "type": "bool"
       },
       "node_public_ip_prefix_id": {
         "computed": true,

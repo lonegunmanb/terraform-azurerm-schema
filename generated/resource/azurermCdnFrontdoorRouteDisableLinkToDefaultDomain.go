@@ -10,7 +10,6 @@ const azurermCdnFrontdoorRouteDisableLinkToDefaultDomain = `{
   "block": {
     "attributes": {
       "cdn_frontdoor_custom_domain_ids": {
-        "deprecated": true,
         "description_kind": "plain",
         "required": true,
         "type": [
@@ -19,7 +18,6 @@ const azurermCdnFrontdoorRouteDisableLinkToDefaultDomain = `{
         ]
       },
       "cdn_frontdoor_route_id": {
-        "deprecated": true,
         "description_kind": "plain",
         "required": true,
         "type": "string"
@@ -61,6 +59,7 @@ const azurermCdnFrontdoorRouteDisableLinkToDefaultDomain = `{
         "nesting_mode": "single"
       }
     },
+    "deprecated": true,
     "description_kind": "plain"
   },
   "version": 0

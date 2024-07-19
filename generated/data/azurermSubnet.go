@@ -29,11 +29,13 @@ const azurermSubnet = `{
       },
       "enforce_private_link_endpoint_network_policies": {
         "computed": true,
+        "deprecated": true,
         "description_kind": "plain",
         "type": "bool"
       },
       "enforce_private_link_service_network_policies": {
         "computed": true,
+        "deprecated": true,
         "description_kind": "plain",
         "type": "bool"
       },

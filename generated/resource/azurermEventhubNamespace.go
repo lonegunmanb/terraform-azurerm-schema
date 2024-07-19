@@ -152,6 +152,7 @@ const azurermEventhubNamespace = `{
         ]
       },
       "zone_redundant": {
+        "deprecated": true,
         "description_kind": "plain",
         "optional": true,
         "type": "bool"
