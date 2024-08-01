@@ -486,6 +486,7 @@ const azurermHdinsightKafkaCluster = `{
                     "type": "string"
                   },
                   "username": {
+                    "deprecated": true,
                     "description_kind": "plain",
                     "required": true,
                     "type": "string"
@@ -680,7 +681,6 @@ const azurermHdinsightKafkaCluster = `{
               "nesting_mode": "list"
             }
           },
-          "deprecated": true,
           "description_kind": "plain"
         },
         "max_items": 1,

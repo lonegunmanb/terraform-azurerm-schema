@@ -6,21 +6,29 @@ import (
 	tfjson "github.com/hashicorp/terraform-json"
 )
 
-const azurermAppServiceEnvironment = `{
+const azurermDevCenterNetworkConnection = `{
   "block": {
     "attributes": {
-      "allowed_user_ip_cidrs": {
+      "domain_join_type": {
         "description_kind": "plain",
-        "optional": true,
-        "type": [
-          "set",
-          "string"
-        ]
+        "required": true,
+        "type": "string"
       },
-      "front_end_scale_factor": {
+      "domain_name": {
         "description_kind": "plain",
         "optional": true,
-        "type": "number"
+        "type": "string"
+      },
+      "domain_password": {
+        "description_kind": "plain",
+        "optional": true,
+        "sensitive": true,
+        "type": "string"
+      },
+      "domain_username": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "string"
       },
       "id": {
         "computed": true,
@@ -28,19 +36,9 @@ const azurermAppServiceEnvironment = `{
         "optional": true,
         "type": "string"
       },
-      "internal_ip_address": {
-        "computed": true,
-        "description_kind": "plain",
-        "type": "string"
-      },
-      "internal_load_balancing_mode": {
-        "description_kind": "plain",
-        "optional": true,
-        "type": "string"
-      },
       "location": {
-        "computed": true,
         "description_kind": "plain",
+        "required": true,
         "type": "string"
       },
       "name": {
@@ -48,15 +46,7 @@ const azurermAppServiceEnvironment = `{
         "required": true,
         "type": "string"
       },
-      "outbound_ip_addresses": {
-        "computed": true,
-        "description_kind": "plain",
-        "type": [
-          "list",
-          "string"
-        ]
-      },
-      "pricing_tier": {
+      "organization_unit": {
         "description_kind": "plain",
         "optional": true,
         "type": "string"
@@ -64,11 +54,6 @@ const azurermAppServiceEnvironment = `{
       "resource_group_name": {
         "description_kind": "plain",
         "required": true,
-        "type": "string"
-      },
-      "service_ip_address": {
-        "computed": true,
-        "description_kind": "plain",
         "type": "string"
       },
       "subnet_id": {
@@ -86,24 +71,6 @@ const azurermAppServiceEnvironment = `{
       }
     },
     "block_types": {
-      "cluster_setting": {
-        "block": {
-          "attributes": {
-            "name": {
-              "description_kind": "plain",
-              "required": true,
-              "type": "string"
-            },
-            "value": {
-              "description_kind": "plain",
-              "required": true,
-              "type": "string"
-            }
-          },
-          "description_kind": "plain"
-        },
-        "nesting_mode": "list"
-      },
       "timeouts": {
         "block": {
           "attributes": {
@@ -133,14 +100,13 @@ const azurermAppServiceEnvironment = `{
         "nesting_mode": "single"
       }
     },
-    "deprecated": true,
     "description_kind": "plain"
   },
   "version": 0
 }`
 
-func AzurermAppServiceEnvironmentSchema() *tfjson.Schema {
+func AzurermDevCenterNetworkConnectionSchema() *tfjson.Schema {
 	var result tfjson.Schema
-	_ = json.Unmarshal([]byte(azurermAppServiceEnvironment), &result)
+	_ = json.Unmarshal([]byte(azurermDevCenterNetworkConnection), &result)
 	return &result
 }

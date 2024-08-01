@@ -16,6 +16,7 @@ const azurermRedisCache = `{
       },
       "enable_non_ssl_port": {
         "computed": true,
+        "deprecated": true,
         "description_kind": "plain",
         "type": "bool"
       },
@@ -49,6 +50,11 @@ const azurermRedisCache = `{
         "description_kind": "plain",
         "required": true,
         "type": "string"
+      },
+      "non_ssl_port_enabled": {
+        "computed": true,
+        "description_kind": "plain",
+        "type": "bool"
       },
       "patch_schedule": {
         "computed": true,
@@ -99,6 +105,7 @@ const azurermRedisCache = `{
               "aof_backup_enabled": "bool",
               "aof_storage_connection_string_0": "string",
               "aof_storage_connection_string_1": "string",
+              "authentication_enabled": "bool",
               "data_persistence_authentication_method": "string",
               "enable_authentication": "bool",
               "maxclients": "number",

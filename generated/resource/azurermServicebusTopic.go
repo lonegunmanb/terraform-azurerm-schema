@@ -34,18 +34,21 @@ const azurermServicebusTopic = `{
         "type": "string"
       },
       "enable_batched_operations": {
+        "computed": true,
         "deprecated": true,
         "description_kind": "plain",
         "optional": true,
         "type": "bool"
       },
       "enable_express": {
+        "computed": true,
         "deprecated": true,
         "description_kind": "plain",
         "optional": true,
         "type": "bool"
       },
       "enable_partitioning": {
+        "computed": true,
         "deprecated": true,
         "description_kind": "plain",
         "optional": true,

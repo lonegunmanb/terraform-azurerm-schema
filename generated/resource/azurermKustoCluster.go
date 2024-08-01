@@ -114,6 +114,7 @@ const azurermKustoCluster = `{
         ]
       },
       "trusted_external_tenants": {
+        "computed": true,
         "description_kind": "plain",
         "optional": true,
         "type": [

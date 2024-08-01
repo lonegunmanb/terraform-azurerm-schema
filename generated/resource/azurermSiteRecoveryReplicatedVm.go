@@ -16,6 +16,7 @@ const azurermSiteRecoveryReplicatedVm = `{
         "type": "string"
       },
       "managed_disk": {
+        "computed": true,
         "description_kind": "plain",
         "optional": true,
         "type": [
@@ -185,6 +186,7 @@ const azurermSiteRecoveryReplicatedVm = `{
         "type": "string"
       },
       "unmanaged_disk": {
+        "computed": true,
         "description_kind": "plain",
         "optional": true,
         "type": [

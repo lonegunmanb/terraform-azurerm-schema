@@ -30,7 +30,6 @@ const azurermStorageAccountNetworkRules = `{
         "type": "string"
       },
       "ip_rules": {
-        "computed": true,
         "description_kind": "plain",
         "optional": true,
         "type": [
@@ -44,7 +43,6 @@ const azurermStorageAccountNetworkRules = `{
         "type": "string"
       },
       "virtual_network_subnet_ids": {
-        "computed": true,
         "description_kind": "plain",
         "optional": true,
         "type": [

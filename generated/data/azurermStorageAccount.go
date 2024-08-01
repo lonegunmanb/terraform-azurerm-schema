@@ -84,6 +84,11 @@ const azurermStorageAccount = `{
         "description_kind": "plain",
         "type": "bool"
       },
+      "https_traffic_only_enabled": {
+        "computed": true,
+        "description_kind": "plain",
+        "type": "bool"
+      },
       "id": {
         "computed": true,
         "description_kind": "plain",
