@@ -245,12 +245,19 @@ const azurermLinuxVirtualMachineScaleSet = `{
       "automatic_instance_repair": {
         "block": {
           "attributes": {
+            "action": {
+              "computed": true,
+              "description_kind": "plain",
+              "optional": true,
+              "type": "string"
+            },
             "enabled": {
               "description_kind": "plain",
               "required": true,
               "type": "bool"
             },
             "grace_period": {
+              "computed": true,
               "description_kind": "plain",
               "optional": true,
               "type": "string"

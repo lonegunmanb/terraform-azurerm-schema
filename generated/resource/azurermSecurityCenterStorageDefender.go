@@ -30,6 +30,11 @@ const azurermSecurityCenterStorageDefender = `{
         "optional": true,
         "type": "bool"
       },
+      "scan_results_event_grid_topic_id": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "string"
+      },
       "sensitive_data_discovery_enabled": {
         "description_kind": "plain",
         "optional": true,

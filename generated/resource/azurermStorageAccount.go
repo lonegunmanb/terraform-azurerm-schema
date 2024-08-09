@@ -529,6 +529,11 @@ const azurermStorageAccount = `{
       "azure_files_authentication": {
         "block": {
           "attributes": {
+            "default_share_level_permission": {
+              "description_kind": "plain",
+              "optional": true,
+              "type": "string"
+            },
             "directory_type": {
               "description_kind": "plain",
               "required": true,
