@@ -25,6 +25,11 @@ const azurermCosmosdbAccount = `{
         "optional": true,
         "type": "bool"
       },
+      "burst_capacity_enabled": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "bool"
+      },
       "connection_strings": {
         "computed": true,
         "deprecated": true,

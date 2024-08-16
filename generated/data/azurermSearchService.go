@@ -80,6 +80,14 @@ const azurermSearchService = `{
         "description_kind": "plain",
         "sensitive": true,
         "type": "string"
+      },
+      "tags": {
+        "computed": true,
+        "description_kind": "plain",
+        "type": [
+          "map",
+          "string"
+        ]
       }
     },
     "block_types": {

@@ -56,6 +56,7 @@ const azurermStorageAccount = `{
                   }
                 ]
               ],
+              "default_share_level_permission": "string",
               "directory_type": "string"
             }
           ]

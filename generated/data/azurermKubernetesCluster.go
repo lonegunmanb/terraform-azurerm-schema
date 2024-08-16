@@ -118,6 +118,7 @@ const azurermKubernetesCluster = `{
       },
       "custom_ca_trust_certificates_base64": {
         "computed": true,
+        "deprecated": true,
         "description_kind": "plain",
         "type": [
           "list",

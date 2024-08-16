@@ -40,6 +40,7 @@ const azurermKubernetesCluster = `{
         "type": "string"
       },
       "custom_ca_trust_certificates_base64": {
+        "deprecated": true,
         "description_kind": "plain",
         "optional": true,
         "type": [
@@ -320,11 +321,13 @@ const azurermKubernetesCluster = `{
               ]
             },
             "subnet_id": {
+              "deprecated": true,
               "description_kind": "plain",
               "optional": true,
               "type": "string"
             },
             "vnet_integration_enabled": {
+              "deprecated": true,
               "description_kind": "plain",
               "optional": true,
               "type": "bool"
@@ -515,6 +518,7 @@ const azurermKubernetesCluster = `{
               "type": "string"
             },
             "custom_ca_trust_enabled": {
+              "deprecated": true,
               "description_kind": "plain",
               "optional": true,
               "type": "bool"
@@ -567,6 +571,7 @@ const azurermKubernetesCluster = `{
               "type": "number"
             },
             "message_of_the_day": {
+              "deprecated": true,
               "description_kind": "plain",
               "optional": true,
               "type": "string"
@@ -1823,6 +1828,7 @@ const azurermKubernetesCluster = `{
               "type": "bool"
             },
             "disk_driver_version": {
+              "deprecated": true,
               "description_kind": "plain",
               "optional": true,
               "type": "string"

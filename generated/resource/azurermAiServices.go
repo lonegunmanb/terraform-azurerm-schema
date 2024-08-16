@@ -6,23 +6,26 @@ import (
 	tfjson "github.com/hashicorp/terraform-json"
 )
 
-const azurermSynapseSparkPool = `{
+const azurermAiServices = `{
   "block": {
     "attributes": {
-      "cache_size": {
+      "custom_subdomain_name": {
         "description_kind": "plain",
         "optional": true,
-        "type": "number"
+        "type": "string"
       },
-      "compute_isolation_enabled": {
+      "endpoint": {
+        "computed": true,
         "description_kind": "plain",
-        "optional": true,
-        "type": "bool"
+        "type": "string"
       },
-      "dynamic_executor_allocation_enabled": {
+      "fqdns": {
         "description_kind": "plain",
         "optional": true,
-        "type": "bool"
+        "type": [
+          "list",
+          "string"
+        ]
       },
       "id": {
         "computed": true,
@@ -30,58 +33,49 @@ const azurermSynapseSparkPool = `{
         "optional": true,
         "type": "string"
       },
-      "max_executors": {
+      "local_authentication_enabled": {
         "description_kind": "plain",
         "optional": true,
-        "type": "number"
+        "type": "bool"
       },
-      "min_executors": {
+      "location": {
         "description_kind": "plain",
-        "optional": true,
-        "type": "number"
+        "required": true,
+        "type": "string"
       },
       "name": {
         "description_kind": "plain",
         "required": true,
         "type": "string"
       },
-      "node_count": {
-        "computed": true,
-        "description_kind": "plain",
-        "optional": true,
-        "type": "number"
-      },
-      "node_size": {
-        "description_kind": "plain",
-        "required": true,
-        "type": "string"
-      },
-      "node_size_family": {
-        "description_kind": "plain",
-        "required": true,
-        "type": "string"
-      },
-      "session_level_packages_enabled": {
+      "outbound_network_access_restricted": {
         "description_kind": "plain",
         "optional": true,
         "type": "bool"
       },
-      "spark_events_folder": {
+      "primary_access_key": {
+        "computed": true,
+        "description_kind": "plain",
+        "sensitive": true,
+        "type": "string"
+      },
+      "public_network_access": {
         "description_kind": "plain",
         "optional": true,
         "type": "string"
       },
-      "spark_log_folder": {
+      "resource_group_name": {
         "description_kind": "plain",
-        "optional": true,
+        "required": true,
         "type": "string"
       },
-      "spark_version": {
+      "secondary_access_key": {
+        "computed": true,
         "description_kind": "plain",
-        "optional": true,
+        "sensitive": true,
         "type": "string"
       },
-      "synapse_workspace_id": {
+      "sku_name": {
         "description_kind": "plain",
         "required": true,
         "type": "string"
@@ -96,50 +90,22 @@ const azurermSynapseSparkPool = `{
       }
     },
     "block_types": {
-      "auto_pause": {
+      "customer_managed_key": {
         "block": {
           "attributes": {
-            "delay_in_minutes": {
+            "identity_client_id": {
               "description_kind": "plain",
-              "required": true,
-              "type": "number"
-            }
-          },
-          "description_kind": "plain"
-        },
-        "max_items": 1,
-        "nesting_mode": "list"
-      },
-      "auto_scale": {
-        "block": {
-          "attributes": {
-            "max_node_count": {
-              "description_kind": "plain",
-              "required": true,
-              "type": "number"
-            },
-            "min_node_count": {
-              "description_kind": "plain",
-              "required": true,
-              "type": "number"
-            }
-          },
-          "description_kind": "plain"
-        },
-        "max_items": 1,
-        "nesting_mode": "list"
-      },
-      "library_requirement": {
-        "block": {
-          "attributes": {
-            "content": {
-              "description_kind": "plain",
-              "required": true,
+              "optional": true,
               "type": "string"
             },
-            "filename": {
+            "key_vault_key_id": {
               "description_kind": "plain",
-              "required": true,
+              "optional": true,
+              "type": "string"
+            },
+            "managed_hsm_key_id": {
+              "description_kind": "plain",
+              "optional": true,
               "type": "string"
             }
           },
@@ -148,15 +114,28 @@ const azurermSynapseSparkPool = `{
         "max_items": 1,
         "nesting_mode": "list"
       },
-      "spark_config": {
+      "identity": {
         "block": {
           "attributes": {
-            "content": {
+            "identity_ids": {
               "description_kind": "plain",
-              "required": true,
+              "optional": true,
+              "type": [
+                "set",
+                "string"
+              ]
+            },
+            "principal_id": {
+              "computed": true,
+              "description_kind": "plain",
               "type": "string"
             },
-            "filename": {
+            "tenant_id": {
+              "computed": true,
+              "description_kind": "plain",
+              "type": "string"
+            },
+            "type": {
               "description_kind": "plain",
               "required": true,
               "type": "string"
@@ -165,6 +144,66 @@ const azurermSynapseSparkPool = `{
           "description_kind": "plain"
         },
         "max_items": 1,
+        "nesting_mode": "list"
+      },
+      "network_acls": {
+        "block": {
+          "attributes": {
+            "default_action": {
+              "description_kind": "plain",
+              "required": true,
+              "type": "string"
+            },
+            "ip_rules": {
+              "description_kind": "plain",
+              "optional": true,
+              "type": [
+                "set",
+                "string"
+              ]
+            }
+          },
+          "block_types": {
+            "virtual_network_rules": {
+              "block": {
+                "attributes": {
+                  "ignore_missing_vnet_service_endpoint": {
+                    "description_kind": "plain",
+                    "optional": true,
+                    "type": "bool"
+                  },
+                  "subnet_id": {
+                    "description_kind": "plain",
+                    "required": true,
+                    "type": "string"
+                  }
+                },
+                "description_kind": "plain"
+              },
+              "nesting_mode": "set"
+            }
+          },
+          "description_kind": "plain"
+        },
+        "max_items": 1,
+        "nesting_mode": "list"
+      },
+      "storage": {
+        "block": {
+          "attributes": {
+            "identity_client_id": {
+              "description_kind": "plain",
+              "optional": true,
+              "type": "string"
+            },
+            "storage_account_id": {
+              "description_kind": "plain",
+              "required": true,
+              "type": "string"
+            }
+          },
+          "description_kind": "plain"
+        },
         "nesting_mode": "list"
       },
       "timeouts": {
@@ -201,8 +240,8 @@ const azurermSynapseSparkPool = `{
   "version": 0
 }`
 
-func AzurermSynapseSparkPoolSchema() *tfjson.Schema {
+func AzurermAiServicesSchema() *tfjson.Schema {
 	var result tfjson.Schema
-	_ = json.Unmarshal([]byte(azurermSynapseSparkPool), &result)
+	_ = json.Unmarshal([]byte(azurermAiServices), &result)
 	return &result
 }

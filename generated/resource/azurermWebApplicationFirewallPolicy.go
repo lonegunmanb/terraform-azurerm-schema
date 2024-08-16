@@ -321,6 +321,11 @@ const azurermWebApplicationFirewallPolicy = `{
               "optional": true,
               "type": "number"
             },
+            "js_challenge_cookie_expiration_in_minutes": {
+              "description_kind": "plain",
+              "optional": true,
+              "type": "number"
+            },
             "max_request_body_size_in_kb": {
               "description_kind": "plain",
               "optional": true,

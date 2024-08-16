@@ -15,6 +15,7 @@ const azurermKubernetesClusterNodePool = `{
         "type": "string"
       },
       "custom_ca_trust_enabled": {
+        "deprecated": true,
         "description_kind": "plain",
         "optional": true,
         "type": "bool"
@@ -83,6 +84,7 @@ const azurermKubernetesClusterNodePool = `{
         "type": "number"
       },
       "message_of_the_day": {
+        "deprecated": true,
         "description_kind": "plain",
         "optional": true,
         "type": "string"
