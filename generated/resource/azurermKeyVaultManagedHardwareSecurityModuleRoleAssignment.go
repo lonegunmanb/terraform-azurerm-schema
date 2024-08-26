@@ -16,9 +16,8 @@ const azurermKeyVaultManagedHardwareSecurityModuleRoleAssignment = `{
         "type": "string"
       },
       "managed_hsm_id": {
-        "computed": true,
         "description_kind": "plain",
-        "optional": true,
+        "required": true,
         "type": "string"
       },
       "name": {
@@ -44,13 +43,6 @@ const azurermKeyVaultManagedHardwareSecurityModuleRoleAssignment = `{
       "scope": {
         "description_kind": "plain",
         "required": true,
-        "type": "string"
-      },
-      "vault_base_url": {
-        "computed": true,
-        "deprecated": true,
-        "description_kind": "plain",
-        "optional": true,
         "type": "string"
       }
     },

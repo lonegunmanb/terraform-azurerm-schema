@@ -78,7 +78,7 @@ const azurermSynapseSparkPool = `{
       },
       "spark_version": {
         "description_kind": "plain",
-        "optional": true,
+        "required": true,
         "type": "string"
       },
       "synapse_workspace_id": {

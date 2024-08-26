@@ -54,16 +54,6 @@ const azurermManagedApplication = `{
         "optional": true,
         "type": "string"
       },
-      "parameters": {
-        "computed": true,
-        "deprecated": true,
-        "description_kind": "plain",
-        "optional": true,
-        "type": [
-          "map",
-          "string"
-        ]
-      },
       "resource_group_name": {
         "description_kind": "plain",
         "required": true,

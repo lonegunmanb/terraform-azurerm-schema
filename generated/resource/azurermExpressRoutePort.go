@@ -15,7 +15,6 @@ const azurermExpressRoutePort = `{
         "type": "number"
       },
       "billing_type": {
-        "computed": true,
         "description_kind": "plain",
         "optional": true,
         "type": "string"

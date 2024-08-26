@@ -36,7 +36,6 @@ const azurermVpnGateway = `{
         "type": "string"
       },
       "routing_preference": {
-        "computed": true,
         "description_kind": "plain",
         "optional": true,
         "type": "string"

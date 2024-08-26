@@ -486,9 +486,8 @@ const azurermHdinsightKafkaCluster = `{
                     "type": "string"
                   },
                   "username": {
-                    "deprecated": true,
+                    "computed": true,
                     "description_kind": "plain",
-                    "required": true,
                     "type": "string"
                   },
                   "virtual_network_id": {

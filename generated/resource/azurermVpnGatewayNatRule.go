@@ -9,31 +9,11 @@ import (
 const azurermVpnGatewayNatRule = `{
   "block": {
     "attributes": {
-      "external_address_space_mappings": {
-        "computed": true,
-        "deprecated": true,
-        "description_kind": "plain",
-        "optional": true,
-        "type": [
-          "list",
-          "string"
-        ]
-      },
       "id": {
         "computed": true,
         "description_kind": "plain",
         "optional": true,
         "type": "string"
-      },
-      "internal_address_space_mappings": {
-        "computed": true,
-        "deprecated": true,
-        "description_kind": "plain",
-        "optional": true,
-        "type": [
-          "list",
-          "string"
-        ]
       },
       "ip_configuration_id": {
         "description_kind": "plain",
@@ -46,12 +26,6 @@ const azurermVpnGatewayNatRule = `{
         "type": "string"
       },
       "name": {
-        "description_kind": "plain",
-        "required": true,
-        "type": "string"
-      },
-      "resource_group_name": {
-        "deprecated": true,
         "description_kind": "plain",
         "required": true,
         "type": "string"

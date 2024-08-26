@@ -66,22 +66,6 @@ const azurermApiManagement = `{
         "optional": true,
         "type": "string"
       },
-      "policy": {
-        "computed": true,
-        "deprecated": true,
-        "description_kind": "plain",
-        "optional": true,
-        "type": [
-          "list",
-          [
-            "object",
-            {
-              "xml_content": "string",
-              "xml_link": "string"
-            }
-          ]
-        ]
-      },
       "portal_url": {
         "computed": true,
         "description_kind": "plain",

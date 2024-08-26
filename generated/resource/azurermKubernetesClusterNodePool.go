@@ -9,31 +9,15 @@ import (
 const azurermKubernetesClusterNodePool = `{
   "block": {
     "attributes": {
+      "auto_scaling_enabled": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "bool"
+      },
       "capacity_reservation_group_id": {
         "description_kind": "plain",
         "optional": true,
         "type": "string"
-      },
-      "custom_ca_trust_enabled": {
-        "deprecated": true,
-        "description_kind": "plain",
-        "optional": true,
-        "type": "bool"
-      },
-      "enable_auto_scaling": {
-        "description_kind": "plain",
-        "optional": true,
-        "type": "bool"
-      },
-      "enable_host_encryption": {
-        "description_kind": "plain",
-        "optional": true,
-        "type": "bool"
-      },
-      "enable_node_public_ip": {
-        "description_kind": "plain",
-        "optional": true,
-        "type": "bool"
       },
       "eviction_policy": {
         "description_kind": "plain",
@@ -49,6 +33,11 @@ const azurermKubernetesClusterNodePool = `{
         "description_kind": "plain",
         "optional": true,
         "type": "string"
+      },
+      "host_encryption_enabled": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "bool"
       },
       "host_group_id": {
         "description_kind": "plain",
@@ -83,12 +72,6 @@ const azurermKubernetesClusterNodePool = `{
         "optional": true,
         "type": "number"
       },
-      "message_of_the_day": {
-        "deprecated": true,
-        "description_kind": "plain",
-        "optional": true,
-        "type": "string"
-      },
       "min_count": {
         "description_kind": "plain",
         "optional": true,
@@ -118,6 +101,11 @@ const azurermKubernetesClusterNodePool = `{
           "map",
           "string"
         ]
+      },
+      "node_public_ip_enabled": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "bool"
       },
       "node_public_ip_prefix_id": {
         "description_kind": "plain",

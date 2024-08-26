@@ -9,12 +9,6 @@ import (
 const azurermSentinelDataConnectorMicrosoftThreatIntelligence = `{
   "block": {
     "attributes": {
-      "bing_safety_phishing_url_lookback_date": {
-        "deprecated": true,
-        "description_kind": "plain",
-        "optional": true,
-        "type": "string"
-      },
       "id": {
         "computed": true,
         "description_kind": "plain",
@@ -28,7 +22,7 @@ const azurermSentinelDataConnectorMicrosoftThreatIntelligence = `{
       },
       "microsoft_emerging_threat_feed_lookback_date": {
         "description_kind": "plain",
-        "optional": true,
+        "required": true,
         "type": "string"
       },
       "name": {

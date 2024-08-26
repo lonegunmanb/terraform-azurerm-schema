@@ -57,6 +57,11 @@ const azurermSharedImage = `{
         "required": true,
         "type": "string"
       },
+      "hibernation_enabled": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "bool"
+      },
       "hyper_v_generation": {
         "description_kind": "plain",
         "optional": true,

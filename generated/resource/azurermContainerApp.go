@@ -152,6 +152,21 @@ const azurermContainerApp = `{
               "optional": true,
               "type": "bool"
             },
+            "custom_domain": {
+              "computed": true,
+              "description_kind": "plain",
+              "type": [
+                "list",
+                [
+                  "object",
+                  {
+                    "certificate_binding_type": "string",
+                    "certificate_id": "string",
+                    "name": "string"
+                  }
+                ]
+              ]
+            },
             "exposed_port": {
               "description": "The exposed port on the container for the Ingress traffic.",
               "description_kind": "plain",
@@ -184,33 +199,6 @@ const azurermContainerApp = `{
             }
           },
           "block_types": {
-            "custom_domain": {
-              "block": {
-                "attributes": {
-                  "certificate_binding_type": {
-                    "description": "The Binding type. Possible values include ` + "`" + `Disabled` + "`" + ` and ` + "`" + `SniEnabled` + "`" + `. Defaults to ` + "`" + `Disabled` + "`" + `",
-                    "description_kind": "plain",
-                    "optional": true,
-                    "type": "string"
-                  },
-                  "certificate_id": {
-                    "description_kind": "plain",
-                    "required": true,
-                    "type": "string"
-                  },
-                  "name": {
-                    "description": "The hostname of the Certificate. Must be the CN or a named SAN in the certificate.",
-                    "description_kind": "plain",
-                    "required": true,
-                    "type": "string"
-                  }
-                },
-                "deprecated": true,
-                "description_kind": "plain"
-              },
-              "max_items": 1,
-              "nesting_mode": "list"
-            },
             "ip_security_restriction": {
               "block": {
                 "attributes": {

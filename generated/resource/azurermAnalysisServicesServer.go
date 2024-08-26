@@ -23,13 +23,6 @@ const azurermAnalysisServicesServer = `{
         "sensitive": true,
         "type": "string"
       },
-      "enable_power_bi_service": {
-        "computed": true,
-        "deprecated": true,
-        "description_kind": "plain",
-        "optional": true,
-        "type": "bool"
-      },
       "id": {
         "computed": true,
         "description_kind": "plain",
@@ -47,13 +40,11 @@ const azurermAnalysisServicesServer = `{
         "type": "string"
       },
       "power_bi_service_enabled": {
-        "computed": true,
         "description_kind": "plain",
         "optional": true,
         "type": "bool"
       },
       "querypool_connection_mode": {
-        "computed": true,
         "description_kind": "plain",
         "optional": true,
         "type": "string"

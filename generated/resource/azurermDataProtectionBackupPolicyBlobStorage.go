@@ -29,14 +29,6 @@ const azurermDataProtectionBackupPolicyBlobStorage = `{
         "type": "string"
       },
       "operational_default_retention_duration": {
-        "computed": true,
-        "description_kind": "plain",
-        "optional": true,
-        "type": "string"
-      },
-      "retention_duration": {
-        "computed": true,
-        "deprecated": true,
         "description_kind": "plain",
         "optional": true,
         "type": "string"

@@ -82,7 +82,6 @@ const azurermEventhubNamespace = `{
         "type": "number"
       },
       "minimum_tls_version": {
-        "computed": true,
         "description_kind": "plain",
         "optional": true,
         "type": "string"
@@ -150,12 +149,6 @@ const azurermEventhubNamespace = `{
           "map",
           "string"
         ]
-      },
-      "zone_redundant": {
-        "deprecated": true,
-        "description_kind": "plain",
-        "optional": true,
-        "type": "bool"
       }
     },
     "block_types": {

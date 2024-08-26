@@ -194,46 +194,6 @@ const azurermContainerGroup = `{
             }
           },
           "block_types": {
-            "gpu": {
-              "block": {
-                "attributes": {
-                  "count": {
-                    "description_kind": "plain",
-                    "optional": true,
-                    "type": "number"
-                  },
-                  "sku": {
-                    "description_kind": "plain",
-                    "optional": true,
-                    "type": "string"
-                  }
-                },
-                "deprecated": true,
-                "description_kind": "plain"
-              },
-              "max_items": 1,
-              "nesting_mode": "list"
-            },
-            "gpu_limit": {
-              "block": {
-                "attributes": {
-                  "count": {
-                    "description_kind": "plain",
-                    "optional": true,
-                    "type": "number"
-                  },
-                  "sku": {
-                    "description_kind": "plain",
-                    "optional": true,
-                    "type": "string"
-                  }
-                },
-                "deprecated": true,
-                "description_kind": "plain"
-              },
-              "max_items": 1,
-              "nesting_mode": "list"
-            },
             "liveness_probe": {
               "block": {
                 "attributes": {

@@ -190,6 +190,7 @@ const azurermSiteRecoveryReplicationRecoveryPlan = `{
           },
           "description_kind": "plain"
         },
+        "min_items": 1,
         "nesting_mode": "list"
       },
       "failover_recovery_group": {
@@ -307,139 +308,8 @@ const azurermSiteRecoveryReplicationRecoveryPlan = `{
           "description_kind": "plain"
         },
         "max_items": 1,
+        "min_items": 1,
         "nesting_mode": "list"
-      },
-      "recovery_group": {
-        "block": {
-          "attributes": {
-            "replicated_protected_items": {
-              "description_kind": "plain",
-              "optional": true,
-              "type": [
-                "list",
-                "string"
-              ]
-            },
-            "type": {
-              "description_kind": "plain",
-              "required": true,
-              "type": "string"
-            }
-          },
-          "block_types": {
-            "post_action": {
-              "block": {
-                "attributes": {
-                  "fabric_location": {
-                    "description_kind": "plain",
-                    "optional": true,
-                    "type": "string"
-                  },
-                  "fail_over_directions": {
-                    "description_kind": "plain",
-                    "required": true,
-                    "type": [
-                      "set",
-                      "string"
-                    ]
-                  },
-                  "fail_over_types": {
-                    "description_kind": "plain",
-                    "required": true,
-                    "type": [
-                      "set",
-                      "string"
-                    ]
-                  },
-                  "manual_action_instruction": {
-                    "description_kind": "plain",
-                    "optional": true,
-                    "type": "string"
-                  },
-                  "name": {
-                    "description_kind": "plain",
-                    "required": true,
-                    "type": "string"
-                  },
-                  "runbook_id": {
-                    "description_kind": "plain",
-                    "optional": true,
-                    "type": "string"
-                  },
-                  "script_path": {
-                    "description_kind": "plain",
-                    "optional": true,
-                    "type": "string"
-                  },
-                  "type": {
-                    "description_kind": "plain",
-                    "required": true,
-                    "type": "string"
-                  }
-                },
-                "description_kind": "plain"
-              },
-              "nesting_mode": "list"
-            },
-            "pre_action": {
-              "block": {
-                "attributes": {
-                  "fabric_location": {
-                    "description_kind": "plain",
-                    "optional": true,
-                    "type": "string"
-                  },
-                  "fail_over_directions": {
-                    "description_kind": "plain",
-                    "required": true,
-                    "type": [
-                      "set",
-                      "string"
-                    ]
-                  },
-                  "fail_over_types": {
-                    "description_kind": "plain",
-                    "required": true,
-                    "type": [
-                      "set",
-                      "string"
-                    ]
-                  },
-                  "manual_action_instruction": {
-                    "description_kind": "plain",
-                    "optional": true,
-                    "type": "string"
-                  },
-                  "name": {
-                    "description_kind": "plain",
-                    "required": true,
-                    "type": "string"
-                  },
-                  "runbook_id": {
-                    "description_kind": "plain",
-                    "optional": true,
-                    "type": "string"
-                  },
-                  "script_path": {
-                    "description_kind": "plain",
-                    "optional": true,
-                    "type": "string"
-                  },
-                  "type": {
-                    "description_kind": "plain",
-                    "required": true,
-                    "type": "string"
-                  }
-                },
-                "description_kind": "plain"
-              },
-              "nesting_mode": "list"
-            }
-          },
-          "deprecated": true,
-          "description_kind": "plain"
-        },
-        "nesting_mode": "set"
       },
       "shutdown_recovery_group": {
         "block": {
@@ -556,6 +426,7 @@ const azurermSiteRecoveryReplicationRecoveryPlan = `{
           "description_kind": "plain"
         },
         "max_items": 1,
+        "min_items": 1,
         "nesting_mode": "list"
       },
       "timeouts": {

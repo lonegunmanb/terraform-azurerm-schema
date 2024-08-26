@@ -45,25 +45,11 @@ const azurermKustoCluster = `{
         "optional": true,
         "type": "bool"
       },
-      "engine": {
-        "deprecated": true,
-        "description_kind": "plain",
-        "optional": true,
-        "type": "string"
-      },
       "id": {
         "computed": true,
         "description_kind": "plain",
         "optional": true,
         "type": "string"
-      },
-      "language_extensions": {
-        "description_kind": "plain",
-        "optional": true,
-        "type": [
-          "set",
-          "string"
-        ]
       },
       "location": {
         "description_kind": "plain",
@@ -167,6 +153,24 @@ const azurermKustoCluster = `{
           "description_kind": "plain"
         },
         "max_items": 1,
+        "nesting_mode": "list"
+      },
+      "language_extensions": {
+        "block": {
+          "attributes": {
+            "image": {
+              "description_kind": "plain",
+              "required": true,
+              "type": "string"
+            },
+            "name": {
+              "description_kind": "plain",
+              "required": true,
+              "type": "string"
+            }
+          },
+          "description_kind": "plain"
+        },
         "nesting_mode": "list"
       },
       "optimized_auto_scale": {

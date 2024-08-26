@@ -26,13 +26,11 @@ const azurermApplicationInsights = `{
         "type": "string"
       },
       "daily_data_cap_in_gb": {
-        "computed": true,
         "description_kind": "plain",
         "optional": true,
         "type": "number"
       },
       "daily_data_cap_notifications_disabled": {
-        "computed": true,
         "description_kind": "plain",
         "optional": true,
         "type": "bool"

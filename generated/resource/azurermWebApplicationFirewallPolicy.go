@@ -250,16 +250,6 @@ const azurermWebApplicationFirewallPolicy = `{
                   "rule_group_override": {
                     "block": {
                       "attributes": {
-                        "disabled_rules": {
-                          "computed": true,
-                          "deprecated": true,
-                          "description_kind": "plain",
-                          "optional": true,
-                          "type": [
-                            "list",
-                            "string"
-                          ]
-                        },
                         "rule_group_name": {
                           "description_kind": "plain",
                           "required": true,
@@ -337,6 +327,11 @@ const azurermWebApplicationFirewallPolicy = `{
               "type": "string"
             },
             "request_body_check": {
+              "description_kind": "plain",
+              "optional": true,
+              "type": "bool"
+            },
+            "request_body_enforcement": {
               "description_kind": "plain",
               "optional": true,
               "type": "bool"

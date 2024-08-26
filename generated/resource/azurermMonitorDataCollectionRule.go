@@ -385,9 +385,8 @@ const azurermMonitorDataCollectionRule = `{
                     "type": "string"
                   },
                   "streams": {
-                    "computed": true,
                     "description_kind": "plain",
-                    "optional": true,
+                    "required": true,
                     "type": [
                       "list",
                       "string"

@@ -10,7 +10,6 @@ const azurermCdnEndpoint = `{
   "block": {
     "attributes": {
       "content_types_to_compress": {
-        "computed": true,
         "description_kind": "plain",
         "optional": true,
         "type": [
@@ -65,13 +64,11 @@ const azurermCdnEndpoint = `{
         "type": "string"
       },
       "origin_path": {
-        "computed": true,
         "description_kind": "plain",
         "optional": true,
         "type": "string"
       },
       "probe_path": {
-        "computed": true,
         "description_kind": "plain",
         "optional": true,
         "type": "string"

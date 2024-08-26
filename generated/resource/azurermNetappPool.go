@@ -36,7 +36,6 @@ const azurermNetappPool = `{
         "type": "string"
       },
       "qos_type": {
-        "computed": true,
         "description_kind": "plain",
         "optional": true,
         "type": "string"

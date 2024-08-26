@@ -21,9 +21,8 @@ const azurermMapsAccount = `{
         "type": "bool"
       },
       "location": {
-        "computed": true,
         "description_kind": "plain",
-        "optional": true,
+        "required": true,
         "type": "string"
       },
       "name": {

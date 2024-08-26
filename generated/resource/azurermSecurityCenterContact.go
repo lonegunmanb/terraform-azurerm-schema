@@ -32,7 +32,7 @@ const azurermSecurityCenterContact = `{
       },
       "name": {
         "description_kind": "plain",
-        "optional": true,
+        "required": true,
         "type": "string"
       },
       "phone": {

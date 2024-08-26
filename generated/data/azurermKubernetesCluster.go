@@ -32,8 +32,6 @@ const azurermKubernetesCluster = `{
             {
               "auto_scaling_enabled": "bool",
               "count": "number",
-              "enable_auto_scaling": "bool",
-              "enable_node_public_ip": "bool",
               "max_count": "number",
               "max_pods": "number",
               "min_count": "number",
@@ -98,9 +96,6 @@ const azurermKubernetesCluster = `{
                 "string"
               ],
               "azure_rbac_enabled": "bool",
-              "client_app_id": "string",
-              "managed": "bool",
-              "server_app_id": "string",
               "tenant_id": "string"
             }
           ]
@@ -115,15 +110,6 @@ const azurermKubernetesCluster = `{
         "computed": true,
         "description_kind": "plain",
         "type": "string"
-      },
-      "custom_ca_trust_certificates_base64": {
-        "computed": true,
-        "deprecated": true,
-        "description_kind": "plain",
-        "type": [
-          "list",
-          "string"
-        ]
       },
       "disk_encryption_set_id": {
         "computed": true,
@@ -469,7 +455,11 @@ const azurermKubernetesCluster = `{
               ],
               "external_ingress_gateway_enabled": "bool",
               "internal_ingress_gateway_enabled": "bool",
-              "mode": "string"
+              "mode": "string",
+              "revisions": [
+                "list",
+                "string"
+              ]
             }
           ]
         ]
@@ -497,7 +487,6 @@ const azurermKubernetesCluster = `{
             {
               "blob_driver_enabled": "bool",
               "disk_driver_enabled": "bool",
-              "disk_driver_version": "string",
               "file_driver_enabled": "bool",
               "snapshot_controller_enabled": "bool"
             }

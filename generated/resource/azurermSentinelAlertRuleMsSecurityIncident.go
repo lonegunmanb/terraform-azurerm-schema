@@ -33,7 +33,6 @@ const azurermSentinelAlertRuleMsSecurityIncident = `{
         ]
       },
       "display_name_filter": {
-        "computed": true,
         "description_kind": "plain",
         "optional": true,
         "type": [

@@ -43,12 +43,6 @@ const azurermSubscriptionPolicyRemediation = `{
         "required": true,
         "type": "string"
       },
-      "policy_definition_id": {
-        "deprecated": true,
-        "description_kind": "plain",
-        "optional": true,
-        "type": "string"
-      },
       "policy_definition_reference_id": {
         "description_kind": "plain",
         "optional": true,

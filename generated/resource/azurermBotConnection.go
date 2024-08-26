@@ -63,15 +63,6 @@ const azurermBotConnection = `{
         "description_kind": "plain",
         "required": true,
         "type": "string"
-      },
-      "tags": {
-        "deprecated": true,
-        "description_kind": "plain",
-        "optional": true,
-        "type": [
-          "map",
-          "string"
-        ]
       }
     },
     "block_types": {

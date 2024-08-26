@@ -31,7 +31,6 @@ const azurermTrafficManagerProfile = `{
         "type": "string"
       },
       "profile_status": {
-        "computed": true,
         "description_kind": "plain",
         "optional": true,
         "type": "string"

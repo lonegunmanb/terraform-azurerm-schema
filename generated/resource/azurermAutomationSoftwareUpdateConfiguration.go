@@ -24,12 +24,6 @@ const azurermAutomationSoftwareUpdateConfiguration = `{
         "description_kind": "plain",
         "type": "string"
       },
-      "error_meesage": {
-        "computed": true,
-        "deprecated": true,
-        "description_kind": "plain",
-        "type": "string"
-      },
       "error_message": {
         "computed": true,
         "description_kind": "plain",
@@ -54,13 +48,6 @@ const azurermAutomationSoftwareUpdateConfiguration = `{
           "string"
         ]
       },
-      "operating_system": {
-        "computed": true,
-        "deprecated": true,
-        "description_kind": "plain",
-        "optional": true,
-        "type": "string"
-      },
       "virtual_machine_ids": {
         "description_kind": "plain",
         "optional": true,
@@ -74,17 +61,9 @@ const azurermAutomationSoftwareUpdateConfiguration = `{
       "linux": {
         "block": {
           "attributes": {
-            "classification_included": {
-              "computed": true,
-              "deprecated": true,
-              "description_kind": "plain",
-              "optional": true,
-              "type": "string"
-            },
             "classifications_included": {
-              "computed": true,
               "description_kind": "plain",
-              "optional": true,
+              "required": true,
               "type": [
                 "list",
                 "string"
@@ -197,7 +176,6 @@ const azurermAutomationSoftwareUpdateConfiguration = `{
               "type": "string"
             },
             "expiry_time_offset_minutes": {
-              "computed": true,
               "description_kind": "plain",
               "optional": true,
               "type": "number"
@@ -229,7 +207,6 @@ const azurermAutomationSoftwareUpdateConfiguration = `{
               "type": "string"
             },
             "next_run_offset_minutes": {
-              "computed": true,
               "description_kind": "plain",
               "optional": true,
               "type": "number"
@@ -241,7 +218,6 @@ const azurermAutomationSoftwareUpdateConfiguration = `{
               "type": "string"
             },
             "start_time_offset_minutes": {
-              "computed": true,
               "description_kind": "plain",
               "optional": true,
               "type": "number"
@@ -302,7 +278,6 @@ const azurermAutomationSoftwareUpdateConfiguration = `{
                     ]
                   },
                   "tag_filter": {
-                    "computed": true,
                     "description_kind": "plain",
                     "optional": true,
                     "type": "string"
@@ -390,17 +365,9 @@ const azurermAutomationSoftwareUpdateConfiguration = `{
       "windows": {
         "block": {
           "attributes": {
-            "classification_included": {
-              "computed": true,
-              "deprecated": true,
-              "description_kind": "plain",
-              "optional": true,
-              "type": "string"
-            },
             "classifications_included": {
-              "computed": true,
               "description_kind": "plain",
-              "optional": true,
+              "required": true,
               "type": [
                 "list",
                 "string"

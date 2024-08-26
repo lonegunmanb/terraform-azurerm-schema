@@ -55,12 +55,6 @@ const azurermDevTestLab = `{
         "required": true,
         "type": "string"
       },
-      "storage_type": {
-        "deprecated": true,
-        "description_kind": "plain",
-        "optional": true,
-        "type": "string"
-      },
       "tags": {
         "description_kind": "plain",
         "optional": true,

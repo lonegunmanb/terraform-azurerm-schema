@@ -9,17 +9,7 @@ import (
 const azurermKubernetesCluster = `{
   "block": {
     "attributes": {
-      "api_server_authorized_ip_ranges": {
-        "computed": true,
-        "deprecated": true,
-        "description_kind": "plain",
-        "optional": true,
-        "type": [
-          "set",
-          "string"
-        ]
-      },
-      "automatic_channel_upgrade": {
+      "automatic_upgrade_channel": {
         "description_kind": "plain",
         "optional": true,
         "type": "string"
@@ -38,15 +28,6 @@ const azurermKubernetesCluster = `{
         "computed": true,
         "description_kind": "plain",
         "type": "string"
-      },
-      "custom_ca_trust_certificates_base64": {
-        "deprecated": true,
-        "description_kind": "plain",
-        "optional": true,
-        "type": [
-          "list",
-          "string"
-        ]
       },
       "disk_encryption_set_id": {
         "description_kind": "plain",
@@ -67,12 +48,6 @@ const azurermKubernetesCluster = `{
         "description_kind": "plain",
         "optional": true,
         "type": "string"
-      },
-      "enable_pod_security_policy": {
-        "deprecated": true,
-        "description_kind": "plain",
-        "optional": true,
-        "type": "bool"
       },
       "fqdn": {
         "computed": true,
@@ -176,7 +151,7 @@ const azurermKubernetesCluster = `{
         "required": true,
         "type": "string"
       },
-      "node_os_channel_upgrade": {
+      "node_os_upgrade_channel": {
         "description_kind": "plain",
         "optional": true,
         "type": "string"
@@ -232,12 +207,6 @@ const azurermKubernetesCluster = `{
         "computed": true,
         "description_kind": "plain",
         "type": "string"
-      },
-      "public_network_access_enabled": {
-        "deprecated": true,
-        "description_kind": "plain",
-        "optional": true,
-        "type": "bool"
       },
       "resource_group_name": {
         "description_kind": "plain",
@@ -312,25 +281,12 @@ const azurermKubernetesCluster = `{
         "block": {
           "attributes": {
             "authorized_ip_ranges": {
-              "computed": true,
               "description_kind": "plain",
               "optional": true,
               "type": [
                 "set",
                 "string"
               ]
-            },
-            "subnet_id": {
-              "deprecated": true,
-              "description_kind": "plain",
-              "optional": true,
-              "type": "string"
-            },
-            "vnet_integration_enabled": {
-              "deprecated": true,
-              "description_kind": "plain",
-              "optional": true,
-              "type": "bool"
             }
           },
           "description_kind": "plain"
@@ -458,31 +414,6 @@ const azurermKubernetesCluster = `{
               "optional": true,
               "type": "bool"
             },
-            "client_app_id": {
-              "deprecated": true,
-              "description_kind": "plain",
-              "optional": true,
-              "type": "string"
-            },
-            "managed": {
-              "deprecated": true,
-              "description_kind": "plain",
-              "optional": true,
-              "type": "bool"
-            },
-            "server_app_id": {
-              "deprecated": true,
-              "description_kind": "plain",
-              "optional": true,
-              "type": "string"
-            },
-            "server_app_secret": {
-              "deprecated": true,
-              "description_kind": "plain",
-              "optional": true,
-              "sensitive": true,
-              "type": "string"
-            },
             "tenant_id": {
               "computed": true,
               "description_kind": "plain",
@@ -512,31 +443,15 @@ const azurermKubernetesCluster = `{
       "default_node_pool": {
         "block": {
           "attributes": {
+            "auto_scaling_enabled": {
+              "description_kind": "plain",
+              "optional": true,
+              "type": "bool"
+            },
             "capacity_reservation_group_id": {
               "description_kind": "plain",
               "optional": true,
               "type": "string"
-            },
-            "custom_ca_trust_enabled": {
-              "deprecated": true,
-              "description_kind": "plain",
-              "optional": true,
-              "type": "bool"
-            },
-            "enable_auto_scaling": {
-              "description_kind": "plain",
-              "optional": true,
-              "type": "bool"
-            },
-            "enable_host_encryption": {
-              "description_kind": "plain",
-              "optional": true,
-              "type": "bool"
-            },
-            "enable_node_public_ip": {
-              "description_kind": "plain",
-              "optional": true,
-              "type": "bool"
             },
             "fips_enabled": {
               "description_kind": "plain",
@@ -547,6 +462,11 @@ const azurermKubernetesCluster = `{
               "description_kind": "plain",
               "optional": true,
               "type": "string"
+            },
+            "host_encryption_enabled": {
+              "description_kind": "plain",
+              "optional": true,
+              "type": "bool"
             },
             "host_group_id": {
               "description_kind": "plain",
@@ -569,12 +489,6 @@ const azurermKubernetesCluster = `{
               "description_kind": "plain",
               "optional": true,
               "type": "number"
-            },
-            "message_of_the_day": {
-              "deprecated": true,
-              "description_kind": "plain",
-              "optional": true,
-              "type": "string"
             },
             "min_count": {
               "description_kind": "plain",
@@ -601,19 +515,15 @@ const azurermKubernetesCluster = `{
                 "string"
               ]
             },
+            "node_public_ip_enabled": {
+              "description_kind": "plain",
+              "optional": true,
+              "type": "bool"
+            },
             "node_public_ip_prefix_id": {
               "description_kind": "plain",
               "optional": true,
               "type": "string"
-            },
-            "node_taints": {
-              "deprecated": true,
-              "description_kind": "plain",
-              "optional": true,
-              "type": [
-                "list",
-                "string"
-              ]
             },
             "only_critical_addons_enabled": {
               "description_kind": "plain",
@@ -1500,20 +1410,6 @@ const azurermKubernetesCluster = `{
               "optional": true,
               "type": "string"
             },
-            "docker_bridge_cidr": {
-              "computed": true,
-              "deprecated": true,
-              "description_kind": "plain",
-              "optional": true,
-              "type": "string"
-            },
-            "ebpf_data_plane": {
-              "computed": true,
-              "deprecated": true,
-              "description_kind": "plain",
-              "optional": true,
-              "type": "string"
-            },
             "ip_versions": {
               "computed": true,
               "description_kind": "plain",
@@ -1529,7 +1425,6 @@ const azurermKubernetesCluster = `{
               "type": "string"
             },
             "network_data_plane": {
-              "computed": true,
               "description_kind": "plain",
               "optional": true,
               "type": "string"
@@ -1555,24 +1450,6 @@ const azurermKubernetesCluster = `{
               "description_kind": "plain",
               "optional": true,
               "type": "string"
-            },
-            "outbound_ip_address_ids": {
-              "computed": true,
-              "description_kind": "plain",
-              "optional": true,
-              "type": [
-                "set",
-                "string"
-              ]
-            },
-            "outbound_ip_prefix_ids": {
-              "computed": true,
-              "description_kind": "plain",
-              "optional": true,
-              "type": [
-                "set",
-                "string"
-              ]
             },
             "outbound_type": {
               "description_kind": "plain",
@@ -1751,6 +1628,14 @@ const azurermKubernetesCluster = `{
               "description_kind": "plain",
               "required": true,
               "type": "string"
+            },
+            "revisions": {
+              "description_kind": "plain",
+              "required": true,
+              "type": [
+                "list",
+                "string"
+              ]
             }
           },
           "block_types": {
@@ -1827,12 +1712,6 @@ const azurermKubernetesCluster = `{
               "optional": true,
               "type": "bool"
             },
-            "disk_driver_version": {
-              "deprecated": true,
-              "description_kind": "plain",
-              "optional": true,
-              "type": "string"
-            },
             "file_driver_enabled": {
               "description_kind": "plain",
               "optional": true,
@@ -1880,15 +1759,9 @@ const azurermKubernetesCluster = `{
       "web_app_routing": {
         "block": {
           "attributes": {
-            "dns_zone_id": {
-              "deprecated": true,
-              "description_kind": "plain",
-              "optional": true,
-              "type": "string"
-            },
             "dns_zone_ids": {
               "description_kind": "plain",
-              "optional": true,
+              "required": true,
               "type": [
                 "list",
                 "string"
@@ -1920,7 +1793,7 @@ const azurermKubernetesCluster = `{
           "attributes": {
             "admin_password": {
               "description_kind": "plain",
-              "optional": true,
+              "required": true,
               "sensitive": true,
               "type": "string"
             },
@@ -1969,22 +1842,10 @@ const azurermKubernetesCluster = `{
               "optional": true,
               "type": "bool"
             },
-            "vertical_pod_autoscaler_controlled_values": {
-              "computed": true,
-              "deprecated": true,
-              "description_kind": "plain",
-              "type": "string"
-            },
             "vertical_pod_autoscaler_enabled": {
               "description_kind": "plain",
               "optional": true,
               "type": "bool"
-            },
-            "vertical_pod_autoscaler_update_mode": {
-              "computed": true,
-              "deprecated": true,
-              "description_kind": "plain",
-              "type": "string"
             }
           },
           "description_kind": "plain"

@@ -79,7 +79,6 @@ const azurermCosmosdbCassandraDatacenter = `{
         ]
       },
       "sku_name": {
-        "computed": true,
         "description_kind": "plain",
         "optional": true,
         "type": "string"

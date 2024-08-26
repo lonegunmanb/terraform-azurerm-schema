@@ -45,7 +45,6 @@ const azurermTrafficManagerExternalEndpoint = `{
         "type": "string"
       },
       "priority": {
-        "computed": true,
         "description_kind": "plain",
         "optional": true,
         "type": "number"
@@ -61,7 +60,6 @@ const azurermTrafficManagerExternalEndpoint = `{
         "type": "string"
       },
       "weight": {
-        "computed": true,
         "description_kind": "plain",
         "optional": true,
         "type": "number"

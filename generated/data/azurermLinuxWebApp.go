@@ -614,9 +614,7 @@ const azurermLinuxWebApp = `{
                 [
                   "object",
                   {
-                    "docker_image": "string",
                     "docker_image_name": "string",
-                    "docker_image_tag": "string",
                     "docker_registry_password": "string",
                     "docker_registry_url": "string",
                     "docker_registry_username": "string",
@@ -632,7 +630,6 @@ const azurermLinuxWebApp = `{
                   }
                 ]
               ],
-              "auto_heal_enabled": "bool",
               "auto_heal_setting": [
                 "list",
                 [
@@ -670,7 +667,6 @@ const azurermLinuxWebApp = `{
                               {
                                 "count": "number",
                                 "interval": "string",
-                                "path": "string",
                                 "time_taken": "string"
                               }
                             ]
@@ -688,7 +684,7 @@ const azurermLinuxWebApp = `{
                             ]
                           ],
                           "status_code": [
-                            "list",
+                            "set",
                             [
                               "object",
                               {

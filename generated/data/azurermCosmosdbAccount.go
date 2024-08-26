@@ -27,16 +27,6 @@ const azurermCosmosdbAccount = `{
           ]
         ]
       },
-      "connection_strings": {
-        "computed": true,
-        "deprecated": true,
-        "description_kind": "plain",
-        "sensitive": true,
-        "type": [
-          "list",
-          "string"
-        ]
-      },
       "consistency_policy": {
         "computed": true,
         "description_kind": "plain",
@@ -51,24 +41,6 @@ const azurermCosmosdbAccount = `{
             }
           ]
         ]
-      },
-      "enable_automatic_failover": {
-        "computed": true,
-        "deprecated": true,
-        "description_kind": "plain",
-        "type": "bool"
-      },
-      "enable_free_tier": {
-        "computed": true,
-        "deprecated": true,
-        "description_kind": "plain",
-        "type": "bool"
-      },
-      "enable_multiple_write_locations": {
-        "computed": true,
-        "deprecated": true,
-        "description_kind": "plain",
-        "type": "bool"
       },
       "endpoint": {
         "computed": true,

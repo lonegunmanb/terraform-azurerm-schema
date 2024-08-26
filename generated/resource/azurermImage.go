@@ -69,6 +69,11 @@ const azurermImage = `{
               "optional": true,
               "type": "string"
             },
+            "disk_encryption_set_id": {
+              "description_kind": "plain",
+              "optional": true,
+              "type": "string"
+            },
             "lun": {
               "description_kind": "plain",
               "optional": true,
@@ -84,6 +89,12 @@ const azurermImage = `{
               "description_kind": "plain",
               "optional": true,
               "type": "number"
+            },
+            "storage_type": {
+              "description": "The type of storage disk",
+              "description_kind": "plain",
+              "required": true,
+              "type": "string"
             }
           },
           "description_kind": "plain"
@@ -130,6 +141,12 @@ const azurermImage = `{
               "description_kind": "plain",
               "optional": true,
               "type": "number"
+            },
+            "storage_type": {
+              "description": "The type of storage disk",
+              "description_kind": "plain",
+              "required": true,
+              "type": "string"
             }
           },
           "description_kind": "plain"

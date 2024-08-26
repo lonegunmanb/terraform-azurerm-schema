@@ -217,6 +217,12 @@ const azurermLinuxFunctionApp = `{
         "optional": true,
         "type": "string"
       },
+      "vnet_image_pull_enabled": {
+        "description": "Is container image pull over virtual network enabled? Defaults to ` + "`" + `false` + "`" + `.",
+        "description_kind": "plain",
+        "optional": true,
+        "type": "bool"
+      },
       "webdeploy_publish_basic_authentication_enabled": {
         "description_kind": "plain",
         "optional": true,
@@ -1300,7 +1306,6 @@ const azurermLinuxFunctionApp = `{
               "type": "string"
             },
             "health_check_eviction_time_in_min": {
-              "computed": true,
               "description": "The amount of time in minutes that a node is unhealthy before being removed from the load balancer. Possible values are between ` + "`" + `2` + "`" + ` and ` + "`" + `10` + "`" + `. Only valid in conjunction with ` + "`" + `health_check_path` + "`" + `",
               "description_kind": "plain",
               "optional": true,

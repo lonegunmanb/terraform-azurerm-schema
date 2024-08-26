@@ -64,13 +64,6 @@ const azurermRedisEnterpriseDatabase = `{
         "sensitive": true,
         "type": "string"
       },
-      "resource_group_name": {
-        "computed": true,
-        "deprecated": true,
-        "description_kind": "plain",
-        "optional": true,
-        "type": "string"
-      },
       "secondary_access_key": {
         "computed": true,
         "description_kind": "plain",

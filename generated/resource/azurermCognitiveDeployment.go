@@ -62,7 +62,7 @@ const azurermCognitiveDeployment = `{
         "min_items": 1,
         "nesting_mode": "list"
       },
-      "scale": {
+      "sku": {
         "block": {
           "attributes": {
             "capacity": {
@@ -75,6 +75,11 @@ const azurermCognitiveDeployment = `{
               "optional": true,
               "type": "string"
             },
+            "name": {
+              "description_kind": "plain",
+              "required": true,
+              "type": "string"
+            },
             "size": {
               "description_kind": "plain",
               "optional": true,
@@ -83,11 +88,6 @@ const azurermCognitiveDeployment = `{
             "tier": {
               "description_kind": "plain",
               "optional": true,
-              "type": "string"
-            },
-            "type": {
-              "description_kind": "plain",
-              "required": true,
               "type": "string"
             }
           },

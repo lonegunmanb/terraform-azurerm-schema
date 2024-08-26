@@ -80,6 +80,31 @@ const azurermNotificationHub = `{
         "max_items": 1,
         "nesting_mode": "list"
       },
+      "browser_credential": {
+        "block": {
+          "attributes": {
+            "subject": {
+              "description_kind": "plain",
+              "required": true,
+              "type": "string"
+            },
+            "vapid_private_key": {
+              "description_kind": "plain",
+              "required": true,
+              "sensitive": true,
+              "type": "string"
+            },
+            "vapid_public_key": {
+              "description_kind": "plain",
+              "required": true,
+              "type": "string"
+            }
+          },
+          "description_kind": "plain"
+        },
+        "max_items": 1,
+        "nesting_mode": "list"
+      },
       "gcm_credential": {
         "block": {
           "attributes": {

@@ -48,12 +48,6 @@ const azurermManagementGroupPolicyRemediation = `{
         "required": true,
         "type": "string"
       },
-      "policy_definition_id": {
-        "deprecated": true,
-        "description_kind": "plain",
-        "optional": true,
-        "type": "string"
-      },
       "policy_definition_reference_id": {
         "description_kind": "plain",
         "optional": true,
@@ -63,12 +57,6 @@ const azurermManagementGroupPolicyRemediation = `{
         "description_kind": "plain",
         "optional": true,
         "type": "number"
-      },
-      "resource_discovery_mode": {
-        "deprecated": true,
-        "description_kind": "plain",
-        "optional": true,
-        "type": "string"
       }
     },
     "block_types": {

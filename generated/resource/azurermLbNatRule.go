@@ -67,7 +67,6 @@ const azurermLbNatRule = `{
         "type": "string"
       },
       "idle_timeout_in_minutes": {
-        "computed": true,
         "description_kind": "plain",
         "optional": true,
         "type": "number"

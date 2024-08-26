@@ -486,26 +486,6 @@ const azurermHdinsightInteractiveQueryCluster = `{
                   "autoscale": {
                     "block": {
                       "block_types": {
-                        "capacity": {
-                          "block": {
-                            "attributes": {
-                              "max_instance_count": {
-                                "description_kind": "plain",
-                                "required": true,
-                                "type": "number"
-                              },
-                              "min_instance_count": {
-                                "description_kind": "plain",
-                                "required": true,
-                                "type": "number"
-                              }
-                            },
-                            "deprecated": true,
-                            "description_kind": "plain"
-                          },
-                          "max_items": 1,
-                          "nesting_mode": "list"
-                        },
                         "recurrence": {
                           "block": {
                             "attributes": {

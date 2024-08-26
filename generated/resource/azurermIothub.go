@@ -80,13 +80,11 @@ const azurermIothub = `{
         "type": "string"
       },
       "event_hub_partition_count": {
-        "computed": true,
         "description_kind": "plain",
         "optional": true,
         "type": "number"
       },
       "event_hub_retention_in_days": {
-        "computed": true,
         "description_kind": "plain",
         "optional": true,
         "type": "number"
@@ -237,7 +235,6 @@ const azurermIothub = `{
               "type": "string"
             },
             "enabled": {
-              "computed": true,
               "description_kind": "plain",
               "optional": true,
               "type": "bool"
@@ -282,7 +279,6 @@ const azurermIothub = `{
               "type": "string"
             },
             "default_ttl": {
-              "computed": true,
               "description_kind": "plain",
               "optional": true,
               "type": "string"
@@ -293,7 +289,6 @@ const azurermIothub = `{
               "type": "string"
             },
             "lock_duration": {
-              "computed": true,
               "description_kind": "plain",
               "optional": true,
               "type": "string"
@@ -309,7 +304,6 @@ const azurermIothub = `{
               "type": "bool"
             },
             "sas_ttl": {
-              "computed": true,
               "description_kind": "plain",
               "optional": true,
               "type": "string"

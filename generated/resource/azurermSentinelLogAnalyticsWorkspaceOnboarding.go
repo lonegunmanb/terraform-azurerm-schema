@@ -20,24 +20,9 @@ const azurermSentinelLogAnalyticsWorkspaceOnboarding = `{
         "optional": true,
         "type": "string"
       },
-      "resource_group_name": {
-        "computed": true,
-        "deprecated": true,
-        "description_kind": "plain",
-        "optional": true,
-        "type": "string"
-      },
       "workspace_id": {
-        "computed": true,
         "description_kind": "plain",
-        "optional": true,
-        "type": "string"
-      },
-      "workspace_name": {
-        "computed": true,
-        "deprecated": true,
-        "description_kind": "plain",
-        "optional": true,
+        "required": true,
         "type": "string"
       }
     },

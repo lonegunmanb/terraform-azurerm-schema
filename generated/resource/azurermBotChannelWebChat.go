@@ -29,16 +29,6 @@ const azurermBotChannelWebChat = `{
         "description_kind": "plain",
         "required": true,
         "type": "string"
-      },
-      "site_names": {
-        "computed": true,
-        "deprecated": true,
-        "description_kind": "plain",
-        "optional": true,
-        "type": [
-          "set",
-          "string"
-        ]
       }
     },
     "block_types": {

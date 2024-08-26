@@ -36,7 +36,6 @@ const azurermNetworkConnectionMonitor = `{
         "type": "string"
       },
       "output_workspace_resource_ids": {
-        "computed": true,
         "description_kind": "plain",
         "optional": true,
         "type": [

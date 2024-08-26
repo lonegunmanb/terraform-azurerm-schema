@@ -25,7 +25,6 @@ const azurermOrchestratedVirtualMachineScaleSet = `{
         "type": "string"
       },
       "extension_operations_enabled": {
-        "computed": true,
         "description_kind": "plain",
         "optional": true,
         "type": "bool"

@@ -93,14 +93,6 @@ const azurermSnapshot = `{
     "block_types": {
       "encryption_settings": {
         "block": {
-          "attributes": {
-            "enabled": {
-              "deprecated": true,
-              "description_kind": "plain",
-              "optional": true,
-              "type": "bool"
-            }
-          },
           "block_types": {
             "disk_encryption_key": {
               "block": {
@@ -119,6 +111,7 @@ const azurermSnapshot = `{
                 "description_kind": "plain"
               },
               "max_items": 1,
+              "min_items": 1,
               "nesting_mode": "list"
             },
             "key_encryption_key": {

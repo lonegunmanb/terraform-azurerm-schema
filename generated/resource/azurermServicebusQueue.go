@@ -10,13 +10,11 @@ const azurermServicebusQueue = `{
   "block": {
     "attributes": {
       "auto_delete_on_idle": {
-        "computed": true,
         "description_kind": "plain",
         "optional": true,
         "type": "string"
       },
       "batched_operations_enabled": {
-        "computed": true,
         "description_kind": "plain",
         "optional": true,
         "type": "bool"
@@ -27,37 +25,16 @@ const azurermServicebusQueue = `{
         "type": "bool"
       },
       "default_message_ttl": {
-        "computed": true,
         "description_kind": "plain",
         "optional": true,
         "type": "string"
       },
       "duplicate_detection_history_time_window": {
-        "computed": true,
         "description_kind": "plain",
         "optional": true,
         "type": "string"
       },
-      "enable_batched_operations": {
-        "deprecated": true,
-        "description_kind": "plain",
-        "optional": true,
-        "type": "bool"
-      },
-      "enable_express": {
-        "deprecated": true,
-        "description_kind": "plain",
-        "optional": true,
-        "type": "bool"
-      },
-      "enable_partitioning": {
-        "deprecated": true,
-        "description_kind": "plain",
-        "optional": true,
-        "type": "bool"
-      },
       "express_enabled": {
-        "computed": true,
         "description_kind": "plain",
         "optional": true,
         "type": "bool"
@@ -79,7 +56,6 @@ const azurermServicebusQueue = `{
         "type": "string"
       },
       "lock_duration": {
-        "computed": true,
         "description_kind": "plain",
         "optional": true,
         "type": "string"
@@ -112,7 +88,6 @@ const azurermServicebusQueue = `{
         "type": "string"
       },
       "partitioning_enabled": {
-        "computed": true,
         "description_kind": "plain",
         "optional": true,
         "type": "bool"

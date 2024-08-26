@@ -27,7 +27,7 @@ const azurermMonitorActivityLogAlert = `{
       },
       "location": {
         "description_kind": "plain",
-        "optional": true,
+        "required": true,
         "type": "string"
       },
       "name": {

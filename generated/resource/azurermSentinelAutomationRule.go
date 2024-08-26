@@ -10,7 +10,6 @@ const azurermSentinelAutomationRule = `{
   "block": {
     "attributes": {
       "condition_json": {
-        "computed": true,
         "description_kind": "plain",
         "optional": true,
         "type": "string"
@@ -129,33 +128,6 @@ const azurermSentinelAutomationRule = `{
               "type": "string"
             }
           },
-          "description_kind": "plain"
-        },
-        "nesting_mode": "list"
-      },
-      "condition": {
-        "block": {
-          "attributes": {
-            "operator": {
-              "description_kind": "plain",
-              "required": true,
-              "type": "string"
-            },
-            "property": {
-              "description_kind": "plain",
-              "required": true,
-              "type": "string"
-            },
-            "values": {
-              "description_kind": "plain",
-              "required": true,
-              "type": [
-                "list",
-                "string"
-              ]
-            }
-          },
-          "deprecated": true,
           "description_kind": "plain"
         },
         "nesting_mode": "list"

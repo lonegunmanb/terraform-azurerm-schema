@@ -9,10 +9,25 @@ import (
 const azurermSharedImage = `{
   "block": {
     "attributes": {
+      "accelerated_network_support_enabled": {
+        "computed": true,
+        "description_kind": "plain",
+        "type": "bool"
+      },
       "architecture": {
         "computed": true,
         "description_kind": "plain",
         "type": "string"
+      },
+      "confidential_vm_enabled": {
+        "computed": true,
+        "description_kind": "plain",
+        "type": "bool"
+      },
+      "confidential_vm_supported": {
+        "computed": true,
+        "description_kind": "plain",
+        "type": "bool"
       },
       "description": {
         "computed": true,
@@ -28,6 +43,11 @@ const azurermSharedImage = `{
         "description_kind": "plain",
         "required": true,
         "type": "string"
+      },
+      "hibernation_enabled": {
+        "computed": true,
+        "description_kind": "plain",
+        "type": "bool"
       },
       "hyper_v_generation": {
         "computed": true,
@@ -112,6 +132,16 @@ const azurermSharedImage = `{
           "map",
           "string"
         ]
+      },
+      "trusted_launch_enabled": {
+        "computed": true,
+        "description_kind": "plain",
+        "type": "bool"
+      },
+      "trusted_launch_supported": {
+        "computed": true,
+        "description_kind": "plain",
+        "type": "bool"
       }
     },
     "block_types": {

@@ -63,7 +63,6 @@ const azurermLinuxVirtualMachineScaleSet = `{
         "type": "string"
       },
       "extension_operations_enabled": {
-        "computed": true,
         "description_kind": "plain",
         "optional": true,
         "type": "bool"
@@ -138,13 +137,6 @@ const azurermLinuxVirtualMachineScaleSet = `{
       "resource_group_name": {
         "description_kind": "plain",
         "required": true,
-        "type": "string"
-      },
-      "scale_in_policy": {
-        "computed": true,
-        "deprecated": true,
-        "description_kind": "plain",
-        "optional": true,
         "type": "string"
       },
       "secure_boot_enabled": {
@@ -468,38 +460,6 @@ const azurermLinuxVirtualMachineScaleSet = `{
               "type": "string"
             }
           },
-          "description_kind": "plain"
-        },
-        "max_items": 100,
-        "nesting_mode": "list"
-      },
-      "gallery_applications": {
-        "block": {
-          "attributes": {
-            "configuration_reference_blob_uri": {
-              "deprecated": true,
-              "description_kind": "plain",
-              "optional": true,
-              "type": "string"
-            },
-            "order": {
-              "description_kind": "plain",
-              "optional": true,
-              "type": "number"
-            },
-            "package_reference_id": {
-              "deprecated": true,
-              "description_kind": "plain",
-              "required": true,
-              "type": "string"
-            },
-            "tag": {
-              "description_kind": "plain",
-              "optional": true,
-              "type": "string"
-            }
-          },
-          "deprecated": true,
           "description_kind": "plain"
         },
         "max_items": 100,
@@ -924,26 +884,6 @@ const azurermLinuxVirtualMachineScaleSet = `{
               "type": "string"
             }
           },
-          "description_kind": "plain"
-        },
-        "max_items": 1,
-        "nesting_mode": "list"
-      },
-      "terminate_notification": {
-        "block": {
-          "attributes": {
-            "enabled": {
-              "description_kind": "plain",
-              "required": true,
-              "type": "bool"
-            },
-            "timeout": {
-              "description_kind": "plain",
-              "optional": true,
-              "type": "string"
-            }
-          },
-          "deprecated": true,
           "description_kind": "plain"
         },
         "max_items": 1,

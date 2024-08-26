@@ -1289,11 +1289,6 @@ const azurermWindowsWebApp = `{
               "optional": true,
               "type": "string"
             },
-            "auto_heal_enabled": {
-              "description_kind": "plain",
-              "optional": true,
-              "type": "bool"
-            },
             "container_registry_managed_identity_client_id": {
               "description_kind": "plain",
               "optional": true,
@@ -1324,7 +1319,6 @@ const azurermWindowsWebApp = `{
               "type": "string"
             },
             "health_check_eviction_time_in_min": {
-              "computed": true,
               "description": "The amount of time in minutes that a node is unhealthy before being removed from the load balancer. Possible values are between ` + "`" + `2` + "`" + ` and ` + "`" + `10` + "`" + `. Only valid in conjunction with ` + "`" + `health_check_path` + "`" + `",
               "description_kind": "plain",
               "optional": true,
@@ -1439,42 +1433,23 @@ const azurermWindowsWebApp = `{
                     "optional": true,
                     "type": "string"
                   },
-                  "docker_container_name": {
-                    "description_kind": "plain",
-                    "optional": true,
-                    "type": "string"
-                  },
-                  "docker_container_registry": {
-                    "deprecated": true,
-                    "description_kind": "plain",
-                    "optional": true,
-                    "type": "string"
-                  },
-                  "docker_container_tag": {
-                    "description_kind": "plain",
-                    "optional": true,
-                    "type": "string"
-                  },
                   "docker_image_name": {
                     "description_kind": "plain",
                     "optional": true,
                     "type": "string"
                   },
                   "docker_registry_password": {
-                    "computed": true,
                     "description_kind": "plain",
                     "optional": true,
                     "sensitive": true,
                     "type": "string"
                   },
                   "docker_registry_url": {
-                    "computed": true,
                     "description_kind": "plain",
                     "optional": true,
                     "type": "string"
                   },
                   "docker_registry_username": {
-                    "computed": true,
                     "description_kind": "plain",
                     "optional": true,
                     "type": "string"
@@ -1530,13 +1505,6 @@ const azurermWindowsWebApp = `{
                     "description_kind": "plain",
                     "optional": true,
                     "type": "bool"
-                  },
-                  "python_version": {
-                    "computed": true,
-                    "deprecated": true,
-                    "description_kind": "plain",
-                    "optional": true,
-                    "type": "string"
                   },
                   "tomcat_version": {
                     "description_kind": "plain",
@@ -1636,12 +1604,6 @@ const azurermWindowsWebApp = `{
                                 "required": true,
                                 "type": "string"
                               },
-                              "path": {
-                                "deprecated": true,
-                                "description_kind": "plain",
-                                "optional": true,
-                                "type": "string"
-                              },
                               "time_taken": {
                                 "description_kind": "plain",
                                 "required": true,
@@ -1717,7 +1679,7 @@ const azurermWindowsWebApp = `{
                             },
                             "description_kind": "plain"
                           },
-                          "nesting_mode": "list"
+                          "nesting_mode": "set"
                         }
                       },
                       "description_kind": "plain"

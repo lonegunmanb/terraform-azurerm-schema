@@ -104,65 +104,6 @@ const azurermNginxDeployment = `{
         },
         "nesting_mode": "list"
       },
-      "configuration": {
-        "block": {
-          "attributes": {
-            "package_data": {
-              "description_kind": "plain",
-              "optional": true,
-              "type": "string"
-            },
-            "root_file": {
-              "description_kind": "plain",
-              "required": true,
-              "type": "string"
-            }
-          },
-          "block_types": {
-            "config_file": {
-              "block": {
-                "attributes": {
-                  "content": {
-                    "description_kind": "plain",
-                    "required": true,
-                    "type": "string"
-                  },
-                  "virtual_path": {
-                    "description_kind": "plain",
-                    "required": true,
-                    "type": "string"
-                  }
-                },
-                "description_kind": "plain"
-              },
-              "nesting_mode": "set"
-            },
-            "protected_file": {
-              "block": {
-                "attributes": {
-                  "content": {
-                    "description_kind": "plain",
-                    "required": true,
-                    "sensitive": true,
-                    "type": "string"
-                  },
-                  "virtual_path": {
-                    "description_kind": "plain",
-                    "required": true,
-                    "type": "string"
-                  }
-                },
-                "description_kind": "plain"
-              },
-              "nesting_mode": "set"
-            }
-          },
-          "deprecated": true,
-          "description_kind": "plain"
-        },
-        "max_items": 1,
-        "nesting_mode": "list"
-      },
       "frontend_private": {
         "block": {
           "attributes": {

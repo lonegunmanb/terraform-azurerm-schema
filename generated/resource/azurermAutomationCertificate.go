@@ -26,7 +26,6 @@ const azurermAutomationCertificate = `{
         "type": "string"
       },
       "exportable": {
-        "computed": true,
         "description_kind": "plain",
         "optional": true,
         "type": "bool"

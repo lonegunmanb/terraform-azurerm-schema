@@ -31,15 +31,6 @@ const azurermMonitorDiagnosticCategories = `{
           "string"
         ]
       },
-      "logs": {
-        "computed": true,
-        "deprecated": true,
-        "description_kind": "plain",
-        "type": [
-          "set",
-          "string"
-        ]
-      },
       "metrics": {
         "computed": true,
         "description_kind": "plain",

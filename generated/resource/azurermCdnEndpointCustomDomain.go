@@ -87,17 +87,9 @@ const azurermCdnEndpointCustomDomain = `{
       "user_managed_https": {
         "block": {
           "attributes": {
-            "key_vault_certificate_id": {
-              "computed": true,
-              "deprecated": true,
-              "description_kind": "plain",
-              "optional": true,
-              "type": "string"
-            },
             "key_vault_secret_id": {
-              "computed": true,
               "description_kind": "plain",
-              "optional": true,
+              "required": true,
               "type": "string"
             },
             "tls_version": {

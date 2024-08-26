@@ -45,17 +45,9 @@ const azurermCosmosdbSqlContainer = `{
         "optional": true,
         "type": "string"
       },
-      "partition_key_path": {
-        "computed": true,
-        "deprecated": true,
-        "description_kind": "plain",
-        "optional": true,
-        "type": "string"
-      },
       "partition_key_paths": {
-        "computed": true,
         "description_kind": "plain",
-        "optional": true,
+        "required": true,
         "type": [
           "list",
           "string"

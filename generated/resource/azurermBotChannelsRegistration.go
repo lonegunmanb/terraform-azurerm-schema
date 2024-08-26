@@ -47,7 +47,6 @@ const azurermBotChannelsRegistration = `{
         "type": "string"
       },
       "icon_url": {
-        "computed": true,
         "description_kind": "plain",
         "optional": true,
         "type": "string"
@@ -57,13 +56,6 @@ const azurermBotChannelsRegistration = `{
         "description_kind": "plain",
         "optional": true,
         "type": "string"
-      },
-      "isolated_network_enabled": {
-        "computed": true,
-        "deprecated": true,
-        "description_kind": "plain",
-        "optional": true,
-        "type": "bool"
       },
       "location": {
         "description_kind": "plain",
@@ -81,7 +73,6 @@ const azurermBotChannelsRegistration = `{
         "type": "string"
       },
       "public_network_access_enabled": {
-        "computed": true,
         "description_kind": "plain",
         "optional": true,
         "type": "bool"

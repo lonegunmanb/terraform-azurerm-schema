@@ -10,13 +10,11 @@ const azurermServicebusSubscription = `{
   "block": {
     "attributes": {
       "auto_delete_on_idle": {
-        "computed": true,
         "description_kind": "plain",
         "optional": true,
         "type": "string"
       },
       "batched_operations_enabled": {
-        "computed": true,
         "description_kind": "plain",
         "optional": true,
         "type": "bool"
@@ -37,17 +35,9 @@ const azurermServicebusSubscription = `{
         "type": "bool"
       },
       "default_message_ttl": {
-        "computed": true,
         "description_kind": "plain",
         "optional": true,
         "type": "string"
-      },
-      "enable_batched_operations": {
-        "computed": true,
-        "deprecated": true,
-        "description_kind": "plain",
-        "optional": true,
-        "type": "bool"
       },
       "forward_dead_lettered_messages_to": {
         "description_kind": "plain",
@@ -66,7 +56,6 @@ const azurermServicebusSubscription = `{
         "type": "string"
       },
       "lock_duration": {
-        "computed": true,
         "description_kind": "plain",
         "optional": true,
         "type": "string"

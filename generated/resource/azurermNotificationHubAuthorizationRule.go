@@ -43,6 +43,7 @@ const azurermNotificationHubAuthorizationRule = `{
       "primary_access_key": {
         "computed": true,
         "description_kind": "plain",
+        "sensitive": true,
         "type": "string"
       },
       "primary_connection_string": {
@@ -59,6 +60,7 @@ const azurermNotificationHubAuthorizationRule = `{
       "secondary_access_key": {
         "computed": true,
         "description_kind": "plain",
+        "sensitive": true,
         "type": "string"
       },
       "secondary_connection_string": {

@@ -38,7 +38,7 @@ const azurermSpringCloudGatewayRouteConfig = `{
       },
       "protocol": {
         "description_kind": "plain",
-        "optional": true,
+        "required": true,
         "type": "string"
       },
       "spring_cloud_app_id": {

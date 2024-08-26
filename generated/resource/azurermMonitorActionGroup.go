@@ -193,23 +193,14 @@ const azurermMonitorActionGroup = `{
       "event_hub_receiver": {
         "block": {
           "attributes": {
-            "event_hub_id": {
-              "computed": true,
-              "deprecated": true,
-              "description_kind": "plain",
-              "optional": true,
-              "type": "string"
-            },
             "event_hub_name": {
-              "computed": true,
               "description_kind": "plain",
-              "optional": true,
+              "required": true,
               "type": "string"
             },
             "event_hub_namespace": {
-              "computed": true,
               "description_kind": "plain",
-              "optional": true,
+              "required": true,
               "type": "string"
             },
             "name": {

@@ -75,25 +75,6 @@ const azurermAttestationProvider = `{
       }
     },
     "block_types": {
-      "policy": {
-        "block": {
-          "attributes": {
-            "data": {
-              "description_kind": "plain",
-              "optional": true,
-              "type": "string"
-            },
-            "environment_type": {
-              "description_kind": "plain",
-              "optional": true,
-              "type": "string"
-            }
-          },
-          "deprecated": true,
-          "description_kind": "plain"
-        },
-        "nesting_mode": "list"
-      },
       "timeouts": {
         "block": {
           "attributes": {

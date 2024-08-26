@@ -14,16 +14,6 @@ const azurermKubernetesClusterNodePool = `{
         "description_kind": "plain",
         "type": "bool"
       },
-      "enable_auto_scaling": {
-        "computed": true,
-        "description_kind": "plain",
-        "type": "bool"
-      },
-      "enable_node_public_ip": {
-        "computed": true,
-        "description_kind": "plain",
-        "type": "bool"
-      },
       "eviction_policy": {
         "computed": true,
         "description_kind": "plain",

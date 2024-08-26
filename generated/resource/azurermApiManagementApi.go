@@ -88,13 +88,6 @@ const azurermApiManagementApi = `{
         "optional": true,
         "type": "string"
       },
-      "soap_pass_through": {
-        "computed": true,
-        "deprecated": true,
-        "description_kind": "plain",
-        "optional": true,
-        "type": "bool"
-      },
       "source_api_id": {
         "description_kind": "plain",
         "optional": true,

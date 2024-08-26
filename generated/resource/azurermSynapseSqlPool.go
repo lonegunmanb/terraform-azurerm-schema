@@ -53,7 +53,7 @@ const azurermSynapseSqlPool = `{
       },
       "storage_account_type": {
         "description_kind": "plain",
-        "optional": true,
+        "required": true,
         "type": "string"
       },
       "synapse_workspace_id": {

@@ -107,7 +107,6 @@ const azurermDatabricksWorkspace = `{
         "type": "string"
       },
       "network_security_group_rules_required": {
-        "computed": true,
         "description_kind": "plain",
         "optional": true,
         "type": "string"
@@ -177,7 +176,6 @@ const azurermDatabricksWorkspace = `{
               "type": "string"
             },
             "no_public_ip": {
-              "computed": true,
               "description_kind": "plain",
               "optional": true,
               "type": "bool"

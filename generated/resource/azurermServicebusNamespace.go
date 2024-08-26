@@ -60,7 +60,6 @@ const azurermServicebusNamespace = `{
         "type": "string"
       },
       "minimum_tls_version": {
-        "computed": true,
         "description_kind": "plain",
         "optional": true,
         "type": "string"
@@ -97,13 +96,6 @@ const azurermServicebusNamespace = `{
           "map",
           "string"
         ]
-      },
-      "zone_redundant": {
-        "computed": true,
-        "deprecated": true,
-        "description_kind": "plain",
-        "optional": true,
-        "type": "bool"
       }
     },
     "block_types": {

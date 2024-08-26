@@ -60,7 +60,6 @@ const azurermIotcentralApplication = `{
         ]
       },
       "template": {
-        "computed": true,
         "description_kind": "plain",
         "optional": true,
         "type": "string"

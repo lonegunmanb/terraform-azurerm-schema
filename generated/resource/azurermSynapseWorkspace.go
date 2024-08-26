@@ -9,23 +9,6 @@ import (
 const azurermSynapseWorkspace = `{
   "block": {
     "attributes": {
-      "aad_admin": {
-        "computed": true,
-        "deprecated": true,
-        "description_kind": "plain",
-        "optional": true,
-        "type": [
-          "list",
-          [
-            "object",
-            {
-              "login": "string",
-              "object_id": "string",
-              "tenant_id": "string"
-            }
-          ]
-        ]
-      },
       "azuread_authentication_only": {
         "description_kind": "plain",
         "optional": true,
@@ -98,23 +81,6 @@ const azurermSynapseWorkspace = `{
         "description_kind": "plain",
         "required": true,
         "type": "string"
-      },
-      "sql_aad_admin": {
-        "computed": true,
-        "deprecated": true,
-        "description_kind": "plain",
-        "optional": true,
-        "type": [
-          "list",
-          [
-            "object",
-            {
-              "login": "string",
-              "object_id": "string",
-              "tenant_id": "string"
-            }
-          ]
-        ]
       },
       "sql_administrator_login": {
         "description_kind": "plain",

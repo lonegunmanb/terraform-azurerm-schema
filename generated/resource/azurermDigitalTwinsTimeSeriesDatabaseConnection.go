@@ -56,7 +56,6 @@ const azurermDigitalTwinsTimeSeriesDatabaseConnection = `{
         "type": "string"
       },
       "kusto_table_name": {
-        "computed": true,
         "description_kind": "plain",
         "optional": true,
         "type": "string"

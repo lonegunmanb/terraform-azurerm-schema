@@ -9,16 +9,15 @@ import (
 const azurermRedisCache = `{
   "block": {
     "attributes": {
+      "access_keys_authentication_enabled": {
+        "computed": true,
+        "description_kind": "plain",
+        "type": "bool"
+      },
       "capacity": {
         "computed": true,
         "description_kind": "plain",
         "type": "number"
-      },
-      "enable_non_ssl_port": {
-        "computed": true,
-        "deprecated": true,
-        "description_kind": "plain",
-        "type": "bool"
       },
       "family": {
         "computed": true,
@@ -107,7 +106,6 @@ const azurermRedisCache = `{
               "aof_storage_connection_string_1": "string",
               "authentication_enabled": "bool",
               "data_persistence_authentication_method": "string",
-              "enable_authentication": "bool",
               "maxclients": "number",
               "maxfragmentationmemory_reserved": "number",
               "maxmemory_delta": "number",

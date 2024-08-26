@@ -13,7 +13,7 @@ const azurermVirtualNetwork = `{
         "description_kind": "plain",
         "required": true,
         "type": [
-          "list",
+          "set",
           "string"
         ]
       },
@@ -76,10 +76,47 @@ const azurermVirtualNetwork = `{
           [
             "object",
             {
-              "address_prefix": "string",
+              "address_prefixes": [
+                "list",
+                "string"
+              ],
+              "default_outbound_access_enabled": "bool",
+              "delegation": [
+                "list",
+                [
+                  "object",
+                  {
+                    "name": "string",
+                    "service_delegation": [
+                      "list",
+                      [
+                        "object",
+                        {
+                          "actions": [
+                            "set",
+                            "string"
+                          ],
+                          "name": "string"
+                        }
+                      ]
+                    ]
+                  }
+                ]
+              ],
               "id": "string",
               "name": "string",
-              "security_group": "string"
+              "private_endpoint_network_policies": "string",
+              "private_link_service_network_policies_enabled": "bool",
+              "route_table_id": "string",
+              "security_group": "string",
+              "service_endpoint_policy_ids": [
+                "set",
+                "string"
+              ],
+              "service_endpoints": [
+                "set",
+                "string"
+              ]
             }
           ]
         ]

@@ -20,14 +20,6 @@ const azurermCdnFrontdoorOrigin = `{
         "type": "bool"
       },
       "enabled": {
-        "computed": true,
-        "description_kind": "plain",
-        "optional": true,
-        "type": "bool"
-      },
-      "health_probes_enabled": {
-        "computed": true,
-        "deprecated": true,
         "description_kind": "plain",
         "optional": true,
         "type": "bool"

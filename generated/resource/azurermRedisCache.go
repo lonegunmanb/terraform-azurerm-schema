@@ -9,16 +9,15 @@ import (
 const azurermRedisCache = `{
   "block": {
     "attributes": {
+      "access_keys_authentication_enabled": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "bool"
+      },
       "capacity": {
         "description_kind": "plain",
         "required": true,
         "type": "number"
-      },
-      "enable_non_ssl_port": {
-        "deprecated": true,
-        "description_kind": "plain",
-        "optional": true,
-        "type": "bool"
       },
       "family": {
         "description_kind": "plain",
@@ -52,7 +51,6 @@ const azurermRedisCache = `{
         "type": "string"
       },
       "non_ssl_port_enabled": {
-        "computed": true,
         "description_kind": "plain",
         "optional": true,
         "type": "bool"
@@ -86,7 +84,6 @@ const azurermRedisCache = `{
         "type": "bool"
       },
       "redis_version": {
-        "computed": true,
         "description_kind": "plain",
         "optional": true,
         "type": "string"
@@ -247,7 +244,6 @@ const azurermRedisCache = `{
               "type": "string"
             },
             "authentication_enabled": {
-              "computed": true,
               "description_kind": "plain",
               "optional": true,
               "type": "bool"
@@ -256,12 +252,6 @@ const azurermRedisCache = `{
               "description_kind": "plain",
               "optional": true,
               "type": "string"
-            },
-            "enable_authentication": {
-              "deprecated": true,
-              "description_kind": "plain",
-              "optional": true,
-              "type": "bool"
             },
             "maxclients": {
               "computed": true,

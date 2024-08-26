@@ -75,14 +75,7 @@ const azurermMachineLearningWorkspace = `{
         "optional": true,
         "type": "string"
       },
-      "public_access_behind_virtual_network_enabled": {
-        "deprecated": true,
-        "description_kind": "plain",
-        "optional": true,
-        "type": "bool"
-      },
       "public_network_access_enabled": {
-        "computed": true,
         "description_kind": "plain",
         "optional": true,
         "type": "bool"

@@ -30,18 +30,6 @@ const azurermNetworkInterface = `{
           "string"
         ]
       },
-      "enable_accelerated_networking": {
-        "computed": true,
-        "deprecated": true,
-        "description_kind": "plain",
-        "type": "bool"
-      },
-      "enable_ip_forwarding": {
-        "computed": true,
-        "deprecated": true,
-        "description_kind": "plain",
-        "type": "bool"
-      },
       "id": {
         "computed": true,
         "description_kind": "plain",

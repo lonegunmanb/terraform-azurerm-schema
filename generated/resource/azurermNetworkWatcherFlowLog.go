@@ -60,7 +60,6 @@ const azurermNetworkWatcherFlowLog = `{
         ]
       },
       "version": {
-        "computed": true,
         "description_kind": "plain",
         "optional": true,
         "type": "number"

@@ -597,9 +597,6 @@ const azurermWindowsWebApp = `{
                   "object",
                   {
                     "current_stack": "string",
-                    "docker_container_name": "string",
-                    "docker_container_registry": "string",
-                    "docker_container_tag": "string",
                     "docker_image_name": "string",
                     "docker_registry_password": "string",
                     "docker_registry_url": "string",
@@ -618,7 +615,6 @@ const azurermWindowsWebApp = `{
                   }
                 ]
               ],
-              "auto_heal_enabled": "bool",
               "auto_heal_setting": [
                 "list",
                 [
@@ -667,7 +663,6 @@ const azurermWindowsWebApp = `{
                               {
                                 "count": "number",
                                 "interval": "string",
-                                "path": "string",
                                 "time_taken": "string"
                               }
                             ]
@@ -685,7 +680,7 @@ const azurermWindowsWebApp = `{
                             ]
                           ],
                           "status_code": [
-                            "list",
+                            "set",
                             [
                               "object",
                               {

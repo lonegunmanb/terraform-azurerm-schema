@@ -44,7 +44,6 @@ const azurermContainerRegistry = `{
           [
             "object",
             {
-              "enabled": "bool",
               "identity_client_id": "string",
               "key_vault_key_id": "string"
             }
@@ -101,16 +100,6 @@ const azurermContainerRegistry = `{
                     "ip_range": "string"
                   }
                 ]
-              ],
-              "virtual_network": [
-                "set",
-                [
-                  "object",
-                  {
-                    "action": "string",
-                    "subnet_id": "string"
-                  }
-                ]
               ]
             }
           ]
@@ -131,20 +120,10 @@ const azurermContainerRegistry = `{
         "required": true,
         "type": "string"
       },
-      "retention_policy": {
-        "computed": true,
+      "retention_policy_in_days": {
         "description_kind": "plain",
         "optional": true,
-        "type": [
-          "list",
-          [
-            "object",
-            {
-              "days": "number",
-              "enabled": "bool"
-            }
-          ]
-        ]
+        "type": "number"
       },
       "sku": {
         "description_kind": "plain",
@@ -159,19 +138,10 @@ const azurermContainerRegistry = `{
           "string"
         ]
       },
-      "trust_policy": {
-        "computed": true,
+      "trust_policy_enabled": {
         "description_kind": "plain",
         "optional": true,
-        "type": [
-          "list",
-          [
-            "object",
-            {
-              "enabled": "bool"
-            }
-          ]
-        ]
+        "type": "bool"
       },
       "zone_redundancy_enabled": {
         "description_kind": "plain",

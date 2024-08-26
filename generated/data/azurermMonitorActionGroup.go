@@ -102,7 +102,6 @@ const azurermMonitorActionGroup = `{
           [
             "object",
             {
-              "event_hub_id": "string",
               "event_hub_name": "string",
               "event_hub_namespace": "string",
               "name": "string",

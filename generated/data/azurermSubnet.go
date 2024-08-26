@@ -27,18 +27,6 @@ const azurermSubnet = `{
         "description_kind": "plain",
         "type": "bool"
       },
-      "enforce_private_link_endpoint_network_policies": {
-        "computed": true,
-        "deprecated": true,
-        "description_kind": "plain",
-        "type": "bool"
-      },
-      "enforce_private_link_service_network_policies": {
-        "computed": true,
-        "deprecated": true,
-        "description_kind": "plain",
-        "type": "bool"
-      },
       "id": {
         "computed": true,
         "description_kind": "plain",
@@ -59,12 +47,6 @@ const azurermSubnet = `{
         "computed": true,
         "description_kind": "plain",
         "type": "string"
-      },
-      "private_endpoint_network_policies_enabled": {
-        "computed": true,
-        "deprecated": true,
-        "description_kind": "plain",
-        "type": "bool"
       },
       "private_link_service_network_policies_enabled": {
         "computed": true,

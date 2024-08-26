@@ -74,7 +74,6 @@ const azurermDnsZone = `{
             "host_name": {
               "computed": true,
               "description_kind": "plain",
-              "optional": true,
               "type": "string"
             },
             "minimum_ttl": {

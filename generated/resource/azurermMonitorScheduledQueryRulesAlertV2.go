@@ -36,7 +36,7 @@ const azurermMonitorScheduledQueryRulesAlertV2 = `{
       },
       "evaluation_frequency": {
         "description_kind": "plain",
-        "optional": true,
+        "required": true,
         "type": "string"
       },
       "id": {

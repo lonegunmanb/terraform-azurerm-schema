@@ -46,7 +46,6 @@ const azurermMachineLearningComputeCluster = `{
         "type": "bool"
       },
       "ssh_public_access_enabled": {
-        "computed": true,
         "description_kind": "plain",
         "optional": true,
         "type": "bool"
