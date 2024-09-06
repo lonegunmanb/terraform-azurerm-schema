@@ -50,9 +50,15 @@ const azurermApiManagementLogger = `{
       "application_insights": {
         "block": {
           "attributes": {
+            "connection_string": {
+              "description_kind": "plain",
+              "optional": true,
+              "sensitive": true,
+              "type": "string"
+            },
             "instrumentation_key": {
               "description_kind": "plain",
-              "required": true,
+              "optional": true,
               "sensitive": true,
               "type": "string"
             }

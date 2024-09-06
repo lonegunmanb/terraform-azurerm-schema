@@ -572,7 +572,7 @@ const azurermCosmosdbAccount = `{
     },
     "description_kind": "plain"
   },
-  "version": 0
+  "version": 1
 }`
 
 func AzurermCosmosdbAccountSchema() *tfjson.Schema {

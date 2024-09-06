@@ -101,6 +101,12 @@ const azurermNetappVolume = `{
         "required": true,
         "type": "string"
       },
+      "smb3_protocol_encryption_enabled": {
+        "description": "SMB3 encryption option should be used only for SMB/DualProtocol volumes. Using it for any other workloads is not supported.",
+        "description_kind": "plain",
+        "optional": true,
+        "type": "bool"
+      },
       "smb_access_based_enumeration_enabled": {
         "description": "Enable access based enumeration setting for SMB/Dual Protocol volume. When enabled, users who do not have permission to access a shared folder or file underneath it, do not see that shared resource displayed in their environment.",
         "description_kind": "plain",
