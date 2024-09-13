@@ -10,6 +10,7 @@ const azurermServicebusQueue = `{
   "block": {
     "attributes": {
       "auto_delete_on_idle": {
+        "computed": true,
         "description_kind": "plain",
         "optional": true,
         "type": "string"
@@ -25,6 +26,7 @@ const azurermServicebusQueue = `{
         "type": "bool"
       },
       "default_message_ttl": {
+        "computed": true,
         "description_kind": "plain",
         "optional": true,
         "type": "string"

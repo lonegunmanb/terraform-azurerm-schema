@@ -8,9 +8,9 @@ import (
 	"github.com/stretchr/testify/assert"
 )
 
-func TestAzurermMediaServicesAccountFilterSchema(t *testing.T) {
+func TestAzurermArcMachineAutomanageConfigurationAssignmentSchema(t *testing.T) {
 	defaultSchema := &tfjson.Schema{}
-	s := resource.AzurermMediaServicesAccountFilterSchema()
+	s := resource.AzurermArcMachineAutomanageConfigurationAssignmentSchema()
 	assert.NotNil(t, s)
 	assert.NotEqual(t, defaultSchema, s)
 }

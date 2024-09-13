@@ -9,6 +9,11 @@ import (
 const azurermDataProtectionBackupVault = `{
   "block": {
     "attributes": {
+      "cross_region_restore_enabled": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "bool"
+      },
       "datastore_type": {
         "description_kind": "plain",
         "required": true,

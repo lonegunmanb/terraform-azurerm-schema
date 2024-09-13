@@ -86,6 +86,11 @@ const azurermMssqlManagedInstance = `{
         "required": true,
         "type": "string"
       },
+      "service_principal_type": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "string"
+      },
       "sku_name": {
         "description_kind": "plain",
         "required": true,
