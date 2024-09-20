@@ -6,26 +6,10 @@ import (
 	tfjson "github.com/hashicorp/terraform-json"
 )
 
-const azurermContainerAppCustomDomain = `{
+const azurermStackHciStoragePath = `{
   "block": {
     "attributes": {
-      "certificate_binding_type": {
-        "description": "The Binding type. Possible values include ` + "`" + `Disabled` + "`" + ` and ` + "`" + `SniEnabled` + "`" + `.",
-        "description_kind": "plain",
-        "optional": true,
-        "type": "string"
-      },
-      "container_app_environment_certificate_id": {
-        "description_kind": "plain",
-        "optional": true,
-        "type": "string"
-      },
-      "container_app_environment_managed_certificate_id": {
-        "computed": true,
-        "description_kind": "plain",
-        "type": "string"
-      },
-      "container_app_id": {
+      "custom_location_id": {
         "description_kind": "plain",
         "required": true,
         "type": "string"
@@ -36,11 +20,33 @@ const azurermContainerAppCustomDomain = `{
         "optional": true,
         "type": "string"
       },
-      "name": {
-        "description": "The hostname of the Certificate. Must be the CN or a named SAN in the certificate.",
+      "location": {
         "description_kind": "plain",
         "required": true,
         "type": "string"
+      },
+      "name": {
+        "description_kind": "plain",
+        "required": true,
+        "type": "string"
+      },
+      "path": {
+        "description_kind": "plain",
+        "required": true,
+        "type": "string"
+      },
+      "resource_group_name": {
+        "description_kind": "plain",
+        "required": true,
+        "type": "string"
+      },
+      "tags": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": [
+          "map",
+          "string"
+        ]
       }
     },
     "block_types": {
@@ -61,6 +67,11 @@ const azurermContainerAppCustomDomain = `{
               "description_kind": "plain",
               "optional": true,
               "type": "string"
+            },
+            "update": {
+              "description_kind": "plain",
+              "optional": true,
+              "type": "string"
             }
           },
           "description_kind": "plain"
@@ -73,8 +84,8 @@ const azurermContainerAppCustomDomain = `{
   "version": 0
 }`
 
-func AzurermContainerAppCustomDomainSchema() *tfjson.Schema {
+func AzurermStackHciStoragePathSchema() *tfjson.Schema {
 	var result tfjson.Schema
-	_ = json.Unmarshal([]byte(azurermContainerAppCustomDomain), &result)
+	_ = json.Unmarshal([]byte(azurermStackHciStoragePath), &result)
 	return &result
 }

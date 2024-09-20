@@ -6,30 +6,9 @@ import (
 	tfjson "github.com/hashicorp/terraform-json"
 )
 
-const azurermContainerAppCustomDomain = `{
+const azurermAdvisorSuppression = `{
   "block": {
     "attributes": {
-      "certificate_binding_type": {
-        "description": "The Binding type. Possible values include ` + "`" + `Disabled` + "`" + ` and ` + "`" + `SniEnabled` + "`" + `.",
-        "description_kind": "plain",
-        "optional": true,
-        "type": "string"
-      },
-      "container_app_environment_certificate_id": {
-        "description_kind": "plain",
-        "optional": true,
-        "type": "string"
-      },
-      "container_app_environment_managed_certificate_id": {
-        "computed": true,
-        "description_kind": "plain",
-        "type": "string"
-      },
-      "container_app_id": {
-        "description_kind": "plain",
-        "required": true,
-        "type": "string"
-      },
       "id": {
         "computed": true,
         "description_kind": "plain",
@@ -37,9 +16,28 @@ const azurermContainerAppCustomDomain = `{
         "type": "string"
       },
       "name": {
-        "description": "The hostname of the Certificate. Must be the CN or a named SAN in the certificate.",
         "description_kind": "plain",
         "required": true,
+        "type": "string"
+      },
+      "recommendation_id": {
+        "description_kind": "plain",
+        "required": true,
+        "type": "string"
+      },
+      "resource_id": {
+        "description_kind": "plain",
+        "required": true,
+        "type": "string"
+      },
+      "suppression_id": {
+        "computed": true,
+        "description_kind": "plain",
+        "type": "string"
+      },
+      "ttl": {
+        "description_kind": "plain",
+        "optional": true,
         "type": "string"
       }
     },
@@ -73,8 +71,8 @@ const azurermContainerAppCustomDomain = `{
   "version": 0
 }`
 
-func AzurermContainerAppCustomDomainSchema() *tfjson.Schema {
+func AzurermAdvisorSuppressionSchema() *tfjson.Schema {
 	var result tfjson.Schema
-	_ = json.Unmarshal([]byte(azurermContainerAppCustomDomain), &result)
+	_ = json.Unmarshal([]byte(azurermAdvisorSuppression), &result)
 	return &result
 }

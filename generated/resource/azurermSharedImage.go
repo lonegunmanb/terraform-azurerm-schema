@@ -34,6 +34,11 @@ const azurermSharedImage = `{
         "optional": true,
         "type": "string"
       },
+      "disk_controller_type_nvme_enabled": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "bool"
+      },
       "disk_types_not_allowed": {
         "description_kind": "plain",
         "optional": true,

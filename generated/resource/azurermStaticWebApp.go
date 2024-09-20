@@ -54,6 +54,11 @@ const azurermStaticWebApp = `{
         "optional": true,
         "type": "bool"
       },
+      "public_network_access_enabled": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "bool"
+      },
       "resource_group_name": {
         "description_kind": "plain",
         "required": true,
