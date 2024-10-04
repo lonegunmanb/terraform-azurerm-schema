@@ -173,6 +173,12 @@ const azurermSiteRecoveryReplicatedVm = `{
         "optional": true,
         "type": "string"
       },
+      "target_virtual_machine_size": {
+        "computed": true,
+        "description_kind": "plain",
+        "optional": true,
+        "type": "string"
+      },
       "target_zone": {
         "description_kind": "plain",
         "optional": true,
