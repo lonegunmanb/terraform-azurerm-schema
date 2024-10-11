@@ -891,6 +891,7 @@ func init() {
 	resources["azurerm_stack_hci_deployment_setting"] = resource.AzurermStackHciDeploymentSettingSchema()  
 	resources["azurerm_stack_hci_logical_network"] = resource.AzurermStackHciLogicalNetworkSchema()  
 	resources["azurerm_stack_hci_storage_path"] = resource.AzurermStackHciStoragePathSchema()  
+	resources["azurerm_stack_hci_virtual_hard_disk"] = resource.AzurermStackHciVirtualHardDiskSchema()  
 	resources["azurerm_static_site"] = resource.AzurermStaticSiteSchema()  
 	resources["azurerm_static_site_custom_domain"] = resource.AzurermStaticSiteCustomDomainSchema()  
 	resources["azurerm_static_web_app"] = resource.AzurermStaticWebAppSchema()  

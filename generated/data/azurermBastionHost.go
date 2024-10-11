@@ -70,6 +70,11 @@ const azurermBastionHost = `{
         "description_kind": "plain",
         "type": "number"
       },
+      "session_recording_enabled": {
+        "computed": true,
+        "description_kind": "plain",
+        "type": "bool"
+      },
       "shareable_link_enabled": {
         "computed": true,
         "description_kind": "plain",

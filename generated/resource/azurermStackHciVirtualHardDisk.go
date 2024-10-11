@@ -6,23 +6,38 @@ import (
 	tfjson "github.com/hashicorp/terraform-json"
 )
 
-const azurermBastionHost = `{
+const azurermStackHciVirtualHardDisk = `{
   "block": {
     "attributes": {
-      "copy_paste_enabled": {
+      "block_size_in_bytes": {
         "description_kind": "plain",
         "optional": true,
-        "type": "bool"
+        "type": "number"
       },
-      "dns_name": {
-        "computed": true,
+      "custom_location_id": {
         "description_kind": "plain",
+        "required": true,
         "type": "string"
       },
-      "file_copy_enabled": {
+      "disk_file_format": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "string"
+      },
+      "disk_size_in_gb": {
+        "description_kind": "plain",
+        "required": true,
+        "type": "number"
+      },
+      "dynamic_enabled": {
         "description_kind": "plain",
         "optional": true,
         "type": "bool"
+      },
+      "hyperv_generation": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "string"
       },
       "id": {
         "computed": true,
@@ -30,47 +45,32 @@ const azurermBastionHost = `{
         "optional": true,
         "type": "string"
       },
-      "ip_connect_enabled": {
-        "description_kind": "plain",
-        "optional": true,
-        "type": "bool"
-      },
-      "kerberos_enabled": {
-        "description_kind": "plain",
-        "optional": true,
-        "type": "bool"
-      },
       "location": {
         "description_kind": "plain",
         "required": true,
         "type": "string"
+      },
+      "logical_sector_in_bytes": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "number"
       },
       "name": {
         "description_kind": "plain",
         "required": true,
         "type": "string"
       },
+      "physical_sector_in_bytes": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "number"
+      },
       "resource_group_name": {
         "description_kind": "plain",
         "required": true,
         "type": "string"
       },
-      "scale_units": {
-        "description_kind": "plain",
-        "optional": true,
-        "type": "number"
-      },
-      "session_recording_enabled": {
-        "description_kind": "plain",
-        "optional": true,
-        "type": "bool"
-      },
-      "shareable_link_enabled": {
-        "description_kind": "plain",
-        "optional": true,
-        "type": "bool"
-      },
-      "sku": {
+      "storage_path_id": {
         "description_kind": "plain",
         "optional": true,
         "type": "string"
@@ -82,43 +82,9 @@ const azurermBastionHost = `{
           "map",
           "string"
         ]
-      },
-      "tunneling_enabled": {
-        "description_kind": "plain",
-        "optional": true,
-        "type": "bool"
-      },
-      "virtual_network_id": {
-        "description_kind": "plain",
-        "optional": true,
-        "type": "string"
       }
     },
     "block_types": {
-      "ip_configuration": {
-        "block": {
-          "attributes": {
-            "name": {
-              "description_kind": "plain",
-              "required": true,
-              "type": "string"
-            },
-            "public_ip_address_id": {
-              "description_kind": "plain",
-              "required": true,
-              "type": "string"
-            },
-            "subnet_id": {
-              "description_kind": "plain",
-              "required": true,
-              "type": "string"
-            }
-          },
-          "description_kind": "plain"
-        },
-        "max_items": 1,
-        "nesting_mode": "list"
-      },
       "timeouts": {
         "block": {
           "attributes": {
@@ -153,8 +119,8 @@ const azurermBastionHost = `{
   "version": 0
 }`
 
-func AzurermBastionHostSchema() *tfjson.Schema {
+func AzurermStackHciVirtualHardDiskSchema() *tfjson.Schema {
 	var result tfjson.Schema
-	_ = json.Unmarshal([]byte(azurermBastionHost), &result)
+	_ = json.Unmarshal([]byte(azurermStackHciVirtualHardDisk), &result)
 	return &result
 }
