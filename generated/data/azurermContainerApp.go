@@ -131,6 +131,11 @@ const azurermContainerApp = `{
         "description_kind": "plain",
         "type": "string"
       },
+      "max_inactive_revisions": {
+        "computed": true,
+        "description_kind": "plain",
+        "type": "number"
+      },
       "name": {
         "description_kind": "plain",
         "required": true,

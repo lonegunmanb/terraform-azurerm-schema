@@ -106,7 +106,7 @@ const azurermStackHciLogicalNetwork = `{
                   },
                   "name": {
                     "description_kind": "plain",
-                    "required": true,
+                    "optional": true,
                     "type": "string"
                   },
                   "next_hop_ip_address": {
@@ -117,6 +117,7 @@ const azurermStackHciLogicalNetwork = `{
                 },
                 "description_kind": "plain"
               },
+              "max_items": 1,
               "nesting_mode": "list"
             }
           },

@@ -45,6 +45,11 @@ const azurermContainerApp = `{
         "description_kind": "plain",
         "type": "string"
       },
+      "max_inactive_revisions": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "number"
+      },
       "name": {
         "description": "The name for this Container App.",
         "description_kind": "plain",

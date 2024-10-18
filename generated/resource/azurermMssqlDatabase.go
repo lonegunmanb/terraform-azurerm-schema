@@ -291,6 +291,7 @@ const azurermMssqlDatabase = `{
         "block": {
           "attributes": {
             "backup_interval_in_hours": {
+              "computed": true,
               "description_kind": "plain",
               "optional": true,
               "type": "number"

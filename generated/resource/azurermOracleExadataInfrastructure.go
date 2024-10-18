@@ -6,12 +6,26 @@ import (
 	tfjson "github.com/hashicorp/terraform-json"
 )
 
-const azurermFluidRelayServer = `{
+const azurermOracleExadataInfrastructure = `{
   "block": {
     "attributes": {
-      "frs_tenant_id": {
+      "compute_count": {
+        "description_kind": "plain",
+        "required": true,
+        "type": "number"
+      },
+      "customer_contacts": {
         "computed": true,
         "description_kind": "plain",
+        "optional": true,
+        "type": [
+          "list",
+          "string"
+        ]
+      },
+      "display_name": {
+        "description_kind": "plain",
+        "required": true,
         "type": "string"
       },
       "id": {
@@ -30,52 +44,20 @@ const azurermFluidRelayServer = `{
         "required": true,
         "type": "string"
       },
-      "orderer_endpoints": {
-        "computed": true,
-        "description_kind": "plain",
-        "type": [
-          "list",
-          "string"
-        ]
-      },
-      "primary_key": {
-        "computed": true,
-        "description_kind": "plain",
-        "sensitive": true,
-        "type": "string"
-      },
       "resource_group_name": {
         "description_kind": "plain",
         "required": true,
         "type": "string"
       },
-      "secondary_key": {
-        "computed": true,
+      "shape": {
         "description_kind": "plain",
-        "sensitive": true,
+        "required": true,
         "type": "string"
       },
-      "service_endpoints": {
-        "computed": true,
+      "storage_count": {
         "description_kind": "plain",
-        "type": [
-          "list",
-          "string"
-        ]
-      },
-      "storage_endpoints": {
-        "computed": true,
-        "description_kind": "plain",
-        "type": [
-          "list",
-          "string"
-        ]
-      },
-      "storage_sku": {
-        "computed": true,
-        "description_kind": "plain",
-        "optional": true,
-        "type": "string"
+        "required": true,
+        "type": "number"
       },
       "tags": {
         "description_kind": "plain",
@@ -84,58 +66,77 @@ const azurermFluidRelayServer = `{
           "map",
           "string"
         ]
+      },
+      "zones": {
+        "description_kind": "plain",
+        "required": true,
+        "type": [
+          "set",
+          "string"
+        ]
       }
     },
     "block_types": {
-      "customer_managed_key": {
+      "maintenance_window": {
         "block": {
           "attributes": {
-            "key_vault_key_id": {
-              "description_kind": "plain",
-              "required": true,
-              "type": "string"
-            },
-            "user_assigned_identity_id": {
-              "description_kind": "plain",
-              "required": true,
-              "type": "string"
-            }
-          },
-          "description_kind": "plain"
-        },
-        "max_items": 1,
-        "nesting_mode": "list"
-      },
-      "identity": {
-        "block": {
-          "attributes": {
-            "identity_ids": {
+            "days_of_week": {
+              "computed": true,
               "description_kind": "plain",
               "optional": true,
               "type": [
-                "set",
+                "list",
                 "string"
               ]
             },
-            "principal_id": {
+            "hours_of_day": {
               "computed": true,
               "description_kind": "plain",
-              "type": "string"
+              "optional": true,
+              "type": [
+                "list",
+                "number"
+              ]
             },
-            "tenant_id": {
+            "lead_time_in_weeks": {
               "computed": true,
               "description_kind": "plain",
+              "optional": true,
+              "type": "number"
+            },
+            "months": {
+              "computed": true,
+              "description_kind": "plain",
+              "optional": true,
+              "type": [
+                "list",
+                "string"
+              ]
+            },
+            "patching_mode": {
+              "computed": true,
+              "description_kind": "plain",
+              "optional": true,
               "type": "string"
             },
-            "type": {
+            "preference": {
+              "computed": true,
               "description_kind": "plain",
-              "required": true,
+              "optional": true,
               "type": "string"
+            },
+            "weeks_of_month": {
+              "computed": true,
+              "description_kind": "plain",
+              "optional": true,
+              "type": [
+                "list",
+                "number"
+              ]
             }
           },
           "description_kind": "plain"
         },
-        "max_items": 1,
         "nesting_mode": "list"
       },
       "timeouts": {
@@ -172,8 +173,8 @@ const azurermFluidRelayServer = `{
   "version": 0
 }`
 
-func AzurermFluidRelayServerSchema() *tfjson.Schema {
+func AzurermOracleExadataInfrastructureSchema() *tfjson.Schema {
 	var result tfjson.Schema
-	_ = json.Unmarshal([]byte(azurermFluidRelayServer), &result)
+	_ = json.Unmarshal([]byte(azurermOracleExadataInfrastructure), &result)
 	return &result
 }
