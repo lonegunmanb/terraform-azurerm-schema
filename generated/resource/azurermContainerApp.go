@@ -491,7 +491,7 @@ const azurermContainerApp = `{
                     "block": {
                       "attributes": {
                         "failure_count_threshold": {
-                          "description": "The number of consecutive failures required to consider this probe as failed. Possible values are between ` + "`" + `1` + "`" + ` and ` + "`" + `10` + "`" + `. Defaults to ` + "`" + `3` + "`" + `.",
+                          "description": "The number of consecutive failures required to consider this probe as failed. Possible values are between ` + "`" + `1` + "`" + ` and ` + "`" + `30` + "`" + `. Defaults to ` + "`" + `3` + "`" + `.",
                           "description_kind": "plain",
                           "optional": true,
                           "type": "number"
@@ -503,7 +503,7 @@ const azurermContainerApp = `{
                           "type": "string"
                         },
                         "initial_delay": {
-                          "description": "The time in seconds to wait after the container has started before the probe is started.",
+                          "description": "The number of seconds elapsed after the container has started before the probe is initiated. Possible values are between ` + "`" + `0` + "`" + ` and ` + "`" + `60` + "`" + `. Defaults to ` + "`" + `1` + "`" + ` seconds.",
                           "description_kind": "plain",
                           "optional": true,
                           "type": "number"
@@ -576,7 +576,7 @@ const azurermContainerApp = `{
                     "block": {
                       "attributes": {
                         "failure_count_threshold": {
-                          "description": "The number of consecutive failures required to consider this probe as failed. Possible values are between ` + "`" + `1` + "`" + ` and ` + "`" + `10` + "`" + `. Defaults to ` + "`" + `3` + "`" + `.",
+                          "description": "The number of consecutive failures required to consider this probe as failed. Possible values are between ` + "`" + `1` + "`" + ` and ` + "`" + `30` + "`" + `. Defaults to ` + "`" + `3` + "`" + `.",
                           "description_kind": "plain",
                           "optional": true,
                           "type": "number"
@@ -586,6 +586,12 @@ const azurermContainerApp = `{
                           "description_kind": "plain",
                           "optional": true,
                           "type": "string"
+                        },
+                        "initial_delay": {
+                          "description": "The number of seconds elapsed after the container has started before the probe is initiated. Possible values are between ` + "`" + `0` + "`" + ` and ` + "`" + `60` + "`" + `. Defaults to ` + "`" + `0` + "`" + ` seconds.",
+                          "description_kind": "plain",
+                          "optional": true,
+                          "type": "number"
                         },
                         "interval_seconds": {
                           "description": "How often, in seconds, the probe should run. Possible values are between ` + "`" + `1` + "`" + ` and ` + "`" + `240` + "`" + `. Defaults to ` + "`" + `10` + "`" + `",
@@ -655,7 +661,7 @@ const azurermContainerApp = `{
                     "block": {
                       "attributes": {
                         "failure_count_threshold": {
-                          "description": "The number of consecutive failures required to consider this probe as failed. Possible values are between ` + "`" + `1` + "`" + ` and ` + "`" + `10` + "`" + `. Defaults to ` + "`" + `3` + "`" + `.",
+                          "description": "The number of consecutive failures required to consider this probe as failed. Possible values are between ` + "`" + `1` + "`" + ` and ` + "`" + `30` + "`" + `. Defaults to ` + "`" + `3` + "`" + `.",
                           "description_kind": "plain",
                           "optional": true,
                           "type": "number"
@@ -665,6 +671,12 @@ const azurermContainerApp = `{
                           "description_kind": "plain",
                           "optional": true,
                           "type": "string"
+                        },
+                        "initial_delay": {
+                          "description": "The number of seconds elapsed after the container has started before the probe is initiated. Possible values are between ` + "`" + `0` + "`" + ` and ` + "`" + `60` + "`" + `. Defaults to ` + "`" + `0` + "`" + ` seconds.",
+                          "description_kind": "plain",
+                          "optional": true,
+                          "type": "number"
                         },
                         "interval_seconds": {
                           "description": "How often, in seconds, the probe should run. Possible values are between ` + "`" + `1` + "`" + ` and ` + "`" + `240` + "`" + `. Defaults to ` + "`" + `10` + "`" + `",

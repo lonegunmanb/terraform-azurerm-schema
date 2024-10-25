@@ -6,15 +6,15 @@ import (
 	tfjson "github.com/hashicorp/terraform-json"
 )
 
-const azurermOracleDbServers = `{
+const azurermOracleDbNodes = `{
   "block": {
     "attributes": {
-      "cloud_exadata_infrastructure_name": {
+      "cloud_vm_cluster_id": {
         "description_kind": "plain",
         "required": true,
         "type": "string"
       },
-      "db_servers": {
+      "db_nodes": {
         "computed": true,
         "description_kind": "plain",
         "type": [
@@ -22,36 +22,28 @@ const azurermOracleDbServers = `{
           [
             "object",
             {
-              "autonomous_virtual_machine_ds": [
-                "list",
-                "string"
-              ],
-              "autonomous_vm_cluster_ids": [
-                "list",
-                "string"
-              ],
-              "compartment_id": "string",
+              "additional_details": "string",
+              "backup_ip_id": "string",
+              "backup_vnic_2_id": "string",
+              "backup_vnic_id": "string",
               "cpu_core_count": "number",
-              "db_node_ids": [
-                "list",
-                "string"
-              ],
               "db_node_storage_size_in_gbs": "number",
-              "display_name": "string",
-              "exadata_infrastructure_id": "string",
+              "db_server_id": "string",
+              "db_system_id": "string",
+              "fault_domain": "string",
+              "host_ip_id": "string",
+              "hostname": "string",
               "lifecycle_details": "string",
               "lifecycle_state": "string",
-              "max_cpu_count": "number",
-              "max_db_node_storage_in_gbs": "number",
-              "max_memory_in_gbs": "number",
+              "maintenance_type": "string",
               "memory_size_in_gbs": "number",
               "ocid": "string",
-              "shape": "string",
+              "software_storage_size_in_gb": "number",
               "time_created": "string",
-              "vm_cluster_ids": [
-                "list",
-                "string"
-              ]
+              "time_maintenance_window_end": "string",
+              "time_maintenance_window_start": "string",
+              "vnic_2_id": "string",
+              "vnic_id": "string"
             }
           ]
         ]
@@ -60,11 +52,6 @@ const azurermOracleDbServers = `{
         "computed": true,
         "description_kind": "plain",
         "optional": true,
-        "type": "string"
-      },
-      "resource_group_name": {
-        "description_kind": "plain",
-        "required": true,
         "type": "string"
       }
     },
@@ -88,8 +75,8 @@ const azurermOracleDbServers = `{
   "version": 0
 }`
 
-func AzurermOracleDbServersSchema() *tfjson.Schema {
+func AzurermOracleDbNodesSchema() *tfjson.Schema {
 	var result tfjson.Schema
-	_ = json.Unmarshal([]byte(azurermOracleDbServers), &result)
+	_ = json.Unmarshal([]byte(azurermOracleDbNodes), &result)
 	return &result
 }

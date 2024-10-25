@@ -302,6 +302,7 @@ const azurermContainerApp = `{
                             ]
                           ],
                           "host": "string",
+                          "initial_delay": "number",
                           "interval_seconds": "number",
                           "path": "string",
                           "port": "number",
@@ -328,6 +329,7 @@ const azurermContainerApp = `{
                             ]
                           ],
                           "host": "string",
+                          "initial_delay": "number",
                           "interval_seconds": "number",
                           "path": "string",
                           "port": "number",
