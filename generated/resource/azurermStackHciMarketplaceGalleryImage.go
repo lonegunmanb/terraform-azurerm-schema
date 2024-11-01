@@ -6,43 +6,17 @@ import (
 	tfjson "github.com/hashicorp/terraform-json"
 )
 
-const azurermDataFactoryLinkedServiceAzureSqlDatabase = `{
+const azurermStackHciMarketplaceGalleryImage = `{
   "block": {
     "attributes": {
-      "additional_properties": {
-        "description_kind": "plain",
-        "optional": true,
-        "type": [
-          "map",
-          "string"
-        ]
-      },
-      "annotations": {
-        "description_kind": "plain",
-        "optional": true,
-        "type": [
-          "list",
-          "string"
-        ]
-      },
-      "connection_string": {
-        "description_kind": "plain",
-        "optional": true,
-        "type": "string"
-      },
-      "credential_name": {
-        "description_kind": "plain",
-        "optional": true,
-        "type": "string"
-      },
-      "data_factory_id": {
+      "custom_location_id": {
         "description_kind": "plain",
         "required": true,
         "type": "string"
       },
-      "description": {
+      "hyperv_generation": {
         "description_kind": "plain",
-        "optional": true,
+        "required": true,
         "type": "string"
       },
       "id": {
@@ -51,9 +25,9 @@ const azurermDataFactoryLinkedServiceAzureSqlDatabase = `{
         "optional": true,
         "type": "string"
       },
-      "integration_runtime_name": {
+      "location": {
         "description_kind": "plain",
-        "optional": true,
+        "required": true,
         "type": "string"
       },
       "name": {
@@ -61,7 +35,22 @@ const azurermDataFactoryLinkedServiceAzureSqlDatabase = `{
         "required": true,
         "type": "string"
       },
-      "parameters": {
+      "os_type": {
+        "description_kind": "plain",
+        "required": true,
+        "type": "string"
+      },
+      "resource_group_name": {
+        "description_kind": "plain",
+        "required": true,
+        "type": "string"
+      },
+      "storage_path_id": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "string"
+      },
+      "tags": {
         "description_kind": "plain",
         "optional": true,
         "type": [
@@ -69,37 +58,27 @@ const azurermDataFactoryLinkedServiceAzureSqlDatabase = `{
           "string"
         ]
       },
-      "service_principal_id": {
+      "version": {
         "description_kind": "plain",
-        "optional": true,
+        "required": true,
         "type": "string"
-      },
-      "service_principal_key": {
-        "description_kind": "plain",
-        "optional": true,
-        "type": "string"
-      },
-      "tenant_id": {
-        "description_kind": "plain",
-        "optional": true,
-        "type": "string"
-      },
-      "use_managed_identity": {
-        "description_kind": "plain",
-        "optional": true,
-        "type": "bool"
       }
     },
     "block_types": {
-      "key_vault_connection_string": {
+      "identifier": {
         "block": {
           "attributes": {
-            "linked_service_name": {
+            "offer": {
               "description_kind": "plain",
               "required": true,
               "type": "string"
             },
-            "secret_name": {
+            "publisher": {
+              "description_kind": "plain",
+              "required": true,
+              "type": "string"
+            },
+            "sku": {
               "description_kind": "plain",
               "required": true,
               "type": "string"
@@ -108,25 +87,7 @@ const azurermDataFactoryLinkedServiceAzureSqlDatabase = `{
           "description_kind": "plain"
         },
         "max_items": 1,
-        "nesting_mode": "list"
-      },
-      "key_vault_password": {
-        "block": {
-          "attributes": {
-            "linked_service_name": {
-              "description_kind": "plain",
-              "required": true,
-              "type": "string"
-            },
-            "secret_name": {
-              "description_kind": "plain",
-              "required": true,
-              "type": "string"
-            }
-          },
-          "description_kind": "plain"
-        },
-        "max_items": 1,
+        "min_items": 1,
         "nesting_mode": "list"
       },
       "timeouts": {
@@ -163,8 +124,8 @@ const azurermDataFactoryLinkedServiceAzureSqlDatabase = `{
   "version": 0
 }`
 
-func AzurermDataFactoryLinkedServiceAzureSqlDatabaseSchema() *tfjson.Schema {
+func AzurermStackHciMarketplaceGalleryImageSchema() *tfjson.Schema {
 	var result tfjson.Schema
-	_ = json.Unmarshal([]byte(azurermDataFactoryLinkedServiceAzureSqlDatabase), &result)
+	_ = json.Unmarshal([]byte(azurermStackHciMarketplaceGalleryImage), &result)
 	return &result
 }

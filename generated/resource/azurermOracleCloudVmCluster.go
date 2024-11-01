@@ -109,6 +109,11 @@ const azurermOracleCloudVmCluster = `{
         "required": true,
         "type": "string"
       },
+      "ocid": {
+        "computed": true,
+        "description_kind": "plain",
+        "type": "string"
+      },
       "resource_group_name": {
         "description_kind": "plain",
         "required": true,

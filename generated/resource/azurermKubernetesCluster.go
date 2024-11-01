@@ -302,6 +302,16 @@ const azurermKubernetesCluster = `{
               "optional": true,
               "type": "bool"
             },
+            "daemonset_eviction_for_empty_nodes_enabled": {
+              "description_kind": "plain",
+              "optional": true,
+              "type": "bool"
+            },
+            "daemonset_eviction_for_occupied_nodes_enabled": {
+              "description_kind": "plain",
+              "optional": true,
+              "type": "bool"
+            },
             "empty_bulk_delete_max": {
               "computed": true,
               "description_kind": "plain",
@@ -312,6 +322,11 @@ const azurermKubernetesCluster = `{
               "description_kind": "plain",
               "optional": true,
               "type": "string"
+            },
+            "ignore_daemonsets_utilization_enabled": {
+              "description_kind": "plain",
+              "optional": true,
+              "type": "bool"
             },
             "max_graceful_termination_sec": {
               "computed": true,
@@ -1491,6 +1506,11 @@ const azurermKubernetesCluster = `{
             "load_balancer_profile": {
               "block": {
                 "attributes": {
+                  "backend_pool_type": {
+                    "description_kind": "plain",
+                    "optional": true,
+                    "type": "string"
+                  },
                   "effective_outbound_ips": {
                     "computed": true,
                     "description_kind": "plain",

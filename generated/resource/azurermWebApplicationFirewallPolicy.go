@@ -306,6 +306,12 @@ const azurermWebApplicationFirewallPolicy = `{
               "optional": true,
               "type": "bool"
             },
+            "file_upload_enforcement": {
+              "computed": true,
+              "description_kind": "plain",
+              "optional": true,
+              "type": "bool"
+            },
             "file_upload_limit_in_mb": {
               "description_kind": "plain",
               "optional": true,

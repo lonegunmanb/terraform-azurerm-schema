@@ -849,6 +849,28 @@ const azurermOrchestratedVirtualMachineScaleSet = `{
         "max_items": 1,
         "nesting_mode": "list"
       },
+      "sku_profile": {
+        "block": {
+          "attributes": {
+            "allocation_strategy": {
+              "description_kind": "plain",
+              "required": true,
+              "type": "string"
+            },
+            "vm_sizes": {
+              "description_kind": "plain",
+              "required": true,
+              "type": [
+                "set",
+                "string"
+              ]
+            }
+          },
+          "description_kind": "plain"
+        },
+        "max_items": 1,
+        "nesting_mode": "list"
+      },
       "source_image_reference": {
         "block": {
           "attributes": {

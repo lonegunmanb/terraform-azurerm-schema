@@ -89,6 +89,11 @@ const azurermCosmosdbAccount = `{
         "required": true,
         "type": "string"
       },
+      "managed_hsm_key_id": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "string"
+      },
       "minimal_tls_version": {
         "description_kind": "plain",
         "optional": true,
