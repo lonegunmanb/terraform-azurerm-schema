@@ -6,21 +6,24 @@ import (
 	tfjson "github.com/hashicorp/terraform-json"
 )
 
-const azurermPublicIpPrefix = `{
+const azurermDashboardGrafanaManagedPrivateEndpoint = `{
   "block": {
     "attributes": {
-      "id": {
-        "computed": true,
+      "grafana_id": {
+        "description_kind": "plain",
+        "required": true,
+        "type": "string"
+      },
+      "group_ids": {
         "description_kind": "plain",
         "optional": true,
-        "type": "string"
+        "type": [
+          "list",
+          "string"
+        ]
       },
-      "ip_prefix": {
+      "id": {
         "computed": true,
-        "description_kind": "plain",
-        "type": "string"
-      },
-      "ip_version": {
         "description_kind": "plain",
         "optional": true,
         "type": "string"
@@ -35,22 +38,17 @@ const azurermPublicIpPrefix = `{
         "required": true,
         "type": "string"
       },
-      "prefix_length": {
-        "description_kind": "plain",
-        "optional": true,
-        "type": "number"
-      },
-      "resource_group_name": {
+      "private_link_resource_id": {
         "description_kind": "plain",
         "required": true,
         "type": "string"
       },
-      "sku": {
+      "private_link_resource_region": {
         "description_kind": "plain",
         "optional": true,
         "type": "string"
       },
-      "sku_tier": {
+      "request_message": {
         "description_kind": "plain",
         "optional": true,
         "type": "string"
@@ -60,14 +58,6 @@ const azurermPublicIpPrefix = `{
         "optional": true,
         "type": [
           "map",
-          "string"
-        ]
-      },
-      "zones": {
-        "description_kind": "plain",
-        "optional": true,
-        "type": [
-          "set",
           "string"
         ]
       }
@@ -107,8 +97,8 @@ const azurermPublicIpPrefix = `{
   "version": 0
 }`
 
-func AzurermPublicIpPrefixSchema() *tfjson.Schema {
+func AzurermDashboardGrafanaManagedPrivateEndpointSchema() *tfjson.Schema {
 	var result tfjson.Schema
-	_ = json.Unmarshal([]byte(azurermPublicIpPrefix), &result)
+	_ = json.Unmarshal([]byte(azurermDashboardGrafanaManagedPrivateEndpoint), &result)
 	return &result
 }

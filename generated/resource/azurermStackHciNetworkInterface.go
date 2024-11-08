@@ -6,18 +6,21 @@ import (
 	tfjson "github.com/hashicorp/terraform-json"
 )
 
-const azurermSentinelAlertRuleFusion = `{
+const azurermStackHciNetworkInterface = `{
   "block": {
     "attributes": {
-      "alert_rule_template_guid": {
+      "custom_location_id": {
         "description_kind": "plain",
         "required": true,
         "type": "string"
       },
-      "enabled": {
+      "dns_servers": {
         "description_kind": "plain",
         "optional": true,
-        "type": "bool"
+        "type": [
+          "list",
+          "string"
+        ]
       },
       "id": {
         "computed": true,
@@ -25,63 +28,64 @@ const azurermSentinelAlertRuleFusion = `{
         "optional": true,
         "type": "string"
       },
-      "log_analytics_workspace_id": {
+      "location": {
         "description_kind": "plain",
         "required": true,
         "type": "string"
       },
-      "name": {
-        "deprecated": true,
+      "mac_address": {
         "description_kind": "plain",
         "optional": true,
         "type": "string"
+      },
+      "name": {
+        "description_kind": "plain",
+        "required": true,
+        "type": "string"
+      },
+      "resource_group_name": {
+        "description_kind": "plain",
+        "required": true,
+        "type": "string"
+      },
+      "tags": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": [
+          "map",
+          "string"
+        ]
       }
     },
     "block_types": {
-      "source": {
+      "ip_configuration": {
         "block": {
           "attributes": {
-            "enabled": {
+            "gateway": {
+              "computed": true,
+              "description_kind": "plain",
+              "type": "string"
+            },
+            "prefix_length": {
+              "computed": true,
+              "description_kind": "plain",
+              "type": "string"
+            },
+            "private_ip_address": {
               "description_kind": "plain",
               "optional": true,
-              "type": "bool"
+              "type": "string"
             },
-            "name": {
+            "subnet_id": {
               "description_kind": "plain",
               "required": true,
               "type": "string"
             }
           },
-          "block_types": {
-            "sub_type": {
-              "block": {
-                "attributes": {
-                  "enabled": {
-                    "description_kind": "plain",
-                    "optional": true,
-                    "type": "bool"
-                  },
-                  "name": {
-                    "description_kind": "plain",
-                    "required": true,
-                    "type": "string"
-                  },
-                  "severities_allowed": {
-                    "description_kind": "plain",
-                    "required": true,
-                    "type": [
-                      "set",
-                      "string"
-                    ]
-                  }
-                },
-                "description_kind": "plain"
-              },
-              "nesting_mode": "list"
-            }
-          },
           "description_kind": "plain"
         },
+        "max_items": 1,
+        "min_items": 1,
         "nesting_mode": "list"
       },
       "timeouts": {
@@ -118,8 +122,8 @@ const azurermSentinelAlertRuleFusion = `{
   "version": 0
 }`
 
-func AzurermSentinelAlertRuleFusionSchema() *tfjson.Schema {
+func AzurermStackHciNetworkInterfaceSchema() *tfjson.Schema {
 	var result tfjson.Schema
-	_ = json.Unmarshal([]byte(azurermSentinelAlertRuleFusion), &result)
+	_ = json.Unmarshal([]byte(azurermStackHciNetworkInterface), &result)
 	return &result
 }

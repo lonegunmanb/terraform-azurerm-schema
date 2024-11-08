@@ -6,70 +6,29 @@ import (
 	tfjson "github.com/hashicorp/terraform-json"
 )
 
-const azurermPublicIpPrefix = `{
+const azurermStorageAccountStaticWebsite = `{
   "block": {
     "attributes": {
+      "error_404_document": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "string"
+      },
       "id": {
         "computed": true,
         "description_kind": "plain",
         "optional": true,
         "type": "string"
       },
-      "ip_prefix": {
-        "computed": true,
-        "description_kind": "plain",
-        "type": "string"
-      },
-      "ip_version": {
+      "index_document": {
         "description_kind": "plain",
         "optional": true,
         "type": "string"
       },
-      "location": {
+      "storage_account_id": {
         "description_kind": "plain",
         "required": true,
         "type": "string"
-      },
-      "name": {
-        "description_kind": "plain",
-        "required": true,
-        "type": "string"
-      },
-      "prefix_length": {
-        "description_kind": "plain",
-        "optional": true,
-        "type": "number"
-      },
-      "resource_group_name": {
-        "description_kind": "plain",
-        "required": true,
-        "type": "string"
-      },
-      "sku": {
-        "description_kind": "plain",
-        "optional": true,
-        "type": "string"
-      },
-      "sku_tier": {
-        "description_kind": "plain",
-        "optional": true,
-        "type": "string"
-      },
-      "tags": {
-        "description_kind": "plain",
-        "optional": true,
-        "type": [
-          "map",
-          "string"
-        ]
-      },
-      "zones": {
-        "description_kind": "plain",
-        "optional": true,
-        "type": [
-          "set",
-          "string"
-        ]
       }
     },
     "block_types": {
@@ -107,8 +66,8 @@ const azurermPublicIpPrefix = `{
   "version": 0
 }`
 
-func AzurermPublicIpPrefixSchema() *tfjson.Schema {
+func AzurermStorageAccountStaticWebsiteSchema() *tfjson.Schema {
 	var result tfjson.Schema
-	_ = json.Unmarshal([]byte(azurermPublicIpPrefix), &result)
+	_ = json.Unmarshal([]byte(azurermStorageAccountStaticWebsite), &result)
 	return &result
 }

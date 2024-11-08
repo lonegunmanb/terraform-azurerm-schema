@@ -57,12 +57,19 @@ const azurermStorageContainer = `{
       },
       "resource_manager_id": {
         "computed": true,
+        "deprecated": true,
         "description_kind": "plain",
         "type": "string"
       },
-      "storage_account_name": {
+      "storage_account_id": {
         "description_kind": "plain",
-        "required": true,
+        "optional": true,
+        "type": "string"
+      },
+      "storage_account_name": {
+        "deprecated": true,
+        "description_kind": "plain",
+        "optional": true,
         "type": "string"
       }
     },

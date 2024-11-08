@@ -6,21 +6,37 @@ import (
 	tfjson "github.com/hashicorp/terraform-json"
 )
 
-const azurermPublicIpPrefix = `{
+const azurermMongoCluster = `{
   "block": {
     "attributes": {
-      "id": {
-        "computed": true,
+      "administrator_password": {
+        "description_kind": "plain",
+        "optional": true,
+        "sensitive": true,
+        "type": "string"
+      },
+      "administrator_username": {
         "description_kind": "plain",
         "optional": true,
         "type": "string"
       },
-      "ip_prefix": {
-        "computed": true,
+      "compute_tier": {
         "description_kind": "plain",
+        "optional": true,
         "type": "string"
       },
-      "ip_version": {
+      "create_mode": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "string"
+      },
+      "high_availability_mode": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "string"
+      },
+      "id": {
+        "computed": true,
         "description_kind": "plain",
         "optional": true,
         "type": "string"
@@ -35,25 +51,43 @@ const azurermPublicIpPrefix = `{
         "required": true,
         "type": "string"
       },
-      "prefix_length": {
+      "preview_features": {
         "description_kind": "plain",
         "optional": true,
-        "type": "number"
+        "type": [
+          "list",
+          "string"
+        ]
+      },
+      "public_network_access": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "string"
       },
       "resource_group_name": {
         "description_kind": "plain",
         "required": true,
         "type": "string"
       },
-      "sku": {
+      "shard_count": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "number"
+      },
+      "source_location": {
         "description_kind": "plain",
         "optional": true,
         "type": "string"
       },
-      "sku_tier": {
+      "source_server_id": {
         "description_kind": "plain",
         "optional": true,
         "type": "string"
+      },
+      "storage_size_in_gb": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "number"
       },
       "tags": {
         "description_kind": "plain",
@@ -63,13 +97,10 @@ const azurermPublicIpPrefix = `{
           "string"
         ]
       },
-      "zones": {
+      "version": {
         "description_kind": "plain",
         "optional": true,
-        "type": [
-          "set",
-          "string"
-        ]
+        "type": "string"
       }
     },
     "block_types": {
@@ -107,8 +138,8 @@ const azurermPublicIpPrefix = `{
   "version": 0
 }`
 
-func AzurermPublicIpPrefixSchema() *tfjson.Schema {
+func AzurermMongoClusterSchema() *tfjson.Schema {
 	var result tfjson.Schema
-	_ = json.Unmarshal([]byte(azurermPublicIpPrefix), &result)
+	_ = json.Unmarshal([]byte(azurermMongoCluster), &result)
 	return &result
 }

@@ -29,6 +29,11 @@ const azurermPublicIp = `{
         "optional": true,
         "type": "string"
       },
+      "domain_name_label_scope": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "string"
+      },
       "edge_zone": {
         "description_kind": "plain",
         "optional": true,

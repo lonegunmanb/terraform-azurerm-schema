@@ -61,6 +61,12 @@ const azurermOracleCloudVmCluster = `{
         "required": true,
         "type": "string"
       },
+      "domain": {
+        "computed": true,
+        "description_kind": "plain",
+        "optional": true,
+        "type": "string"
+      },
       "gi_version": {
         "description_kind": "plain",
         "required": true,
@@ -119,6 +125,16 @@ const azurermOracleCloudVmCluster = `{
         "required": true,
         "type": "string"
       },
+      "scan_listener_port_tcp": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "number"
+      },
+      "scan_listener_port_tcp_ssl": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "number"
+      },
       "sparse_diskgroup_enabled": {
         "computed": true,
         "description_kind": "plain",
@@ -155,6 +171,12 @@ const azurermOracleCloudVmCluster = `{
       "virtual_network_id": {
         "description_kind": "plain",
         "required": true,
+        "type": "string"
+      },
+      "zone_id": {
+        "computed": true,
+        "description_kind": "plain",
+        "optional": true,
         "type": "string"
       }
     },

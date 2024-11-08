@@ -1011,6 +1011,7 @@ const azurermStorageAccount = `{
               "nesting_mode": "list"
             }
           },
+          "deprecated": true,
           "description_kind": "plain"
         },
         "max_items": 1,
@@ -1188,6 +1189,7 @@ const azurermStorageAccount = `{
               "type": "string"
             }
           },
+          "deprecated": true,
           "description_kind": "plain"
         },
         "max_items": 1,

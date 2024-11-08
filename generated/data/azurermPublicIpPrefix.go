@@ -45,6 +45,11 @@ const azurermPublicIpPrefix = `{
         "description_kind": "plain",
         "type": "string"
       },
+      "sku_tier": {
+        "computed": true,
+        "description_kind": "plain",
+        "type": "string"
+      },
       "tags": {
         "computed": true,
         "description_kind": "plain",

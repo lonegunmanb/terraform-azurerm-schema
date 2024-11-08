@@ -6,7 +6,7 @@ import (
 	tfjson "github.com/hashicorp/terraform-json"
 )
 
-const azurermMssqlManagedDatabase = `{
+const azurermDynatraceMonitor = `{
   "block": {
     "attributes": {
       "id": {
@@ -15,20 +15,30 @@ const azurermMssqlManagedDatabase = `{
         "optional": true,
         "type": "string"
       },
-      "managed_instance_id": {
+      "location": {
         "description_kind": "plain",
         "required": true,
         "type": "string"
+      },
+      "marketplace_subscription": {
+        "description_kind": "plain",
+        "required": true,
+        "type": "string"
+      },
+      "monitoring_enabled": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "bool"
       },
       "name": {
         "description_kind": "plain",
         "required": true,
         "type": "string"
       },
-      "short_term_retention_days": {
+      "resource_group_name": {
         "description_kind": "plain",
-        "optional": true,
-        "type": "number"
+        "required": true,
+        "type": "string"
       },
       "tags": {
         "description_kind": "plain",
@@ -40,56 +50,59 @@ const azurermMssqlManagedDatabase = `{
       }
     },
     "block_types": {
-      "long_term_retention_policy": {
+      "identity": {
         "block": {
           "attributes": {
-            "monthly_retention": {
+            "principal_id": {
               "computed": true,
               "description_kind": "plain",
-              "optional": true,
               "type": "string"
             },
-            "week_of_year": {
+            "tenant_id": {
               "computed": true,
               "description_kind": "plain",
-              "optional": true,
-              "type": "number"
-            },
-            "weekly_retention": {
-              "computed": true,
-              "description_kind": "plain",
-              "optional": true,
               "type": "string"
             },
-            "yearly_retention": {
-              "computed": true,
+            "type": {
               "description_kind": "plain",
-              "optional": true,
+              "required": true,
               "type": "string"
             }
           },
           "description_kind": "plain"
         },
         "max_items": 1,
+        "min_items": 1,
         "nesting_mode": "list"
       },
-      "point_in_time_restore": {
+      "plan": {
         "block": {
           "attributes": {
-            "restore_point_in_time": {
+            "billing_cycle": {
+              "description_kind": "plain",
+              "optional": true,
+              "type": "string"
+            },
+            "effective_date": {
+              "computed": true,
+              "description_kind": "plain",
+              "type": "string"
+            },
+            "plan": {
               "description_kind": "plain",
               "required": true,
               "type": "string"
             },
-            "source_database_id": {
+            "usage_type": {
               "description_kind": "plain",
-              "required": true,
+              "optional": true,
               "type": "string"
             }
           },
           "description_kind": "plain"
         },
         "max_items": 1,
+        "min_items": 1,
         "nesting_mode": "list"
       },
       "timeouts": {
@@ -119,6 +132,41 @@ const azurermMssqlManagedDatabase = `{
           "description_kind": "plain"
         },
         "nesting_mode": "single"
+      },
+      "user": {
+        "block": {
+          "attributes": {
+            "country": {
+              "description_kind": "plain",
+              "required": true,
+              "type": "string"
+            },
+            "email": {
+              "description_kind": "plain",
+              "required": true,
+              "type": "string"
+            },
+            "first_name": {
+              "description_kind": "plain",
+              "required": true,
+              "type": "string"
+            },
+            "last_name": {
+              "description_kind": "plain",
+              "required": true,
+              "type": "string"
+            },
+            "phone_number": {
+              "description_kind": "plain",
+              "required": true,
+              "type": "string"
+            }
+          },
+          "description_kind": "plain"
+        },
+        "max_items": 1,
+        "min_items": 1,
+        "nesting_mode": "list"
       }
     },
     "description_kind": "plain"
@@ -126,8 +174,8 @@ const azurermMssqlManagedDatabase = `{
   "version": 0
 }`
 
-func AzurermMssqlManagedDatabaseSchema() *tfjson.Schema {
+func AzurermDynatraceMonitorSchema() *tfjson.Schema {
 	var result tfjson.Schema
-	_ = json.Unmarshal([]byte(azurermMssqlManagedDatabase), &result)
+	_ = json.Unmarshal([]byte(azurermDynatraceMonitor), &result)
 	return &result
 }

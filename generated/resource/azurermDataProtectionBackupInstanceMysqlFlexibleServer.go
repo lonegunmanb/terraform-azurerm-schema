@@ -6,21 +6,16 @@ import (
 	tfjson "github.com/hashicorp/terraform-json"
 )
 
-const azurermPublicIpPrefix = `{
+const azurermDataProtectionBackupInstanceMysqlFlexibleServer = `{
   "block": {
     "attributes": {
+      "backup_policy_id": {
+        "description_kind": "plain",
+        "required": true,
+        "type": "string"
+      },
       "id": {
         "computed": true,
-        "description_kind": "plain",
-        "optional": true,
-        "type": "string"
-      },
-      "ip_prefix": {
-        "computed": true,
-        "description_kind": "plain",
-        "type": "string"
-      },
-      "ip_version": {
         "description_kind": "plain",
         "optional": true,
         "type": "string"
@@ -35,41 +30,15 @@ const azurermPublicIpPrefix = `{
         "required": true,
         "type": "string"
       },
-      "prefix_length": {
-        "description_kind": "plain",
-        "optional": true,
-        "type": "number"
-      },
-      "resource_group_name": {
+      "server_id": {
         "description_kind": "plain",
         "required": true,
         "type": "string"
       },
-      "sku": {
+      "vault_id": {
         "description_kind": "plain",
-        "optional": true,
+        "required": true,
         "type": "string"
-      },
-      "sku_tier": {
-        "description_kind": "plain",
-        "optional": true,
-        "type": "string"
-      },
-      "tags": {
-        "description_kind": "plain",
-        "optional": true,
-        "type": [
-          "map",
-          "string"
-        ]
-      },
-      "zones": {
-        "description_kind": "plain",
-        "optional": true,
-        "type": [
-          "set",
-          "string"
-        ]
       }
     },
     "block_types": {
@@ -107,8 +76,8 @@ const azurermPublicIpPrefix = `{
   "version": 0
 }`
 
-func AzurermPublicIpPrefixSchema() *tfjson.Schema {
+func AzurermDataProtectionBackupInstanceMysqlFlexibleServerSchema() *tfjson.Schema {
 	var result tfjson.Schema
-	_ = json.Unmarshal([]byte(azurermPublicIpPrefix), &result)
+	_ = json.Unmarshal([]byte(azurermDataProtectionBackupInstanceMysqlFlexibleServer), &result)
 	return &result
 }
