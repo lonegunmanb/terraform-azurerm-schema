@@ -6,13 +6,23 @@ import (
 	tfjson "github.com/hashicorp/terraform-json"
 )
 
-const azurermNetappAccountEncryption = `{
+const azurermNetappBackupPolicy = `{
   "block": {
     "attributes": {
-      "encryption_key": {
+      "account_name": {
+        "description_kind": "plain",
+        "required": true,
+        "type": "string"
+      },
+      "daily_backups_to_keep": {
         "computed": true,
         "description_kind": "plain",
-        "type": "string"
+        "type": "number"
+      },
+      "enabled": {
+        "computed": true,
+        "description_kind": "plain",
+        "type": "bool"
       },
       "id": {
         "computed": true,
@@ -20,21 +30,38 @@ const azurermNetappAccountEncryption = `{
         "optional": true,
         "type": "string"
       },
-      "netapp_account_id": {
-        "description": "The ID of the NetApp Account where encryption will be set.",
+      "location": {
+        "computed": true,
+        "description_kind": "plain",
+        "type": "string"
+      },
+      "monthly_backups_to_keep": {
+        "computed": true,
+        "description_kind": "plain",
+        "type": "number"
+      },
+      "name": {
         "description_kind": "plain",
         "required": true,
         "type": "string"
       },
-      "system_assigned_identity_principal_id": {
-        "computed": true,
+      "resource_group_name": {
         "description_kind": "plain",
+        "required": true,
         "type": "string"
       },
-      "user_assigned_identity_id": {
+      "tags": {
         "computed": true,
         "description_kind": "plain",
-        "type": "string"
+        "type": [
+          "map",
+          "string"
+        ]
+      },
+      "weekly_backups_to_keep": {
+        "computed": true,
+        "description_kind": "plain",
+        "type": "number"
       }
     },
     "block_types": {
@@ -57,8 +84,8 @@ const azurermNetappAccountEncryption = `{
   "version": 0
 }`
 
-func AzurermNetappAccountEncryptionSchema() *tfjson.Schema {
+func AzurermNetappBackupPolicySchema() *tfjson.Schema {
 	var result tfjson.Schema
-	_ = json.Unmarshal([]byte(azurermNetappAccountEncryption), &result)
+	_ = json.Unmarshal([]byte(azurermNetappBackupPolicy), &result)
 	return &result
 }

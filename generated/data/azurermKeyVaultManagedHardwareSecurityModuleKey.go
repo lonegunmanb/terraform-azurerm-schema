@@ -6,23 +6,18 @@ import (
 	tfjson "github.com/hashicorp/terraform-json"
 )
 
-const azurermBastionHost = `{
+const azurermKeyVaultManagedHardwareSecurityModuleKey = `{
   "block": {
     "attributes": {
-      "copy_paste_enabled": {
-        "computed": true,
-        "description_kind": "plain",
-        "type": "bool"
-      },
-      "dns_name": {
+      "curve": {
         "computed": true,
         "description_kind": "plain",
         "type": "string"
       },
-      "file_copy_enabled": {
+      "expiration_date": {
         "computed": true,
         "description_kind": "plain",
-        "type": "bool"
+        "type": "string"
       },
       "id": {
         "computed": true,
@@ -30,29 +25,27 @@ const azurermBastionHost = `{
         "optional": true,
         "type": "string"
       },
-      "ip_configuration": {
+      "key_opts": {
         "computed": true,
         "description_kind": "plain",
         "type": [
           "list",
-          [
-            "object",
-            {
-              "name": "string",
-              "public_ip_address_id": "string",
-              "subnet_id": "string"
-            }
-          ]
+          "string"
         ]
       },
-      "ip_connect_enabled": {
+      "key_size": {
         "computed": true,
         "description_kind": "plain",
-        "type": "bool"
+        "type": "number"
       },
-      "location": {
+      "key_type": {
         "computed": true,
         "description_kind": "plain",
+        "type": "string"
+      },
+      "managed_hsm_id": {
+        "description_kind": "plain",
+        "required": true,
         "type": "string"
       },
       "name": {
@@ -60,27 +53,7 @@ const azurermBastionHost = `{
         "required": true,
         "type": "string"
       },
-      "resource_group_name": {
-        "description_kind": "plain",
-        "required": true,
-        "type": "string"
-      },
-      "scale_units": {
-        "computed": true,
-        "description_kind": "plain",
-        "type": "number"
-      },
-      "session_recording_enabled": {
-        "computed": true,
-        "description_kind": "plain",
-        "type": "bool"
-      },
-      "shareable_link_enabled": {
-        "computed": true,
-        "description_kind": "plain",
-        "type": "bool"
-      },
-      "sku": {
+      "not_before_date": {
         "computed": true,
         "description_kind": "plain",
         "type": "string"
@@ -93,18 +66,15 @@ const azurermBastionHost = `{
           "string"
         ]
       },
-      "tunneling_enabled": {
+      "version": {
         "computed": true,
         "description_kind": "plain",
-        "type": "bool"
+        "type": "string"
       },
-      "zones": {
+      "versioned_id": {
         "computed": true,
         "description_kind": "plain",
-        "type": [
-          "list",
-          "string"
-        ]
+        "type": "string"
       }
     },
     "block_types": {
@@ -127,8 +97,8 @@ const azurermBastionHost = `{
   "version": 0
 }`
 
-func AzurermBastionHostSchema() *tfjson.Schema {
+func AzurermKeyVaultManagedHardwareSecurityModuleKeySchema() *tfjson.Schema {
 	var result tfjson.Schema
-	_ = json.Unmarshal([]byte(azurermBastionHost), &result)
+	_ = json.Unmarshal([]byte(azurermKeyVaultManagedHardwareSecurityModuleKey), &result)
 	return &result
 }

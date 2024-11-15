@@ -126,7 +126,6 @@ const azurermNetappVolume = `{
         "type": "bool"
       },
       "snapshot_directory_visible": {
-        "computed": true,
         "description_kind": "plain",
         "optional": true,
         "type": "bool"
@@ -167,6 +166,33 @@ const azurermNetappVolume = `{
       }
     },
     "block_types": {
+      "data_protection_backup_policy": {
+        "block": {
+          "attributes": {
+            "backup_policy_id": {
+              "description": "The ID of the backup policy to associate with this volume.",
+              "description_kind": "plain",
+              "required": true,
+              "type": "string"
+            },
+            "backup_vault_id": {
+              "description": "The ID of the backup vault to associate with this volume.",
+              "description_kind": "plain",
+              "required": true,
+              "type": "string"
+            },
+            "policy_enabled": {
+              "description": "If set to false, the backup policy will not be enabled on this volume, thus disabling scheduled backups.",
+              "description_kind": "plain",
+              "optional": true,
+              "type": "bool"
+            }
+          },
+          "description_kind": "plain"
+        },
+        "max_items": 1,
+        "nesting_mode": "list"
+      },
       "data_protection_replication": {
         "block": {
           "attributes": {

@@ -6,26 +6,23 @@ import (
 	tfjson "github.com/hashicorp/terraform-json"
 )
 
-const azurermTrafficManagerAzureEndpoint = `{
+const azurermNetappBackupPolicy = `{
   "block": {
     "attributes": {
-      "always_serve_enabled": {
+      "account_name": {
+        "description_kind": "plain",
+        "required": true,
+        "type": "string"
+      },
+      "daily_backups_to_keep": {
         "description_kind": "plain",
         "optional": true,
-        "type": "bool"
+        "type": "number"
       },
       "enabled": {
         "description_kind": "plain",
         "optional": true,
         "type": "bool"
-      },
-      "geo_mappings": {
-        "description_kind": "plain",
-        "optional": true,
-        "type": [
-          "list",
-          "string"
-        ]
       },
       "id": {
         "computed": true,
@@ -33,75 +30,41 @@ const azurermTrafficManagerAzureEndpoint = `{
         "optional": true,
         "type": "string"
       },
+      "location": {
+        "description_kind": "plain",
+        "required": true,
+        "type": "string"
+      },
+      "monthly_backups_to_keep": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "number"
+      },
       "name": {
         "description_kind": "plain",
         "required": true,
         "type": "string"
       },
-      "priority": {
-        "computed": true,
+      "resource_group_name": {
+        "description_kind": "plain",
+        "required": true,
+        "type": "string"
+      },
+      "tags": {
         "description_kind": "plain",
         "optional": true,
-        "type": "number"
+        "type": [
+          "map",
+          "string"
+        ]
       },
-      "profile_id": {
-        "description_kind": "plain",
-        "required": true,
-        "type": "string"
-      },
-      "target_resource_id": {
-        "description_kind": "plain",
-        "required": true,
-        "type": "string"
-      },
-      "weight": {
+      "weekly_backups_to_keep": {
         "description_kind": "plain",
         "optional": true,
         "type": "number"
       }
     },
     "block_types": {
-      "custom_header": {
-        "block": {
-          "attributes": {
-            "name": {
-              "description_kind": "plain",
-              "required": true,
-              "type": "string"
-            },
-            "value": {
-              "description_kind": "plain",
-              "required": true,
-              "type": "string"
-            }
-          },
-          "description_kind": "plain"
-        },
-        "nesting_mode": "list"
-      },
-      "subnet": {
-        "block": {
-          "attributes": {
-            "first": {
-              "description_kind": "plain",
-              "required": true,
-              "type": "string"
-            },
-            "last": {
-              "description_kind": "plain",
-              "optional": true,
-              "type": "string"
-            },
-            "scope": {
-              "description_kind": "plain",
-              "optional": true,
-              "type": "number"
-            }
-          },
-          "description_kind": "plain"
-        },
-        "nesting_mode": "list"
-      },
       "timeouts": {
         "block": {
           "attributes": {
@@ -136,8 +99,8 @@ const azurermTrafficManagerAzureEndpoint = `{
   "version": 0
 }`
 
-func AzurermTrafficManagerAzureEndpointSchema() *tfjson.Schema {
+func AzurermNetappBackupPolicySchema() *tfjson.Schema {
 	var result tfjson.Schema
-	_ = json.Unmarshal([]byte(azurermTrafficManagerAzureEndpoint), &result)
+	_ = json.Unmarshal([]byte(azurermNetappBackupPolicy), &result)
 	return &result
 }

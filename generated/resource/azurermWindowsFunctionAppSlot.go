@@ -1441,7 +1441,7 @@ const azurermWindowsFunctionAppSlot = `{
               "block": {
                 "attributes": {
                   "dotnet_version": {
-                    "description": "The version of .Net. Possible values are ` + "`" + `v3.0` + "`" + `, ` + "`" + `v4.0` + "`" + `, ` + "`" + `v6.0` + "`" + ` and ` + "`" + `v7.0` + "`" + `",
+                    "description": "The version of .Net. Possible values are ` + "`" + `v3.0` + "`" + `, ` + "`" + `v4.0` + "`" + `, ` + "`" + `v6.0` + "`" + `, ` + "`" + `v7.0` + "`" + `, ` + "`" + `v8.0` + "`" + ` and ` + "`" + `v9.0` + "`" + `",
                     "description_kind": "plain",
                     "optional": true,
                     "type": "string"

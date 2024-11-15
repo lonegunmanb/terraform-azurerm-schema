@@ -1446,7 +1446,7 @@ const azurermLinuxFunctionAppSlot = `{
               "block": {
                 "attributes": {
                   "dotnet_version": {
-                    "description": "The version of .Net. Possible values are ` + "`" + `3.1` + "`" + `, ` + "`" + `6.0` + "`" + ` and ` + "`" + `7.0` + "`" + `",
+                    "description": "The version of .Net. Possible values are ` + "`" + `3.1` + "`" + `, ` + "`" + `6.0` + "`" + `, ` + "`" + `7.0` + "`" + `, ` + "`" + `8.0` + "`" + ` and ` + "`" + `9.0` + "`" + `",
                     "description_kind": "plain",
                     "optional": true,
                     "type": "string"

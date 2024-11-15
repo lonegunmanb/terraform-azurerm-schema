@@ -14,6 +14,21 @@ const azurermNetappVolume = `{
         "required": true,
         "type": "string"
       },
+      "data_protection_backup_policy": {
+        "computed": true,
+        "description_kind": "plain",
+        "type": [
+          "list",
+          [
+            "object",
+            {
+              "backup_policy_id": "string",
+              "backup_vault_id": "string",
+              "policy_enabled": "bool"
+            }
+          ]
+        ]
+      },
       "data_protection_replication": {
         "computed": true,
         "description_kind": "plain",

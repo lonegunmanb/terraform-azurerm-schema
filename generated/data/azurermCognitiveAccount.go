@@ -44,6 +44,11 @@ const azurermCognitiveAccount = `{
         "description_kind": "plain",
         "type": "string"
       },
+      "local_auth_enabled": {
+        "computed": true,
+        "description_kind": "plain",
+        "type": "bool"
+      },
       "location": {
         "computed": true,
         "description_kind": "plain",

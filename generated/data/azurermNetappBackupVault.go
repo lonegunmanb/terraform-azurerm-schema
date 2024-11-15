@@ -6,12 +6,12 @@ import (
 	tfjson "github.com/hashicorp/terraform-json"
 )
 
-const azurermNetappAccountEncryption = `{
+const azurermNetappBackupVault = `{
   "block": {
     "attributes": {
-      "encryption_key": {
-        "computed": true,
+      "account_name": {
         "description_kind": "plain",
+        "required": true,
         "type": "string"
       },
       "id": {
@@ -20,21 +20,28 @@ const azurermNetappAccountEncryption = `{
         "optional": true,
         "type": "string"
       },
-      "netapp_account_id": {
-        "description": "The ID of the NetApp Account where encryption will be set.",
+      "location": {
+        "computed": true,
+        "description_kind": "plain",
+        "type": "string"
+      },
+      "name": {
         "description_kind": "plain",
         "required": true,
         "type": "string"
       },
-      "system_assigned_identity_principal_id": {
-        "computed": true,
+      "resource_group_name": {
         "description_kind": "plain",
+        "required": true,
         "type": "string"
       },
-      "user_assigned_identity_id": {
+      "tags": {
         "computed": true,
         "description_kind": "plain",
-        "type": "string"
+        "type": [
+          "map",
+          "string"
+        ]
       }
     },
     "block_types": {
@@ -57,8 +64,8 @@ const azurermNetappAccountEncryption = `{
   "version": 0
 }`
 
-func AzurermNetappAccountEncryptionSchema() *tfjson.Schema {
+func AzurermNetappBackupVaultSchema() *tfjson.Schema {
 	var result tfjson.Schema
-	_ = json.Unmarshal([]byte(azurermNetappAccountEncryption), &result)
+	_ = json.Unmarshal([]byte(azurermNetappBackupVault), &result)
 	return &result
 }

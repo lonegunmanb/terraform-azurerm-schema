@@ -43,6 +43,11 @@ const azurermMssqlManagedDatabase = `{
       "long_term_retention_policy": {
         "block": {
           "attributes": {
+            "immutable_backups_enabled": {
+              "description_kind": "plain",
+              "optional": true,
+              "type": "bool"
+            },
             "monthly_retention": {
               "computed": true,
               "description_kind": "plain",

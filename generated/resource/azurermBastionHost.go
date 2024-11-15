@@ -92,6 +92,14 @@ const azurermBastionHost = `{
         "description_kind": "plain",
         "optional": true,
         "type": "string"
+      },
+      "zones": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": [
+          "set",
+          "string"
+        ]
       }
     },
     "block_types": {
