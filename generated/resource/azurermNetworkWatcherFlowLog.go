@@ -32,8 +32,10 @@ const azurermNetworkWatcherFlowLog = `{
         "type": "string"
       },
       "network_security_group_id": {
+        "computed": true,
+        "deprecated": true,
         "description_kind": "plain",
-        "required": true,
+        "optional": true,
         "type": "string"
       },
       "network_watcher_name": {
@@ -58,6 +60,12 @@ const azurermNetworkWatcherFlowLog = `{
           "map",
           "string"
         ]
+      },
+      "target_resource_id": {
+        "computed": true,
+        "description_kind": "plain",
+        "optional": true,
+        "type": "string"
       },
       "version": {
         "description_kind": "plain",

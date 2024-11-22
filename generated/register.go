@@ -375,6 +375,7 @@ func init() {
 	resources["azurerm_eventgrid_domain"] = resource.AzurermEventgridDomainSchema()  
 	resources["azurerm_eventgrid_domain_topic"] = resource.AzurermEventgridDomainTopicSchema()  
 	resources["azurerm_eventgrid_event_subscription"] = resource.AzurermEventgridEventSubscriptionSchema()  
+	resources["azurerm_eventgrid_namespace"] = resource.AzurermEventgridNamespaceSchema()  
 	resources["azurerm_eventgrid_system_topic"] = resource.AzurermEventgridSystemTopicSchema()  
 	resources["azurerm_eventgrid_system_topic_event_subscription"] = resource.AzurermEventgridSystemTopicEventSubscriptionSchema()  
 	resources["azurerm_eventgrid_topic"] = resource.AzurermEventgridTopicSchema()  
