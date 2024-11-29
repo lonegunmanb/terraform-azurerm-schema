@@ -1284,6 +1284,7 @@ func init() {
 	dataSources["azurerm_monitor_workspace"] = data.AzurermMonitorWorkspaceSchema()  
 	dataSources["azurerm_mssql_database"] = data.AzurermMssqlDatabaseSchema()  
 	dataSources["azurerm_mssql_elasticpool"] = data.AzurermMssqlElasticpoolSchema()  
+	dataSources["azurerm_mssql_managed_database"] = data.AzurermMssqlManagedDatabaseSchema()  
 	dataSources["azurerm_mssql_managed_instance"] = data.AzurermMssqlManagedInstanceSchema()  
 	dataSources["azurerm_mssql_server"] = data.AzurermMssqlServerSchema()  
 	dataSources["azurerm_mysql_flexible_server"] = data.AzurermMysqlFlexibleServerSchema()  

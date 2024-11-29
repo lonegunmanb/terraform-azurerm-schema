@@ -90,6 +90,12 @@ const azurermLogicAppStandard = `{
         "description_kind": "plain",
         "type": "string"
       },
+      "public_network_access": {
+        "computed": true,
+        "description_kind": "plain",
+        "optional": true,
+        "type": "string"
+      },
       "resource_group_name": {
         "description_kind": "plain",
         "required": true,
@@ -315,6 +321,8 @@ const azurermLogicAppStandard = `{
               "type": "number"
             },
             "public_network_access_enabled": {
+              "computed": true,
+              "deprecated": true,
               "description_kind": "plain",
               "optional": true,
               "type": "bool"

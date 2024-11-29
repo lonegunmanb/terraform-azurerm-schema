@@ -235,6 +235,38 @@ const azurermDatabricksWorkspace = `{
         "max_items": 1,
         "nesting_mode": "list"
       },
+      "enhanced_security_compliance": {
+        "block": {
+          "attributes": {
+            "automatic_cluster_update_enabled": {
+              "description_kind": "plain",
+              "optional": true,
+              "type": "bool"
+            },
+            "compliance_security_profile_enabled": {
+              "description_kind": "plain",
+              "optional": true,
+              "type": "bool"
+            },
+            "compliance_security_profile_standards": {
+              "description_kind": "plain",
+              "optional": true,
+              "type": [
+                "set",
+                "string"
+              ]
+            },
+            "enhanced_security_monitoring_enabled": {
+              "description_kind": "plain",
+              "optional": true,
+              "type": "bool"
+            }
+          },
+          "description_kind": "plain"
+        },
+        "max_items": 1,
+        "nesting_mode": "list"
+      },
       "timeouts": {
         "block": {
           "attributes": {

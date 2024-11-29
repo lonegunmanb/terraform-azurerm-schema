@@ -9,6 +9,25 @@ import (
 const azurermDatabricksWorkspace = `{
   "block": {
     "attributes": {
+      "enhanced_security_compliance": {
+        "computed": true,
+        "description_kind": "plain",
+        "type": [
+          "list",
+          [
+            "object",
+            {
+              "automatic_cluster_update_enabled": "bool",
+              "compliance_security_profile_enabled": "bool",
+              "compliance_security_profile_standards": [
+                "set",
+                "string"
+              ],
+              "enhanced_security_monitoring_enabled": "bool"
+            }
+          ]
+        ]
+      },
       "id": {
         "computed": true,
         "description_kind": "plain",

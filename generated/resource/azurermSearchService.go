@@ -22,6 +22,11 @@ const azurermSearchService = `{
         "optional": true,
         "type": "string"
       },
+      "customer_managed_key_encryption_compliance_status": {
+        "computed": true,
+        "description_kind": "plain",
+        "type": "string"
+      },
       "customer_managed_key_enforcement_enabled": {
         "description_kind": "plain",
         "optional": true,
@@ -122,6 +127,14 @@ const azurermSearchService = `{
       "identity": {
         "block": {
           "attributes": {
+            "identity_ids": {
+              "description_kind": "plain",
+              "optional": true,
+              "type": [
+                "set",
+                "string"
+              ]
+            },
             "principal_id": {
               "computed": true,
               "description_kind": "plain",

@@ -6,21 +6,16 @@ import (
 	tfjson "github.com/hashicorp/terraform-json"
 )
 
-const azurermSearchService = `{
+const azurermMssqlManagedDatabase = `{
   "block": {
     "attributes": {
-      "customer_managed_key_encryption_compliance_status": {
-        "computed": true,
-        "description_kind": "plain",
-        "type": "string"
-      },
       "id": {
         "computed": true,
         "description_kind": "plain",
         "optional": true,
         "type": "string"
       },
-      "identity": {
+      "long_term_retention_policy": {
         "computed": true,
         "description_kind": "plain",
         "type": [
@@ -28,39 +23,31 @@ const azurermSearchService = `{
           [
             "object",
             {
-              "identity_ids": [
-                "list",
-                "string"
-              ],
-              "principal_id": "string",
-              "tenant_id": "string",
-              "type": "string"
+              "immutable_backups_enabled": "bool",
+              "monthly_retention": "string",
+              "week_of_year": "number",
+              "weekly_retention": "string",
+              "yearly_retention": "string"
             }
           ]
         ]
+      },
+      "managed_instance_id": {
+        "description_kind": "plain",
+        "required": true,
+        "type": "string"
+      },
+      "managed_instance_name": {
+        "computed": true,
+        "description_kind": "plain",
+        "type": "string"
       },
       "name": {
         "description_kind": "plain",
         "required": true,
         "type": "string"
       },
-      "partition_count": {
-        "computed": true,
-        "description_kind": "plain",
-        "type": "number"
-      },
-      "primary_key": {
-        "computed": true,
-        "description_kind": "plain",
-        "sensitive": true,
-        "type": "string"
-      },
-      "public_network_access_enabled": {
-        "computed": true,
-        "description_kind": "plain",
-        "type": "bool"
-      },
-      "query_keys": {
+      "point_in_time_restore": {
         "computed": true,
         "description_kind": "plain",
         "type": [
@@ -68,35 +55,21 @@ const azurermSearchService = `{
           [
             "object",
             {
-              "key": "string",
-              "name": "string"
+              "restore_point_in_time": "string",
+              "source_database_id": "string"
             }
           ]
         ]
       },
-      "replica_count": {
+      "resource_group_name": {
+        "computed": true,
+        "description_kind": "plain",
+        "type": "string"
+      },
+      "short_term_retention_days": {
         "computed": true,
         "description_kind": "plain",
         "type": "number"
-      },
-      "resource_group_name": {
-        "description_kind": "plain",
-        "required": true,
-        "type": "string"
-      },
-      "secondary_key": {
-        "computed": true,
-        "description_kind": "plain",
-        "sensitive": true,
-        "type": "string"
-      },
-      "tags": {
-        "computed": true,
-        "description_kind": "plain",
-        "type": [
-          "map",
-          "string"
-        ]
       }
     },
     "block_types": {
@@ -119,8 +92,8 @@ const azurermSearchService = `{
   "version": 0
 }`
 
-func AzurermSearchServiceSchema() *tfjson.Schema {
+func AzurermMssqlManagedDatabaseSchema() *tfjson.Schema {
 	var result tfjson.Schema
-	_ = json.Unmarshal([]byte(azurermSearchService), &result)
+	_ = json.Unmarshal([]byte(azurermMssqlManagedDatabase), &result)
 	return &result
 }
