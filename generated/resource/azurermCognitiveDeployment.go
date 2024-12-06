@@ -14,6 +14,11 @@ const azurermCognitiveDeployment = `{
         "required": true,
         "type": "string"
       },
+      "dynamic_throttling_enabled": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "bool"
+      },
       "id": {
         "computed": true,
         "description_kind": "plain",
