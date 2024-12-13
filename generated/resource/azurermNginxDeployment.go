@@ -47,6 +47,7 @@ const azurermNginxDeployment = `{
       },
       "managed_resource_group": {
         "computed": true,
+        "deprecated": true,
         "description_kind": "plain",
         "optional": true,
         "type": "string"

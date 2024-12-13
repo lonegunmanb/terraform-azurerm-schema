@@ -6,17 +6,17 @@ import (
 	tfjson "github.com/hashicorp/terraform-json"
 )
 
-const azurermOrbitalContact = `{
+const azurermCognitiveAccountRaiBlocklist = `{
   "block": {
     "attributes": {
-      "contact_profile_id": {
+      "cognitive_account_id": {
         "description_kind": "plain",
         "required": true,
         "type": "string"
       },
-      "ground_station_name": {
+      "description": {
         "description_kind": "plain",
-        "required": true,
+        "optional": true,
         "type": "string"
       },
       "id": {
@@ -26,21 +26,6 @@ const azurermOrbitalContact = `{
         "type": "string"
       },
       "name": {
-        "description_kind": "plain",
-        "required": true,
-        "type": "string"
-      },
-      "reservation_end_time": {
-        "description_kind": "plain",
-        "required": true,
-        "type": "string"
-      },
-      "reservation_start_time": {
-        "description_kind": "plain",
-        "required": true,
-        "type": "string"
-      },
-      "spacecraft_id": {
         "description_kind": "plain",
         "required": true,
         "type": "string"
@@ -64,6 +49,11 @@ const azurermOrbitalContact = `{
               "description_kind": "plain",
               "optional": true,
               "type": "string"
+            },
+            "update": {
+              "description_kind": "plain",
+              "optional": true,
+              "type": "string"
             }
           },
           "description_kind": "plain"
@@ -71,14 +61,13 @@ const azurermOrbitalContact = `{
         "nesting_mode": "single"
       }
     },
-    "deprecated": true,
     "description_kind": "plain"
   },
   "version": 0
 }`
 
-func AzurermOrbitalContactSchema() *tfjson.Schema {
+func AzurermCognitiveAccountRaiBlocklistSchema() *tfjson.Schema {
 	var result tfjson.Schema
-	_ = json.Unmarshal([]byte(azurermOrbitalContact), &result)
+	_ = json.Unmarshal([]byte(azurermCognitiveAccountRaiBlocklist), &result)
 	return &result
 }

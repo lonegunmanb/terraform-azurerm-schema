@@ -58,6 +58,11 @@ const azurermSearchService = `{
         "required": true,
         "type": "string"
       },
+      "network_rule_bypass_option": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "string"
+      },
       "partition_count": {
         "description_kind": "plain",
         "optional": true,

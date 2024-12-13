@@ -6,9 +6,17 @@ import (
 	tfjson "github.com/hashicorp/terraform-json"
 )
 
-const azurermNetworkFunctionCollectorPolicy = `{
+const azurermFabricCapacity = `{
   "block": {
     "attributes": {
+      "administration_members": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": [
+          "set",
+          "string"
+        ]
+      },
       "id": {
         "computed": true,
         "description_kind": "plain",
@@ -25,6 +33,11 @@ const azurermNetworkFunctionCollectorPolicy = `{
         "required": true,
         "type": "string"
       },
+      "resource_group_name": {
+        "description_kind": "plain",
+        "required": true,
+        "type": "string"
+      },
       "tags": {
         "description_kind": "plain",
         "optional": true,
@@ -32,42 +45,21 @@ const azurermNetworkFunctionCollectorPolicy = `{
           "map",
           "string"
         ]
-      },
-      "traffic_collector_id": {
-        "description_kind": "plain",
-        "required": true,
-        "type": "string"
       }
     },
     "block_types": {
-      "ipfx_emission": {
+      "sku": {
         "block": {
           "attributes": {
-            "destination_types": {
+            "name": {
               "description_kind": "plain",
               "required": true,
-              "type": [
-                "list",
-                "string"
-              ]
-            }
-          },
-          "description_kind": "plain"
-        },
-        "max_items": 1,
-        "min_items": 1,
-        "nesting_mode": "list"
-      },
-      "ipfx_ingestion": {
-        "block": {
-          "attributes": {
-            "source_resource_ids": {
+              "type": "string"
+            },
+            "tier": {
               "description_kind": "plain",
               "required": true,
-              "type": [
-                "set",
-                "string"
-              ]
+              "type": "string"
             }
           },
           "description_kind": "plain"
@@ -110,8 +102,8 @@ const azurermNetworkFunctionCollectorPolicy = `{
   "version": 0
 }`
 
-func AzurermNetworkFunctionCollectorPolicySchema() *tfjson.Schema {
+func AzurermFabricCapacitySchema() *tfjson.Schema {
 	var result tfjson.Schema
-	_ = json.Unmarshal([]byte(azurermNetworkFunctionCollectorPolicy), &result)
+	_ = json.Unmarshal([]byte(azurermFabricCapacity), &result)
 	return &result
 }
