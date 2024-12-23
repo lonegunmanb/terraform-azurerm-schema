@@ -1,8 +1,6 @@
 module github.com/lonegunmanb/terraform-azurerm-schema/v4
 
-go 1.22.0
-
-toolchain go1.23.4
+go 1.23.4
 
 require (
 	github.com/ahmetb/go-linq/v3 v3.2.0
