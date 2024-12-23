@@ -44,22 +44,29 @@ import (
 	tfjson "github.com/hashicorp/terraform-json"
 	"github.com/{{ .RepoOwner }}/{{ .GoModule }}/v4/generated/data"
 	"github.com/{{ .RepoOwner }}/{{ .GoModule }}/v4/generated/resource"
+    "github.com/{{ .RepoOwner }}/{{ .GoModule }}/v4/generated/ephemeral"
 )
 
 var Resources map[string]*tfjson.Schema
 var DataSources map[string]*tfjson.Schema
+var EphemeralResources map[string]*tfjson.Schema
 
 func init() {
 	resources := make(map[string]*tfjson.Schema, 0)
 	dataSources := make(map[string]*tfjson.Schema, 0)
+    ephemeralResources := make(map[string]*tfjson.Schema, 0)
 	{{- range $name, $expression := .ResourceSchemas }}  
 	resources["{{$name}}"] = {{$expression}}  
 	{{- end }}  
 	{{- range $name, $expression := .DataSourceSchemas }}  
 	dataSources["{{$name}}"] = {{$expression}}  
 	{{- end }}  
+    {{- range $name, $expression := .EphemeralResourceSchemas }}
+    ephemeralResources["{{$name}}"] = {{$expression}}
+    {{- end }}
 	Resources = resources
 	DataSources = dataSources
+    EphemeralResources = ephemeralResources
 }`
 
 const registerTestTemplate = `package generated_test
@@ -74,13 +81,15 @@ import (
 func TestResourceSchema(t *testing.T) {
 	assert.NotEmpty(t, generated.Resources)
 	assert.NotEmpty(t, generated.DataSources)
+    assert.NotEmpty(t, generated.EphemeralResources)
 }`
 
 type RegisterParameter struct {
-	ResourceSchemas   map[string]string
-	DataSourceSchemas map[string]string
-	RepoOwner         string
-	GoModule          string
+	ResourceSchemas          map[string]string
+	DataSourceSchemas        map[string]string
+	EphemeralResourceSchemas map[string]string
+	RepoOwner                string
+	GoModule                 string
 }
 
 type ProviderSchema struct {
@@ -203,6 +212,10 @@ func SaveProviderSchema(folder string, s *tfjson.ProviderSchema) error {
 	if err != nil {
 		return fmt.Errorf("error saving data source schemas: %w", err)
 	}
+	err = saveEphemeralResourceSchemas(folder, s)
+	if err != nil {
+		return fmt.Errorf("error saving ephemeral resource schemas: %w", err)
+	}
 	err = saveRegisterCode(folder, s)
 	if err != nil {
 		return fmt.Errorf("error saving register code: %w", err)
@@ -226,10 +239,11 @@ func saveRegisterCode(folder string, s *tfjson.ProviderSchema) error {
 
 func buildRegisterParameter(s *tfjson.ProviderSchema) RegisterParameter {
 	parameter := RegisterParameter{
-		ResourceSchemas:   make(map[string]string, 0),
-		DataSourceSchemas: make(map[string]string, 0),
-		RepoOwner:         "lonegunmanb",
-		GoModule:          "terraform-azurerm-schema",
+		ResourceSchemas:          make(map[string]string, 0),
+		DataSourceSchemas:        make(map[string]string, 0),
+		EphemeralResourceSchemas: make(map[string]string, 0),
+		RepoOwner:                "lonegunmanb",
+		GoModule:                 "terraform-azurerm-schema",
 	}
 	linq.From(s.ResourceSchemas).OrderBy(byKey).ToMapBy(&parameter.ResourceSchemas, byKey, func(i interface{}) interface{} {
 		pair := i.(linq.KeyValue)
@@ -238,6 +252,10 @@ func buildRegisterParameter(s *tfjson.ProviderSchema) RegisterParameter {
 	linq.From(s.DataSourceSchemas).OrderBy(byKey).ToMapBy(&parameter.DataSourceSchemas, byKey, func(i interface{}) interface{} {
 		pair := i.(linq.KeyValue)
 		return fmt.Sprintf("data.%sSchema()", strcase.ToCamel(pair.Key.(string)))
+	})
+	linq.From(s.EphemeralResourceSchemas).OrderBy(byKey).ToMapBy(&parameter.EphemeralResourceSchemas, byKey, func(i interface{}) interface{} {
+		pair := i.(linq.KeyValue)
+		return fmt.Sprintf("ephemeral.%sSchema()", strcase.ToCamel(pair.Key.(string)))
 	})
 	return parameter
 }
@@ -269,6 +287,16 @@ func saveDataSourceSchemas(folder string, s *tfjson.ProviderSchema) error {
 	return nil
 }
 
+func saveEphemeralResourceSchemas(folder string, s *tfjson.ProviderSchema) error {
+	for resourceName, schema := range s.EphemeralResourceSchemas {
+		err := SaveEphemeralResourceSchema(resourceName, folder, schema)
+		if err != nil {
+			return fmt.Errorf("error saving ephemeral resource schema: %s", err)
+		}
+	}
+	return nil
+}
+
 func saveResourceSchemas(folder string, s *tfjson.ProviderSchema) error {
 	for resourceName, schema := range s.ResourceSchemas {
 		err := SaveResourceSchema(resourceName, folder, schema)
@@ -285,6 +313,10 @@ func SaveDataSourceSchema(name, folder string, s *tfjson.Schema) error {
 
 func SaveResourceSchema(name, folder string, s *tfjson.Schema) error {
 	return saveSchema(name, folder, s, PackageResource)
+}
+
+func SaveEphemeralResourceSchema(name, folder string, s *tfjson.Schema) error {
+	return saveSchema(name, folder, s, PackageEphemeral)
 }
 
 func saveSchema(name, folder string, s *tfjson.Schema, pkg Package) error {
