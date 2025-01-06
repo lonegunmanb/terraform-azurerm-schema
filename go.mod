@@ -9,7 +9,7 @@ require (
 	github.com/go-git/go-git/v5 v5.13.0
 	github.com/google/go-github/v51 v51.0.0
 	github.com/hashicorp/go-version v1.7.0
-	github.com/hashicorp/hc-install v0.9.0
+	github.com/hashicorp/hc-install v0.9.1
 	github.com/hashicorp/terraform-exec v0.21.0
 	github.com/hashicorp/terraform-json v0.24.0
 	github.com/iancoleman/strcase v0.3.0
