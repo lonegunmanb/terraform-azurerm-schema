@@ -59,6 +59,22 @@ const azurermStaticWebApp = `{
         "optional": true,
         "type": "bool"
       },
+      "repository_branch": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "string"
+      },
+      "repository_token": {
+        "description_kind": "plain",
+        "optional": true,
+        "sensitive": true,
+        "type": "string"
+      },
+      "repository_url": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "string"
+      },
       "resource_group_name": {
         "description_kind": "plain",
         "required": true,

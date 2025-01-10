@@ -46,6 +46,7 @@ const azurermExpressRouteConnection = `{
         "type": "string"
       },
       "private_link_fast_path_enabled": {
+        "deprecated": true,
         "description_kind": "plain",
         "optional": true,
         "type": "bool"

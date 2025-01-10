@@ -11,12 +11,12 @@ const azurermMssqlManagedInstance = `{
     "attributes": {
       "administrator_login": {
         "description_kind": "plain",
-        "required": true,
+        "optional": true,
         "type": "string"
       },
       "administrator_login_password": {
         "description_kind": "plain",
-        "required": true,
+        "optional": true,
         "sensitive": true,
         "type": "string"
       },
@@ -136,6 +136,40 @@ const azurermMssqlManagedInstance = `{
       }
     },
     "block_types": {
+      "azure_active_directory_administrator": {
+        "block": {
+          "attributes": {
+            "azuread_authentication_only_enabled": {
+              "description_kind": "plain",
+              "optional": true,
+              "type": "bool"
+            },
+            "login_username": {
+              "description_kind": "plain",
+              "required": true,
+              "type": "string"
+            },
+            "object_id": {
+              "description_kind": "plain",
+              "required": true,
+              "type": "string"
+            },
+            "principal_type": {
+              "description_kind": "plain",
+              "required": true,
+              "type": "string"
+            },
+            "tenant_id": {
+              "description_kind": "plain",
+              "optional": true,
+              "type": "string"
+            }
+          },
+          "description_kind": "plain"
+        },
+        "max_items": 1,
+        "nesting_mode": "list"
+      },
       "identity": {
         "block": {
           "attributes": {

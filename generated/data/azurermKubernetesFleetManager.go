@@ -1,4 +1,4 @@
-package resource
+package data
 
 import (
 	"encoding/json"
@@ -6,7 +6,7 @@ import (
 	tfjson "github.com/hashicorp/terraform-json"
 )
 
-const azurermMapsCreator = `{
+const azurermKubernetesFleetManager = `{
   "block": {
     "attributes": {
       "id": {
@@ -16,13 +16,8 @@ const azurermMapsCreator = `{
         "type": "string"
       },
       "location": {
+        "computed": true,
         "description_kind": "plain",
-        "required": true,
-        "type": "string"
-      },
-      "maps_account_id": {
-        "description_kind": "plain",
-        "required": true,
         "type": "string"
       },
       "name": {
@@ -30,14 +25,14 @@ const azurermMapsCreator = `{
         "required": true,
         "type": "string"
       },
-      "storage_units": {
+      "resource_group_name": {
         "description_kind": "plain",
         "required": true,
-        "type": "number"
+        "type": "string"
       },
       "tags": {
+        "computed": true,
         "description_kind": "plain",
-        "optional": true,
         "type": [
           "map",
           "string"
@@ -48,22 +43,7 @@ const azurermMapsCreator = `{
       "timeouts": {
         "block": {
           "attributes": {
-            "create": {
-              "description_kind": "plain",
-              "optional": true,
-              "type": "string"
-            },
-            "delete": {
-              "description_kind": "plain",
-              "optional": true,
-              "type": "string"
-            },
             "read": {
-              "description_kind": "plain",
-              "optional": true,
-              "type": "string"
-            },
-            "update": {
               "description_kind": "plain",
               "optional": true,
               "type": "string"
@@ -74,14 +54,13 @@ const azurermMapsCreator = `{
         "nesting_mode": "single"
       }
     },
-    "deprecated": true,
     "description_kind": "plain"
   },
   "version": 0
 }`
 
-func AzurermMapsCreatorSchema() *tfjson.Schema {
+func AzurermKubernetesFleetManagerSchema() *tfjson.Schema {
 	var result tfjson.Schema
-	_ = json.Unmarshal([]byte(azurermMapsCreator), &result)
+	_ = json.Unmarshal([]byte(azurermKubernetesFleetManager), &result)
 	return &result
 }

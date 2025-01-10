@@ -26,6 +26,42 @@ const azurermHealthcareDicomService = `{
           ]
         ]
       },
+      "cors": {
+        "computed": true,
+        "description_kind": "plain",
+        "type": [
+          "list",
+          [
+            "object",
+            {
+              "allow_credentials": "bool",
+              "allowed_headers": [
+                "list",
+                "string"
+              ],
+              "allowed_methods": [
+                "list",
+                "string"
+              ],
+              "allowed_origins": [
+                "list",
+                "string"
+              ],
+              "max_age_in_seconds": "number"
+            }
+          ]
+        ]
+      },
+      "data_partitions_enabled": {
+        "computed": true,
+        "description_kind": "plain",
+        "type": "bool"
+      },
+      "encryption_key_url": {
+        "computed": true,
+        "description_kind": "plain",
+        "type": "string"
+      },
       "id": {
         "computed": true,
         "description_kind": "plain",
@@ -79,6 +115,20 @@ const azurermHealthcareDicomService = `{
         "computed": true,
         "description_kind": "plain",
         "type": "string"
+      },
+      "storage": {
+        "computed": true,
+        "description_kind": "plain",
+        "type": [
+          "list",
+          [
+            "object",
+            {
+              "file_system_name": "string",
+              "storage_account_id": "string"
+            }
+          ]
+        ]
       },
       "tags": {
         "computed": true,

@@ -19,6 +19,11 @@ const azurermNginxDeployment = `{
         "optional": true,
         "type": "number"
       },
+      "dataplane_api_endpoint": {
+        "computed": true,
+        "description_kind": "plain",
+        "type": "string"
+      },
       "diagnose_support_enabled": {
         "description_kind": "plain",
         "optional": true,
@@ -191,6 +196,7 @@ const azurermNginxDeployment = `{
               "type": "string"
             }
           },
+          "deprecated": true,
           "description_kind": "plain"
         },
         "nesting_mode": "list"

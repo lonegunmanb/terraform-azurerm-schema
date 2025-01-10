@@ -84,6 +84,10 @@ const azurermSiteRecoveryReplicatedVm = `{
               "failover_test_public_ip_address_id": "string",
               "failover_test_static_ip": "string",
               "failover_test_subnet_name": "string",
+              "recovery_load_balancer_backend_address_pool_ids": [
+                "set",
+                "string"
+              ],
               "recovery_public_ip_address_id": "string",
               "source_network_interface_id": "string",
               "target_static_ip": "string",

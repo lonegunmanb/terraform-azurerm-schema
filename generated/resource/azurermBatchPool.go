@@ -581,6 +581,35 @@ const azurermBatchPool = `{
         },
         "nesting_mode": "list"
       },
+      "security_profile": {
+        "block": {
+          "attributes": {
+            "host_encryption_enabled": {
+              "description_kind": "plain",
+              "optional": true,
+              "type": "bool"
+            },
+            "secure_boot_enabled": {
+              "description_kind": "plain",
+              "optional": true,
+              "type": "bool"
+            },
+            "security_type": {
+              "description_kind": "plain",
+              "optional": true,
+              "type": "string"
+            },
+            "vtpm_enabled": {
+              "description_kind": "plain",
+              "optional": true,
+              "type": "bool"
+            }
+          },
+          "description_kind": "plain"
+        },
+        "max_items": 1,
+        "nesting_mode": "list"
+      },
       "start_task": {
         "block": {
           "attributes": {

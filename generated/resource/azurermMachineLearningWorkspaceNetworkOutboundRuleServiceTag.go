@@ -6,7 +6,7 @@ import (
 	tfjson "github.com/hashicorp/terraform-json"
 )
 
-const azurermCdnFrontdoorProfile = `{
+const azurermMachineLearningWorkspaceNetworkOutboundRuleServiceTag = `{
   "block": {
     "attributes": {
       "id": {
@@ -20,68 +20,28 @@ const azurermCdnFrontdoorProfile = `{
         "required": true,
         "type": "string"
       },
-      "resource_group_name": {
+      "port_ranges": {
         "description_kind": "plain",
         "required": true,
         "type": "string"
       },
-      "resource_guid": {
-        "computed": true,
-        "description_kind": "plain",
-        "type": "string"
-      },
-      "response_timeout_seconds": {
-        "description_kind": "plain",
-        "optional": true,
-        "type": "number"
-      },
-      "sku_name": {
+      "protocol": {
         "description_kind": "plain",
         "required": true,
         "type": "string"
       },
-      "tags": {
+      "service_tag": {
         "description_kind": "plain",
-        "optional": true,
-        "type": [
-          "map",
-          "string"
-        ]
+        "required": true,
+        "type": "string"
+      },
+      "workspace_id": {
+        "description_kind": "plain",
+        "required": true,
+        "type": "string"
       }
     },
     "block_types": {
-      "identity": {
-        "block": {
-          "attributes": {
-            "identity_ids": {
-              "description_kind": "plain",
-              "optional": true,
-              "type": [
-                "set",
-                "string"
-              ]
-            },
-            "principal_id": {
-              "computed": true,
-              "description_kind": "plain",
-              "type": "string"
-            },
-            "tenant_id": {
-              "computed": true,
-              "description_kind": "plain",
-              "type": "string"
-            },
-            "type": {
-              "description_kind": "plain",
-              "required": true,
-              "type": "string"
-            }
-          },
-          "description_kind": "plain"
-        },
-        "max_items": 1,
-        "nesting_mode": "list"
-      },
       "timeouts": {
         "block": {
           "attributes": {
@@ -116,8 +76,8 @@ const azurermCdnFrontdoorProfile = `{
   "version": 0
 }`
 
-func AzurermCdnFrontdoorProfileSchema() *tfjson.Schema {
+func AzurermMachineLearningWorkspaceNetworkOutboundRuleServiceTagSchema() *tfjson.Schema {
 	var result tfjson.Schema
-	_ = json.Unmarshal([]byte(azurermCdnFrontdoorProfile), &result)
+	_ = json.Unmarshal([]byte(azurermMachineLearningWorkspaceNetworkOutboundRuleServiceTag), &result)
 	return &result
 }

@@ -34,6 +34,11 @@ const azurermNginxDeployment = `{
         "description_kind": "plain",
         "type": "number"
       },
+      "dataplane_api_endpoint": {
+        "computed": true,
+        "description_kind": "plain",
+        "type": "string"
+      },
       "diagnose_support_enabled": {
         "computed": true,
         "description_kind": "plain",
@@ -112,6 +117,7 @@ const azurermNginxDeployment = `{
       },
       "logging_storage_account": {
         "computed": true,
+        "deprecated": true,
         "description_kind": "plain",
         "type": [
           "list",

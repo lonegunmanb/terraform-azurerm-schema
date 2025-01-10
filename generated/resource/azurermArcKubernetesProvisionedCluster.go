@@ -6,13 +6,48 @@ import (
 	tfjson "github.com/hashicorp/terraform-json"
 )
 
-const azurermCdnFrontdoorProfile = `{
+const azurermArcKubernetesProvisionedCluster = `{
   "block": {
     "attributes": {
+      "agent_version": {
+        "computed": true,
+        "description_kind": "plain",
+        "type": "string"
+      },
+      "arc_agent_auto_upgrade_enabled": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "bool"
+      },
+      "arc_agent_desired_version": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "string"
+      },
+      "distribution": {
+        "computed": true,
+        "description_kind": "plain",
+        "type": "string"
+      },
       "id": {
         "computed": true,
         "description_kind": "plain",
         "optional": true,
+        "type": "string"
+      },
+      "infrastructure": {
+        "computed": true,
+        "description_kind": "plain",
+        "type": "string"
+      },
+      "kubernetes_version": {
+        "computed": true,
+        "description_kind": "plain",
+        "type": "string"
+      },
+      "location": {
+        "description_kind": "plain",
+        "required": true,
         "type": "string"
       },
       "name": {
@@ -20,22 +55,12 @@ const azurermCdnFrontdoorProfile = `{
         "required": true,
         "type": "string"
       },
-      "resource_group_name": {
-        "description_kind": "plain",
-        "required": true,
-        "type": "string"
-      },
-      "resource_guid": {
+      "offering": {
         "computed": true,
         "description_kind": "plain",
         "type": "string"
       },
-      "response_timeout_seconds": {
-        "description_kind": "plain",
-        "optional": true,
-        "type": "number"
-      },
-      "sku_name": {
+      "resource_group_name": {
         "description_kind": "plain",
         "required": true,
         "type": "string"
@@ -47,20 +72,49 @@ const azurermCdnFrontdoorProfile = `{
           "map",
           "string"
         ]
+      },
+      "total_core_count": {
+        "computed": true,
+        "description_kind": "plain",
+        "type": "number"
+      },
+      "total_node_count": {
+        "computed": true,
+        "description_kind": "plain",
+        "type": "number"
       }
     },
     "block_types": {
-      "identity": {
+      "azure_active_directory": {
         "block": {
           "attributes": {
-            "identity_ids": {
+            "admin_group_object_ids": {
               "description_kind": "plain",
               "optional": true,
               "type": [
-                "set",
+                "list",
                 "string"
               ]
             },
+            "azure_rbac_enabled": {
+              "description_kind": "plain",
+              "optional": true,
+              "type": "bool"
+            },
+            "tenant_id": {
+              "description_kind": "plain",
+              "optional": true,
+              "type": "string"
+            }
+          },
+          "description_kind": "plain"
+        },
+        "max_items": 1,
+        "nesting_mode": "list"
+      },
+      "identity": {
+        "block": {
+          "attributes": {
             "principal_id": {
               "computed": true,
               "description_kind": "plain",
@@ -80,6 +134,7 @@ const azurermCdnFrontdoorProfile = `{
           "description_kind": "plain"
         },
         "max_items": 1,
+        "min_items": 1,
         "nesting_mode": "list"
       },
       "timeouts": {
@@ -116,8 +171,8 @@ const azurermCdnFrontdoorProfile = `{
   "version": 0
 }`
 
-func AzurermCdnFrontdoorProfileSchema() *tfjson.Schema {
+func AzurermArcKubernetesProvisionedClusterSchema() *tfjson.Schema {
 	var result tfjson.Schema
-	_ = json.Unmarshal([]byte(azurermCdnFrontdoorProfile), &result)
+	_ = json.Unmarshal([]byte(azurermArcKubernetesProvisionedCluster), &result)
 	return &result
 }

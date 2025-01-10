@@ -67,6 +67,7 @@ const azurermNetappVolume = `{
         "type": "string"
       },
       "network_features": {
+        "computed": true,
         "description_kind": "plain",
         "optional": true,
         "type": "string"

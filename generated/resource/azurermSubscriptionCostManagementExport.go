@@ -14,6 +14,11 @@ const azurermSubscriptionCostManagementExport = `{
         "optional": true,
         "type": "bool"
       },
+      "file_format": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "string"
+      },
       "id": {
         "computed": true,
         "description_kind": "plain",

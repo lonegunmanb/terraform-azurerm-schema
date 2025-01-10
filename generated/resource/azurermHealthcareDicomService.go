@@ -26,6 +26,16 @@ const azurermHealthcareDicomService = `{
           ]
         ]
       },
+      "data_partitions_enabled": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "bool"
+      },
+      "encryption_key_url": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "string"
+      },
       "id": {
         "computed": true,
         "description_kind": "plain",
@@ -81,6 +91,49 @@ const azurermHealthcareDicomService = `{
       }
     },
     "block_types": {
+      "cors": {
+        "block": {
+          "attributes": {
+            "allow_credentials": {
+              "description_kind": "plain",
+              "optional": true,
+              "type": "bool"
+            },
+            "allowed_headers": {
+              "description_kind": "plain",
+              "optional": true,
+              "type": [
+                "list",
+                "string"
+              ]
+            },
+            "allowed_methods": {
+              "description_kind": "plain",
+              "optional": true,
+              "type": [
+                "list",
+                "string"
+              ]
+            },
+            "allowed_origins": {
+              "description_kind": "plain",
+              "optional": true,
+              "type": [
+                "list",
+                "string"
+              ]
+            },
+            "max_age_in_seconds": {
+              "description_kind": "plain",
+              "optional": true,
+              "type": "number"
+            }
+          },
+          "description_kind": "plain"
+        },
+        "max_items": 1,
+        "nesting_mode": "list"
+      },
       "identity": {
         "block": {
           "attributes": {
@@ -103,6 +156,25 @@ const azurermHealthcareDicomService = `{
               "type": "string"
             },
             "type": {
+              "description_kind": "plain",
+              "required": true,
+              "type": "string"
+            }
+          },
+          "description_kind": "plain"
+        },
+        "max_items": 1,
+        "nesting_mode": "list"
+      },
+      "storage": {
+        "block": {
+          "attributes": {
+            "file_system_name": {
+              "description_kind": "plain",
+              "required": true,
+              "type": "string"
+            },
+            "storage_account_id": {
               "description_kind": "plain",
               "required": true,
               "type": "string"

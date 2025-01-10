@@ -90,6 +90,7 @@ const azurermCdnFrontdoorCustomDomain = `{
               "type": "string"
             },
             "minimum_tls_version": {
+              "deprecated": true,
               "description_kind": "plain",
               "optional": true,
               "type": "string"

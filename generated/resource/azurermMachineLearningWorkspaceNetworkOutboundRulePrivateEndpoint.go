@@ -6,7 +6,7 @@ import (
 	tfjson "github.com/hashicorp/terraform-json"
 )
 
-const azurermMapsCreator = `{
+const azurermMachineLearningWorkspaceNetworkOutboundRulePrivateEndpoint = `{
   "block": {
     "attributes": {
       "id": {
@@ -15,33 +15,30 @@ const azurermMapsCreator = `{
         "optional": true,
         "type": "string"
       },
-      "location": {
-        "description_kind": "plain",
-        "required": true,
-        "type": "string"
-      },
-      "maps_account_id": {
-        "description_kind": "plain",
-        "required": true,
-        "type": "string"
-      },
       "name": {
         "description_kind": "plain",
         "required": true,
         "type": "string"
       },
-      "storage_units": {
+      "service_resource_id": {
         "description_kind": "plain",
         "required": true,
-        "type": "number"
+        "type": "string"
       },
-      "tags": {
+      "spark_enabled": {
         "description_kind": "plain",
         "optional": true,
-        "type": [
-          "map",
-          "string"
-        ]
+        "type": "bool"
+      },
+      "sub_resource_target": {
+        "description_kind": "plain",
+        "required": true,
+        "type": "string"
+      },
+      "workspace_id": {
+        "description_kind": "plain",
+        "required": true,
+        "type": "string"
       }
     },
     "block_types": {
@@ -62,11 +59,6 @@ const azurermMapsCreator = `{
               "description_kind": "plain",
               "optional": true,
               "type": "string"
-            },
-            "update": {
-              "description_kind": "plain",
-              "optional": true,
-              "type": "string"
             }
           },
           "description_kind": "plain"
@@ -74,14 +66,13 @@ const azurermMapsCreator = `{
         "nesting_mode": "single"
       }
     },
-    "deprecated": true,
     "description_kind": "plain"
   },
   "version": 0
 }`
 
-func AzurermMapsCreatorSchema() *tfjson.Schema {
+func AzurermMachineLearningWorkspaceNetworkOutboundRulePrivateEndpointSchema() *tfjson.Schema {
 	var result tfjson.Schema
-	_ = json.Unmarshal([]byte(azurermMapsCreator), &result)
+	_ = json.Unmarshal([]byte(azurermMachineLearningWorkspaceNetworkOutboundRulePrivateEndpoint), &result)
 	return &result
 }

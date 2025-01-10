@@ -62,6 +62,11 @@ const azurermVirtualNetwork = `{
         "required": true,
         "type": "string"
       },
+      "private_endpoint_vnet_policies": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "string"
+      },
       "resource_group_name": {
         "description_kind": "plain",
         "required": true,
