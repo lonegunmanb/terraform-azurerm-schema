@@ -186,6 +186,11 @@ const azurermKubernetesClusterNodePool = `{
           "string"
         ]
       },
+      "temporary_name_for_rotation": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "string"
+      },
       "ultra_ssd_enabled": {
         "description_kind": "plain",
         "optional": true,

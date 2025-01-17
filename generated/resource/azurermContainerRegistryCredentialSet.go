@@ -6,15 +6,10 @@ import (
 	tfjson "github.com/hashicorp/terraform-json"
 )
 
-const azurermDataProtectionBackupVault = `{
+const azurermContainerRegistryCredentialSet = `{
   "block": {
     "attributes": {
-      "cross_region_restore_enabled": {
-        "description_kind": "plain",
-        "optional": true,
-        "type": "bool"
-      },
-      "datastore_type": {
+      "container_registry_id": {
         "description_kind": "plain",
         "required": true,
         "type": "string"
@@ -25,51 +20,39 @@ const azurermDataProtectionBackupVault = `{
         "optional": true,
         "type": "string"
       },
-      "immutability": {
-        "description_kind": "plain",
-        "optional": true,
-        "type": "string"
-      },
-      "location": {
+      "login_server": {
         "description_kind": "plain",
         "required": true,
         "type": "string"
       },
       "name": {
+        "description": "The name of the credential set.",
         "description_kind": "plain",
         "required": true,
         "type": "string"
-      },
-      "redundancy": {
-        "description_kind": "plain",
-        "required": true,
-        "type": "string"
-      },
-      "resource_group_name": {
-        "description_kind": "plain",
-        "required": true,
-        "type": "string"
-      },
-      "retention_duration_in_days": {
-        "description_kind": "plain",
-        "optional": true,
-        "type": "number"
-      },
-      "soft_delete": {
-        "description_kind": "plain",
-        "optional": true,
-        "type": "string"
-      },
-      "tags": {
-        "description_kind": "plain",
-        "optional": true,
-        "type": [
-          "map",
-          "string"
-        ]
       }
     },
     "block_types": {
+      "authentication_credentials": {
+        "block": {
+          "attributes": {
+            "password_secret_id": {
+              "description_kind": "plain",
+              "required": true,
+              "type": "string"
+            },
+            "username_secret_id": {
+              "description_kind": "plain",
+              "required": true,
+              "type": "string"
+            }
+          },
+          "description_kind": "plain"
+        },
+        "max_items": 1,
+        "min_items": 1,
+        "nesting_mode": "list"
+      },
       "identity": {
         "block": {
           "attributes": {
@@ -92,6 +75,7 @@ const azurermDataProtectionBackupVault = `{
           "description_kind": "plain"
         },
         "max_items": 1,
+        "min_items": 1,
         "nesting_mode": "list"
       },
       "timeouts": {
@@ -128,8 +112,8 @@ const azurermDataProtectionBackupVault = `{
   "version": 0
 }`
 
-func AzurermDataProtectionBackupVaultSchema() *tfjson.Schema {
+func AzurermContainerRegistryCredentialSetSchema() *tfjson.Schema {
 	var result tfjson.Schema
-	_ = json.Unmarshal([]byte(azurermDataProtectionBackupVault), &result)
+	_ = json.Unmarshal([]byte(azurermContainerRegistryCredentialSet), &result)
 	return &result
 }

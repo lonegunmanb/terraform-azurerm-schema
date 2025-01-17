@@ -6,25 +6,12 @@ import (
 	tfjson "github.com/hashicorp/terraform-json"
 )
 
-const azurermCostAnomalyAlert = `{
+const azurermMssqlJob = `{
   "block": {
     "attributes": {
-      "display_name": {
+      "description": {
         "description_kind": "plain",
-        "required": true,
-        "type": "string"
-      },
-      "email_addresses": {
-        "description_kind": "plain",
-        "required": true,
-        "type": [
-          "set",
-          "string"
-        ]
-      },
-      "email_subject": {
-        "description_kind": "plain",
-        "required": true,
+        "optional": true,
         "type": "string"
       },
       "id": {
@@ -33,26 +20,14 @@ const azurermCostAnomalyAlert = `{
         "optional": true,
         "type": "string"
       },
-      "message": {
+      "job_agent_id": {
         "description_kind": "plain",
-        "optional": true,
+        "required": true,
         "type": "string"
       },
       "name": {
         "description_kind": "plain",
         "required": true,
-        "type": "string"
-      },
-      "notification_email": {
-        "computed": true,
-        "description_kind": "plain",
-        "optional": true,
-        "type": "string"
-      },
-      "subscription_id": {
-        "computed": true,
-        "description_kind": "plain",
-        "optional": true,
         "type": "string"
       }
     },
@@ -91,8 +66,8 @@ const azurermCostAnomalyAlert = `{
   "version": 0
 }`
 
-func AzurermCostAnomalyAlertSchema() *tfjson.Schema {
+func AzurermMssqlJobSchema() *tfjson.Schema {
 	var result tfjson.Schema
-	_ = json.Unmarshal([]byte(azurermCostAnomalyAlert), &result)
+	_ = json.Unmarshal([]byte(azurermMssqlJob), &result)
 	return &result
 }

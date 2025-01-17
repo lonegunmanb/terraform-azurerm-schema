@@ -461,6 +461,7 @@ const azurermContainerApp = `{
                   }
                 ]
               ],
+              "termination_grace_period_seconds": "number",
               "volume": [
                 "list",
                 [

@@ -361,6 +361,12 @@ const azurermContainerApp = `{
               "description_kind": "plain",
               "optional": true,
               "type": "string"
+            },
+            "termination_grace_period_seconds": {
+              "description": "The time in seconds after the container is sent the termination signal before the process if forcibly killed.",
+              "description_kind": "plain",
+              "optional": true,
+              "type": "number"
             }
           },
           "block_types": {

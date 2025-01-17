@@ -6,25 +6,19 @@ import (
 	tfjson "github.com/hashicorp/terraform-json"
 )
 
-const azurermCostAnomalyAlert = `{
+const azurermMssqlJobSchedule = `{
   "block": {
     "attributes": {
-      "display_name": {
+      "enabled": {
+        "computed": true,
         "description_kind": "plain",
-        "required": true,
-        "type": "string"
+        "optional": true,
+        "type": "bool"
       },
-      "email_addresses": {
+      "end_time": {
+        "computed": true,
         "description_kind": "plain",
-        "required": true,
-        "type": [
-          "set",
-          "string"
-        ]
-      },
-      "email_subject": {
-        "description_kind": "plain",
-        "required": true,
+        "optional": true,
         "type": "string"
       },
       "id": {
@@ -33,26 +27,25 @@ const azurermCostAnomalyAlert = `{
         "optional": true,
         "type": "string"
       },
-      "message": {
+      "interval": {
         "description_kind": "plain",
         "optional": true,
         "type": "string"
       },
-      "name": {
+      "job_id": {
         "description_kind": "plain",
         "required": true,
         "type": "string"
       },
-      "notification_email": {
+      "start_time": {
         "computed": true,
         "description_kind": "plain",
         "optional": true,
         "type": "string"
       },
-      "subscription_id": {
-        "computed": true,
+      "type": {
         "description_kind": "plain",
-        "optional": true,
+        "required": true,
         "type": "string"
       }
     },
@@ -91,8 +84,8 @@ const azurermCostAnomalyAlert = `{
   "version": 0
 }`
 
-func AzurermCostAnomalyAlertSchema() *tfjson.Schema {
+func AzurermMssqlJobScheduleSchema() *tfjson.Schema {
 	var result tfjson.Schema
-	_ = json.Unmarshal([]byte(azurermCostAnomalyAlert), &result)
+	_ = json.Unmarshal([]byte(azurermMssqlJobSchedule), &result)
 	return &result
 }
