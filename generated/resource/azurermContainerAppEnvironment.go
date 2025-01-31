@@ -69,6 +69,12 @@ const azurermContainerAppEnvironment = `{
         "optional": true,
         "type": "string"
       },
+      "logs_destination": {
+        "computed": true,
+        "description_kind": "plain",
+        "optional": true,
+        "type": "string"
+      },
       "mutual_tls_enabled": {
         "description": "Should mutual transport layer security (mTLS) be enabled? Defaults to ` + "`" + `false` + "`" + `. **Note:** This feature is in public preview. Enabling mTLS for your applications may increase response latency and reduce maximum throughput in high-load scenarios.",
         "description_kind": "plain",

@@ -9,6 +9,11 @@ import (
 const azurermStreamAnalyticsStreamInputBlob = `{
   "block": {
     "attributes": {
+      "authentication_mode": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "string"
+      },
       "date_format": {
         "description_kind": "plain",
         "required": true,

@@ -6,37 +6,26 @@ import (
 	tfjson "github.com/hashicorp/terraform-json"
 )
 
-const azurermStreamAnalyticsOutputCosmosdb = `{
+const azurermCognitiveAccountRaiPolicy = `{
   "block": {
     "attributes": {
-      "authentication_mode": {
-        "description_kind": "plain",
-        "optional": true,
-        "type": "string"
-      },
-      "container_name": {
+      "base_policy_name": {
         "description_kind": "plain",
         "required": true,
         "type": "string"
       },
-      "cosmosdb_account_key": {
+      "cognitive_account_id": {
         "description_kind": "plain",
         "required": true,
-        "sensitive": true,
-        "type": "string"
-      },
-      "cosmosdb_sql_database_id": {
-        "description_kind": "plain",
-        "required": true,
-        "type": "string"
-      },
-      "document_id": {
-        "description_kind": "plain",
-        "optional": true,
         "type": "string"
       },
       "id": {
         "computed": true,
+        "description_kind": "plain",
+        "optional": true,
+        "type": "string"
+      },
+      "mode": {
         "description_kind": "plain",
         "optional": true,
         "type": "string"
@@ -46,18 +35,50 @@ const azurermStreamAnalyticsOutputCosmosdb = `{
         "required": true,
         "type": "string"
       },
-      "partition_key": {
+      "tags": {
         "description_kind": "plain",
         "optional": true,
-        "type": "string"
-      },
-      "stream_analytics_job_id": {
-        "description_kind": "plain",
-        "required": true,
-        "type": "string"
+        "type": [
+          "map",
+          "string"
+        ]
       }
     },
     "block_types": {
+      "content_filter": {
+        "block": {
+          "attributes": {
+            "block_enabled": {
+              "description_kind": "plain",
+              "required": true,
+              "type": "bool"
+            },
+            "filter_enabled": {
+              "description_kind": "plain",
+              "required": true,
+              "type": "bool"
+            },
+            "name": {
+              "description_kind": "plain",
+              "required": true,
+              "type": "string"
+            },
+            "severity_threshold": {
+              "description_kind": "plain",
+              "required": true,
+              "type": "string"
+            },
+            "source": {
+              "description_kind": "plain",
+              "required": true,
+              "type": "string"
+            }
+          },
+          "description_kind": "plain"
+        },
+        "min_items": 1,
+        "nesting_mode": "list"
+      },
       "timeouts": {
         "block": {
           "attributes": {
@@ -89,11 +110,11 @@ const azurermStreamAnalyticsOutputCosmosdb = `{
     },
     "description_kind": "plain"
   },
-  "version": 1
+  "version": 0
 }`
 
-func AzurermStreamAnalyticsOutputCosmosdbSchema() *tfjson.Schema {
+func AzurermCognitiveAccountRaiPolicySchema() *tfjson.Schema {
 	var result tfjson.Schema
-	_ = json.Unmarshal([]byte(azurermStreamAnalyticsOutputCosmosdb), &result)
+	_ = json.Unmarshal([]byte(azurermCognitiveAccountRaiPolicy), &result)
 	return &result
 }

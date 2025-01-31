@@ -1,4 +1,4 @@
-package resource
+package data
 
 import (
 	"encoding/json"
@@ -6,33 +6,27 @@ import (
 	tfjson "github.com/hashicorp/terraform-json"
 )
 
-const azurermStreamAnalyticsOutputCosmosdb = `{
+const azurermApiManagementSubscription = `{
   "block": {
     "attributes": {
-      "authentication_mode": {
+      "allow_tracing": {
+        "computed": true,
         "description_kind": "plain",
-        "optional": true,
+        "type": "bool"
+      },
+      "api_id": {
+        "computed": true,
+        "description_kind": "plain",
         "type": "string"
       },
-      "container_name": {
+      "api_management_id": {
         "description_kind": "plain",
         "required": true,
         "type": "string"
       },
-      "cosmosdb_account_key": {
+      "display_name": {
+        "computed": true,
         "description_kind": "plain",
-        "required": true,
-        "sensitive": true,
-        "type": "string"
-      },
-      "cosmosdb_sql_database_id": {
-        "description_kind": "plain",
-        "required": true,
-        "type": "string"
-      },
-      "document_id": {
-        "description_kind": "plain",
-        "optional": true,
         "type": "string"
       },
       "id": {
@@ -41,19 +35,36 @@ const azurermStreamAnalyticsOutputCosmosdb = `{
         "optional": true,
         "type": "string"
       },
-      "name": {
+      "primary_key": {
+        "computed": true,
+        "description_kind": "plain",
+        "sensitive": true,
+        "type": "string"
+      },
+      "product_id": {
+        "computed": true,
+        "description_kind": "plain",
+        "type": "string"
+      },
+      "secondary_key": {
+        "computed": true,
+        "description_kind": "plain",
+        "sensitive": true,
+        "type": "string"
+      },
+      "state": {
+        "computed": true,
+        "description_kind": "plain",
+        "type": "string"
+      },
+      "subscription_id": {
         "description_kind": "plain",
         "required": true,
         "type": "string"
       },
-      "partition_key": {
+      "user_id": {
+        "computed": true,
         "description_kind": "plain",
-        "optional": true,
-        "type": "string"
-      },
-      "stream_analytics_job_id": {
-        "description_kind": "plain",
-        "required": true,
         "type": "string"
       }
     },
@@ -61,22 +72,7 @@ const azurermStreamAnalyticsOutputCosmosdb = `{
       "timeouts": {
         "block": {
           "attributes": {
-            "create": {
-              "description_kind": "plain",
-              "optional": true,
-              "type": "string"
-            },
-            "delete": {
-              "description_kind": "plain",
-              "optional": true,
-              "type": "string"
-            },
             "read": {
-              "description_kind": "plain",
-              "optional": true,
-              "type": "string"
-            },
-            "update": {
               "description_kind": "plain",
               "optional": true,
               "type": "string"
@@ -89,11 +85,11 @@ const azurermStreamAnalyticsOutputCosmosdb = `{
     },
     "description_kind": "plain"
   },
-  "version": 1
+  "version": 0
 }`
 
-func AzurermStreamAnalyticsOutputCosmosdbSchema() *tfjson.Schema {
+func AzurermApiManagementSubscriptionSchema() *tfjson.Schema {
 	var result tfjson.Schema
-	_ = json.Unmarshal([]byte(azurermStreamAnalyticsOutputCosmosdb), &result)
+	_ = json.Unmarshal([]byte(azurermApiManagementSubscription), &result)
 	return &result
 }

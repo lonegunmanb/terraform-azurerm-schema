@@ -14,6 +14,11 @@ const azurermCommunicationService = `{
         "description_kind": "plain",
         "type": "string"
       },
+      "hostname": {
+        "computed": true,
+        "description_kind": "plain",
+        "type": "string"
+      },
       "id": {
         "computed": true,
         "description_kind": "plain",
