@@ -14,6 +14,11 @@ const azurermRouteServer = `{
         "optional": true,
         "type": "bool"
       },
+      "hub_routing_preference": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "string"
+      },
       "id": {
         "computed": true,
         "description_kind": "plain",

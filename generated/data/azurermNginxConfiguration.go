@@ -48,6 +48,7 @@ const azurermNginxConfiguration = `{
             "object",
             {
               "content": "string",
+              "content_hash": "string",
               "virtual_path": "string"
             }
           ]

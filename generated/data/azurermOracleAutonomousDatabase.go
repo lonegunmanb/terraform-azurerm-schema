@@ -242,7 +242,7 @@ const azurermOracleAutonomousDatabase = `{
         "description_kind": "plain",
         "type": [
           "list",
-          "number"
+          "string"
         ]
       },
       "tags": {

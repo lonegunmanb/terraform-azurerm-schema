@@ -59,6 +59,11 @@ const azurermNginxConfiguration = `{
               "sensitive": true,
               "type": "string"
             },
+            "content_hash": {
+              "computed": true,
+              "description_kind": "plain",
+              "type": "string"
+            },
             "virtual_path": {
               "description_kind": "plain",
               "required": true,

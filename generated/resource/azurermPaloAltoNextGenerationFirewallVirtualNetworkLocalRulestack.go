@@ -15,9 +15,19 @@ const azurermPaloAltoNextGenerationFirewallVirtualNetworkLocalRulestack = `{
         "optional": true,
         "type": "string"
       },
+      "marketplace_offer_id": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "string"
+      },
       "name": {
         "description_kind": "plain",
         "required": true,
+        "type": "string"
+      },
+      "plan_id": {
+        "description_kind": "plain",
+        "optional": true,
         "type": "string"
       },
       "resource_group_name": {

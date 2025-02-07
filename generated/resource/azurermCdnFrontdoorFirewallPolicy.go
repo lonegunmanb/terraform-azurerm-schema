@@ -38,6 +38,11 @@ const azurermCdnFrontdoorFirewallPolicy = `{
         "optional": true,
         "type": "string"
       },
+      "js_challenge_cookie_expiration_in_minutes": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "number"
+      },
       "mode": {
         "description_kind": "plain",
         "required": true,

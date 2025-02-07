@@ -656,6 +656,12 @@ const azurermContainerAppJob = `{
                           "description_kind": "plain",
                           "required": true,
                           "type": "string"
+                        },
+                        "sub_path": {
+                          "description": "The sub path of the volume to be mounted in the container.",
+                          "description_kind": "plain",
+                          "optional": true,
+                          "type": "string"
                         }
                       },
                       "description_kind": "plain"
@@ -760,6 +766,12 @@ const azurermContainerAppJob = `{
                           "description": "The path in the container at which to mount this volume.",
                           "description_kind": "plain",
                           "required": true,
+                          "type": "string"
+                        },
+                        "sub_path": {
+                          "description": "The sub path of the volume to be mounted in the container.",
+                          "description_kind": "plain",
+                          "optional": true,
                           "type": "string"
                         }
                       },

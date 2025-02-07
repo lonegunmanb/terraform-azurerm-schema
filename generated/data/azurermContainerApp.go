@@ -345,7 +345,8 @@ const azurermContainerApp = `{
                         "object",
                         {
                           "name": "string",
-                          "path": "string"
+                          "path": "string",
+                          "sub_path": "string"
                         }
                       ]
                     ]
@@ -431,7 +432,8 @@ const azurermContainerApp = `{
                         "object",
                         {
                           "name": "string",
-                          "path": "string"
+                          "path": "string",
+                          "sub_path": "string"
                         }
                       ]
                     ]
