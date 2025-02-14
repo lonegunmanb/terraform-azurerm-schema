@@ -6,9 +6,30 @@ import (
 	tfjson "github.com/hashicorp/terraform-json"
 )
 
-const azurermMssqlManagedInstanceFailoverGroup = `{
+const azurermAiFoundryProject = `{
   "block": {
     "attributes": {
+      "ai_services_hub_id": {
+        "description_kind": "plain",
+        "required": true,
+        "type": "string"
+      },
+      "description": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "string"
+      },
+      "friendly_name": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "string"
+      },
+      "high_business_impact_enabled": {
+        "computed": true,
+        "description_kind": "plain",
+        "optional": true,
+        "type": "bool"
+      },
       "id": {
         "computed": true,
         "description_kind": "plain",
@@ -20,61 +41,48 @@ const azurermMssqlManagedInstanceFailoverGroup = `{
         "required": true,
         "type": "string"
       },
-      "managed_instance_id": {
-        "description_kind": "plain",
-        "required": true,
-        "type": "string"
-      },
       "name": {
         "description_kind": "plain",
         "required": true,
         "type": "string"
       },
-      "partner_managed_instance_id": {
-        "description_kind": "plain",
-        "required": true,
-        "type": "string"
-      },
-      "partner_region": {
+      "project_id": {
         "computed": true,
         "description_kind": "plain",
+        "type": "string"
+      },
+      "tags": {
+        "description_kind": "plain",
+        "optional": true,
         "type": [
-          "list",
-          [
-            "object",
-            {
-              "location": "string",
-              "role": "string"
-            }
-          ]
+          "map",
+          "string"
         ]
-      },
-      "readonly_endpoint_failover_policy_enabled": {
-        "description_kind": "plain",
-        "optional": true,
-        "type": "bool"
-      },
-      "role": {
-        "computed": true,
-        "description_kind": "plain",
-        "type": "string"
-      },
-      "secondary_type": {
-        "description_kind": "plain",
-        "optional": true,
-        "type": "string"
       }
     },
     "block_types": {
-      "read_write_endpoint_failover_policy": {
+      "identity": {
         "block": {
           "attributes": {
-            "grace_minutes": {
+            "identity_ids": {
               "description_kind": "plain",
               "optional": true,
-              "type": "number"
+              "type": [
+                "set",
+                "string"
+              ]
             },
-            "mode": {
+            "principal_id": {
+              "computed": true,
+              "description_kind": "plain",
+              "type": "string"
+            },
+            "tenant_id": {
+              "computed": true,
+              "description_kind": "plain",
+              "type": "string"
+            },
+            "type": {
               "description_kind": "plain",
               "required": true,
               "type": "string"
@@ -83,7 +91,6 @@ const azurermMssqlManagedInstanceFailoverGroup = `{
           "description_kind": "plain"
         },
         "max_items": 1,
-        "min_items": 1,
         "nesting_mode": "list"
       },
       "timeouts": {
@@ -120,8 +127,8 @@ const azurermMssqlManagedInstanceFailoverGroup = `{
   "version": 0
 }`
 
-func AzurermMssqlManagedInstanceFailoverGroupSchema() *tfjson.Schema {
+func AzurermAiFoundryProjectSchema() *tfjson.Schema {
 	var result tfjson.Schema
-	_ = json.Unmarshal([]byte(azurermMssqlManagedInstanceFailoverGroup), &result)
+	_ = json.Unmarshal([]byte(azurermAiFoundryProject), &result)
 	return &result
 }

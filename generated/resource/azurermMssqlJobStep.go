@@ -6,7 +6,7 @@ import (
 	tfjson "github.com/hashicorp/terraform-json"
 )
 
-const azurermMssqlManagedInstanceFailoverGroup = `{
+const azurermMssqlJobStep = `{
   "block": {
     "attributes": {
       "id": {
@@ -15,66 +15,82 @@ const azurermMssqlManagedInstanceFailoverGroup = `{
         "optional": true,
         "type": "string"
       },
-      "location": {
+      "initial_retry_interval_seconds": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "number"
+      },
+      "job_credential_id": {
         "description_kind": "plain",
         "required": true,
         "type": "string"
       },
-      "managed_instance_id": {
+      "job_id": {
         "description_kind": "plain",
         "required": true,
         "type": "string"
+      },
+      "job_step_index": {
+        "description_kind": "plain",
+        "required": true,
+        "type": "number"
+      },
+      "job_target_group_id": {
+        "description_kind": "plain",
+        "required": true,
+        "type": "string"
+      },
+      "maximum_retry_interval_seconds": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "number"
       },
       "name": {
         "description_kind": "plain",
         "required": true,
         "type": "string"
       },
-      "partner_managed_instance_id": {
+      "retry_attempts": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "number"
+      },
+      "retry_interval_backoff_multiplier": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "number"
+      },
+      "sql_script": {
         "description_kind": "plain",
         "required": true,
         "type": "string"
       },
-      "partner_region": {
-        "computed": true,
-        "description_kind": "plain",
-        "type": [
-          "list",
-          [
-            "object",
-            {
-              "location": "string",
-              "role": "string"
-            }
-          ]
-        ]
-      },
-      "readonly_endpoint_failover_policy_enabled": {
+      "timeout_seconds": {
         "description_kind": "plain",
         "optional": true,
-        "type": "bool"
-      },
-      "role": {
-        "computed": true,
-        "description_kind": "plain",
-        "type": "string"
-      },
-      "secondary_type": {
-        "description_kind": "plain",
-        "optional": true,
-        "type": "string"
+        "type": "number"
       }
     },
     "block_types": {
-      "read_write_endpoint_failover_policy": {
+      "output_target": {
         "block": {
           "attributes": {
-            "grace_minutes": {
+            "job_credential_id": {
+              "description_kind": "plain",
+              "required": true,
+              "type": "string"
+            },
+            "mssql_database_id": {
+              "description_kind": "plain",
+              "required": true,
+              "type": "string"
+            },
+            "schema_name": {
               "description_kind": "plain",
               "optional": true,
-              "type": "number"
+              "type": "string"
             },
-            "mode": {
+            "table_name": {
               "description_kind": "plain",
               "required": true,
               "type": "string"
@@ -83,7 +99,6 @@ const azurermMssqlManagedInstanceFailoverGroup = `{
           "description_kind": "plain"
         },
         "max_items": 1,
-        "min_items": 1,
         "nesting_mode": "list"
       },
       "timeouts": {
@@ -120,8 +135,8 @@ const azurermMssqlManagedInstanceFailoverGroup = `{
   "version": 0
 }`
 
-func AzurermMssqlManagedInstanceFailoverGroupSchema() *tfjson.Schema {
+func AzurermMssqlJobStepSchema() *tfjson.Schema {
 	var result tfjson.Schema
-	_ = json.Unmarshal([]byte(azurermMssqlManagedInstanceFailoverGroup), &result)
+	_ = json.Unmarshal([]byte(azurermMssqlJobStep), &result)
 	return &result
 }

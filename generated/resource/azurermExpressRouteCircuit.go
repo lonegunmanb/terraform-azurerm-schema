@@ -56,6 +56,11 @@ const azurermExpressRouteCircuit = `{
         "optional": true,
         "type": "string"
       },
+      "rate_limiting_enabled": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "bool"
+      },
       "resource_group_name": {
         "description_kind": "plain",
         "required": true,

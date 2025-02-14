@@ -51,6 +51,11 @@ const azurermServicePlan = `{
         "optional": true,
         "type": "bool"
       },
+      "premium_plan_auto_scale_enabled": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "bool"
+      },
       "reserved": {
         "computed": true,
         "description_kind": "plain",

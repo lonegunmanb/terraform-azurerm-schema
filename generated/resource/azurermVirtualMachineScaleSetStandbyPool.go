@@ -6,9 +6,14 @@ import (
 	tfjson "github.com/hashicorp/terraform-json"
 )
 
-const azurermMssqlManagedInstanceFailoverGroup = `{
+const azurermVirtualMachineScaleSetStandbyPool = `{
   "block": {
     "attributes": {
+      "attached_virtual_machine_scale_set_id": {
+        "description_kind": "plain",
+        "required": true,
+        "type": "string"
+      },
       "id": {
         "computed": true,
         "description_kind": "plain",
@@ -20,64 +25,43 @@ const azurermMssqlManagedInstanceFailoverGroup = `{
         "required": true,
         "type": "string"
       },
-      "managed_instance_id": {
-        "description_kind": "plain",
-        "required": true,
-        "type": "string"
-      },
       "name": {
         "description_kind": "plain",
         "required": true,
         "type": "string"
       },
-      "partner_managed_instance_id": {
+      "resource_group_name": {
         "description_kind": "plain",
         "required": true,
         "type": "string"
       },
-      "partner_region": {
-        "computed": true,
+      "tags": {
         "description_kind": "plain",
+        "optional": true,
         "type": [
-          "list",
-          [
-            "object",
-            {
-              "location": "string",
-              "role": "string"
-            }
-          ]
+          "map",
+          "string"
         ]
       },
-      "readonly_endpoint_failover_policy_enabled": {
+      "virtual_machine_state": {
         "description_kind": "plain",
-        "optional": true,
-        "type": "bool"
-      },
-      "role": {
-        "computed": true,
-        "description_kind": "plain",
-        "type": "string"
-      },
-      "secondary_type": {
-        "description_kind": "plain",
-        "optional": true,
+        "required": true,
         "type": "string"
       }
     },
     "block_types": {
-      "read_write_endpoint_failover_policy": {
+      "elasticity_profile": {
         "block": {
           "attributes": {
-            "grace_minutes": {
-              "description_kind": "plain",
-              "optional": true,
-              "type": "number"
-            },
-            "mode": {
+            "max_ready_capacity": {
               "description_kind": "plain",
               "required": true,
-              "type": "string"
+              "type": "number"
+            },
+            "min_ready_capacity": {
+              "description_kind": "plain",
+              "required": true,
+              "type": "number"
             }
           },
           "description_kind": "plain"
@@ -120,8 +104,8 @@ const azurermMssqlManagedInstanceFailoverGroup = `{
   "version": 0
 }`
 
-func AzurermMssqlManagedInstanceFailoverGroupSchema() *tfjson.Schema {
+func AzurermVirtualMachineScaleSetStandbyPoolSchema() *tfjson.Schema {
 	var result tfjson.Schema
-	_ = json.Unmarshal([]byte(azurermMssqlManagedInstanceFailoverGroup), &result)
+	_ = json.Unmarshal([]byte(azurermVirtualMachineScaleSetStandbyPool), &result)
 	return &result
 }

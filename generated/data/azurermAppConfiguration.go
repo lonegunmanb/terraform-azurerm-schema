@@ -9,6 +9,16 @@ import (
 const azurermAppConfiguration = `{
   "block": {
     "attributes": {
+      "data_plane_proxy_authentication_mode": {
+        "computed": true,
+        "description_kind": "plain",
+        "type": "string"
+      },
+      "data_plane_proxy_private_link_delegation_enabled": {
+        "computed": true,
+        "description_kind": "plain",
+        "type": "bool"
+      },
       "encryption": {
         "computed": true,
         "description_kind": "plain",

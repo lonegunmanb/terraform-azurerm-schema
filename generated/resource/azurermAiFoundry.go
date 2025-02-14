@@ -6,23 +6,39 @@ import (
 	tfjson "github.com/hashicorp/terraform-json"
 )
 
-const azurermAppConfiguration = `{
+const azurermAiFoundry = `{
   "block": {
     "attributes": {
-      "data_plane_proxy_authentication_mode": {
+      "application_insights_id": {
         "description_kind": "plain",
         "optional": true,
         "type": "string"
       },
-      "data_plane_proxy_private_link_delegation_enabled": {
+      "container_registry_id": {
         "description_kind": "plain",
         "optional": true,
-        "type": "bool"
+        "type": "string"
       },
-      "endpoint": {
+      "description": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "string"
+      },
+      "discovery_url": {
         "computed": true,
         "description_kind": "plain",
         "type": "string"
+      },
+      "friendly_name": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "string"
+      },
+      "high_business_impact_enabled": {
+        "computed": true,
+        "description_kind": "plain",
+        "optional": true,
+        "type": "bool"
       },
       "id": {
         "computed": true,
@@ -30,10 +46,10 @@ const azurermAppConfiguration = `{
         "optional": true,
         "type": "string"
       },
-      "local_auth_enabled": {
+      "key_vault_id": {
         "description_kind": "plain",
-        "optional": true,
-        "type": "bool"
+        "required": true,
+        "type": "string"
       },
       "location": {
         "description_kind": "plain",
@@ -45,90 +61,25 @@ const azurermAppConfiguration = `{
         "required": true,
         "type": "string"
       },
-      "primary_read_key": {
-        "computed": true,
+      "primary_user_assigned_identity": {
         "description_kind": "plain",
-        "type": [
-          "list",
-          [
-            "object",
-            {
-              "connection_string": "string",
-              "id": "string",
-              "secret": "string"
-            }
-          ]
-        ]
-      },
-      "primary_write_key": {
-        "computed": true,
-        "description_kind": "plain",
-        "type": [
-          "list",
-          [
-            "object",
-            {
-              "connection_string": "string",
-              "id": "string",
-              "secret": "string"
-            }
-          ]
-        ]
+        "optional": true,
+        "type": "string"
       },
       "public_network_access": {
         "description_kind": "plain",
         "optional": true,
         "type": "string"
       },
-      "purge_protection_enabled": {
-        "description_kind": "plain",
-        "optional": true,
-        "type": "bool"
-      },
       "resource_group_name": {
         "description_kind": "plain",
         "required": true,
         "type": "string"
       },
-      "secondary_read_key": {
-        "computed": true,
+      "storage_account_id": {
         "description_kind": "plain",
-        "type": [
-          "list",
-          [
-            "object",
-            {
-              "connection_string": "string",
-              "id": "string",
-              "secret": "string"
-            }
-          ]
-        ]
-      },
-      "secondary_write_key": {
-        "computed": true,
-        "description_kind": "plain",
-        "type": [
-          "list",
-          [
-            "object",
-            {
-              "connection_string": "string",
-              "id": "string",
-              "secret": "string"
-            }
-          ]
-        ]
-      },
-      "sku": {
-        "description_kind": "plain",
-        "optional": true,
+        "required": true,
         "type": "string"
-      },
-      "soft_delete_retention_days": {
-        "description_kind": "plain",
-        "optional": true,
-        "type": "number"
       },
       "tags": {
         "description_kind": "plain",
@@ -137,18 +88,28 @@ const azurermAppConfiguration = `{
           "map",
           "string"
         ]
+      },
+      "workspace_id": {
+        "computed": true,
+        "description_kind": "plain",
+        "type": "string"
       }
     },
     "block_types": {
       "encryption": {
         "block": {
           "attributes": {
-            "identity_client_id": {
+            "key_id": {
               "description_kind": "plain",
-              "optional": true,
+              "required": true,
               "type": "string"
             },
-            "key_vault_key_identifier": {
+            "key_vault_id": {
+              "description_kind": "plain",
+              "required": true,
+              "type": "string"
+            },
+            "user_assigned_identity_id": {
               "description_kind": "plain",
               "optional": true,
               "type": "string"
@@ -189,35 +150,23 @@ const azurermAppConfiguration = `{
           "description_kind": "plain"
         },
         "max_items": 1,
+        "min_items": 1,
         "nesting_mode": "list"
       },
-      "replica": {
+      "managed_network": {
         "block": {
           "attributes": {
-            "endpoint": {
+            "isolation_mode": {
               "computed": true,
               "description_kind": "plain",
-              "type": "string"
-            },
-            "id": {
-              "computed": true,
-              "description_kind": "plain",
-              "type": "string"
-            },
-            "location": {
-              "description_kind": "plain",
-              "required": true,
-              "type": "string"
-            },
-            "name": {
-              "description_kind": "plain",
-              "required": true,
+              "optional": true,
               "type": "string"
             }
           },
           "description_kind": "plain"
         },
-        "nesting_mode": "set"
+        "max_items": 1,
+        "nesting_mode": "list"
       },
       "timeouts": {
         "block": {
@@ -253,8 +202,8 @@ const azurermAppConfiguration = `{
   "version": 0
 }`
 
-func AzurermAppConfigurationSchema() *tfjson.Schema {
+func AzurermAiFoundrySchema() *tfjson.Schema {
 	var result tfjson.Schema
-	_ = json.Unmarshal([]byte(azurermAppConfiguration), &result)
+	_ = json.Unmarshal([]byte(azurermAiFoundry), &result)
 	return &result
 }

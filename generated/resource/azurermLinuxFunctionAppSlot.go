@@ -1360,7 +1360,7 @@ const azurermLinuxFunctionAppSlot = `{
             },
             "remote_debugging_version": {
               "computed": true,
-              "description": "The Remote Debugging Version. Possible values include ` + "`" + `VS2017` + "`" + `, ` + "`" + `VS2019` + "`" + `, and ` + "`" + `VS2022` + "`" + `",
+              "description": "The Remote Debugging Version. Currently only ` + "`" + `VS2022` + "`" + ` is supported.",
               "description_kind": "plain",
               "optional": true,
               "type": "string"

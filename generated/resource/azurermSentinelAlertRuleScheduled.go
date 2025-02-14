@@ -197,7 +197,7 @@ const azurermSentinelAlertRuleScheduled = `{
           },
           "description_kind": "plain"
         },
-        "max_items": 5,
+        "max_items": 10,
         "nesting_mode": "list"
       },
       "event_grouping": {
@@ -295,7 +295,7 @@ const azurermSentinelAlertRuleScheduled = `{
           },
           "description_kind": "plain"
         },
-        "max_items": 5,
+        "max_items": 10,
         "nesting_mode": "list"
       },
       "timeouts": {
