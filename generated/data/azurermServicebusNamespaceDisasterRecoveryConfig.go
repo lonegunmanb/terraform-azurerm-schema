@@ -38,11 +38,13 @@ const azurermServicebusNamespaceDisasterRecoveryConfig = `{
         "type": "string"
       },
       "namespace_id": {
+        "computed": true,
         "description_kind": "plain",
         "optional": true,
         "type": "string"
       },
       "namespace_name": {
+        "computed": true,
         "deprecated": true,
         "description_kind": "plain",
         "optional": true,
@@ -60,6 +62,7 @@ const azurermServicebusNamespaceDisasterRecoveryConfig = `{
         "type": "string"
       },
       "resource_group_name": {
+        "computed": true,
         "deprecated": true,
         "description_kind": "plain",
         "optional": true,

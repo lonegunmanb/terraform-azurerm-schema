@@ -9,6 +9,16 @@ import (
 const azurermPimEligibleRoleAssignment = `{
   "block": {
     "attributes": {
+      "condition": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "string"
+      },
+      "condition_version": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "string"
+      },
       "id": {
         "computed": true,
         "description_kind": "plain",

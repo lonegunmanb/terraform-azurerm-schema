@@ -20,6 +20,12 @@ const azurermStorageTable = `{
         "required": true,
         "type": "string"
       },
+      "resource_manager_id": {
+        "computed": true,
+        "description": "The Resource Manager ID of this Storage Table.",
+        "description_kind": "plain",
+        "type": "string"
+      },
       "storage_account_name": {
         "description_kind": "plain",
         "required": true,

@@ -34,7 +34,15 @@ const azurermKustoEventgridDataConnection = `{
         "optional": true,
         "type": "string"
       },
+      "eventgrid_event_subscription_id": {
+        "computed": true,
+        "description_kind": "plain",
+        "optional": true,
+        "type": "string"
+      },
       "eventgrid_resource_id": {
+        "computed": true,
+        "deprecated": true,
         "description_kind": "plain",
         "optional": true,
         "type": "string"
@@ -60,7 +68,15 @@ const azurermKustoEventgridDataConnection = `{
         "required": true,
         "type": "string"
       },
+      "managed_identity_id": {
+        "computed": true,
+        "description_kind": "plain",
+        "optional": true,
+        "type": "string"
+      },
       "managed_identity_resource_id": {
+        "computed": true,
+        "deprecated": true,
         "description_kind": "plain",
         "optional": true,
         "type": "string"

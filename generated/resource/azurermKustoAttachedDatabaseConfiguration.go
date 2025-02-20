@@ -17,14 +17,22 @@ const azurermKustoAttachedDatabaseConfiguration = `{
           "string"
         ]
       },
+      "cluster_id": {
+        "computed": true,
+        "description_kind": "plain",
+        "optional": true,
+        "type": "string"
+      },
       "cluster_name": {
         "description_kind": "plain",
         "required": true,
         "type": "string"
       },
       "cluster_resource_id": {
+        "computed": true,
+        "deprecated": true,
         "description_kind": "plain",
-        "required": true,
+        "optional": true,
         "type": "string"
       },
       "database_name": {

@@ -121,6 +121,8 @@ const azurermMssqlVirtualMachine = `{
         "block": {
           "attributes": {
             "encryption_enabled": {
+              "computed": true,
+              "deprecated": true,
               "description_kind": "plain",
               "optional": true,
               "type": "bool"

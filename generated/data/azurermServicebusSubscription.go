@@ -14,6 +14,11 @@ const azurermServicebusSubscription = `{
         "description_kind": "plain",
         "type": "string"
       },
+      "batched_operations_enabled": {
+        "computed": true,
+        "description_kind": "plain",
+        "type": "bool"
+      },
       "dead_lettering_on_filter_evaluation_error": {
         "computed": true,
         "description_kind": "plain",

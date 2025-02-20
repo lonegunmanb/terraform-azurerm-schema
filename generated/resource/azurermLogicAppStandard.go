@@ -54,6 +54,11 @@ const azurermLogicAppStandard = `{
         "optional": true,
         "type": "bool"
       },
+      "ftp_publish_basic_authentication_enabled": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "bool"
+      },
       "https_only": {
         "description_kind": "plain",
         "optional": true,
@@ -100,6 +105,11 @@ const azurermLogicAppStandard = `{
         "description_kind": "plain",
         "required": true,
         "type": "string"
+      },
+      "scm_publish_basic_authentication_enabled": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "bool"
       },
       "site_credential": {
         "computed": true,

@@ -1453,7 +1453,7 @@ const azurermWindowsFunctionAppSlot = `{
                     "type": "string"
                   },
                   "node_version": {
-                    "description": "The version of Node to use. Possible values include ` + "`" + `12` + "`" + `, ` + "`" + `14` + "`" + `, ` + "`" + `16` + "`" + ` and ` + "`" + `18` + "`" + `",
+                    "description": "The version of Node to use. Possible values include ` + "`" + `~12` + "`" + `, ` + "`" + `~14` + "`" + `, ` + "`" + `~16` + "`" + `, ` + "`" + `~18` + "`" + `, ` + "`" + `~20` + "`" + ` and ` + "`" + `~22` + "`" + `",
                     "description_kind": "plain",
                     "optional": true,
                     "type": "string"

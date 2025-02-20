@@ -70,6 +70,7 @@ const azurermContainerApp = `{
             "object",
             {
               "allow_insecure_connections": "bool",
+              "client_certificate_mode": "string",
               "custom_domain": [
                 "list",
                 [

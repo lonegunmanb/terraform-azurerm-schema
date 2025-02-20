@@ -1,4 +1,4 @@
-package data
+package resource
 
 import (
 	"encoding/json"
@@ -6,17 +6,12 @@ import (
 	tfjson "github.com/hashicorp/terraform-json"
 )
 
-const azurermSpatialAnchorsAccount = `{
+const azurermDataProtectionBackupVaultCustomerManagedKey = `{
   "block": {
     "attributes": {
-      "account_domain": {
-        "computed": true,
+      "data_protection_backup_vault_id": {
         "description_kind": "plain",
-        "type": "string"
-      },
-      "account_id": {
-        "computed": true,
-        "description_kind": "plain",
+        "required": true,
         "type": "string"
       },
       "id": {
@@ -25,35 +20,32 @@ const azurermSpatialAnchorsAccount = `{
         "optional": true,
         "type": "string"
       },
-      "location": {
-        "computed": true,
-        "description_kind": "plain",
-        "type": "string"
-      },
-      "name": {
+      "key_vault_key_id": {
         "description_kind": "plain",
         "required": true,
         "type": "string"
-      },
-      "resource_group_name": {
-        "description_kind": "plain",
-        "required": true,
-        "type": "string"
-      },
-      "tags": {
-        "computed": true,
-        "description_kind": "plain",
-        "type": [
-          "map",
-          "string"
-        ]
       }
     },
     "block_types": {
       "timeouts": {
         "block": {
           "attributes": {
+            "create": {
+              "description_kind": "plain",
+              "optional": true,
+              "type": "string"
+            },
+            "delete": {
+              "description_kind": "plain",
+              "optional": true,
+              "type": "string"
+            },
             "read": {
+              "description_kind": "plain",
+              "optional": true,
+              "type": "string"
+            },
+            "update": {
               "description_kind": "plain",
               "optional": true,
               "type": "string"
@@ -64,14 +56,13 @@ const azurermSpatialAnchorsAccount = `{
         "nesting_mode": "single"
       }
     },
-    "deprecated": true,
     "description_kind": "plain"
   },
   "version": 0
 }`
 
-func AzurermSpatialAnchorsAccountSchema() *tfjson.Schema {
+func AzurermDataProtectionBackupVaultCustomerManagedKeySchema() *tfjson.Schema {
 	var result tfjson.Schema
-	_ = json.Unmarshal([]byte(azurermSpatialAnchorsAccount), &result)
+	_ = json.Unmarshal([]byte(azurermDataProtectionBackupVaultCustomerManagedKey), &result)
 	return &result
 }
