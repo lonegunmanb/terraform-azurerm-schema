@@ -164,6 +164,11 @@ const azurermLogicAppStandard = `{
         "description_kind": "plain",
         "optional": true,
         "type": "string"
+      },
+      "vnet_content_share_enabled": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "bool"
       }
     },
     "block_types": {

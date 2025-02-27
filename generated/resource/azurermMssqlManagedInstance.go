@@ -25,6 +25,11 @@ const azurermMssqlManagedInstance = `{
         "optional": true,
         "type": "string"
       },
+      "database_format": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "string"
+      },
       "dns_zone": {
         "computed": true,
         "description_kind": "plain",
@@ -38,6 +43,11 @@ const azurermMssqlManagedInstance = `{
       "fqdn": {
         "computed": true,
         "description_kind": "plain",
+        "type": "string"
+      },
+      "hybrid_secondary_usage": {
+        "description_kind": "plain",
+        "optional": true,
         "type": "string"
       },
       "id": {

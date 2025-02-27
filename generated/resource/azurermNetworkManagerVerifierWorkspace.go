@@ -6,16 +6,21 @@ import (
 	tfjson "github.com/hashicorp/terraform-json"
 )
 
-const azurermMssqlJobCredential = `{
+const azurermNetworkManagerVerifierWorkspace = `{
   "block": {
     "attributes": {
+      "description": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "string"
+      },
       "id": {
         "computed": true,
         "description_kind": "plain",
         "optional": true,
         "type": "string"
       },
-      "job_agent_id": {
+      "location": {
         "description_kind": "plain",
         "required": true,
         "type": "string"
@@ -25,27 +30,18 @@ const azurermMssqlJobCredential = `{
         "required": true,
         "type": "string"
       },
-      "password": {
-        "description_kind": "plain",
-        "optional": true,
-        "sensitive": true,
-        "type": "string"
-      },
-      "password_wo": {
-        "description_kind": "plain",
-        "optional": true,
-        "type": "string",
-        "write_only": true
-      },
-      "password_wo_version": {
-        "description_kind": "plain",
-        "optional": true,
-        "type": "number"
-      },
-      "username": {
+      "network_manager_id": {
         "description_kind": "plain",
         "required": true,
         "type": "string"
+      },
+      "tags": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": [
+          "map",
+          "string"
+        ]
       }
     },
     "block_types": {
@@ -83,8 +79,8 @@ const azurermMssqlJobCredential = `{
   "version": 0
 }`
 
-func AzurermMssqlJobCredentialSchema() *tfjson.Schema {
+func AzurermNetworkManagerVerifierWorkspaceSchema() *tfjson.Schema {
 	var result tfjson.Schema
-	_ = json.Unmarshal([]byte(azurermMssqlJobCredential), &result)
+	_ = json.Unmarshal([]byte(azurermNetworkManagerVerifierWorkspace), &result)
 	return &result
 }

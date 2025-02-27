@@ -21,6 +21,17 @@ const azurermPostgresqlServer = `{
         "sensitive": true,
         "type": "string"
       },
+      "administrator_login_password_wo": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "string",
+        "write_only": true
+      },
+      "administrator_login_password_wo_version": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "number"
+      },
       "auto_grow_enabled": {
         "description_kind": "plain",
         "optional": true,

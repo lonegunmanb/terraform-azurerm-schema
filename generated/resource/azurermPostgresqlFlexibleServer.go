@@ -21,6 +21,17 @@ const azurermPostgresqlFlexibleServer = `{
         "sensitive": true,
         "type": "string"
       },
+      "administrator_password_wo": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "string",
+        "write_only": true
+      },
+      "administrator_password_wo_version": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "number"
+      },
       "auto_grow_enabled": {
         "description_kind": "plain",
         "optional": true,

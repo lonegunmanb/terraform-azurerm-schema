@@ -1776,6 +1776,25 @@ const azurermKubernetesCluster = `{
         },
         "nesting_mode": "single"
       },
+      "upgrade_override": {
+        "block": {
+          "attributes": {
+            "effective_until": {
+              "description_kind": "plain",
+              "optional": true,
+              "type": "string"
+            },
+            "force_upgrade_enabled": {
+              "description_kind": "plain",
+              "required": true,
+              "type": "bool"
+            }
+          },
+          "description_kind": "plain"
+        },
+        "max_items": 1,
+        "nesting_mode": "list"
+      },
       "web_app_routing": {
         "block": {
           "attributes": {
