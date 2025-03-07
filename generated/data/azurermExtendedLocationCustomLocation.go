@@ -1,4 +1,4 @@
-package resource
+package data
 
 import (
 	"encoding/json"
@@ -6,30 +6,44 @@ import (
 	tfjson "github.com/hashicorp/terraform-json"
 )
 
-const azurermExtendedCustomLocation = `{
+const azurermExtendedLocationCustomLocation = `{
   "block": {
     "attributes": {
-      "cluster_extension_ids": {
+      "authentication": {
+        "computed": true,
         "description_kind": "plain",
-        "required": true,
+        "type": [
+          "list",
+          [
+            "object",
+            {
+              "type": "string",
+              "value": "string"
+            }
+          ]
+        ]
+      },
+      "cluster_extension_ids": {
+        "computed": true,
+        "description_kind": "plain",
         "type": [
           "list",
           "string"
         ]
       },
       "display_name": {
+        "computed": true,
         "description_kind": "plain",
-        "optional": true,
         "type": "string"
       },
       "host_resource_id": {
+        "computed": true,
         "description_kind": "plain",
-        "required": true,
         "type": "string"
       },
       "host_type": {
+        "computed": true,
         "description_kind": "plain",
-        "optional": true,
         "type": "string"
       },
       "id": {
@@ -39,8 +53,8 @@ const azurermExtendedCustomLocation = `{
         "type": "string"
       },
       "location": {
+        "computed": true,
         "description_kind": "plain",
-        "required": true,
         "type": "string"
       },
       "name": {
@@ -49,8 +63,8 @@ const azurermExtendedCustomLocation = `{
         "type": "string"
       },
       "namespace": {
+        "computed": true,
         "description_kind": "plain",
-        "required": true,
         "type": "string"
       },
       "resource_group_name": {
@@ -60,44 +74,10 @@ const azurermExtendedCustomLocation = `{
       }
     },
     "block_types": {
-      "authentication": {
-        "block": {
-          "attributes": {
-            "type": {
-              "description_kind": "plain",
-              "optional": true,
-              "type": "string"
-            },
-            "value": {
-              "description_kind": "plain",
-              "required": true,
-              "type": "string"
-            }
-          },
-          "description_kind": "plain"
-        },
-        "max_items": 1,
-        "nesting_mode": "list"
-      },
       "timeouts": {
         "block": {
           "attributes": {
-            "create": {
-              "description_kind": "plain",
-              "optional": true,
-              "type": "string"
-            },
-            "delete": {
-              "description_kind": "plain",
-              "optional": true,
-              "type": "string"
-            },
             "read": {
-              "description_kind": "plain",
-              "optional": true,
-              "type": "string"
-            },
-            "update": {
               "description_kind": "plain",
               "optional": true,
               "type": "string"
@@ -108,14 +88,13 @@ const azurermExtendedCustomLocation = `{
         "nesting_mode": "single"
       }
     },
-    "deprecated": true,
     "description_kind": "plain"
   },
   "version": 0
 }`
 
-func AzurermExtendedCustomLocationSchema() *tfjson.Schema {
+func AzurermExtendedLocationCustomLocationSchema() *tfjson.Schema {
 	var result tfjson.Schema
-	_ = json.Unmarshal([]byte(azurermExtendedCustomLocation), &result)
+	_ = json.Unmarshal([]byte(azurermExtendedLocationCustomLocation), &result)
 	return &result
 }

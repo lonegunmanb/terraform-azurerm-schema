@@ -1021,6 +1021,12 @@ const azurermContainerApp = `{
             "volume": {
               "block": {
                 "attributes": {
+                  "mount_options": {
+                    "description": "Mount options used while mounting the AzureFile. Must be a comma-separated string.",
+                    "description_kind": "plain",
+                    "optional": true,
+                    "type": "string"
+                  },
                   "name": {
                     "description": "The name of the volume.",
                     "description_kind": "plain",

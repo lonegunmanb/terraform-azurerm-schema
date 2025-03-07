@@ -6,7 +6,7 @@ import (
 	tfjson "github.com/hashicorp/terraform-json"
 )
 
-const azurermExtendedCustomLocation = `{
+const azurermExtendedLocationCustomLocation = `{
   "block": {
     "attributes": {
       "cluster_extension_ids": {
@@ -108,14 +108,13 @@ const azurermExtendedCustomLocation = `{
         "nesting_mode": "single"
       }
     },
-    "deprecated": true,
     "description_kind": "plain"
   },
   "version": 0
 }`
 
-func AzurermExtendedCustomLocationSchema() *tfjson.Schema {
+func AzurermExtendedLocationCustomLocationSchema() *tfjson.Schema {
 	var result tfjson.Schema
-	_ = json.Unmarshal([]byte(azurermExtendedCustomLocation), &result)
+	_ = json.Unmarshal([]byte(azurermExtendedLocationCustomLocation), &result)
 	return &result
 }

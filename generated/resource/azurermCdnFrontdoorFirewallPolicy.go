@@ -175,6 +175,52 @@ const azurermCdnFrontdoorFirewallPolicy = `{
         "max_items": 100,
         "nesting_mode": "list"
       },
+      "log_scrubbing": {
+        "block": {
+          "attributes": {
+            "enabled": {
+              "description_kind": "plain",
+              "optional": true,
+              "type": "bool"
+            }
+          },
+          "block_types": {
+            "scrubbing_rule": {
+              "block": {
+                "attributes": {
+                  "enabled": {
+                    "description_kind": "plain",
+                    "optional": true,
+                    "type": "bool"
+                  },
+                  "match_variable": {
+                    "description_kind": "plain",
+                    "required": true,
+                    "type": "string"
+                  },
+                  "operator": {
+                    "description_kind": "plain",
+                    "optional": true,
+                    "type": "string"
+                  },
+                  "selector": {
+                    "description_kind": "plain",
+                    "optional": true,
+                    "type": "string"
+                  }
+                },
+                "description_kind": "plain"
+              },
+              "max_items": 100,
+              "min_items": 1,
+              "nesting_mode": "list"
+            }
+          },
+          "description_kind": "plain"
+        },
+        "max_items": 1,
+        "nesting_mode": "list"
+      },
       "managed_rule": {
         "block": {
           "attributes": {

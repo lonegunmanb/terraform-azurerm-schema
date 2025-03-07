@@ -10,6 +10,7 @@ const azurermApiConnection = `{
   "block": {
     "attributes": {
       "display_name": {
+        "computed": true,
         "description_kind": "plain",
         "optional": true,
         "type": "string"

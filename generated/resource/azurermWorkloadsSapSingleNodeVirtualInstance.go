@@ -35,6 +35,11 @@ const azurermWorkloadsSapSingleNodeVirtualInstance = `{
         "optional": true,
         "type": "string"
       },
+      "managed_resources_network_access_type": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "string"
+      },
       "name": {
         "description_kind": "plain",
         "required": true,

@@ -470,6 +470,7 @@ const azurermContainerApp = `{
                 [
                   "object",
                   {
+                    "mount_options": "string",
                     "name": "string",
                     "storage_name": "string",
                     "storage_type": "string"

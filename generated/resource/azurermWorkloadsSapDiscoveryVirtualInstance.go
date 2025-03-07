@@ -35,6 +35,11 @@ const azurermWorkloadsSapDiscoveryVirtualInstance = `{
         "optional": true,
         "type": "string"
       },
+      "managed_resources_network_access_type": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "string"
+      },
       "managed_storage_account_name": {
         "description_kind": "plain",
         "optional": true,

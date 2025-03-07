@@ -25,6 +25,22 @@ const azurermMongoCluster = `{
         "optional": true,
         "type": "string"
       },
+      "connection_strings": {
+        "computed": true,
+        "description_kind": "plain",
+        "sensitive": true,
+        "type": [
+          "list",
+          [
+            "object",
+            {
+              "description": "string",
+              "name": "string",
+              "value": "string"
+            }
+          ]
+        ]
+      },
       "create_mode": {
         "description_kind": "plain",
         "optional": true,
