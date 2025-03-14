@@ -686,6 +686,7 @@ func init() {
 	resources["azurerm_network_manager_admin_rule_collection"] = resource.AzurermNetworkManagerAdminRuleCollectionSchema()  
 	resources["azurerm_network_manager_connectivity_configuration"] = resource.AzurermNetworkManagerConnectivityConfigurationSchema()  
 	resources["azurerm_network_manager_deployment"] = resource.AzurermNetworkManagerDeploymentSchema()  
+	resources["azurerm_network_manager_ipam_pool"] = resource.AzurermNetworkManagerIpamPoolSchema()  
 	resources["azurerm_network_manager_management_group_connection"] = resource.AzurermNetworkManagerManagementGroupConnectionSchema()  
 	resources["azurerm_network_manager_network_group"] = resource.AzurermNetworkManagerNetworkGroupSchema()  
 	resources["azurerm_network_manager_scope_connection"] = resource.AzurermNetworkManagerScopeConnectionSchema()  

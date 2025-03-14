@@ -6,15 +6,23 @@ import (
 	tfjson "github.com/hashicorp/terraform-json"
 )
 
-const azurermDatadogMonitorSsoConfiguration = `{
+const azurermNetworkManagerIpamPool = `{
   "block": {
     "attributes": {
-      "datadog_monitor_id": {
+      "address_prefixes": {
         "description_kind": "plain",
         "required": true,
+        "type": [
+          "list",
+          "string"
+        ]
+      },
+      "description": {
+        "description_kind": "plain",
+        "optional": true,
         "type": "string"
       },
-      "enterprise_application_id": {
+      "display_name": {
         "description_kind": "plain",
         "required": true,
         "type": "string"
@@ -25,28 +33,33 @@ const azurermDatadogMonitorSsoConfiguration = `{
         "optional": true,
         "type": "string"
       },
-      "login_url": {
-        "computed": true,
+      "location": {
         "description_kind": "plain",
+        "required": true,
         "type": "string"
       },
       "name": {
         "description_kind": "plain",
-        "optional": true,
+        "required": true,
         "type": "string"
       },
-      "single_sign_on": {
-        "computed": true,
+      "network_manager_id": {
+        "description_kind": "plain",
+        "required": true,
+        "type": "string"
+      },
+      "parent_pool_name": {
         "description_kind": "plain",
         "optional": true,
         "type": "string"
       },
-      "single_sign_on_enabled": {
-        "computed": true,
-        "deprecated": true,
+      "tags": {
         "description_kind": "plain",
         "optional": true,
-        "type": "string"
+        "type": [
+          "map",
+          "string"
+        ]
       }
     },
     "block_types": {
@@ -84,8 +97,8 @@ const azurermDatadogMonitorSsoConfiguration = `{
   "version": 0
 }`
 
-func AzurermDatadogMonitorSsoConfigurationSchema() *tfjson.Schema {
+func AzurermNetworkManagerIpamPoolSchema() *tfjson.Schema {
 	var result tfjson.Schema
-	_ = json.Unmarshal([]byte(azurermDatadogMonitorSsoConfiguration), &result)
+	_ = json.Unmarshal([]byte(azurermNetworkManagerIpamPool), &result)
 	return &result
 }

@@ -60,9 +60,20 @@ const azurermKeyVaultSecret = `{
       },
       "value": {
         "description_kind": "plain",
-        "required": true,
+        "optional": true,
         "sensitive": true,
         "type": "string"
+      },
+      "value_wo": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "string",
+        "write_only": true
+      },
+      "value_wo_version": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "number"
       },
       "version": {
         "computed": true,
