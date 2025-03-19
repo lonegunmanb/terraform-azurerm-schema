@@ -15,7 +15,7 @@ require (
 	github.com/iancoleman/strcase v0.3.0
 	github.com/stretchr/testify v1.10.0
 	golang.org/x/mod v0.24.0
-	golang.org/x/oauth2 v0.27.0
+	golang.org/x/oauth2 v0.28.0
 )
 
 require (
