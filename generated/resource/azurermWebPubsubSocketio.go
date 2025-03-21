@@ -6,68 +6,54 @@ import (
 	tfjson "github.com/hashicorp/terraform-json"
 )
 
-const azurermPostgresqlFlexibleServer = `{
+const azurermWebPubsubSocketio = `{
   "block": {
     "attributes": {
-      "administrator_login": {
-        "computed": true,
-        "description_kind": "plain",
-        "optional": true,
-        "type": "string"
-      },
-      "administrator_password": {
-        "description_kind": "plain",
-        "optional": true,
-        "sensitive": true,
-        "type": "string"
-      },
-      "administrator_password_wo": {
-        "description_kind": "plain",
-        "optional": true,
-        "type": "string",
-        "write_only": true
-      },
-      "administrator_password_wo_version": {
-        "description_kind": "plain",
-        "optional": true,
-        "type": "number"
-      },
-      "auto_grow_enabled": {
+      "aad_auth_enabled": {
         "description_kind": "plain",
         "optional": true,
         "type": "bool"
       },
-      "backup_retention_days": {
-        "computed": true,
-        "description_kind": "plain",
-        "optional": true,
-        "type": "number"
-      },
-      "create_mode": {
-        "description_kind": "plain",
-        "optional": true,
-        "type": "string"
-      },
-      "delegated_subnet_id": {
-        "description_kind": "plain",
-        "optional": true,
-        "type": "string"
-      },
-      "fqdn": {
+      "external_ip": {
         "computed": true,
         "description_kind": "plain",
         "type": "string"
       },
-      "geo_redundant_backup_enabled": {
+      "hostname": {
+        "computed": true,
         "description_kind": "plain",
-        "optional": true,
-        "type": "bool"
+        "type": "string"
       },
       "id": {
         "computed": true,
         "description_kind": "plain",
         "optional": true,
         "type": "string"
+      },
+      "live_trace_connectivity_logs_enabled": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "bool"
+      },
+      "live_trace_enabled": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "bool"
+      },
+      "live_trace_http_request_logs_enabled": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "bool"
+      },
+      "live_trace_messaging_logs_enabled": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "bool"
+      },
+      "local_auth_enabled": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "bool"
       },
       "location": {
         "description_kind": "plain",
@@ -79,51 +65,51 @@ const azurermPostgresqlFlexibleServer = `{
         "required": true,
         "type": "string"
       },
-      "point_in_time_restore_time_in_utc": {
-        "description_kind": "plain",
-        "optional": true,
-        "type": "string"
-      },
-      "private_dns_zone_id": {
+      "primary_access_key": {
         "computed": true,
         "description_kind": "plain",
+        "sensitive": true,
+        "type": "string"
+      },
+      "primary_connection_string": {
+        "computed": true,
+        "description_kind": "plain",
+        "sensitive": true,
+        "type": "string"
+      },
+      "public_network_access": {
+        "description_kind": "plain",
         "optional": true,
         "type": "string"
       },
-      "public_network_access_enabled": {
+      "public_port": {
+        "computed": true,
         "description_kind": "plain",
-        "optional": true,
-        "type": "bool"
-      },
-      "replication_role": {
-        "description_kind": "plain",
-        "optional": true,
-        "type": "string"
+        "type": "number"
       },
       "resource_group_name": {
         "description_kind": "plain",
         "required": true,
         "type": "string"
       },
-      "sku_name": {
+      "secondary_access_key": {
         "computed": true,
         "description_kind": "plain",
-        "optional": true,
+        "sensitive": true,
         "type": "string"
       },
-      "source_server_id": {
-        "description_kind": "plain",
-        "optional": true,
-        "type": "string"
-      },
-      "storage_mb": {
+      "secondary_connection_string": {
         "computed": true,
         "description_kind": "plain",
-        "optional": true,
+        "sensitive": true,
+        "type": "string"
+      },
+      "server_port": {
+        "computed": true,
+        "description_kind": "plain",
         "type": "number"
       },
-      "storage_tier": {
-        "computed": true,
+      "service_mode": {
         "description_kind": "plain",
         "optional": true,
         "type": "string"
@@ -136,91 +122,13 @@ const azurermPostgresqlFlexibleServer = `{
           "string"
         ]
       },
-      "version": {
-        "computed": true,
+      "tls_client_cert_enabled": {
         "description_kind": "plain",
         "optional": true,
-        "type": "string"
-      },
-      "zone": {
-        "description_kind": "plain",
-        "optional": true,
-        "type": "string"
+        "type": "bool"
       }
     },
     "block_types": {
-      "authentication": {
-        "block": {
-          "attributes": {
-            "active_directory_auth_enabled": {
-              "description_kind": "plain",
-              "optional": true,
-              "type": "bool"
-            },
-            "password_auth_enabled": {
-              "description_kind": "plain",
-              "optional": true,
-              "type": "bool"
-            },
-            "tenant_id": {
-              "description_kind": "plain",
-              "optional": true,
-              "type": "string"
-            }
-          },
-          "description_kind": "plain"
-        },
-        "max_items": 1,
-        "nesting_mode": "list"
-      },
-      "customer_managed_key": {
-        "block": {
-          "attributes": {
-            "geo_backup_key_vault_key_id": {
-              "description_kind": "plain",
-              "optional": true,
-              "type": "string"
-            },
-            "geo_backup_user_assigned_identity_id": {
-              "description_kind": "plain",
-              "optional": true,
-              "type": "string"
-            },
-            "key_vault_key_id": {
-              "description_kind": "plain",
-              "required": true,
-              "type": "string"
-            },
-            "primary_user_assigned_identity_id": {
-              "description_kind": "plain",
-              "optional": true,
-              "type": "string"
-            }
-          },
-          "description_kind": "plain"
-        },
-        "max_items": 1,
-        "nesting_mode": "list"
-      },
-      "high_availability": {
-        "block": {
-          "attributes": {
-            "mode": {
-              "description_kind": "plain",
-              "required": true,
-              "type": "string"
-            },
-            "standby_availability_zone": {
-              "description_kind": "plain",
-              "optional": true,
-              "type": "string"
-            }
-          },
-          "description_kind": "plain"
-        },
-        "max_items": 1,
-        "nesting_mode": "list"
-      },
       "identity": {
         "block": {
           "attributes": {
@@ -253,28 +161,24 @@ const azurermPostgresqlFlexibleServer = `{
         "max_items": 1,
         "nesting_mode": "list"
       },
-      "maintenance_window": {
+      "sku": {
         "block": {
           "attributes": {
-            "day_of_week": {
+            "capacity": {
               "description_kind": "plain",
               "optional": true,
               "type": "number"
             },
-            "start_hour": {
+            "name": {
               "description_kind": "plain",
-              "optional": true,
-              "type": "number"
-            },
-            "start_minute": {
-              "description_kind": "plain",
-              "optional": true,
-              "type": "number"
+              "required": true,
+              "type": "string"
             }
           },
           "description_kind": "plain"
         },
         "max_items": 1,
+        "min_items": 1,
         "nesting_mode": "list"
       },
       "timeouts": {
@@ -311,8 +215,8 @@ const azurermPostgresqlFlexibleServer = `{
   "version": 0
 }`
 
-func AzurermPostgresqlFlexibleServerSchema() *tfjson.Schema {
+func AzurermWebPubsubSocketioSchema() *tfjson.Schema {
 	var result tfjson.Schema
-	_ = json.Unmarshal([]byte(azurermPostgresqlFlexibleServer), &result)
+	_ = json.Unmarshal([]byte(azurermWebPubsubSocketio), &result)
 	return &result
 }

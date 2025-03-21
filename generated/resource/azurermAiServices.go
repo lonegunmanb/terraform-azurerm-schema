@@ -149,6 +149,11 @@ const azurermAiServices = `{
       "network_acls": {
         "block": {
           "attributes": {
+            "bypass": {
+              "description_kind": "plain",
+              "optional": true,
+              "type": "string"
+            },
             "default_action": {
               "description_kind": "plain",
               "required": true,

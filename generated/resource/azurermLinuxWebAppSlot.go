@@ -163,6 +163,11 @@ const azurermLinuxWebAppSlot = `{
           "string"
         ]
       },
+      "virtual_network_backup_restore_enabled": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "bool"
+      },
       "virtual_network_subnet_id": {
         "description_kind": "plain",
         "optional": true,

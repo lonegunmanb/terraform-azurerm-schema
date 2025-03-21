@@ -207,6 +207,11 @@ const azurermLinuxFunctionAppSlot = `{
           "string"
         ]
       },
+      "virtual_network_backup_restore_enabled": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "bool"
+      },
       "virtual_network_subnet_id": {
         "description_kind": "plain",
         "optional": true,
@@ -1458,7 +1463,7 @@ const azurermLinuxFunctionAppSlot = `{
                     "type": "string"
                   },
                   "node_version": {
-                    "description": "The version of Node to use. Possible values include ` + "`" + `12` + "`" + `, ` + "`" + `14` + "`" + `, ` + "`" + `16` + "`" + `, ` + "`" + `18` + "`" + ` and ` + "`" + `20` + "`" + `",
+                    "description": "The version of Node to use. Possible values include ` + "`" + `12` + "`" + `, ` + "`" + `14` + "`" + `, ` + "`" + `16` + "`" + `, ` + "`" + `18` + "`" + `, ` + "`" + `20` + "`" + ` and ` + "`" + `22` + "`" + `",
                     "description_kind": "plain",
                     "optional": true,
                     "type": "string"

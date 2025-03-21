@@ -757,6 +757,11 @@ const azurermWindowsFunctionApp = `{
           "string"
         ]
       },
+      "virtual_network_backup_restore_enabled": {
+        "computed": true,
+        "description_kind": "plain",
+        "type": "bool"
+      },
       "virtual_network_subnet_id": {
         "computed": true,
         "description_kind": "plain",
