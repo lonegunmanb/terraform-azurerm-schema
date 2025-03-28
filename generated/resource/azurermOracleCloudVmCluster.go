@@ -154,6 +154,11 @@ const azurermOracleCloudVmCluster = `{
         "required": true,
         "type": "string"
       },
+      "system_version": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "string"
+      },
       "tags": {
         "description_kind": "plain",
         "optional": true,

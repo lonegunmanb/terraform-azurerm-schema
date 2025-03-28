@@ -58,7 +58,7 @@ const azurermNetworkManager = `{
       },
       "scope_accesses": {
         "description_kind": "plain",
-        "required": true,
+        "optional": true,
         "type": [
           "list",
           "string"

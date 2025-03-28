@@ -60,6 +60,11 @@ const azurermVirtualHubConnection = `{
               "description_kind": "plain",
               "optional": true,
               "type": "string"
+            },
+            "static_vnet_propagate_static_routes_enabled": {
+              "description_kind": "plain",
+              "optional": true,
+              "type": "bool"
             }
           },
           "block_types": {

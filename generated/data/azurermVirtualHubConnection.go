@@ -63,6 +63,7 @@ const azurermVirtualHubConnection = `{
                 ]
               ],
               "static_vnet_local_route_override_criteria": "string",
+              "static_vnet_propagate_static_routes_enabled": "bool",
               "static_vnet_route": [
                 "list",
                 [
