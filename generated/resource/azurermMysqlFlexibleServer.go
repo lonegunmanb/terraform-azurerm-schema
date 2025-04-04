@@ -83,6 +83,12 @@ const azurermMysqlFlexibleServer = `{
         "optional": true,
         "type": "string"
       },
+      "public_network_access": {
+        "computed": true,
+        "description_kind": "plain",
+        "optional": true,
+        "type": "string"
+      },
       "public_network_access_enabled": {
         "computed": true,
         "description_kind": "plain",
@@ -130,6 +136,7 @@ const azurermMysqlFlexibleServer = `{
         "type": "string"
       },
       "zone": {
+        "computed": true,
         "description_kind": "plain",
         "optional": true,
         "type": "string"
@@ -174,6 +181,7 @@ const azurermMysqlFlexibleServer = `{
               "type": "string"
             },
             "standby_availability_zone": {
+              "computed": true,
               "description_kind": "plain",
               "optional": true,
               "type": "string"

@@ -115,6 +115,11 @@ const azurermOrchestratedVirtualMachineScaleSet = `{
         "description_kind": "plain",
         "type": "string"
       },
+      "upgrade_mode": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "string"
+      },
       "user_data_base64": {
         "description_kind": "plain",
         "optional": true,
@@ -842,6 +847,50 @@ const azurermOrchestratedVirtualMachineScaleSet = `{
               "description_kind": "plain",
               "optional": true,
               "type": "number"
+            }
+          },
+          "description_kind": "plain"
+        },
+        "max_items": 1,
+        "nesting_mode": "list"
+      },
+      "rolling_upgrade_policy": {
+        "block": {
+          "attributes": {
+            "cross_zone_upgrades_enabled": {
+              "description_kind": "plain",
+              "optional": true,
+              "type": "bool"
+            },
+            "max_batch_instance_percent": {
+              "description_kind": "plain",
+              "required": true,
+              "type": "number"
+            },
+            "max_unhealthy_instance_percent": {
+              "description_kind": "plain",
+              "required": true,
+              "type": "number"
+            },
+            "max_unhealthy_upgraded_instance_percent": {
+              "description_kind": "plain",
+              "required": true,
+              "type": "number"
+            },
+            "maximum_surge_instances_enabled": {
+              "description_kind": "plain",
+              "optional": true,
+              "type": "bool"
+            },
+            "pause_time_between_batches": {
+              "description_kind": "plain",
+              "required": true,
+              "type": "string"
+            },
+            "prioritize_unhealthy_instances_enabled": {
+              "description_kind": "plain",
+              "optional": true,
+              "type": "bool"
             }
           },
           "description_kind": "plain"

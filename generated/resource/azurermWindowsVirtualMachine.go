@@ -242,6 +242,8 @@ const azurermWindowsVirtualMachine = `{
         "type": "string"
       },
       "vm_agent_platform_updates_enabled": {
+        "computed": true,
+        "deprecated": true,
         "description_kind": "plain",
         "optional": true,
         "type": "bool"

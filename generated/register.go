@@ -1395,6 +1395,7 @@ func init() {
 	dataSources["azurerm_resource_group"] = data.AzurermResourceGroupSchema()  
 	dataSources["azurerm_resource_group_template_deployment"] = data.AzurermResourceGroupTemplateDeploymentSchema()  
 	dataSources["azurerm_resources"] = data.AzurermResourcesSchema()  
+	dataSources["azurerm_role_assignments"] = data.AzurermRoleAssignmentsSchema()  
 	dataSources["azurerm_role_definition"] = data.AzurermRoleDefinitionSchema()  
 	dataSources["azurerm_role_management_policy"] = data.AzurermRoleManagementPolicySchema()  
 	dataSources["azurerm_route_filter"] = data.AzurermRouteFilterSchema()  

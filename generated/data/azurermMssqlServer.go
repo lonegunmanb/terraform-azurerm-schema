@@ -14,6 +14,11 @@ const azurermMssqlServer = `{
         "description_kind": "plain",
         "type": "string"
       },
+      "express_vulnerability_assessment_enabled": {
+        "computed": true,
+        "description_kind": "plain",
+        "type": "bool"
+      },
       "fully_qualified_domain_name": {
         "computed": true,
         "description_kind": "plain",

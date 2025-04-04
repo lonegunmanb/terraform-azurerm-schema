@@ -76,7 +76,7 @@ const azurermDataFactoryLinkedServiceSftp = `{
       },
       "password": {
         "description_kind": "plain",
-        "required": true,
+        "optional": true,
         "sensitive": true,
         "type": "string"
       },
@@ -84,6 +84,23 @@ const azurermDataFactoryLinkedServiceSftp = `{
         "description_kind": "plain",
         "required": true,
         "type": "number"
+      },
+      "private_key_content_base64": {
+        "description_kind": "plain",
+        "optional": true,
+        "sensitive": true,
+        "type": "string"
+      },
+      "private_key_passphrase": {
+        "description_kind": "plain",
+        "optional": true,
+        "sensitive": true,
+        "type": "string"
+      },
+      "private_key_path": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "string"
       },
       "skip_host_key_validation": {
         "description_kind": "plain",
@@ -97,6 +114,62 @@ const azurermDataFactoryLinkedServiceSftp = `{
       }
     },
     "block_types": {
+      "key_vault_password": {
+        "block": {
+          "attributes": {
+            "linked_service_name": {
+              "description_kind": "plain",
+              "required": true,
+              "type": "string"
+            },
+            "secret_name": {
+              "description_kind": "plain",
+              "required": true,
+              "type": "string"
+            }
+          },
+          "description_kind": "plain"
+        },
+        "nesting_mode": "list"
+      },
+      "key_vault_private_key_content_base64": {
+        "block": {
+          "attributes": {
+            "linked_service_name": {
+              "description_kind": "plain",
+              "required": true,
+              "type": "string"
+            },
+            "secret_name": {
+              "description_kind": "plain",
+              "required": true,
+              "type": "string"
+            }
+          },
+          "description_kind": "plain"
+        },
+        "max_items": 1,
+        "nesting_mode": "list"
+      },
+      "key_vault_private_key_passphrase": {
+        "block": {
+          "attributes": {
+            "linked_service_name": {
+              "description_kind": "plain",
+              "required": true,
+              "type": "string"
+            },
+            "secret_name": {
+              "description_kind": "plain",
+              "required": true,
+              "type": "string"
+            }
+          },
+          "description_kind": "plain"
+        },
+        "max_items": 1,
+        "nesting_mode": "list"
+      },
       "timeouts": {
         "block": {
           "attributes": {
