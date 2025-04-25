@@ -6,43 +6,18 @@ import (
 	tfjson "github.com/hashicorp/terraform-json"
 )
 
-const azurermDevCenterProject = `{
+const azurermEventgridPartnerConfiguration = `{
   "block": {
     "attributes": {
-      "description": {
+      "default_maximum_expiration_time_in_days": {
         "description_kind": "plain",
         "optional": true,
-        "type": "string"
-      },
-      "dev_center_id": {
-        "description_kind": "plain",
-        "required": true,
-        "type": "string"
-      },
-      "dev_center_uri": {
-        "computed": true,
-        "description_kind": "plain",
-        "type": "string"
+        "type": "number"
       },
       "id": {
         "computed": true,
         "description_kind": "plain",
         "optional": true,
-        "type": "string"
-      },
-      "location": {
-        "description_kind": "plain",
-        "required": true,
-        "type": "string"
-      },
-      "maximum_dev_boxes_per_user": {
-        "description_kind": "plain",
-        "optional": true,
-        "type": "number"
-      },
-      "name": {
-        "description_kind": "plain",
-        "required": true,
         "type": "string"
       },
       "resource_group_name": {
@@ -60,28 +35,20 @@ const azurermDevCenterProject = `{
       }
     },
     "block_types": {
-      "identity": {
+      "partner_authorization": {
         "block": {
           "attributes": {
-            "identity_ids": {
+            "authorization_expiration_time_in_utc": {
               "description_kind": "plain",
               "optional": true,
-              "type": [
-                "set",
-                "string"
-              ]
-            },
-            "principal_id": {
-              "computed": true,
-              "description_kind": "plain",
               "type": "string"
             },
-            "tenant_id": {
-              "computed": true,
+            "partner_name": {
               "description_kind": "plain",
+              "required": true,
               "type": "string"
             },
-            "type": {
+            "partner_registration_id": {
               "description_kind": "plain",
               "required": true,
               "type": "string"
@@ -89,7 +56,6 @@ const azurermDevCenterProject = `{
           },
           "description_kind": "plain"
         },
-        "max_items": 1,
         "nesting_mode": "list"
       },
       "timeouts": {
@@ -126,8 +92,8 @@ const azurermDevCenterProject = `{
   "version": 0
 }`
 
-func AzurermDevCenterProjectSchema() *tfjson.Schema {
+func AzurermEventgridPartnerConfigurationSchema() *tfjson.Schema {
 	var result tfjson.Schema
-	_ = json.Unmarshal([]byte(azurermDevCenterProject), &result)
+	_ = json.Unmarshal([]byte(azurermEventgridPartnerConfiguration), &result)
 	return &result
 }

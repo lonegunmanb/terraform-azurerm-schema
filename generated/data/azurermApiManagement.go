@@ -66,6 +66,7 @@ const azurermApiManagement = `{
                   "object",
                   {
                     "host_name": "string",
+                    "key_vault_certificate_id": "string",
                     "key_vault_id": "string",
                     "negotiate_client_certificate": "bool"
                   }
@@ -77,6 +78,7 @@ const azurermApiManagement = `{
                   "object",
                   {
                     "host_name": "string",
+                    "key_vault_certificate_id": "string",
                     "key_vault_id": "string",
                     "negotiate_client_certificate": "bool"
                   }
@@ -88,6 +90,7 @@ const azurermApiManagement = `{
                   "object",
                   {
                     "host_name": "string",
+                    "key_vault_certificate_id": "string",
                     "key_vault_id": "string",
                     "negotiate_client_certificate": "bool"
                   }
@@ -100,6 +103,7 @@ const azurermApiManagement = `{
                   {
                     "default_ssl_binding": "bool",
                     "host_name": "string",
+                    "key_vault_certificate_id": "string",
                     "key_vault_id": "string",
                     "negotiate_client_certificate": "bool"
                   }
@@ -111,6 +115,7 @@ const azurermApiManagement = `{
                   "object",
                   {
                     "host_name": "string",
+                    "key_vault_certificate_id": "string",
                     "key_vault_id": "string",
                     "negotiate_client_certificate": "bool"
                   }

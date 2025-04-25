@@ -257,6 +257,11 @@ const azurermMysqlFlexibleServer = `{
               "optional": true,
               "type": "number"
             },
+            "log_on_disk_enabled": {
+              "description_kind": "plain",
+              "optional": true,
+              "type": "bool"
+            },
             "size_gb": {
               "computed": true,
               "description_kind": "plain",

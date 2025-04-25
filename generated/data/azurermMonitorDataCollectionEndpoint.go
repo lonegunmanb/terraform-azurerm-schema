@@ -45,6 +45,11 @@ const azurermMonitorDataCollectionEndpoint = `{
         "description_kind": "plain",
         "type": "string"
       },
+      "metrics_ingestion_endpoint": {
+        "computed": true,
+        "description_kind": "plain",
+        "type": "string"
+      },
       "name": {
         "description_kind": "plain",
         "required": true,
