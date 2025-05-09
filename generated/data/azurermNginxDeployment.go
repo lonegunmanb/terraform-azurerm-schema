@@ -176,6 +176,67 @@ const azurermNginxDeployment = `{
           "map",
           "string"
         ]
+      },
+      "web_application_firewall": {
+        "computed": true,
+        "description_kind": "plain",
+        "type": [
+          "list",
+          [
+            "object",
+            {
+              "activation_state_enabled": "bool",
+              "status": [
+                "list",
+                [
+                  "object",
+                  {
+                    "attack_signatures_package": [
+                      "list",
+                      [
+                        "object",
+                        {
+                          "revision_datetime": "string",
+                          "version": "string"
+                        }
+                      ]
+                    ],
+                    "bot_signatures_package": [
+                      "list",
+                      [
+                        "object",
+                        {
+                          "revision_datetime": "string",
+                          "version": "string"
+                        }
+                      ]
+                    ],
+                    "component_versions": [
+                      "list",
+                      [
+                        "object",
+                        {
+                          "waf_engine_version": "string",
+                          "waf_nginx_version": "string"
+                        }
+                      ]
+                    ],
+                    "threat_campaigns_package": [
+                      "list",
+                      [
+                        "object",
+                        {
+                          "revision_datetime": "string",
+                          "version": "string"
+                        }
+                      ]
+                    ]
+                  }
+                ]
+              ]
+            }
+          ]
+        ]
       }
     },
     "block_types": {

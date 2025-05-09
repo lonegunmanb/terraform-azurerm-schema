@@ -6,9 +6,19 @@ import (
 	tfjson "github.com/hashicorp/terraform-json"
 )
 
-const azurermPostgresqlFlexibleServerVirtualEndpoint = `{
+const azurermNginxApiKey = `{
   "block": {
     "attributes": {
+      "end_date_time": {
+        "description_kind": "plain",
+        "required": true,
+        "type": "string"
+      },
+      "hint": {
+        "computed": true,
+        "description_kind": "plain",
+        "type": "string"
+      },
       "id": {
         "computed": true,
         "description_kind": "plain",
@@ -16,27 +26,19 @@ const azurermPostgresqlFlexibleServerVirtualEndpoint = `{
         "type": "string"
       },
       "name": {
-        "description": "The name of the Virtual Endpoint",
         "description_kind": "plain",
         "required": true,
         "type": "string"
       },
-      "replica_server_id": {
-        "description": "The Resource ID of the *Replica* Postgres Flexible Server this should be associated with",
+      "nginx_deployment_id": {
         "description_kind": "plain",
         "required": true,
         "type": "string"
       },
-      "source_server_id": {
-        "description": "The Resource ID of the *Source* Postgres Flexible Server this should be associated with",
+      "secret_text": {
         "description_kind": "plain",
         "required": true,
-        "type": "string"
-      },
-      "type": {
-        "description": "The type of Virtual Endpoint",
-        "description_kind": "plain",
-        "required": true,
+        "sensitive": true,
         "type": "string"
       }
     },
@@ -72,11 +74,11 @@ const azurermPostgresqlFlexibleServerVirtualEndpoint = `{
     },
     "description_kind": "plain"
   },
-  "version": 1
+  "version": 0
 }`
 
-func AzurermPostgresqlFlexibleServerVirtualEndpointSchema() *tfjson.Schema {
+func AzurermNginxApiKeySchema() *tfjson.Schema {
 	var result tfjson.Schema
-	_ = json.Unmarshal([]byte(azurermPostgresqlFlexibleServerVirtualEndpoint), &result)
+	_ = json.Unmarshal([]byte(azurermNginxApiKey), &result)
 	return &result
 }

@@ -241,6 +241,72 @@ const azurermNginxDeployment = `{
           "description_kind": "plain"
         },
         "nesting_mode": "single"
+      },
+      "web_application_firewall": {
+        "block": {
+          "attributes": {
+            "activation_state_enabled": {
+              "description_kind": "plain",
+              "required": true,
+              "type": "bool"
+            },
+            "status": {
+              "computed": true,
+              "description_kind": "plain",
+              "type": [
+                "list",
+                [
+                  "object",
+                  {
+                    "attack_signatures_package": [
+                      "list",
+                      [
+                        "object",
+                        {
+                          "revision_datetime": "string",
+                          "version": "string"
+                        }
+                      ]
+                    ],
+                    "bot_signatures_package": [
+                      "list",
+                      [
+                        "object",
+                        {
+                          "revision_datetime": "string",
+                          "version": "string"
+                        }
+                      ]
+                    ],
+                    "component_versions": [
+                      "list",
+                      [
+                        "object",
+                        {
+                          "waf_engine_version": "string",
+                          "waf_nginx_version": "string"
+                        }
+                      ]
+                    ],
+                    "threat_campaigns_package": [
+                      "list",
+                      [
+                        "object",
+                        {
+                          "revision_datetime": "string",
+                          "version": "string"
+                        }
+                      ]
+                    ]
+                  }
+                ]
+              ]
+            }
+          },
+          "description_kind": "plain"
+        },
+        "max_items": 1,
+        "nesting_mode": "list"
       }
     },
     "description_kind": "plain"

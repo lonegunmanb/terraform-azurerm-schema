@@ -46,6 +46,11 @@ const azurermAiFoundryProject = `{
         "required": true,
         "type": "string"
       },
+      "primary_user_assigned_identity": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "string"
+      },
       "project_id": {
         "computed": true,
         "description_kind": "plain",
