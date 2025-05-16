@@ -12,7 +12,7 @@ const azurermContainerAppEnvironmentStorage = `{
       "access_key": {
         "description": "The Storage Account Access Key.",
         "description_kind": "plain",
-        "required": true,
+        "optional": true,
         "sensitive": true,
         "type": "string"
       },
@@ -25,7 +25,7 @@ const azurermContainerAppEnvironmentStorage = `{
       "account_name": {
         "description": "The Azure Storage Account in which the Share to be used is located.",
         "description_kind": "plain",
-        "required": true,
+        "optional": true,
         "type": "string"
       },
       "container_app_environment_id": {
@@ -44,6 +44,11 @@ const azurermContainerAppEnvironmentStorage = `{
         "description": "The name for this Storage.",
         "description_kind": "plain",
         "required": true,
+        "type": "string"
+      },
+      "nfs_server_url": {
+        "description_kind": "plain",
+        "optional": true,
         "type": "string"
       },
       "share_name": {

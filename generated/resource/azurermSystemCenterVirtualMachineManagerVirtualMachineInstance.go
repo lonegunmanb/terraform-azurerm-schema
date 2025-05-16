@@ -148,7 +148,7 @@ const azurermSystemCenterVirtualMachineManagerVirtualMachineInstance = `{
             },
             "computer_name": {
               "description_kind": "plain",
-              "required": true,
+              "optional": true,
               "type": "string"
             }
           },

@@ -1031,6 +1031,7 @@ func init() {
 	resources["azurerm_system_center_virtual_machine_manager_cloud"] = resource.AzurermSystemCenterVirtualMachineManagerCloudSchema()  
 	resources["azurerm_system_center_virtual_machine_manager_server"] = resource.AzurermSystemCenterVirtualMachineManagerServerSchema()  
 	resources["azurerm_system_center_virtual_machine_manager_virtual_machine_instance"] = resource.AzurermSystemCenterVirtualMachineManagerVirtualMachineInstanceSchema()  
+	resources["azurerm_system_center_virtual_machine_manager_virtual_machine_instance_guest_agent"] = resource.AzurermSystemCenterVirtualMachineManagerVirtualMachineInstanceGuestAgentSchema()  
 	resources["azurerm_system_center_virtual_machine_manager_virtual_machine_template"] = resource.AzurermSystemCenterVirtualMachineManagerVirtualMachineTemplateSchema()  
 	resources["azurerm_system_center_virtual_machine_manager_virtual_network"] = resource.AzurermSystemCenterVirtualMachineManagerVirtualNetworkSchema()  
 	resources["azurerm_tenant_template_deployment"] = resource.AzurermTenantTemplateDeploymentSchema()  

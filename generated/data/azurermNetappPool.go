@@ -14,6 +14,11 @@ const azurermNetappPool = `{
         "required": true,
         "type": "string"
       },
+      "cool_access_enabled": {
+        "computed": true,
+        "description_kind": "plain",
+        "type": "bool"
+      },
       "encryption_type": {
         "computed": true,
         "description_kind": "plain",
