@@ -211,6 +211,24 @@ const azurermFunctionAppFlexConsumption = `{
       }
     },
     "block_types": {
+      "always_ready": {
+        "block": {
+          "attributes": {
+            "instance_count": {
+              "description_kind": "plain",
+              "optional": true,
+              "type": "number"
+            },
+            "name": {
+              "description_kind": "plain",
+              "required": true,
+              "type": "string"
+            }
+          },
+          "description_kind": "plain"
+        },
+        "nesting_mode": "list"
+      },
       "auth_settings": {
         "block": {
           "attributes": {

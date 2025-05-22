@@ -83,6 +83,11 @@ const azurermManagedDisk = `{
         "description_kind": "plain",
         "type": "string"
       },
+      "location": {
+        "computed": true,
+        "description_kind": "plain",
+        "type": "string"
+      },
       "name": {
         "description_kind": "plain",
         "required": true,
