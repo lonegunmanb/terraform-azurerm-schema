@@ -79,6 +79,13 @@ const azurermDynatraceTagRules = `{
       },
       "metric_rule": {
         "block": {
+          "attributes": {
+            "sending_metrics_enabled": {
+              "description_kind": "plain",
+              "optional": true,
+              "type": "bool"
+            }
+          },
           "block_types": {
             "filtering_tag": {
               "block": {

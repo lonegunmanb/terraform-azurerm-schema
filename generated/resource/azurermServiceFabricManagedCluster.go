@@ -67,6 +67,11 @@ const azurermServiceFabricManagedCluster = `{
         "optional": true,
         "type": "string"
       },
+      "subnet_id": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "string"
+      },
       "tags": {
         "description_kind": "plain",
         "optional": true,

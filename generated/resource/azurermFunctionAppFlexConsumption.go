@@ -58,6 +58,12 @@ const azurermFunctionAppFlexConsumption = `{
         "description_kind": "plain",
         "type": "string"
       },
+      "https_only": {
+        "description": "Can the Function App only be accessed via HTTPS?",
+        "description_kind": "plain",
+        "optional": true,
+        "type": "bool"
+      },
       "id": {
         "computed": true,
         "description_kind": "plain",

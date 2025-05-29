@@ -6,21 +6,13 @@ import (
 	tfjson "github.com/hashicorp/terraform-json"
 )
 
-const azurermDashboardGrafanaManagedPrivateEndpoint = `{
+const azurermNetworkManagerRoutingConfiguration = `{
   "block": {
     "attributes": {
-      "grafana_id": {
-        "description_kind": "plain",
-        "required": true,
-        "type": "string"
-      },
-      "group_ids": {
+      "description": {
         "description_kind": "plain",
         "optional": true,
-        "type": [
-          "list",
-          "string"
-        ]
+        "type": "string"
       },
       "id": {
         "computed": true,
@@ -28,43 +20,15 @@ const azurermDashboardGrafanaManagedPrivateEndpoint = `{
         "optional": true,
         "type": "string"
       },
-      "location": {
-        "description_kind": "plain",
-        "required": true,
-        "type": "string"
-      },
       "name": {
         "description_kind": "plain",
         "required": true,
         "type": "string"
       },
-      "private_link_resource_id": {
+      "network_manager_id": {
         "description_kind": "plain",
         "required": true,
         "type": "string"
-      },
-      "private_link_resource_region": {
-        "description_kind": "plain",
-        "optional": true,
-        "type": "string"
-      },
-      "private_link_service_url": {
-        "description_kind": "plain",
-        "optional": true,
-        "type": "string"
-      },
-      "request_message": {
-        "description_kind": "plain",
-        "optional": true,
-        "type": "string"
-      },
-      "tags": {
-        "description_kind": "plain",
-        "optional": true,
-        "type": [
-          "map",
-          "string"
-        ]
       }
     },
     "block_types": {
@@ -102,8 +66,8 @@ const azurermDashboardGrafanaManagedPrivateEndpoint = `{
   "version": 0
 }`
 
-func AzurermDashboardGrafanaManagedPrivateEndpointSchema() *tfjson.Schema {
+func AzurermNetworkManagerRoutingConfigurationSchema() *tfjson.Schema {
 	var result tfjson.Schema
-	_ = json.Unmarshal([]byte(azurermDashboardGrafanaManagedPrivateEndpoint), &result)
+	_ = json.Unmarshal([]byte(azurermNetworkManagerRoutingConfiguration), &result)
 	return &result
 }

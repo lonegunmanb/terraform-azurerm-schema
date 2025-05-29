@@ -98,6 +98,19 @@ const azurermMonitorDiagnosticSetting = `{
         },
         "nesting_mode": "set"
       },
+      "enabled_metric": {
+        "block": {
+          "attributes": {
+            "category": {
+              "description_kind": "plain",
+              "required": true,
+              "type": "string"
+            }
+          },
+          "description_kind": "plain"
+        },
+        "nesting_mode": "set"
+      },
       "metric": {
         "block": {
           "attributes": {
@@ -134,6 +147,7 @@ const azurermMonitorDiagnosticSetting = `{
               "nesting_mode": "list"
             }
           },
+          "deprecated": true,
           "description_kind": "plain"
         },
         "nesting_mode": "set"
