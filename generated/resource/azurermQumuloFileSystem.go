@@ -6,32 +6,18 @@ import (
 	tfjson "github.com/hashicorp/terraform-json"
 )
 
-const azurermDataFactoryIntegrationRuntimeAzure = `{
+const azurermQumuloFileSystem = `{
   "block": {
     "attributes": {
-      "cleanup_enabled": {
-        "description_kind": "plain",
-        "optional": true,
-        "type": "bool"
-      },
-      "compute_type": {
-        "description_kind": "plain",
-        "optional": true,
-        "type": "string"
-      },
-      "core_count": {
-        "description_kind": "plain",
-        "optional": true,
-        "type": "number"
-      },
-      "data_factory_id": {
+      "admin_password": {
         "description_kind": "plain",
         "required": true,
+        "sensitive": true,
         "type": "string"
       },
-      "description": {
+      "email": {
         "description_kind": "plain",
-        "optional": true,
+        "required": true,
         "type": "string"
       },
       "id": {
@@ -50,15 +36,48 @@ const azurermDataFactoryIntegrationRuntimeAzure = `{
         "required": true,
         "type": "string"
       },
-      "time_to_live_min": {
+      "offer_id": {
         "description_kind": "plain",
         "optional": true,
-        "type": "number"
+        "type": "string"
       },
-      "virtual_network_enabled": {
+      "plan_id": {
         "description_kind": "plain",
         "optional": true,
-        "type": "bool"
+        "type": "string"
+      },
+      "publisher_id": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "string"
+      },
+      "resource_group_name": {
+        "description_kind": "plain",
+        "required": true,
+        "type": "string"
+      },
+      "storage_sku": {
+        "description_kind": "plain",
+        "required": true,
+        "type": "string"
+      },
+      "subnet_id": {
+        "description_kind": "plain",
+        "required": true,
+        "type": "string"
+      },
+      "tags": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": [
+          "map",
+          "string"
+        ]
+      },
+      "zone": {
+        "description_kind": "plain",
+        "required": true,
+        "type": "string"
       }
     },
     "block_types": {
@@ -93,11 +112,11 @@ const azurermDataFactoryIntegrationRuntimeAzure = `{
     },
     "description_kind": "plain"
   },
-  "version": 1
+  "version": 0
 }`
 
-func AzurermDataFactoryIntegrationRuntimeAzureSchema() *tfjson.Schema {
+func AzurermQumuloFileSystemSchema() *tfjson.Schema {
 	var result tfjson.Schema
-	_ = json.Unmarshal([]byte(azurermDataFactoryIntegrationRuntimeAzure), &result)
+	_ = json.Unmarshal([]byte(azurermQumuloFileSystem), &result)
 	return &result
 }

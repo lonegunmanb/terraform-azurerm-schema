@@ -11,7 +11,7 @@ const azurermVirtualNetwork = `{
     "attributes": {
       "address_space": {
         "description_kind": "plain",
-        "required": true,
+        "optional": true,
         "type": [
           "set",
           "string"
@@ -167,6 +167,33 @@ const azurermVirtualNetwork = `{
           "description_kind": "plain"
         },
         "max_items": 1,
+        "nesting_mode": "list"
+      },
+      "ip_address_pool": {
+        "block": {
+          "attributes": {
+            "allocated_ip_address_prefixes": {
+              "computed": true,
+              "description_kind": "plain",
+              "type": [
+                "list",
+                "string"
+              ]
+            },
+            "id": {
+              "description_kind": "plain",
+              "required": true,
+              "type": "string"
+            },
+            "number_of_ip_addresses": {
+              "description_kind": "plain",
+              "required": true,
+              "type": "string"
+            }
+          },
+          "description_kind": "plain"
+        },
+        "max_items": 2,
         "nesting_mode": "list"
       },
       "timeouts": {

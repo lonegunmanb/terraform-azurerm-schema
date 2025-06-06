@@ -91,7 +91,7 @@ const azurermDataFactoryIntegrationRuntimeSelfHosted = `{
     },
     "description_kind": "plain"
   },
-  "version": 0
+  "version": 1
 }`
 
 func AzurermDataFactoryIntegrationRuntimeSelfHostedSchema() *tfjson.Schema {

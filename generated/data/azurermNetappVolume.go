@@ -61,6 +61,11 @@ const azurermNetappVolume = `{
         "description_kind": "plain",
         "type": "string"
       },
+      "large_volume_enabled": {
+        "computed": true,
+        "description_kind": "plain",
+        "type": "bool"
+      },
       "location": {
         "computed": true,
         "description_kind": "plain",

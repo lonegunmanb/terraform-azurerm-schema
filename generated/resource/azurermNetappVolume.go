@@ -48,6 +48,12 @@ const azurermNetappVolume = `{
         "optional": true,
         "type": "string"
       },
+      "large_volume_enabled": {
+        "description": "Indicates whether the volume is a large volume.",
+        "description_kind": "plain",
+        "optional": true,
+        "type": "bool"
+      },
       "location": {
         "description_kind": "plain",
         "required": true,

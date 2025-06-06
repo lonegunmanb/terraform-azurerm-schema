@@ -20,6 +20,21 @@ const azurermVpnGateway = `{
         "optional": true,
         "type": "string"
       },
+      "ip_configuration": {
+        "computed": true,
+        "description_kind": "plain",
+        "type": [
+          "list",
+          [
+            "object",
+            {
+              "id": "string",
+              "private_ip_address": "string",
+              "public_ip_address": "string"
+            }
+          ]
+        ]
+      },
       "location": {
         "description_kind": "plain",
         "required": true,
