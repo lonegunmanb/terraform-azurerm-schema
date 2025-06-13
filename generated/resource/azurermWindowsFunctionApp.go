@@ -13,7 +13,6 @@ const azurermWindowsFunctionApp = `{
         "description": "A map of key-value pairs for [App Settings](https://docs.microsoft.com/en-us/azure/azure-functions/functions-app-settings) and custom values.",
         "description_kind": "plain",
         "optional": true,
-        "sensitive": true,
         "type": [
           "map",
           "string"

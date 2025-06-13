@@ -187,6 +187,35 @@ const azurermNetappVolumeGroupOracle = `{
             }
           },
           "block_types": {
+            "data_protection_replication": {
+              "block": {
+                "attributes": {
+                  "endpoint_type": {
+                    "description_kind": "plain",
+                    "optional": true,
+                    "type": "string"
+                  },
+                  "remote_volume_location": {
+                    "description_kind": "plain",
+                    "required": true,
+                    "type": "string"
+                  },
+                  "remote_volume_resource_id": {
+                    "description_kind": "plain",
+                    "required": true,
+                    "type": "string"
+                  },
+                  "replication_frequency": {
+                    "description_kind": "plain",
+                    "required": true,
+                    "type": "string"
+                  }
+                },
+                "description_kind": "plain"
+              },
+              "max_items": 1,
+              "nesting_mode": "list"
+            },
             "data_protection_snapshot_policy": {
               "block": {
                 "attributes": {
