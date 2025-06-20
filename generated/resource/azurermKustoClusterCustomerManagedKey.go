@@ -22,15 +22,20 @@ const azurermKustoClusterCustomerManagedKey = `{
       },
       "key_name": {
         "description_kind": "plain",
-        "required": true,
+        "optional": true,
         "type": "string"
       },
       "key_vault_id": {
         "description_kind": "plain",
-        "required": true,
+        "optional": true,
         "type": "string"
       },
       "key_version": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "string"
+      },
+      "managed_hsm_key_id": {
         "description_kind": "plain",
         "optional": true,
         "type": "string"

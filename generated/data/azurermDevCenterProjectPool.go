@@ -1,4 +1,4 @@
-package resource
+package data
 
 import (
 	"encoding/json"
@@ -6,25 +6,22 @@ import (
 	tfjson "github.com/hashicorp/terraform-json"
 )
 
-const azurermNetworkManagerIpamPool = `{
+const azurermDevCenterProjectPool = `{
   "block": {
     "attributes": {
-      "address_prefixes": {
+      "dev_box_definition_name": {
+        "computed": true,
         "description_kind": "plain",
-        "required": true,
-        "type": [
-          "list",
-          "string"
-        ]
-      },
-      "description": {
-        "description_kind": "plain",
-        "optional": true,
         "type": "string"
       },
-      "display_name": {
+      "dev_center_attached_network_name": {
+        "computed": true,
         "description_kind": "plain",
-        "optional": true,
+        "type": "string"
+      },
+      "dev_center_project_id": {
+        "description_kind": "plain",
+        "required": true,
         "type": "string"
       },
       "id": {
@@ -33,9 +30,14 @@ const azurermNetworkManagerIpamPool = `{
         "optional": true,
         "type": "string"
       },
-      "location": {
+      "local_administrator_enabled": {
+        "computed": true,
         "description_kind": "plain",
-        "required": true,
+        "type": "bool"
+      },
+      "location": {
+        "computed": true,
+        "description_kind": "plain",
         "type": "string"
       },
       "name": {
@@ -43,19 +45,14 @@ const azurermNetworkManagerIpamPool = `{
         "required": true,
         "type": "string"
       },
-      "network_manager_id": {
+      "stop_on_disconnect_grace_period_minutes": {
+        "computed": true,
         "description_kind": "plain",
-        "required": true,
-        "type": "string"
-      },
-      "parent_pool_name": {
-        "description_kind": "plain",
-        "optional": true,
-        "type": "string"
+        "type": "number"
       },
       "tags": {
+        "computed": true,
         "description_kind": "plain",
-        "optional": true,
         "type": [
           "map",
           "string"
@@ -66,22 +63,7 @@ const azurermNetworkManagerIpamPool = `{
       "timeouts": {
         "block": {
           "attributes": {
-            "create": {
-              "description_kind": "plain",
-              "optional": true,
-              "type": "string"
-            },
-            "delete": {
-              "description_kind": "plain",
-              "optional": true,
-              "type": "string"
-            },
             "read": {
-              "description_kind": "plain",
-              "optional": true,
-              "type": "string"
-            },
-            "update": {
               "description_kind": "plain",
               "optional": true,
               "type": "string"
@@ -97,8 +79,8 @@ const azurermNetworkManagerIpamPool = `{
   "version": 0
 }`
 
-func AzurermNetworkManagerIpamPoolSchema() *tfjson.Schema {
+func AzurermDevCenterProjectPoolSchema() *tfjson.Schema {
 	var result tfjson.Schema
-	_ = json.Unmarshal([]byte(azurermNetworkManagerIpamPool), &result)
+	_ = json.Unmarshal([]byte(azurermDevCenterProjectPool), &result)
 	return &result
 }
