@@ -1290,7 +1290,13 @@ const azurermFunctionAppFlexConsumption = `{
               "type": "bool"
             },
             "use_32_bit_worker": {
-              "description": "Should the Linux Web App use a 32-bit worker.",
+              "description": "Should the Linux Function App use a 32-bit worker.",
+              "description_kind": "plain",
+              "optional": true,
+              "type": "bool"
+            },
+            "vnet_route_all_enabled": {
+              "description": "Should the Linux Function App route all traffic through the virtual network.",
               "description_kind": "plain",
               "optional": true,
               "type": "bool"

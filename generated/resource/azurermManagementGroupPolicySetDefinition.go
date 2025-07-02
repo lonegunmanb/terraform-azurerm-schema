@@ -6,7 +6,7 @@ import (
 	tfjson "github.com/hashicorp/terraform-json"
 )
 
-const azurermPolicySetDefinition = `{
+const azurermManagementGroupPolicySetDefinition = `{
   "block": {
     "attributes": {
       "description": {
@@ -26,9 +26,8 @@ const azurermPolicySetDefinition = `{
         "type": "string"
       },
       "management_group_id": {
-        "deprecated": true,
         "description_kind": "plain",
-        "optional": true,
+        "required": true,
         "type": "string"
       },
       "metadata": {
@@ -160,8 +159,8 @@ const azurermPolicySetDefinition = `{
   "version": 0
 }`
 
-func AzurermPolicySetDefinitionSchema() *tfjson.Schema {
+func AzurermManagementGroupPolicySetDefinitionSchema() *tfjson.Schema {
 	var result tfjson.Schema
-	_ = json.Unmarshal([]byte(azurermPolicySetDefinition), &result)
+	_ = json.Unmarshal([]byte(azurermManagementGroupPolicySetDefinition), &result)
 	return &result
 }

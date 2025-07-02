@@ -131,6 +131,22 @@ const azurermOracleAutonomousDatabase = `{
         "description_kind": "plain",
         "type": "string"
       },
+      "long_term_backup_schedule": {
+        "computed": true,
+        "description_kind": "plain",
+        "type": [
+          "list",
+          [
+            "object",
+            {
+              "enabled": "bool",
+              "repeat_cadence": "string",
+              "retention_period_in_days": "number",
+              "time_of_backup": "string"
+            }
+          ]
+        ]
+      },
       "memory_per_oracle_compute_unit_in_gbs": {
         "computed": true,
         "description_kind": "plain",

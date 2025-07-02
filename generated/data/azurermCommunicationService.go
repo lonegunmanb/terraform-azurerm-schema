@@ -25,6 +25,11 @@ const azurermCommunicationService = `{
         "optional": true,
         "type": "string"
       },
+      "immutable_resource_id": {
+        "computed": true,
+        "description_kind": "plain",
+        "type": "string"
+      },
       "name": {
         "description_kind": "plain",
         "required": true,

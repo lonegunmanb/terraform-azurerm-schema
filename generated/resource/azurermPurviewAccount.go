@@ -21,6 +21,11 @@ const azurermPurviewAccount = `{
         "sensitive": true,
         "type": "string"
       },
+      "aws_external_id": {
+        "computed": true,
+        "description_kind": "plain",
+        "type": "string"
+      },
       "catalog_endpoint": {
         "computed": true,
         "description_kind": "plain",
@@ -41,6 +46,11 @@ const azurermPurviewAccount = `{
         "description_kind": "plain",
         "required": true,
         "type": "string"
+      },
+      "managed_event_hub_enabled": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "bool"
       },
       "managed_resource_group_name": {
         "computed": true,

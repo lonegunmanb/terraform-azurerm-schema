@@ -210,6 +210,57 @@ const azurermContainerApp = `{
             }
           },
           "block_types": {
+            "cors": {
+              "block": {
+                "attributes": {
+                  "allow_credentials_enabled": {
+                    "description_kind": "plain",
+                    "optional": true,
+                    "type": "bool"
+                  },
+                  "allowed_headers": {
+                    "description_kind": "plain",
+                    "optional": true,
+                    "type": [
+                      "list",
+                      "string"
+                    ]
+                  },
+                  "allowed_methods": {
+                    "description_kind": "plain",
+                    "optional": true,
+                    "type": [
+                      "list",
+                      "string"
+                    ]
+                  },
+                  "allowed_origins": {
+                    "description_kind": "plain",
+                    "required": true,
+                    "type": [
+                      "list",
+                      "string"
+                    ]
+                  },
+                  "exposed_headers": {
+                    "description_kind": "plain",
+                    "optional": true,
+                    "type": [
+                      "list",
+                      "string"
+                    ]
+                  },
+                  "max_age_in_seconds": {
+                    "description_kind": "plain",
+                    "optional": true,
+                    "type": "number"
+                  }
+                },
+                "description_kind": "plain"
+              },
+              "max_items": 1,
+              "nesting_mode": "list"
+            },
             "ip_security_restriction": {
               "block": {
                 "attributes": {

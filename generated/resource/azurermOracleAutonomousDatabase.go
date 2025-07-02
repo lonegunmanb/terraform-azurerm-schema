@@ -130,6 +130,35 @@ const azurermOracleAutonomousDatabase = `{
       }
     },
     "block_types": {
+      "long_term_backup_schedule": {
+        "block": {
+          "attributes": {
+            "enabled": {
+              "description_kind": "plain",
+              "required": true,
+              "type": "bool"
+            },
+            "repeat_cadence": {
+              "description_kind": "plain",
+              "required": true,
+              "type": "string"
+            },
+            "retention_period_in_days": {
+              "description_kind": "plain",
+              "required": true,
+              "type": "number"
+            },
+            "time_of_backup": {
+              "description_kind": "plain",
+              "required": true,
+              "type": "string"
+            }
+          },
+          "description_kind": "plain"
+        },
+        "max_items": 1,
+        "nesting_mode": "list"
+      },
       "timeouts": {
         "block": {
           "attributes": {

@@ -71,6 +71,32 @@ const azurermContainerApp = `{
             {
               "allow_insecure_connections": "bool",
               "client_certificate_mode": "string",
+              "cors": [
+                "list",
+                [
+                  "object",
+                  {
+                    "allow_credentials_enabled": "bool",
+                    "allowed_headers": [
+                      "list",
+                      "string"
+                    ],
+                    "allowed_methods": [
+                      "list",
+                      "string"
+                    ],
+                    "allowed_origins": [
+                      "list",
+                      "string"
+                    ],
+                    "exposed_headers": [
+                      "list",
+                      "string"
+                    ],
+                    "max_age_in_seconds": "number"
+                  }
+                ]
+              ],
               "custom_domain": [
                 "list",
                 [

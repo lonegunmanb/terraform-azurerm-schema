@@ -6,10 +6,15 @@ import (
 	tfjson "github.com/hashicorp/terraform-json"
 )
 
-const azurermLogAnalyticsLinkedStorageAccount = `{
+const azurermEmailCommunicationServiceDomainSenderUsername = `{
   "block": {
     "attributes": {
-      "data_source_type": {
+      "display_name": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "string"
+      },
+      "email_service_domain_id": {
         "description_kind": "plain",
         "required": true,
         "type": "string"
@@ -20,29 +25,9 @@ const azurermLogAnalyticsLinkedStorageAccount = `{
         "optional": true,
         "type": "string"
       },
-      "resource_group_name": {
+      "name": {
         "description_kind": "plain",
         "required": true,
-        "type": "string"
-      },
-      "storage_account_ids": {
-        "description_kind": "plain",
-        "required": true,
-        "type": [
-          "set",
-          "string"
-        ]
-      },
-      "workspace_id": {
-        "computed": true,
-        "description_kind": "plain",
-        "optional": true,
-        "type": "string"
-      },
-      "workspace_resource_id": {
-        "computed": true,
-        "description_kind": "plain",
-        "optional": true,
         "type": "string"
       }
     },
@@ -78,11 +63,11 @@ const azurermLogAnalyticsLinkedStorageAccount = `{
     },
     "description_kind": "plain"
   },
-  "version": 1
+  "version": 0
 }`
 
-func AzurermLogAnalyticsLinkedStorageAccountSchema() *tfjson.Schema {
+func AzurermEmailCommunicationServiceDomainSenderUsernameSchema() *tfjson.Schema {
 	var result tfjson.Schema
-	_ = json.Unmarshal([]byte(azurermLogAnalyticsLinkedStorageAccount), &result)
+	_ = json.Unmarshal([]byte(azurermEmailCommunicationServiceDomainSenderUsername), &result)
 	return &result
 }

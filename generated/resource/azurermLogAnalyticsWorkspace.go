@@ -51,6 +51,14 @@ const azurermLogAnalyticsWorkspace = `{
         "type": "bool"
       },
       "local_authentication_disabled": {
+        "computed": true,
+        "deprecated": true,
+        "description_kind": "plain",
+        "optional": true,
+        "type": "bool"
+      },
+      "local_authentication_enabled": {
+        "computed": true,
         "description_kind": "plain",
         "optional": true,
         "type": "bool"

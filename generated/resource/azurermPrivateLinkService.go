@@ -22,6 +22,11 @@ const azurermPrivateLinkService = `{
           "string"
         ]
       },
+      "destination_ip_address": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "string"
+      },
       "enable_proxy_protocol": {
         "description_kind": "plain",
         "optional": true,
@@ -43,7 +48,7 @@ const azurermPrivateLinkService = `{
       },
       "load_balancer_frontend_ip_configuration_ids": {
         "description_kind": "plain",
-        "required": true,
+        "optional": true,
         "type": [
           "set",
           "string"
