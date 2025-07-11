@@ -29,6 +29,14 @@ const azurermKubernetesCluster = `{
         "description_kind": "plain",
         "type": "string"
       },
+      "custom_ca_trust_certificates_base64": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": [
+          "list",
+          "string"
+        ]
+      },
       "disk_encryption_set_id": {
         "description_kind": "plain",
         "optional": true,
@@ -708,12 +716,20 @@ const azurermKubernetesCluster = `{
                     "optional": true,
                     "type": "number"
                   },
+                  "transparent_huge_page": {
+                    "computed": true,
+                    "description_kind": "plain",
+                    "optional": true,
+                    "type": "string"
+                  },
                   "transparent_huge_page_defrag": {
                     "description_kind": "plain",
                     "optional": true,
                     "type": "string"
                   },
                   "transparent_huge_page_enabled": {
+                    "computed": true,
+                    "deprecated": true,
                     "description_kind": "plain",
                     "optional": true,
                     "type": "string"
@@ -1799,6 +1815,11 @@ const azurermKubernetesCluster = `{
       "web_app_routing": {
         "block": {
           "attributes": {
+            "default_nginx_controller": {
+              "description_kind": "plain",
+              "optional": true,
+              "type": "string"
+            },
             "dns_zone_ids": {
               "description_kind": "plain",
               "required": true,

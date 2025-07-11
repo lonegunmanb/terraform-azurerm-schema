@@ -6,27 +6,17 @@ import (
 	tfjson "github.com/hashicorp/terraform-json"
 )
 
-const azurermVirtualHub = `{
+const azurermNetworkManagerVerifierWorkspaceReachabilityAnalysisIntent = `{
   "block": {
     "attributes": {
-      "address_prefix": {
+      "description": {
         "description_kind": "plain",
         "optional": true,
         "type": "string"
       },
-      "branch_to_branch_traffic_enabled": {
+      "destination_resource_id": {
         "description_kind": "plain",
-        "optional": true,
-        "type": "bool"
-      },
-      "default_route_table_id": {
-        "computed": true,
-        "description_kind": "plain",
-        "type": "string"
-      },
-      "hub_routing_preference": {
-        "description_kind": "plain",
-        "optional": true,
+        "required": true,
         "type": "string"
       },
       "id": {
@@ -35,63 +25,27 @@ const azurermVirtualHub = `{
         "optional": true,
         "type": "string"
       },
-      "location": {
-        "description_kind": "plain",
-        "required": true,
-        "type": "string"
-      },
       "name": {
         "description_kind": "plain",
         "required": true,
         "type": "string"
       },
-      "resource_group_name": {
+      "source_resource_id": {
         "description_kind": "plain",
         "required": true,
         "type": "string"
       },
-      "sku": {
+      "verifier_workspace_id": {
         "description_kind": "plain",
-        "optional": true,
-        "type": "string"
-      },
-      "tags": {
-        "description_kind": "plain",
-        "optional": true,
-        "type": [
-          "map",
-          "string"
-        ]
-      },
-      "virtual_router_asn": {
-        "computed": true,
-        "description_kind": "plain",
-        "type": "number"
-      },
-      "virtual_router_auto_scale_min_capacity": {
-        "description_kind": "plain",
-        "optional": true,
-        "type": "number"
-      },
-      "virtual_router_ips": {
-        "computed": true,
-        "description_kind": "plain",
-        "type": [
-          "list",
-          "string"
-        ]
-      },
-      "virtual_wan_id": {
-        "description_kind": "plain",
-        "optional": true,
+        "required": true,
         "type": "string"
       }
     },
     "block_types": {
-      "route": {
+      "ip_traffic": {
         "block": {
           "attributes": {
-            "address_prefixes": {
+            "destination_ips": {
               "description_kind": "plain",
               "required": true,
               "type": [
@@ -99,15 +53,44 @@ const azurermVirtualHub = `{
                 "string"
               ]
             },
-            "next_hop_ip_address": {
+            "destination_ports": {
               "description_kind": "plain",
               "required": true,
-              "type": "string"
+              "type": [
+                "list",
+                "string"
+              ]
+            },
+            "protocols": {
+              "description_kind": "plain",
+              "required": true,
+              "type": [
+                "list",
+                "string"
+              ]
+            },
+            "source_ips": {
+              "description_kind": "plain",
+              "required": true,
+              "type": [
+                "list",
+                "string"
+              ]
+            },
+            "source_ports": {
+              "description_kind": "plain",
+              "required": true,
+              "type": [
+                "list",
+                "string"
+              ]
             }
           },
           "description_kind": "plain"
         },
-        "nesting_mode": "set"
+        "max_items": 1,
+        "min_items": 1,
+        "nesting_mode": "list"
       },
       "timeouts": {
         "block": {
@@ -126,11 +109,6 @@ const azurermVirtualHub = `{
               "description_kind": "plain",
               "optional": true,
               "type": "string"
-            },
-            "update": {
-              "description_kind": "plain",
-              "optional": true,
-              "type": "string"
             }
           },
           "description_kind": "plain"
@@ -143,8 +121,8 @@ const azurermVirtualHub = `{
   "version": 0
 }`
 
-func AzurermVirtualHubSchema() *tfjson.Schema {
+func AzurermNetworkManagerVerifierWorkspaceReachabilityAnalysisIntentSchema() *tfjson.Schema {
 	var result tfjson.Schema
-	_ = json.Unmarshal([]byte(azurermVirtualHub), &result)
+	_ = json.Unmarshal([]byte(azurermNetworkManagerVerifierWorkspaceReachabilityAnalysisIntent), &result)
 	return &result
 }

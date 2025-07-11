@@ -15,6 +15,14 @@ const azurermOracleAutonomousDatabase = `{
         "sensitive": true,
         "type": "string"
       },
+      "allowed_ips": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": [
+          "set",
+          "string"
+        ]
+      },
       "auto_scaling_enabled": {
         "description_kind": "plain",
         "required": true,
@@ -112,7 +120,7 @@ const azurermOracleAutonomousDatabase = `{
       },
       "subnet_id": {
         "description_kind": "plain",
-        "required": true,
+        "optional": true,
         "type": "string"
       },
       "tags": {
@@ -125,7 +133,7 @@ const azurermOracleAutonomousDatabase = `{
       },
       "virtual_network_id": {
         "description_kind": "plain",
-        "required": true,
+        "optional": true,
         "type": "string"
       }
     },

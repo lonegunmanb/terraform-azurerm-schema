@@ -31,6 +31,7 @@ const azurermOracleDbServers = `{
                 "string"
               ],
               "compartment_id": "string",
+              "compute_model": "string",
               "cpu_core_count": "number",
               "db_node_ids": [
                 "list",

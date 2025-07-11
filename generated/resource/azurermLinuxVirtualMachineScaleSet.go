@@ -500,6 +500,16 @@ const azurermLinuxVirtualMachineScaleSet = `{
       "network_interface": {
         "block": {
           "attributes": {
+            "auxiliary_mode": {
+              "description_kind": "plain",
+              "optional": true,
+              "type": "string"
+            },
+            "auxiliary_sku": {
+              "description_kind": "plain",
+              "optional": true,
+              "type": "string"
+            },
             "dns_servers": {
               "description_kind": "plain",
               "optional": true,

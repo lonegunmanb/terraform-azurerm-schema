@@ -173,6 +173,11 @@ const azurermLinuxWebAppSlot = `{
         "optional": true,
         "type": "string"
       },
+      "vnet_image_pull_enabled": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "bool"
+      },
       "webdeploy_publish_basic_authentication_enabled": {
         "description_kind": "plain",
         "optional": true,

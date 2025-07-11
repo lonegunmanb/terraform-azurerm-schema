@@ -40,6 +40,11 @@ const azurermDataProtectionBackupInstanceDisk = `{
         "required": true,
         "type": "string"
       },
+      "snapshot_subscription_id": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "string"
+      },
       "vault_id": {
         "description_kind": "plain",
         "required": true,

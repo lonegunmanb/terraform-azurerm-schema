@@ -160,7 +160,7 @@ const azurermLogicAppWorkflow = `{
                 "attributes": {
                   "allowed_caller_ip_address_range": {
                     "description_kind": "plain",
-                    "required": true,
+                    "optional": true,
                     "type": [
                       "set",
                       "string"

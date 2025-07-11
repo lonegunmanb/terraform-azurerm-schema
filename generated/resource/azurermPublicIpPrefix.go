@@ -9,6 +9,11 @@ import (
 const azurermPublicIpPrefix = `{
   "block": {
     "attributes": {
+      "custom_ip_prefix_id": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "string"
+      },
       "id": {
         "computed": true,
         "description_kind": "plain",

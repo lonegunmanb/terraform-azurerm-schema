@@ -29,6 +29,11 @@ const azurermOracleExadataInfrastructure = `{
         "description_kind": "plain",
         "type": "number"
       },
+      "compute_model": {
+        "computed": true,
+        "description_kind": "plain",
+        "type": "string"
+      },
       "cpu_count": {
         "computed": true,
         "description_kind": "plain",
@@ -46,6 +51,11 @@ const azurermOracleExadataInfrastructure = `{
         "computed": true,
         "description_kind": "plain",
         "type": "number"
+      },
+      "database_server_type": {
+        "computed": true,
+        "description_kind": "plain",
+        "type": "string"
       },
       "db_node_storage_size_in_gbs": {
         "computed": true,
@@ -207,6 +217,11 @@ const azurermOracleExadataInfrastructure = `{
         "computed": true,
         "description_kind": "plain",
         "type": "number"
+      },
+      "storage_server_type": {
+        "computed": true,
+        "description_kind": "plain",
+        "type": "string"
       },
       "storage_server_version": {
         "computed": true,

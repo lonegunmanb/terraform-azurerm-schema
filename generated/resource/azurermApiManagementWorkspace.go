@@ -6,9 +6,24 @@ import (
 	tfjson "github.com/hashicorp/terraform-json"
 )
 
-const azurermPrivateDnsZoneVirtualNetworkLink = `{
+const azurermApiManagementWorkspace = `{
   "block": {
     "attributes": {
+      "api_management_id": {
+        "description_kind": "plain",
+        "required": true,
+        "type": "string"
+      },
+      "description": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "string"
+      },
+      "display_name": {
+        "description_kind": "plain",
+        "required": true,
+        "type": "string"
+      },
       "id": {
         "computed": true,
         "description_kind": "plain",
@@ -16,40 +31,6 @@ const azurermPrivateDnsZoneVirtualNetworkLink = `{
         "type": "string"
       },
       "name": {
-        "description_kind": "plain",
-        "required": true,
-        "type": "string"
-      },
-      "private_dns_zone_name": {
-        "description_kind": "plain",
-        "required": true,
-        "type": "string"
-      },
-      "registration_enabled": {
-        "description_kind": "plain",
-        "optional": true,
-        "type": "bool"
-      },
-      "resolution_policy": {
-        "computed": true,
-        "description_kind": "plain",
-        "optional": true,
-        "type": "string"
-      },
-      "resource_group_name": {
-        "description_kind": "plain",
-        "required": true,
-        "type": "string"
-      },
-      "tags": {
-        "description_kind": "plain",
-        "optional": true,
-        "type": [
-          "map",
-          "string"
-        ]
-      },
-      "virtual_network_id": {
         "description_kind": "plain",
         "required": true,
         "type": "string"
@@ -90,8 +71,8 @@ const azurermPrivateDnsZoneVirtualNetworkLink = `{
   "version": 0
 }`
 
-func AzurermPrivateDnsZoneVirtualNetworkLinkSchema() *tfjson.Schema {
+func AzurermApiManagementWorkspaceSchema() *tfjson.Schema {
 	var result tfjson.Schema
-	_ = json.Unmarshal([]byte(azurermPrivateDnsZoneVirtualNetworkLink), &result)
+	_ = json.Unmarshal([]byte(azurermApiManagementWorkspace), &result)
 	return &result
 }

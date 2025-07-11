@@ -30,6 +30,11 @@ const azurermPrivateDnsZoneVirtualNetworkLink = `{
         "description_kind": "plain",
         "type": "bool"
       },
+      "resolution_policy": {
+        "computed": true,
+        "description_kind": "plain",
+        "type": "string"
+      },
       "resource_group_name": {
         "description_kind": "plain",
         "required": true,

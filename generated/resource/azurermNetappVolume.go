@@ -173,6 +173,30 @@ const azurermNetappVolume = `{
       }
     },
     "block_types": {
+      "cool_access": {
+        "block": {
+          "attributes": {
+            "coolness_period_in_days": {
+              "description_kind": "plain",
+              "required": true,
+              "type": "number"
+            },
+            "retrieval_policy": {
+              "description_kind": "plain",
+              "required": true,
+              "type": "string"
+            },
+            "tiering_policy": {
+              "description_kind": "plain",
+              "required": true,
+              "type": "string"
+            }
+          },
+          "description_kind": "plain"
+        },
+        "max_items": 1,
+        "nesting_mode": "list"
+      },
       "data_protection_backup_policy": {
         "block": {
           "attributes": {

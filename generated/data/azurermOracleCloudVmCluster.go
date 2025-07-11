@@ -29,6 +29,11 @@ const azurermOracleCloudVmCluster = `{
         "description_kind": "plain",
         "type": "string"
       },
+      "compute_model": {
+        "computed": true,
+        "description_kind": "plain",
+        "type": "string"
+      },
       "compute_nodes": {
         "computed": true,
         "description_kind": "plain",

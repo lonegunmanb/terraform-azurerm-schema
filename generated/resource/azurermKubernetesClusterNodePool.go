@@ -292,12 +292,20 @@ const azurermKubernetesClusterNodePool = `{
               "optional": true,
               "type": "number"
             },
+            "transparent_huge_page": {
+              "computed": true,
+              "description_kind": "plain",
+              "optional": true,
+              "type": "string"
+            },
             "transparent_huge_page_defrag": {
               "description_kind": "plain",
               "optional": true,
               "type": "string"
             },
             "transparent_huge_page_enabled": {
+              "computed": true,
+              "deprecated": true,
               "description_kind": "plain",
               "optional": true,
               "type": "string"

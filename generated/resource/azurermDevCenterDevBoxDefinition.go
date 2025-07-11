@@ -14,6 +14,11 @@ const azurermDevCenterDevBoxDefinition = `{
         "required": true,
         "type": "string"
       },
+      "hibernate_support_enabled": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "bool"
+      },
       "id": {
         "computed": true,
         "description_kind": "plain",

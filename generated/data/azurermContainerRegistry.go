@@ -29,6 +29,14 @@ const azurermContainerRegistry = `{
         "description_kind": "plain",
         "type": "bool"
       },
+      "data_endpoint_host_names": {
+        "computed": true,
+        "description_kind": "plain",
+        "type": [
+          "set",
+          "string"
+        ]
+      },
       "id": {
         "computed": true,
         "description_kind": "plain",

@@ -23,6 +23,12 @@ const azurermOracleExadataInfrastructure = `{
           "string"
         ]
       },
+      "database_server_type": {
+        "computed": true,
+        "description_kind": "plain",
+        "optional": true,
+        "type": "string"
+      },
       "display_name": {
         "description_kind": "plain",
         "required": true,
@@ -58,6 +64,12 @@ const azurermOracleExadataInfrastructure = `{
         "description_kind": "plain",
         "required": true,
         "type": "number"
+      },
+      "storage_server_type": {
+        "computed": true,
+        "description_kind": "plain",
+        "optional": true,
+        "type": "string"
       },
       "tags": {
         "description_kind": "plain",

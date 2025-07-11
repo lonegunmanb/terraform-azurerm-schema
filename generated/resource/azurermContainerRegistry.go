@@ -35,6 +35,14 @@ const azurermContainerRegistry = `{
         "optional": true,
         "type": "bool"
       },
+      "data_endpoint_host_names": {
+        "computed": true,
+        "description_kind": "plain",
+        "type": [
+          "set",
+          "string"
+        ]
+      },
       "encryption": {
         "computed": true,
         "description_kind": "plain",

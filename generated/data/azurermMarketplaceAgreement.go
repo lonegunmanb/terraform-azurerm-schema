@@ -9,6 +9,11 @@ import (
 const azurermMarketplaceAgreement = `{
   "block": {
     "attributes": {
+      "accepted": {
+        "computed": true,
+        "description_kind": "plain",
+        "type": "bool"
+      },
       "id": {
         "computed": true,
         "description_kind": "plain",
