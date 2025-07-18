@@ -216,6 +216,11 @@ const azurermKubernetesFluxConfiguration = `{
               "optional": true,
               "type": "string"
             },
+            "provider": {
+              "description_kind": "plain",
+              "optional": true,
+              "type": "string"
+            },
             "reference_type": {
               "description_kind": "plain",
               "required": true,

@@ -22,7 +22,7 @@ const azurermMssqlJobStep = `{
       },
       "job_credential_id": {
         "description_kind": "plain",
-        "required": true,
+        "optional": true,
         "type": "string"
       },
       "job_id": {
@@ -77,7 +77,7 @@ const azurermMssqlJobStep = `{
           "attributes": {
             "job_credential_id": {
               "description_kind": "plain",
-              "required": true,
+              "optional": true,
               "type": "string"
             },
             "mssql_database_id": {

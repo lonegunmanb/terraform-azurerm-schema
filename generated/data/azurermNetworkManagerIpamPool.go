@@ -1,4 +1,4 @@
-package resource
+package data
 
 import (
 	"encoding/json"
@@ -6,61 +6,67 @@ import (
 	tfjson "github.com/hashicorp/terraform-json"
 )
 
-const azurermPostgresqlActiveDirectoryAdministrator = `{
+const azurermNetworkManagerIpamPool = `{
   "block": {
     "attributes": {
+      "address_prefixes": {
+        "computed": true,
+        "description_kind": "plain",
+        "type": [
+          "list",
+          "string"
+        ]
+      },
+      "description": {
+        "computed": true,
+        "description_kind": "plain",
+        "type": "string"
+      },
+      "display_name": {
+        "computed": true,
+        "description_kind": "plain",
+        "type": "string"
+      },
       "id": {
         "computed": true,
         "description_kind": "plain",
         "optional": true,
         "type": "string"
       },
-      "login": {
+      "location": {
+        "computed": true,
+        "description_kind": "plain",
+        "type": "string"
+      },
+      "name": {
         "description_kind": "plain",
         "required": true,
         "type": "string"
       },
-      "object_id": {
+      "network_manager_id": {
         "description_kind": "plain",
         "required": true,
         "type": "string"
       },
-      "resource_group_name": {
+      "parent_pool_name": {
+        "computed": true,
         "description_kind": "plain",
-        "required": true,
         "type": "string"
       },
-      "server_name": {
+      "tags": {
+        "computed": true,
         "description_kind": "plain",
-        "required": true,
-        "type": "string"
-      },
-      "tenant_id": {
-        "description_kind": "plain",
-        "required": true,
-        "type": "string"
+        "type": [
+          "map",
+          "string"
+        ]
       }
     },
     "block_types": {
       "timeouts": {
         "block": {
           "attributes": {
-            "create": {
-              "description_kind": "plain",
-              "optional": true,
-              "type": "string"
-            },
-            "delete": {
-              "description_kind": "plain",
-              "optional": true,
-              "type": "string"
-            },
             "read": {
-              "description_kind": "plain",
-              "optional": true,
-              "type": "string"
-            },
-            "update": {
               "description_kind": "plain",
               "optional": true,
               "type": "string"
@@ -71,14 +77,13 @@ const azurermPostgresqlActiveDirectoryAdministrator = `{
         "nesting_mode": "single"
       }
     },
-    "deprecated": true,
     "description_kind": "plain"
   },
-  "version": 1
+  "version": 0
 }`
 
-func AzurermPostgresqlActiveDirectoryAdministratorSchema() *tfjson.Schema {
+func AzurermNetworkManagerIpamPoolSchema() *tfjson.Schema {
 	var result tfjson.Schema
-	_ = json.Unmarshal([]byte(azurermPostgresqlActiveDirectoryAdministrator), &result)
+	_ = json.Unmarshal([]byte(azurermNetworkManagerIpamPool), &result)
 	return &result
 }

@@ -308,7 +308,18 @@ const azurermNetappVolume = `{
               "optional": true,
               "type": "bool"
             },
+            "protocol": {
+              "computed": true,
+              "description_kind": "plain",
+              "optional": true,
+              "type": [
+                "list",
+                "string"
+              ]
+            },
             "protocols_enabled": {
+              "computed": true,
+              "deprecated": true,
               "description_kind": "plain",
               "optional": true,
               "type": [

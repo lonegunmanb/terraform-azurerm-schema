@@ -1355,6 +1355,7 @@ func init() {
 	dataSources["azurerm_network_interface"] = data.AzurermNetworkInterfaceSchema()  
 	dataSources["azurerm_network_manager"] = data.AzurermNetworkManagerSchema()  
 	dataSources["azurerm_network_manager_connectivity_configuration"] = data.AzurermNetworkManagerConnectivityConfigurationSchema()  
+	dataSources["azurerm_network_manager_ipam_pool"] = data.AzurermNetworkManagerIpamPoolSchema()  
 	dataSources["azurerm_network_manager_network_group"] = data.AzurermNetworkManagerNetworkGroupSchema()  
 	dataSources["azurerm_network_security_group"] = data.AzurermNetworkSecurityGroupSchema()  
 	dataSources["azurerm_network_service_tags"] = data.AzurermNetworkServiceTagsSchema()  

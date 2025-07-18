@@ -81,6 +81,8 @@ const azurermVirtualMachineScaleSet = `{
           [
             "object",
             {
+              "auxiliary_mode": "string",
+              "auxiliary_sku": "string",
               "dns_servers": [
                 "list",
                 "string"

@@ -295,6 +295,11 @@ const azurermStorageAccount = `{
         "description_kind": "plain",
         "type": "string"
       },
+      "provisioned_billing_model_version": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "string"
+      },
       "public_network_access_enabled": {
         "description_kind": "plain",
         "optional": true,

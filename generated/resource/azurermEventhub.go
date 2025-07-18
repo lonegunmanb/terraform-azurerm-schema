@@ -17,7 +17,7 @@ const azurermEventhub = `{
       },
       "message_retention": {
         "description_kind": "plain",
-        "required": true,
+        "optional": true,
         "type": "number"
       },
       "name": {
@@ -124,6 +124,30 @@ const azurermEventhub = `{
               "max_items": 1,
               "min_items": 1,
               "nesting_mode": "list"
+            }
+          },
+          "description_kind": "plain"
+        },
+        "max_items": 1,
+        "nesting_mode": "list"
+      },
+      "retention_description": {
+        "block": {
+          "attributes": {
+            "cleanup_policy": {
+              "description_kind": "plain",
+              "required": true,
+              "type": "string"
+            },
+            "retention_time_in_hours": {
+              "description_kind": "plain",
+              "optional": true,
+              "type": "number"
+            },
+            "tombstone_retention_time_in_hours": {
+              "description_kind": "plain",
+              "optional": true,
+              "type": "number"
             }
           },
           "description_kind": "plain"

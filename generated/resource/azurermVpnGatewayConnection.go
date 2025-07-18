@@ -158,6 +158,11 @@ const azurermVpnGatewayConnection = `{
               "optional": true,
               "type": "string"
             },
+            "dpd_timeout_seconds": {
+              "description_kind": "plain",
+              "optional": true,
+              "type": "number"
+            },
             "egress_nat_rule_ids": {
               "description_kind": "plain",
               "optional": true,
@@ -205,6 +210,7 @@ const azurermVpnGatewayConnection = `{
               "type": "number"
             },
             "shared_key": {
+              "computed": true,
               "description_kind": "plain",
               "optional": true,
               "type": "string"

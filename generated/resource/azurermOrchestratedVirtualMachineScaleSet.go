@@ -66,6 +66,11 @@ const azurermOrchestratedVirtualMachineScaleSet = `{
         "required": true,
         "type": "string"
       },
+      "network_api_version": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "string"
+      },
       "platform_fault_domain_count": {
         "description_kind": "plain",
         "required": true,
@@ -360,6 +365,16 @@ const azurermOrchestratedVirtualMachineScaleSet = `{
       "network_interface": {
         "block": {
           "attributes": {
+            "auxiliary_mode": {
+              "description_kind": "plain",
+              "optional": true,
+              "type": "string"
+            },
+            "auxiliary_sku": {
+              "description_kind": "plain",
+              "optional": true,
+              "type": "string"
+            },
             "dns_servers": {
               "description_kind": "plain",
               "optional": true,
