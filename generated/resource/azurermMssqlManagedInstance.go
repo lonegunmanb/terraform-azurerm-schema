@@ -10,6 +10,7 @@ const azurermMssqlManagedInstance = `{
   "block": {
     "attributes": {
       "administrator_login": {
+        "computed": true,
         "description_kind": "plain",
         "optional": true,
         "type": "string"

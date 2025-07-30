@@ -100,6 +100,20 @@ const azurermOracleCloudVmCluster = `{
         "description_kind": "plain",
         "type": "string"
       },
+      "file_system_configuration": {
+        "computed": true,
+        "description_kind": "plain",
+        "type": [
+          "list",
+          [
+            "object",
+            {
+              "mount_point": "string",
+              "size_in_gb": "number"
+            }
+          ]
+        ]
+      },
       "gi_version": {
         "computed": true,
         "description_kind": "plain",

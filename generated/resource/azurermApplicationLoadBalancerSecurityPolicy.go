@@ -6,20 +6,10 @@ import (
 	tfjson "github.com/hashicorp/terraform-json"
 )
 
-const azurermDevCenterProjectPool = `{
+const azurermApplicationLoadBalancerSecurityPolicy = `{
   "block": {
     "attributes": {
-      "dev_box_definition_name": {
-        "description_kind": "plain",
-        "required": true,
-        "type": "string"
-      },
-      "dev_center_attached_network_name": {
-        "description_kind": "plain",
-        "required": true,
-        "type": "string"
-      },
-      "dev_center_project_id": {
+      "application_load_balancer_id": {
         "description_kind": "plain",
         "required": true,
         "type": "string"
@@ -30,33 +20,15 @@ const azurermDevCenterProjectPool = `{
         "optional": true,
         "type": "string"
       },
-      "local_administrator_enabled": {
-        "description_kind": "plain",
-        "required": true,
-        "type": "bool"
-      },
       "location": {
         "description_kind": "plain",
         "required": true,
         "type": "string"
       },
-      "managed_virtual_network_regions": {
-        "description_kind": "plain",
-        "optional": true,
-        "type": [
-          "list",
-          "string"
-        ]
-      },
       "name": {
         "description_kind": "plain",
         "required": true,
         "type": "string"
-      },
-      "stop_on_disconnect_grace_period_minutes": {
-        "description_kind": "plain",
-        "optional": true,
-        "type": "number"
       },
       "tags": {
         "description_kind": "plain",
@@ -65,6 +37,11 @@ const azurermDevCenterProjectPool = `{
           "map",
           "string"
         ]
+      },
+      "web_application_firewall_policy_id": {
+        "description_kind": "plain",
+        "required": true,
+        "type": "string"
       }
     },
     "block_types": {
@@ -102,8 +79,8 @@ const azurermDevCenterProjectPool = `{
   "version": 0
 }`
 
-func AzurermDevCenterProjectPoolSchema() *tfjson.Schema {
+func AzurermApplicationLoadBalancerSecurityPolicySchema() *tfjson.Schema {
 	var result tfjson.Schema
-	_ = json.Unmarshal([]byte(azurermDevCenterProjectPool), &result)
+	_ = json.Unmarshal([]byte(azurermApplicationLoadBalancerSecurityPolicy), &result)
 	return &result
 }

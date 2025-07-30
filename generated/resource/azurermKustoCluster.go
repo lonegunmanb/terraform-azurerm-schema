@@ -260,6 +260,7 @@ const azurermKustoCluster = `{
               "type": "string"
             }
           },
+          "deprecated": true,
           "description_kind": "plain"
         },
         "max_items": 1,

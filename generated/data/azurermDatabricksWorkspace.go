@@ -9,6 +9,28 @@ import (
 const azurermDatabricksWorkspace = `{
   "block": {
     "attributes": {
+      "custom_parameters": {
+        "computed": true,
+        "description_kind": "plain",
+        "type": [
+          "list",
+          [
+            "object",
+            {
+              "machine_learning_workspace_id": "string",
+              "nat_gateway_name": "string",
+              "no_public_ip": "bool",
+              "private_subnet_name": "string",
+              "public_ip_name": "string",
+              "public_subnet_name": "string",
+              "storage_account_name": "string",
+              "storage_account_sku_name": "string",
+              "virtual_network_id": "string",
+              "vnet_address_prefix": "string"
+            }
+          ]
+        ]
+      },
       "enhanced_security_compliance": {
         "computed": true,
         "description_kind": "plain",

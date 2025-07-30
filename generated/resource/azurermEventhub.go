@@ -16,6 +16,7 @@ const azurermEventhub = `{
         "type": "string"
       },
       "message_retention": {
+        "computed": true,
         "description_kind": "plain",
         "optional": true,
         "type": "number"

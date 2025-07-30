@@ -67,6 +67,22 @@ const azurermOracleExadataInfrastructure = `{
         "description_kind": "plain",
         "type": "string"
       },
+      "defined_file_system_configuration": {
+        "computed": true,
+        "description_kind": "plain",
+        "type": [
+          "list",
+          [
+            "object",
+            {
+              "backup_partition_enabled": "bool",
+              "minimum_size_in_gb": "number",
+              "mount_point": "string",
+              "resizable_enabled": "bool"
+            }
+          ]
+        ]
+      },
       "display_name": {
         "computed": true,
         "description_kind": "plain",

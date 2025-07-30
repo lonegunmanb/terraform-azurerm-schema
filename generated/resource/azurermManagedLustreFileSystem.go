@@ -153,6 +153,35 @@ const azurermManagedLustreFileSystem = `{
         "min_items": 1,
         "nesting_mode": "list"
       },
+      "root_squash": {
+        "block": {
+          "attributes": {
+            "mode": {
+              "description_kind": "plain",
+              "required": true,
+              "type": "string"
+            },
+            "no_squash_nids": {
+              "description_kind": "plain",
+              "required": true,
+              "type": "string"
+            },
+            "squash_gid": {
+              "description_kind": "plain",
+              "optional": true,
+              "type": "number"
+            },
+            "squash_uid": {
+              "description_kind": "plain",
+              "optional": true,
+              "type": "number"
+            }
+          },
+          "description_kind": "plain"
+        },
+        "max_items": 1,
+        "nesting_mode": "list"
+      },
       "timeouts": {
         "block": {
           "attributes": {

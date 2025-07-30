@@ -6,22 +6,12 @@ import (
 	tfjson "github.com/hashicorp/terraform-json"
 )
 
-const azurermDevCenterProjectPool = `{
+const azurermMssqlManagedInstanceStartStopSchedule = `{
   "block": {
     "attributes": {
-      "dev_box_definition_name": {
+      "description": {
         "description_kind": "plain",
-        "required": true,
-        "type": "string"
-      },
-      "dev_center_attached_network_name": {
-        "description_kind": "plain",
-        "required": true,
-        "type": "string"
-      },
-      "dev_center_project_id": {
-        "description_kind": "plain",
-        "required": true,
+        "optional": true,
         "type": "string"
       },
       "id": {
@@ -30,44 +20,57 @@ const azurermDevCenterProjectPool = `{
         "optional": true,
         "type": "string"
       },
-      "local_administrator_enabled": {
-        "description_kind": "plain",
-        "required": true,
-        "type": "bool"
-      },
-      "location": {
+      "managed_instance_id": {
         "description_kind": "plain",
         "required": true,
         "type": "string"
       },
-      "managed_virtual_network_regions": {
+      "next_execution_time": {
+        "computed": true,
         "description_kind": "plain",
-        "optional": true,
-        "type": [
-          "list",
-          "string"
-        ]
-      },
-      "name": {
-        "description_kind": "plain",
-        "required": true,
         "type": "string"
       },
-      "stop_on_disconnect_grace_period_minutes": {
+      "next_run_action": {
+        "computed": true,
         "description_kind": "plain",
-        "optional": true,
-        "type": "number"
+        "type": "string"
       },
-      "tags": {
+      "timezone_id": {
         "description_kind": "plain",
         "optional": true,
-        "type": [
-          "map",
-          "string"
-        ]
+        "type": "string"
       }
     },
     "block_types": {
+      "schedule": {
+        "block": {
+          "attributes": {
+            "start_day": {
+              "description_kind": "plain",
+              "required": true,
+              "type": "string"
+            },
+            "start_time": {
+              "description_kind": "plain",
+              "required": true,
+              "type": "string"
+            },
+            "stop_day": {
+              "description_kind": "plain",
+              "required": true,
+              "type": "string"
+            },
+            "stop_time": {
+              "description_kind": "plain",
+              "required": true,
+              "type": "string"
+            }
+          },
+          "description_kind": "plain"
+        },
+        "min_items": 1,
+        "nesting_mode": "list"
+      },
       "timeouts": {
         "block": {
           "attributes": {
@@ -102,8 +105,8 @@ const azurermDevCenterProjectPool = `{
   "version": 0
 }`
 
-func AzurermDevCenterProjectPoolSchema() *tfjson.Schema {
+func AzurermMssqlManagedInstanceStartStopScheduleSchema() *tfjson.Schema {
 	var result tfjson.Schema
-	_ = json.Unmarshal([]byte(azurermDevCenterProjectPool), &result)
+	_ = json.Unmarshal([]byte(azurermMssqlManagedInstanceStartStopSchedule), &result)
 	return &result
 }

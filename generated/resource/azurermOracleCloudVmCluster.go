@@ -214,6 +214,24 @@ const azurermOracleCloudVmCluster = `{
         "max_items": 1,
         "nesting_mode": "list"
       },
+      "file_system_configuration": {
+        "block": {
+          "attributes": {
+            "mount_point": {
+              "description_kind": "plain",
+              "optional": true,
+              "type": "string"
+            },
+            "size_in_gb": {
+              "description_kind": "plain",
+              "optional": true,
+              "type": "number"
+            }
+          },
+          "description_kind": "plain"
+        },
+        "nesting_mode": "list"
+      },
       "timeouts": {
         "block": {
           "attributes": {

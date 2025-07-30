@@ -30,6 +30,11 @@ const azurermDevCenter = `{
         "required": true,
         "type": "string"
       },
+      "project_catalog_item_sync_enabled": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "bool"
+      },
       "resource_group_name": {
         "description_kind": "plain",
         "required": true,

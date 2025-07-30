@@ -50,6 +50,28 @@ const azurermDynatraceMonitor = `{
       }
     },
     "block_types": {
+      "environment_properties": {
+        "block": {
+          "block_types": {
+            "environment_info": {
+              "block": {
+                "attributes": {
+                  "environment_id": {
+                    "description_kind": "plain",
+                    "required": true,
+                    "type": "string"
+                  }
+                },
+                "description_kind": "plain"
+              },
+              "min_items": 1,
+              "nesting_mode": "list"
+            }
+          },
+          "description_kind": "plain"
+        },
+        "nesting_mode": "list"
+      },
       "identity": {
         "block": {
           "attributes": {

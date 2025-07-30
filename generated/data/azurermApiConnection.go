@@ -1,4 +1,4 @@
-package resource
+package data
 
 import (
 	"encoding/json"
@@ -6,22 +6,12 @@ import (
 	tfjson "github.com/hashicorp/terraform-json"
 )
 
-const azurermDevCenterProjectPool = `{
+const azurermApiConnection = `{
   "block": {
     "attributes": {
-      "dev_box_definition_name": {
+      "display_name": {
+        "computed": true,
         "description_kind": "plain",
-        "required": true,
-        "type": "string"
-      },
-      "dev_center_attached_network_name": {
-        "description_kind": "plain",
-        "required": true,
-        "type": "string"
-      },
-      "dev_center_project_id": {
-        "description_kind": "plain",
-        "required": true,
         "type": "string"
       },
       "id": {
@@ -30,37 +20,37 @@ const azurermDevCenterProjectPool = `{
         "optional": true,
         "type": "string"
       },
-      "local_administrator_enabled": {
-        "description_kind": "plain",
-        "required": true,
-        "type": "bool"
-      },
       "location": {
+        "computed": true,
         "description_kind": "plain",
-        "required": true,
         "type": "string"
       },
-      "managed_virtual_network_regions": {
+      "managed_api_id": {
+        "computed": true,
         "description_kind": "plain",
-        "optional": true,
-        "type": [
-          "list",
-          "string"
-        ]
+        "type": "string"
       },
       "name": {
         "description_kind": "plain",
         "required": true,
         "type": "string"
       },
-      "stop_on_disconnect_grace_period_minutes": {
+      "parameter_values": {
+        "computed": true,
         "description_kind": "plain",
-        "optional": true,
-        "type": "number"
+        "type": [
+          "map",
+          "string"
+        ]
+      },
+      "resource_group_name": {
+        "description_kind": "plain",
+        "required": true,
+        "type": "string"
       },
       "tags": {
+        "computed": true,
         "description_kind": "plain",
-        "optional": true,
         "type": [
           "map",
           "string"
@@ -71,22 +61,7 @@ const azurermDevCenterProjectPool = `{
       "timeouts": {
         "block": {
           "attributes": {
-            "create": {
-              "description_kind": "plain",
-              "optional": true,
-              "type": "string"
-            },
-            "delete": {
-              "description_kind": "plain",
-              "optional": true,
-              "type": "string"
-            },
             "read": {
-              "description_kind": "plain",
-              "optional": true,
-              "type": "string"
-            },
-            "update": {
               "description_kind": "plain",
               "optional": true,
               "type": "string"
@@ -102,8 +77,8 @@ const azurermDevCenterProjectPool = `{
   "version": 0
 }`
 
-func AzurermDevCenterProjectPoolSchema() *tfjson.Schema {
+func AzurermApiConnectionSchema() *tfjson.Schema {
 	var result tfjson.Schema
-	_ = json.Unmarshal([]byte(azurermDevCenterProjectPool), &result)
+	_ = json.Unmarshal([]byte(azurermApiConnection), &result)
 	return &result
 }

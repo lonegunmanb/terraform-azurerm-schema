@@ -6,57 +6,29 @@ import (
 	tfjson "github.com/hashicorp/terraform-json"
 )
 
-const azurermDevCenterProjectPool = `{
+const azurermEventgridPartnerRegistration = `{
   "block": {
     "attributes": {
-      "dev_box_definition_name": {
-        "description_kind": "plain",
-        "required": true,
-        "type": "string"
-      },
-      "dev_center_attached_network_name": {
-        "description_kind": "plain",
-        "required": true,
-        "type": "string"
-      },
-      "dev_center_project_id": {
-        "description_kind": "plain",
-        "required": true,
-        "type": "string"
-      },
       "id": {
         "computed": true,
         "description_kind": "plain",
         "optional": true,
         "type": "string"
       },
-      "local_administrator_enabled": {
-        "description_kind": "plain",
-        "required": true,
-        "type": "bool"
-      },
-      "location": {
-        "description_kind": "plain",
-        "required": true,
-        "type": "string"
-      },
-      "managed_virtual_network_regions": {
-        "description_kind": "plain",
-        "optional": true,
-        "type": [
-          "list",
-          "string"
-        ]
-      },
       "name": {
         "description_kind": "plain",
         "required": true,
         "type": "string"
       },
-      "stop_on_disconnect_grace_period_minutes": {
+      "partner_registration_id": {
+        "computed": true,
         "description_kind": "plain",
-        "optional": true,
-        "type": "number"
+        "type": "string"
+      },
+      "resource_group_name": {
+        "description_kind": "plain",
+        "required": true,
+        "type": "string"
       },
       "tags": {
         "description_kind": "plain",
@@ -102,8 +74,8 @@ const azurermDevCenterProjectPool = `{
   "version": 0
 }`
 
-func AzurermDevCenterProjectPoolSchema() *tfjson.Schema {
+func AzurermEventgridPartnerRegistrationSchema() *tfjson.Schema {
 	var result tfjson.Schema
-	_ = json.Unmarshal([]byte(azurermDevCenterProjectPool), &result)
+	_ = json.Unmarshal([]byte(azurermEventgridPartnerRegistration), &result)
 	return &result
 }
