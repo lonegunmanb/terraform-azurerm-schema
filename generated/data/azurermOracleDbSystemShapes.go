@@ -54,6 +54,12 @@ const azurermOracleDbSystemShapes = `{
         "description_kind": "plain",
         "required": true,
         "type": "string"
+      },
+      "zone": {
+        "description": "Filter the versions by zone",
+        "description_kind": "plain",
+        "optional": true,
+        "type": "string"
       }
     },
     "block_types": {

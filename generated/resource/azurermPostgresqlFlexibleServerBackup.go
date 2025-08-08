@@ -1,4 +1,4 @@
-package data
+package resource
 
 import (
 	"encoding/json"
@@ -6,38 +6,28 @@ import (
 	tfjson "github.com/hashicorp/terraform-json"
 )
 
-const azurermOracleGiVersions = `{
+const azurermPostgresqlFlexibleServerBackup = `{
   "block": {
     "attributes": {
+      "completed_time": {
+        "computed": true,
+        "description_kind": "plain",
+        "type": "string"
+      },
       "id": {
         "computed": true,
         "description_kind": "plain",
         "optional": true,
         "type": "string"
       },
-      "location": {
+      "name": {
         "description_kind": "plain",
         "required": true,
         "type": "string"
       },
-      "shape": {
-        "description": "Filter the versions by system shape. Possible values are 'ExaDbXS', 'Exadata.X9M', and 'Exadata.X11M'.",
+      "server_id": {
         "description_kind": "plain",
-        "optional": true,
-        "type": "string"
-      },
-      "versions": {
-        "computed": true,
-        "description_kind": "plain",
-        "type": [
-          "list",
-          "string"
-        ]
-      },
-      "zone": {
-        "description": "Filter the versions by zone",
-        "description_kind": "plain",
-        "optional": true,
+        "required": true,
         "type": "string"
       }
     },
@@ -45,6 +35,16 @@ const azurermOracleGiVersions = `{
       "timeouts": {
         "block": {
           "attributes": {
+            "create": {
+              "description_kind": "plain",
+              "optional": true,
+              "type": "string"
+            },
+            "delete": {
+              "description_kind": "plain",
+              "optional": true,
+              "type": "string"
+            },
             "read": {
               "description_kind": "plain",
               "optional": true,
@@ -61,8 +61,8 @@ const azurermOracleGiVersions = `{
   "version": 0
 }`
 
-func AzurermOracleGiVersionsSchema() *tfjson.Schema {
+func AzurermPostgresqlFlexibleServerBackupSchema() *tfjson.Schema {
 	var result tfjson.Schema
-	_ = json.Unmarshal([]byte(azurermOracleGiVersions), &result)
+	_ = json.Unmarshal([]byte(azurermPostgresqlFlexibleServerBackup), &result)
 	return &result
 }
