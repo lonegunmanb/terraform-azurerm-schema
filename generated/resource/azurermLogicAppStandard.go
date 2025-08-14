@@ -274,49 +274,6 @@ const azurermLogicAppStandard = `{
               "optional": true,
               "type": "bool"
             },
-            "ip_restriction": {
-              "computed": true,
-              "description_kind": "plain",
-              "optional": true,
-              "type": [
-                "list",
-                [
-                  "object",
-                  {
-                    "action": "string",
-                    "headers": [
-                      "list",
-                      [
-                        "object",
-                        {
-                          "x_azure_fdid": [
-                            "set",
-                            "string"
-                          ],
-                          "x_fd_health_probe": [
-                            "set",
-                            "string"
-                          ],
-                          "x_forwarded_for": [
-                            "set",
-                            "string"
-                          ],
-                          "x_forwarded_host": [
-                            "set",
-                            "string"
-                          ]
-                        }
-                      ]
-                    ],
-                    "ip_address": "string",
-                    "name": "string",
-                    "priority": "number",
-                    "service_tag": "string",
-                    "virtual_network_subnet_id": "string"
-                  }
-                ]
-              ]
-            },
             "linux_fx_version": {
               "computed": true,
               "description_kind": "plain",
@@ -346,49 +303,6 @@ const azurermLogicAppStandard = `{
               "description_kind": "plain",
               "optional": true,
               "type": "bool"
-            },
-            "scm_ip_restriction": {
-              "computed": true,
-              "description_kind": "plain",
-              "optional": true,
-              "type": [
-                "list",
-                [
-                  "object",
-                  {
-                    "action": "string",
-                    "headers": [
-                      "list",
-                      [
-                        "object",
-                        {
-                          "x_azure_fdid": [
-                            "set",
-                            "string"
-                          ],
-                          "x_fd_health_probe": [
-                            "set",
-                            "string"
-                          ],
-                          "x_forwarded_for": [
-                            "set",
-                            "string"
-                          ],
-                          "x_forwarded_host": [
-                            "set",
-                            "string"
-                          ]
-                        }
-                      ]
-                    ],
-                    "ip_address": "string",
-                    "name": "string",
-                    "priority": "number",
-                    "service_tag": "string",
-                    "virtual_network_subnet_id": "string"
-                  }
-                ]
-              ]
             },
             "scm_min_tls_version": {
               "computed": true,
@@ -429,14 +343,16 @@ const azurermLogicAppStandard = `{
               "block": {
                 "attributes": {
                   "allowed_origins": {
+                    "description": "Specifies a list of origins that should be allowed to make cross-origin calls.",
                     "description_kind": "plain",
-                    "required": true,
+                    "optional": true,
                     "type": [
                       "set",
                       "string"
                     ]
                   },
                   "support_credentials": {
+                    "description": "Are credentials allowed in CORS requests? Defaults to ` + "`" + `false` + "`" + `.",
                     "description_kind": "plain",
                     "optional": true,
                     "type": "bool"
@@ -445,6 +361,164 @@ const azurermLogicAppStandard = `{
                 "description_kind": "plain"
               },
               "max_items": 1,
+              "nesting_mode": "list"
+            },
+            "ip_restriction": {
+              "block": {
+                "attributes": {
+                  "action": {
+                    "description": "The action to take. Possible values are ` + "`" + `Allow` + "`" + ` or ` + "`" + `Deny` + "`" + `.",
+                    "description_kind": "plain",
+                    "optional": true,
+                    "type": "string"
+                  },
+                  "description": {
+                    "description": "The description of the IP restriction rule.",
+                    "description_kind": "plain",
+                    "optional": true,
+                    "type": "string"
+                  },
+                  "headers": {
+                    "description_kind": "plain",
+                    "optional": true,
+                    "type": [
+                      "list",
+                      [
+                        "object",
+                        {
+                          "x_azure_fdid": [
+                            "list",
+                            "string"
+                          ],
+                          "x_fd_health_probe": [
+                            "list",
+                            "string"
+                          ],
+                          "x_forwarded_for": [
+                            "list",
+                            "string"
+                          ],
+                          "x_forwarded_host": [
+                            "list",
+                            "string"
+                          ]
+                        }
+                      ]
+                    ]
+                  },
+                  "ip_address": {
+                    "description": "The CIDR notation of the IP or IP Range to match. For example: ` + "`" + `10.0.0.0/24` + "`" + ` or ` + "`" + `192.168.10.1/32` + "`" + ` or ` + "`" + `fe80::/64` + "`" + ` or ` + "`" + `13.107.6.152/31,13.107.128.0/22` + "`" + `",
+                    "description_kind": "plain",
+                    "optional": true,
+                    "type": "string"
+                  },
+                  "name": {
+                    "computed": true,
+                    "description": "The name which should be used for this ` + "`" + `ip_restriction` + "`" + `.",
+                    "description_kind": "plain",
+                    "optional": true,
+                    "type": "string"
+                  },
+                  "priority": {
+                    "description": "The priority value of this ` + "`" + `ip_restriction` + "`" + `.",
+                    "description_kind": "plain",
+                    "optional": true,
+                    "type": "number"
+                  },
+                  "service_tag": {
+                    "description": "The Service Tag used for this IP Restriction.",
+                    "description_kind": "plain",
+                    "optional": true,
+                    "type": "string"
+                  },
+                  "virtual_network_subnet_id": {
+                    "description": "The Virtual Network Subnet ID used for this IP Restriction.",
+                    "description_kind": "plain",
+                    "optional": true,
+                    "type": "string"
+                  }
+                },
+                "description_kind": "plain"
+              },
+              "nesting_mode": "list"
+            },
+            "scm_ip_restriction": {
+              "block": {
+                "attributes": {
+                  "action": {
+                    "description": "The action to take. Possible values are ` + "`" + `Allow` + "`" + ` or ` + "`" + `Deny` + "`" + `.",
+                    "description_kind": "plain",
+                    "optional": true,
+                    "type": "string"
+                  },
+                  "description": {
+                    "description": "The description of the IP restriction rule.",
+                    "description_kind": "plain",
+                    "optional": true,
+                    "type": "string"
+                  },
+                  "headers": {
+                    "description_kind": "plain",
+                    "optional": true,
+                    "type": [
+                      "list",
+                      [
+                        "object",
+                        {
+                          "x_azure_fdid": [
+                            "list",
+                            "string"
+                          ],
+                          "x_fd_health_probe": [
+                            "list",
+                            "string"
+                          ],
+                          "x_forwarded_for": [
+                            "list",
+                            "string"
+                          ],
+                          "x_forwarded_host": [
+                            "list",
+                            "string"
+                          ]
+                        }
+                      ]
+                    ]
+                  },
+                  "ip_address": {
+                    "description": "The CIDR notation of the IP or IP Range to match. For example: ` + "`" + `10.0.0.0/24` + "`" + ` or ` + "`" + `192.168.10.1/32` + "`" + ` or ` + "`" + `fe80::/64` + "`" + ` or ` + "`" + `13.107.6.152/31,13.107.128.0/22` + "`" + `",
+                    "description_kind": "plain",
+                    "optional": true,
+                    "type": "string"
+                  },
+                  "name": {
+                    "computed": true,
+                    "description": "The name which should be used for this ` + "`" + `ip_restriction` + "`" + `.",
+                    "description_kind": "plain",
+                    "optional": true,
+                    "type": "string"
+                  },
+                  "priority": {
+                    "description": "The priority value of this ` + "`" + `ip_restriction` + "`" + `.",
+                    "description_kind": "plain",
+                    "optional": true,
+                    "type": "number"
+                  },
+                  "service_tag": {
+                    "description": "The Service Tag used for this IP Restriction.",
+                    "description_kind": "plain",
+                    "optional": true,
+                    "type": "string"
+                  },
+                  "virtual_network_subnet_id": {
+                    "description": "The Virtual Network Subnet ID used for this IP Restriction.",
+                    "description_kind": "plain",
+                    "optional": true,
+                    "type": "string"
+                  }
+                },
+                "description_kind": "plain"
+              },
               "nesting_mode": "list"
             }
           },

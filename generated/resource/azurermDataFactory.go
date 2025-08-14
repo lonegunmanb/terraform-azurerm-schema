@@ -10,11 +10,13 @@ const azurermDataFactory = `{
   "block": {
     "attributes": {
       "customer_managed_key_id": {
+        "computed": true,
         "description_kind": "plain",
         "optional": true,
         "type": "string"
       },
       "customer_managed_key_identity_id": {
+        "computed": true,
         "description_kind": "plain",
         "optional": true,
         "type": "string"

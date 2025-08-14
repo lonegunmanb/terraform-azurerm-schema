@@ -25,6 +25,11 @@ const azurermEventgridSystemTopic = `{
         "description_kind": "plain",
         "type": "string"
       },
+      "metric_resource_id": {
+        "computed": true,
+        "description_kind": "plain",
+        "type": "string"
+      },
       "name": {
         "description_kind": "plain",
         "required": true,
@@ -36,8 +41,16 @@ const azurermEventgridSystemTopic = `{
         "type": "string"
       },
       "source_arm_resource_id": {
+        "computed": true,
+        "deprecated": true,
         "description_kind": "plain",
-        "required": true,
+        "optional": true,
+        "type": "string"
+      },
+      "source_resource_id": {
+        "computed": true,
+        "description_kind": "plain",
+        "optional": true,
         "type": "string"
       },
       "tags": {

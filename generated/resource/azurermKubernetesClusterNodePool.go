@@ -29,6 +29,11 @@ const azurermKubernetesClusterNodePool = `{
         "optional": true,
         "type": "bool"
       },
+      "gpu_driver": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "string"
+      },
       "gpu_instance": {
         "description_kind": "plain",
         "optional": true,

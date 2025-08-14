@@ -264,6 +264,7 @@ func init() {
 	resources["azurerm_data_factory_credential_service_principal"] = resource.AzurermDataFactoryCredentialServicePrincipalSchema()  
 	resources["azurerm_data_factory_credential_user_managed_identity"] = resource.AzurermDataFactoryCredentialUserManagedIdentitySchema()  
 	resources["azurerm_data_factory_custom_dataset"] = resource.AzurermDataFactoryCustomDatasetSchema()  
+	resources["azurerm_data_factory_customer_managed_key"] = resource.AzurermDataFactoryCustomerManagedKeySchema()  
 	resources["azurerm_data_factory_data_flow"] = resource.AzurermDataFactoryDataFlowSchema()  
 	resources["azurerm_data_factory_dataset_azure_blob"] = resource.AzurermDataFactoryDatasetAzureBlobSchema()  
 	resources["azurerm_data_factory_dataset_azure_sql_table"] = resource.AzurermDataFactoryDatasetAzureSqlTableSchema()  

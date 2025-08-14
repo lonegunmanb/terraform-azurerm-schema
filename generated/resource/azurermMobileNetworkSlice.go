@@ -35,6 +35,18 @@ const azurermMobileNetworkSlice = `{
         "required": true,
         "type": "string"
       },
+      "slice_differentiator": {
+        "computed": true,
+        "description_kind": "plain",
+        "optional": true,
+        "type": "string"
+      },
+      "slice_service_type": {
+        "computed": true,
+        "description_kind": "plain",
+        "optional": true,
+        "type": "number"
+      },
       "tags": {
         "description_kind": "plain",
         "optional": true,
@@ -49,20 +61,22 @@ const azurermMobileNetworkSlice = `{
         "block": {
           "attributes": {
             "slice_differentiator": {
+              "deprecated": true,
               "description_kind": "plain",
               "optional": true,
               "type": "string"
             },
             "slice_service_type": {
+              "deprecated": true,
               "description_kind": "plain",
               "required": true,
               "type": "number"
             }
           },
+          "deprecated": true,
           "description_kind": "plain"
         },
         "max_items": 1,
-        "min_items": 1,
         "nesting_mode": "list"
       },
       "timeouts": {

@@ -204,6 +204,11 @@ const azurermMachineLearningWorkspace = `{
               "description_kind": "plain",
               "optional": true,
               "type": "string"
+            },
+            "provision_on_creation_enabled": {
+              "description_kind": "plain",
+              "optional": true,
+              "type": "bool"
             }
           },
           "description_kind": "plain"

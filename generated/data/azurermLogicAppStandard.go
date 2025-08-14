@@ -142,6 +142,126 @@ const azurermLogicAppStandard = `{
         "description_kind": "plain",
         "type": "bool"
       },
+      "site_config": {
+        "computed": true,
+        "description_kind": "plain",
+        "type": [
+          "list",
+          [
+            "object",
+            {
+              "always_on": "bool",
+              "app_scale_limit": "number",
+              "auto_swap_slot_name": "string",
+              "cors": [
+                "list",
+                [
+                  "object",
+                  {
+                    "allowed_origins": [
+                      "set",
+                      "string"
+                    ],
+                    "support_credentials": "bool"
+                  }
+                ]
+              ],
+              "dotnet_framework_version": "string",
+              "elastic_instance_minimum": "number",
+              "ftps_state": "string",
+              "health_check_path": "string",
+              "http2_enabled": "bool",
+              "ip_restriction": [
+                "list",
+                [
+                  "object",
+                  {
+                    "action": "string",
+                    "headers": [
+                      "list",
+                      [
+                        "object",
+                        {
+                          "x_azure_fdid": [
+                            "set",
+                            "string"
+                          ],
+                          "x_fd_health_probe": [
+                            "set",
+                            "string"
+                          ],
+                          "x_forwarded_for": [
+                            "set",
+                            "string"
+                          ],
+                          "x_forwarded_host": [
+                            "set",
+                            "string"
+                          ]
+                        }
+                      ]
+                    ],
+                    "ip_address": "string",
+                    "name": "string",
+                    "priority": "number",
+                    "service_tag": "string",
+                    "virtual_network_subnet_id": "string"
+                  }
+                ]
+              ],
+              "linux_fx_version": "string",
+              "min_tls_version": "string",
+              "pre_warmed_instance_count": "number",
+              "public_network_access_enabled": "bool",
+              "runtime_scale_monitoring_enabled": "bool",
+              "scm_ip_restriction": [
+                "list",
+                [
+                  "object",
+                  {
+                    "action": "string",
+                    "headers": [
+                      "list",
+                      [
+                        "object",
+                        {
+                          "x_azure_fdid": [
+                            "set",
+                            "string"
+                          ],
+                          "x_fd_health_probe": [
+                            "set",
+                            "string"
+                          ],
+                          "x_forwarded_for": [
+                            "set",
+                            "string"
+                          ],
+                          "x_forwarded_host": [
+                            "set",
+                            "string"
+                          ]
+                        }
+                      ]
+                    ],
+                    "ip_address": "string",
+                    "name": "string",
+                    "priority": "number",
+                    "service_tag": "string",
+                    "virtual_network_subnet_id": "string"
+                  }
+                ]
+              ],
+              "scm_min_tls_version": "string",
+              "scm_type": "string",
+              "scm_use_main_ip_restriction": "bool",
+              "use_32_bit_worker_process": "bool",
+              "vnet_route_all_enabled": "bool",
+              "websockets_enabled": "bool"
+            }
+          ]
+        ]
+      },
       "site_credential": {
         "computed": true,
         "description_kind": "plain",
@@ -197,231 +317,6 @@ const azurermLogicAppStandard = `{
       }
     },
     "block_types": {
-      "site_config": {
-        "block": {
-          "attributes": {
-            "always_on": {
-              "description_kind": "plain",
-              "optional": true,
-              "type": "bool"
-            },
-            "app_scale_limit": {
-              "computed": true,
-              "description_kind": "plain",
-              "optional": true,
-              "type": "number"
-            },
-            "auto_swap_slot_name": {
-              "computed": true,
-              "description_kind": "plain",
-              "type": "string"
-            },
-            "dotnet_framework_version": {
-              "description_kind": "plain",
-              "optional": true,
-              "type": "string"
-            },
-            "elastic_instance_minimum": {
-              "computed": true,
-              "description_kind": "plain",
-              "optional": true,
-              "type": "number"
-            },
-            "ftps_state": {
-              "computed": true,
-              "description_kind": "plain",
-              "optional": true,
-              "type": "string"
-            },
-            "health_check_path": {
-              "description_kind": "plain",
-              "optional": true,
-              "type": "string"
-            },
-            "http2_enabled": {
-              "description_kind": "plain",
-              "optional": true,
-              "type": "bool"
-            },
-            "ip_restriction": {
-              "computed": true,
-              "description_kind": "plain",
-              "optional": true,
-              "type": [
-                "list",
-                [
-                  "object",
-                  {
-                    "action": "string",
-                    "headers": [
-                      "list",
-                      [
-                        "object",
-                        {
-                          "x_azure_fdid": [
-                            "set",
-                            "string"
-                          ],
-                          "x_fd_health_probe": [
-                            "set",
-                            "string"
-                          ],
-                          "x_forwarded_for": [
-                            "set",
-                            "string"
-                          ],
-                          "x_forwarded_host": [
-                            "set",
-                            "string"
-                          ]
-                        }
-                      ]
-                    ],
-                    "ip_address": "string",
-                    "name": "string",
-                    "priority": "number",
-                    "service_tag": "string",
-                    "virtual_network_subnet_id": "string"
-                  }
-                ]
-              ]
-            },
-            "linux_fx_version": {
-              "computed": true,
-              "description_kind": "plain",
-              "optional": true,
-              "type": "string"
-            },
-            "min_tls_version": {
-              "computed": true,
-              "description_kind": "plain",
-              "optional": true,
-              "type": "string"
-            },
-            "pre_warmed_instance_count": {
-              "computed": true,
-              "description_kind": "plain",
-              "optional": true,
-              "type": "number"
-            },
-            "public_network_access_enabled": {
-              "computed": true,
-              "deprecated": true,
-              "description_kind": "plain",
-              "optional": true,
-              "type": "bool"
-            },
-            "runtime_scale_monitoring_enabled": {
-              "description_kind": "plain",
-              "optional": true,
-              "type": "bool"
-            },
-            "scm_ip_restriction": {
-              "computed": true,
-              "description_kind": "plain",
-              "optional": true,
-              "type": [
-                "list",
-                [
-                  "object",
-                  {
-                    "action": "string",
-                    "headers": [
-                      "list",
-                      [
-                        "object",
-                        {
-                          "x_azure_fdid": [
-                            "set",
-                            "string"
-                          ],
-                          "x_fd_health_probe": [
-                            "set",
-                            "string"
-                          ],
-                          "x_forwarded_for": [
-                            "set",
-                            "string"
-                          ],
-                          "x_forwarded_host": [
-                            "set",
-                            "string"
-                          ]
-                        }
-                      ]
-                    ],
-                    "ip_address": "string",
-                    "name": "string",
-                    "priority": "number",
-                    "service_tag": "string",
-                    "virtual_network_subnet_id": "string"
-                  }
-                ]
-              ]
-            },
-            "scm_min_tls_version": {
-              "computed": true,
-              "description_kind": "plain",
-              "optional": true,
-              "type": "string"
-            },
-            "scm_type": {
-              "computed": true,
-              "description_kind": "plain",
-              "optional": true,
-              "type": "string"
-            },
-            "scm_use_main_ip_restriction": {
-              "description_kind": "plain",
-              "optional": true,
-              "type": "bool"
-            },
-            "use_32_bit_worker_process": {
-              "description_kind": "plain",
-              "optional": true,
-              "type": "bool"
-            },
-            "vnet_route_all_enabled": {
-              "computed": true,
-              "description_kind": "plain",
-              "optional": true,
-              "type": "bool"
-            },
-            "websockets_enabled": {
-              "description_kind": "plain",
-              "optional": true,
-              "type": "bool"
-            }
-          },
-          "block_types": {
-            "cors": {
-              "block": {
-                "attributes": {
-                  "allowed_origins": {
-                    "description_kind": "plain",
-                    "required": true,
-                    "type": [
-                      "set",
-                      "string"
-                    ]
-                  },
-                  "support_credentials": {
-                    "description_kind": "plain",
-                    "optional": true,
-                    "type": "bool"
-                  }
-                },
-                "description_kind": "plain"
-              },
-              "max_items": 1,
-              "nesting_mode": "list"
-            }
-          },
-          "description_kind": "plain"
-        },
-        "max_items": 1,
-        "nesting_mode": "list"
-      },
       "timeouts": {
         "block": {
           "attributes": {
