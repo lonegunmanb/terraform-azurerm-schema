@@ -9,10 +9,22 @@ import (
 const azurermNetappAccountEncryption = `{
   "block": {
     "attributes": {
+      "cross_tenant_key_vault_resource_id": {
+        "description": "The full resource ID of the cross-tenant key vault. Required when using federated_client_id for cross-tenant scenarios.",
+        "description_kind": "plain",
+        "optional": true,
+        "type": "string"
+      },
       "encryption_key": {
         "description": "The versionless encryption key url.",
         "description_kind": "plain",
         "required": true,
+        "type": "string"
+      },
+      "federated_client_id": {
+        "description": "The Client ID of the multi-tenant Entra ID application used to access cross-tenant key vaults.",
+        "description_kind": "plain",
+        "optional": true,
         "type": "string"
       },
       "id": {

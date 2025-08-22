@@ -82,6 +82,20 @@ const azurermCdnFrontdoorProfile = `{
         "max_items": 1,
         "nesting_mode": "list"
       },
+      "log_scrubbing_rule": {
+        "block": {
+          "attributes": {
+            "match_variable": {
+              "description_kind": "plain",
+              "required": true,
+              "type": "string"
+            }
+          },
+          "description_kind": "plain"
+        },
+        "max_items": 3,
+        "nesting_mode": "set"
+      },
       "timeouts": {
         "block": {
           "attributes": {

@@ -1,4 +1,4 @@
-package data
+package resource
 
 import (
 	"encoding/json"
@@ -6,23 +6,16 @@ import (
 	tfjson "github.com/hashicorp/terraform-json"
 )
 
-const azurermNetappAccountEncryption = `{
+const azurermNetworkManagerIpamPoolStaticCidr = `{
   "block": {
     "attributes": {
-      "cross_tenant_key_vault_resource_id": {
-        "computed": true,
+      "address_prefixes": {
         "description_kind": "plain",
-        "type": "string"
-      },
-      "encryption_key": {
-        "computed": true,
-        "description_kind": "plain",
-        "type": "string"
-      },
-      "federated_client_id": {
-        "computed": true,
-        "description_kind": "plain",
-        "type": "string"
+        "optional": true,
+        "type": [
+          "list",
+          "string"
+        ]
       },
       "id": {
         "computed": true,
@@ -30,20 +23,19 @@ const azurermNetappAccountEncryption = `{
         "optional": true,
         "type": "string"
       },
-      "netapp_account_id": {
-        "description": "The ID of the NetApp Account where encryption will be set.",
+      "ipam_pool_id": {
         "description_kind": "plain",
         "required": true,
         "type": "string"
       },
-      "system_assigned_identity_principal_id": {
-        "computed": true,
+      "name": {
         "description_kind": "plain",
+        "required": true,
         "type": "string"
       },
-      "user_assigned_identity_id": {
-        "computed": true,
+      "number_of_ip_addresses_to_allocate": {
         "description_kind": "plain",
+        "optional": true,
         "type": "string"
       }
     },
@@ -51,7 +43,22 @@ const azurermNetappAccountEncryption = `{
       "timeouts": {
         "block": {
           "attributes": {
+            "create": {
+              "description_kind": "plain",
+              "optional": true,
+              "type": "string"
+            },
+            "delete": {
+              "description_kind": "plain",
+              "optional": true,
+              "type": "string"
+            },
             "read": {
+              "description_kind": "plain",
+              "optional": true,
+              "type": "string"
+            },
+            "update": {
               "description_kind": "plain",
               "optional": true,
               "type": "string"
@@ -67,8 +74,8 @@ const azurermNetappAccountEncryption = `{
   "version": 0
 }`
 
-func AzurermNetappAccountEncryptionSchema() *tfjson.Schema {
+func AzurermNetworkManagerIpamPoolStaticCidrSchema() *tfjson.Schema {
 	var result tfjson.Schema
-	_ = json.Unmarshal([]byte(azurermNetappAccountEncryption), &result)
+	_ = json.Unmarshal([]byte(azurermNetworkManagerIpamPoolStaticCidr), &result)
 	return &result
 }

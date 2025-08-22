@@ -19,6 +19,11 @@ const azurermNetappPool = `{
         "description_kind": "plain",
         "type": "bool"
       },
+      "custom_throughput_mibps": {
+        "computed": true,
+        "description_kind": "plain",
+        "type": "number"
+      },
       "encryption_type": {
         "computed": true,
         "description_kind": "plain",

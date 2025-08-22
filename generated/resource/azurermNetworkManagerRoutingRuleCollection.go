@@ -1,4 +1,4 @@
-package data
+package resource
 
 import (
 	"encoding/json"
@@ -6,22 +6,17 @@ import (
 	tfjson "github.com/hashicorp/terraform-json"
 )
 
-const azurermNetappAccountEncryption = `{
+const azurermNetworkManagerRoutingRuleCollection = `{
   "block": {
     "attributes": {
-      "cross_tenant_key_vault_resource_id": {
-        "computed": true,
+      "bgp_route_propagation_enabled": {
         "description_kind": "plain",
-        "type": "string"
+        "optional": true,
+        "type": "bool"
       },
-      "encryption_key": {
-        "computed": true,
+      "description": {
         "description_kind": "plain",
-        "type": "string"
-      },
-      "federated_client_id": {
-        "computed": true,
-        "description_kind": "plain",
+        "optional": true,
         "type": "string"
       },
       "id": {
@@ -30,20 +25,22 @@ const azurermNetappAccountEncryption = `{
         "optional": true,
         "type": "string"
       },
-      "netapp_account_id": {
-        "description": "The ID of the NetApp Account where encryption will be set.",
+      "name": {
         "description_kind": "plain",
         "required": true,
         "type": "string"
       },
-      "system_assigned_identity_principal_id": {
-        "computed": true,
+      "network_group_ids": {
         "description_kind": "plain",
-        "type": "string"
+        "required": true,
+        "type": [
+          "list",
+          "string"
+        ]
       },
-      "user_assigned_identity_id": {
-        "computed": true,
+      "routing_configuration_id": {
         "description_kind": "plain",
+        "required": true,
         "type": "string"
       }
     },
@@ -51,7 +48,22 @@ const azurermNetappAccountEncryption = `{
       "timeouts": {
         "block": {
           "attributes": {
+            "create": {
+              "description_kind": "plain",
+              "optional": true,
+              "type": "string"
+            },
+            "delete": {
+              "description_kind": "plain",
+              "optional": true,
+              "type": "string"
+            },
             "read": {
+              "description_kind": "plain",
+              "optional": true,
+              "type": "string"
+            },
+            "update": {
               "description_kind": "plain",
               "optional": true,
               "type": "string"
@@ -67,8 +79,8 @@ const azurermNetappAccountEncryption = `{
   "version": 0
 }`
 
-func AzurermNetappAccountEncryptionSchema() *tfjson.Schema {
+func AzurermNetworkManagerRoutingRuleCollectionSchema() *tfjson.Schema {
 	var result tfjson.Schema
-	_ = json.Unmarshal([]byte(azurermNetappAccountEncryption), &result)
+	_ = json.Unmarshal([]byte(azurermNetworkManagerRoutingRuleCollection), &result)
 	return &result
 }
