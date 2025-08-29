@@ -26,11 +26,20 @@ const azurermLbNatRule = `{
       },
       "enable_floating_ip": {
         "computed": true,
+        "deprecated": true,
         "description_kind": "plain",
         "optional": true,
         "type": "bool"
       },
       "enable_tcp_reset": {
+        "computed": true,
+        "deprecated": true,
+        "description_kind": "plain",
+        "optional": true,
+        "type": "bool"
+      },
+      "floating_ip_enabled": {
+        "computed": true,
         "description_kind": "plain",
         "optional": true,
         "type": "bool"
@@ -90,6 +99,12 @@ const azurermLbNatRule = `{
         "description_kind": "plain",
         "required": true,
         "type": "string"
+      },
+      "tcp_reset_enabled": {
+        "computed": true,
+        "description_kind": "plain",
+        "optional": true,
+        "type": "bool"
       }
     },
     "block_types": {

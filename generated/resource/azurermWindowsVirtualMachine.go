@@ -11,16 +11,23 @@ const azurermWindowsVirtualMachine = `{
     "attributes": {
       "admin_password": {
         "description_kind": "plain",
-        "required": true,
+        "optional": true,
         "sensitive": true,
         "type": "string"
       },
       "admin_username": {
         "description_kind": "plain",
-        "required": true,
+        "optional": true,
         "type": "string"
       },
       "allow_extension_operations": {
+        "computed": true,
+        "description_kind": "plain",
+        "optional": true,
+        "type": "bool"
+      },
+      "automatic_updates_enabled": {
+        "computed": true,
         "description_kind": "plain",
         "optional": true,
         "type": "bool"
@@ -74,6 +81,8 @@ const azurermWindowsVirtualMachine = `{
         "type": "string"
       },
       "enable_automatic_updates": {
+        "computed": true,
+        "deprecated": true,
         "description_kind": "plain",
         "optional": true,
         "type": "bool"
@@ -94,6 +103,7 @@ const azurermWindowsVirtualMachine = `{
         "type": "string"
       },
       "hotpatching_enabled": {
+        "computed": true,
         "description_kind": "plain",
         "optional": true,
         "type": "bool"
@@ -132,12 +142,20 @@ const azurermWindowsVirtualMachine = `{
           "string"
         ]
       },
+      "os_managed_disk_id": {
+        "computed": true,
+        "description_kind": "plain",
+        "optional": true,
+        "type": "string"
+      },
       "patch_assessment_mode": {
+        "computed": true,
         "description_kind": "plain",
         "optional": true,
         "type": "string"
       },
       "patch_mode": {
+        "computed": true,
         "description_kind": "plain",
         "optional": true,
         "type": "string"
@@ -166,6 +184,7 @@ const azurermWindowsVirtualMachine = `{
         ]
       },
       "provision_vm_agent": {
+        "computed": true,
         "description_kind": "plain",
         "optional": true,
         "type": "bool"
@@ -424,8 +443,9 @@ const azurermWindowsVirtualMachine = `{
               "type": "string"
             },
             "storage_account_type": {
+              "computed": true,
               "description_kind": "plain",
-              "required": true,
+              "optional": true,
               "type": "string"
             },
             "write_accelerator_enabled": {

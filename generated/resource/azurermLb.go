@@ -43,6 +43,12 @@ const azurermLb = `{
           "string"
         ]
       },
+      "public_ip_address_id": {
+        "computed": true,
+        "description_kind": "plain",
+        "optional": true,
+        "type": "string"
+      },
       "resource_group_name": {
         "description_kind": "plain",
         "required": true,
@@ -54,6 +60,12 @@ const azurermLb = `{
         "type": "string"
       },
       "sku_tier": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "string"
+      },
+      "subnet_id": {
+        "computed": true,
         "description_kind": "plain",
         "optional": true,
         "type": "string"
@@ -130,7 +142,6 @@ const azurermLb = `{
               "type": "string"
             },
             "public_ip_address_id": {
-              "computed": true,
               "description_kind": "plain",
               "optional": true,
               "type": "string"
@@ -142,7 +153,6 @@ const azurermLb = `{
               "type": "string"
             },
             "subnet_id": {
-              "computed": true,
               "description_kind": "plain",
               "optional": true,
               "type": "string"

@@ -42,6 +42,8 @@ const azurermKeyVault = `{
         ]
       },
       "enable_rbac_authorization": {
+        "computed": true,
+        "deprecated": true,
         "description_kind": "plain",
         "optional": true,
         "type": "bool"
@@ -83,6 +85,12 @@ const azurermKeyVault = `{
         "type": "bool"
       },
       "purge_protection_enabled": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "bool"
+      },
+      "rbac_authorization_enabled": {
+        "computed": true,
         "description_kind": "plain",
         "optional": true,
         "type": "bool"

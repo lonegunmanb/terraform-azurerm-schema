@@ -269,7 +269,7 @@ const azurermKustoCluster = `{
     },
     "description_kind": "plain"
   },
-  "version": 1
+  "version": 2
 }`
 
 func AzurermKustoClusterSchema() *tfjson.Schema {

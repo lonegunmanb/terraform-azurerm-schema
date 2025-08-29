@@ -1324,6 +1324,7 @@ func init() {
 	dataSources["azurerm_managed_api"] = data.AzurermManagedApiSchema()  
 	dataSources["azurerm_managed_application_definition"] = data.AzurermManagedApplicationDefinitionSchema()  
 	dataSources["azurerm_managed_disk"] = data.AzurermManagedDiskSchema()  
+	dataSources["azurerm_managed_disks"] = data.AzurermManagedDisksSchema()  
 	dataSources["azurerm_management_group"] = data.AzurermManagementGroupSchema()  
 	dataSources["azurerm_management_group_template_deployment"] = data.AzurermManagementGroupTemplateDeploymentSchema()  
 	dataSources["azurerm_maps_account"] = data.AzurermMapsAccountSchema()  

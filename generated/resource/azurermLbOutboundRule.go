@@ -20,6 +20,8 @@ const azurermLbOutboundRule = `{
         "type": "string"
       },
       "enable_tcp_reset": {
+        "computed": true,
+        "deprecated": true,
         "description_kind": "plain",
         "optional": true,
         "type": "bool"
@@ -49,6 +51,12 @@ const azurermLbOutboundRule = `{
         "description_kind": "plain",
         "required": true,
         "type": "string"
+      },
+      "tcp_reset_enabled": {
+        "computed": true,
+        "description_kind": "plain",
+        "optional": true,
+        "type": "bool"
       }
     },
     "block_types": {

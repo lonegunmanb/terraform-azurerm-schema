@@ -30,6 +30,7 @@ const azurermIothub = `{
               "max_chunk_size_in_bytes": "number",
               "name": "string",
               "resource_group_name": "string",
+              "subscription_id": "string",
               "type": "string"
             }
           ]

@@ -26,10 +26,17 @@ const azurermLbRule = `{
       },
       "enable_floating_ip": {
         "computed": true,
+        "deprecated": true,
         "description_kind": "plain",
         "type": "bool"
       },
       "enable_tcp_reset": {
+        "computed": true,
+        "deprecated": true,
+        "description_kind": "plain",
+        "type": "bool"
+      },
+      "floating_ip_enabled": {
         "computed": true,
         "description_kind": "plain",
         "type": "bool"
@@ -79,6 +86,11 @@ const azurermLbRule = `{
         "computed": true,
         "description_kind": "plain",
         "type": "string"
+      },
+      "tcp_reset_enabled": {
+        "computed": true,
+        "description_kind": "plain",
+        "type": "bool"
       }
     },
     "block_types": {

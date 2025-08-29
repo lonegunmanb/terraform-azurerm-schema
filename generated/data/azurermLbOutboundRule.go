@@ -19,6 +19,11 @@ const azurermLbOutboundRule = `{
         "description_kind": "plain",
         "type": "string"
       },
+      "enable_tcp_reset": {
+        "computed": true,
+        "description_kind": "plain",
+        "type": "bool"
+      },
       "frontend_ip_configuration": {
         "computed": true,
         "description_kind": "plain",

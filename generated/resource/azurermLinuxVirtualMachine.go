@@ -17,10 +17,11 @@ const azurermLinuxVirtualMachine = `{
       },
       "admin_username": {
         "description_kind": "plain",
-        "required": true,
+        "optional": true,
         "type": "string"
       },
       "allow_extension_operations": {
+        "computed": true,
         "description_kind": "plain",
         "optional": true,
         "type": "bool"
@@ -63,6 +64,7 @@ const azurermLinuxVirtualMachine = `{
         "type": "string"
       },
       "disable_password_authentication": {
+        "computed": true,
         "description_kind": "plain",
         "optional": true,
         "type": "bool"
@@ -127,12 +129,20 @@ const azurermLinuxVirtualMachine = `{
           "string"
         ]
       },
+      "os_managed_disk_id": {
+        "computed": true,
+        "description_kind": "plain",
+        "optional": true,
+        "type": "string"
+      },
       "patch_assessment_mode": {
+        "computed": true,
         "description_kind": "plain",
         "optional": true,
         "type": "string"
       },
       "patch_mode": {
+        "computed": true,
         "description_kind": "plain",
         "optional": true,
         "type": "string"
@@ -161,6 +171,7 @@ const azurermLinuxVirtualMachine = `{
         ]
       },
       "provision_vm_agent": {
+        "computed": true,
         "description_kind": "plain",
         "optional": true,
         "type": "bool"
@@ -413,8 +424,9 @@ const azurermLinuxVirtualMachine = `{
               "type": "string"
             },
             "storage_account_type": {
+              "computed": true,
               "description_kind": "plain",
-              "required": true,
+              "optional": true,
               "type": "string"
             },
             "write_accelerator_enabled": {
