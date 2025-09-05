@@ -45,6 +45,11 @@ const azurermDevCenterProjectPool = `{
         "required": true,
         "type": "string"
       },
+      "single_sign_on_enabled": {
+        "computed": true,
+        "description_kind": "plain",
+        "type": "bool"
+      },
       "stop_on_disconnect_grace_period_minutes": {
         "computed": true,
         "description_kind": "plain",

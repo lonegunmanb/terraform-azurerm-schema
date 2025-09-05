@@ -108,6 +108,29 @@ const azurermSentinelAutomationRule = `{
         },
         "nesting_mode": "list"
       },
+      "action_incident_task": {
+        "block": {
+          "attributes": {
+            "description": {
+              "description_kind": "plain",
+              "optional": true,
+              "type": "string"
+            },
+            "order": {
+              "description_kind": "plain",
+              "required": true,
+              "type": "number"
+            },
+            "title": {
+              "description_kind": "plain",
+              "required": true,
+              "type": "string"
+            }
+          },
+          "description_kind": "plain"
+        },
+        "nesting_mode": "list"
+      },
       "action_playbook": {
         "block": {
           "attributes": {

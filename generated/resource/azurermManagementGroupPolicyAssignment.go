@@ -143,8 +143,8 @@ const azurermManagementGroupPolicyAssignment = `{
                     ]
                   },
                   "kind": {
-                    "computed": true,
                     "description_kind": "plain",
+                    "optional": true,
                     "type": "string"
                   },
                   "not_in": {
