@@ -9,6 +9,12 @@ import (
 const azurermNetappVolume = `{
   "block": {
     "attributes": {
+      "accept_grow_capacity_pool_for_short_term_clone_split": {
+        "description": "While auto splitting the short term clone volume, if the parent pool does not have enough space to accommodate the volume after split, it will be automatically resized, which will lead to increased billing. To accept capacity pool size auto grow and create a short term clone volume, set the property as accepted. Can only be used in conjunction with ` + "`" + `create_from_snapshot_resource_id` + "`" + `.",
+        "description_kind": "plain",
+        "optional": true,
+        "type": "string"
+      },
       "account_name": {
         "description_kind": "plain",
         "required": true,

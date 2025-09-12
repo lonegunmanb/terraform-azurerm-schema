@@ -449,6 +449,25 @@ const azurermKubernetesCluster = `{
         "max_items": 1,
         "nesting_mode": "list"
       },
+      "bootstrap_profile": {
+        "block": {
+          "attributes": {
+            "artifact_source": {
+              "description_kind": "plain",
+              "optional": true,
+              "type": "string"
+            },
+            "container_registry_id": {
+              "description_kind": "plain",
+              "optional": true,
+              "type": "string"
+            }
+          },
+          "description_kind": "plain"
+        },
+        "max_items": 1,
+        "nesting_mode": "list"
+      },
       "confidential_computing": {
         "block": {
           "attributes": {

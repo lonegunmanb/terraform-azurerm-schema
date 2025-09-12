@@ -9,6 +9,12 @@ import (
 const azurermNetappVolume = `{
   "block": {
     "attributes": {
+      "accept_grow_capacity_pool_for_short_term_clone_split": {
+        "computed": true,
+        "description": "The accept grow capacity pool for short term clone split property.",
+        "description_kind": "plain",
+        "type": "string"
+      },
       "account_name": {
         "description_kind": "plain",
         "required": true,
