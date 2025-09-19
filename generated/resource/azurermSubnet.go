@@ -64,6 +64,11 @@ const azurermSubnet = `{
           "string"
         ]
       },
+      "sharing_scope": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "string"
+      },
       "virtual_network_name": {
         "description_kind": "plain",
         "required": true,

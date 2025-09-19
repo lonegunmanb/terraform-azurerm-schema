@@ -1544,6 +1544,25 @@ const azurermKubernetesCluster = `{
             }
           },
           "block_types": {
+            "advanced_networking": {
+              "block": {
+                "attributes": {
+                  "observability_enabled": {
+                    "description_kind": "plain",
+                    "optional": true,
+                    "type": "bool"
+                  },
+                  "security_enabled": {
+                    "description_kind": "plain",
+                    "optional": true,
+                    "type": "bool"
+                  }
+                },
+                "description_kind": "plain"
+              },
+              "max_items": 1,
+              "nesting_mode": "list"
+            },
             "load_balancer_profile": {
               "block": {
                 "attributes": {
