@@ -295,6 +295,16 @@ const azurermKubernetesCluster = `{
                 "set",
                 "string"
               ]
+            },
+            "subnet_id": {
+              "description_kind": "plain",
+              "optional": true,
+              "type": "string"
+            },
+            "virtual_network_integration_enabled": {
+              "description_kind": "plain",
+              "optional": true,
+              "type": "bool"
             }
           },
           "description_kind": "plain"

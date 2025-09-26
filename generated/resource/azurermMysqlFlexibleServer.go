@@ -161,6 +161,11 @@ const azurermMysqlFlexibleServer = `{
               "optional": true,
               "type": "string"
             },
+            "managed_hsm_key_id": {
+              "description_kind": "plain",
+              "optional": true,
+              "type": "string"
+            },
             "primary_user_assigned_identity_id": {
               "description_kind": "plain",
               "optional": true,

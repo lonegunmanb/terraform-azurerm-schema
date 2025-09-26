@@ -9,6 +9,11 @@ import (
 const azurermCdnFrontdoorFirewallPolicy = `{
   "block": {
     "attributes": {
+      "captcha_cookie_expiration_in_minutes": {
+        "computed": true,
+        "description_kind": "plain",
+        "type": "number"
+      },
       "enabled": {
         "computed": true,
         "description_kind": "plain",

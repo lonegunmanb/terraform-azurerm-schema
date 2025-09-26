@@ -85,6 +85,11 @@ const azurermMachineLearningWorkspace = `{
         "required": true,
         "type": "string"
       },
+      "service_side_encryption_enabled": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "bool"
+      },
       "sku_name": {
         "description_kind": "plain",
         "optional": true,
