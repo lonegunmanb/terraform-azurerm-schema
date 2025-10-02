@@ -100,6 +100,11 @@ const azurermCognitiveAccount = `{
         "sensitive": true,
         "type": "string"
       },
+      "project_management_enabled": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "bool"
+      },
       "public_network_access_enabled": {
         "description_kind": "plain",
         "optional": true,
@@ -227,6 +232,25 @@ const azurermCognitiveAccount = `{
                 "description_kind": "plain"
               },
               "nesting_mode": "set"
+            }
+          },
+          "description_kind": "plain"
+        },
+        "max_items": 1,
+        "nesting_mode": "list"
+      },
+      "network_injection": {
+        "block": {
+          "attributes": {
+            "scenario": {
+              "description_kind": "plain",
+              "required": true,
+              "type": "string"
+            },
+            "subnet_id": {
+              "description_kind": "plain",
+              "required": true,
+              "type": "string"
             }
           },
           "description_kind": "plain"

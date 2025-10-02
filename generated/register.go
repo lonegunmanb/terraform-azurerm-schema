@@ -75,6 +75,7 @@ func init() {
 	resources["azurerm_api_management_tag"] = resource.AzurermApiManagementTagSchema()  
 	resources["azurerm_api_management_user"] = resource.AzurermApiManagementUserSchema()  
 	resources["azurerm_api_management_workspace"] = resource.AzurermApiManagementWorkspaceSchema()  
+	resources["azurerm_api_management_workspace_policy"] = resource.AzurermApiManagementWorkspacePolicySchema()  
 	resources["azurerm_app_configuration"] = resource.AzurermAppConfigurationSchema()  
 	resources["azurerm_app_configuration_feature"] = resource.AzurermAppConfigurationFeatureSchema()  
 	resources["azurerm_app_configuration_key"] = resource.AzurermAppConfigurationKeySchema()  

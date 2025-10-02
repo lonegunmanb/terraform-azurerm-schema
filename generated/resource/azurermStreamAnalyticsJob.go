@@ -143,7 +143,7 @@ const azurermStreamAnalyticsJob = `{
           "attributes": {
             "account_key": {
               "description_kind": "plain",
-              "required": true,
+              "optional": true,
               "sensitive": true,
               "type": "string"
             },
@@ -160,6 +160,7 @@ const azurermStreamAnalyticsJob = `{
           },
           "description_kind": "plain"
         },
+        "max_items": 1,
         "nesting_mode": "list"
       },
       "timeouts": {
