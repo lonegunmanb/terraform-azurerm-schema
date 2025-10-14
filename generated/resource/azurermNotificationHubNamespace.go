@@ -35,6 +35,11 @@ const azurermNotificationHubNamespace = `{
         "required": true,
         "type": "string"
       },
+      "replication_region": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "string"
+      },
       "resource_group_name": {
         "description_kind": "plain",
         "required": true,
@@ -57,6 +62,11 @@ const azurermNotificationHubNamespace = `{
           "map",
           "string"
         ]
+      },
+      "zone_redundancy_enabled": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "bool"
       }
     },
     "block_types": {

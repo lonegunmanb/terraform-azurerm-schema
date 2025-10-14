@@ -134,6 +134,16 @@ const azurermLinuxVirtualMachineScaleSet = `{
         "optional": true,
         "type": "string"
       },
+      "resilient_vm_creation_enabled": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "bool"
+      },
+      "resilient_vm_deletion_enabled": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "bool"
+      },
       "resource_group_name": {
         "description_kind": "plain",
         "required": true,

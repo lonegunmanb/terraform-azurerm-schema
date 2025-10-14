@@ -9,6 +9,11 @@ import (
 const azurermKubernetesCluster = `{
   "block": {
     "attributes": {
+      "ai_toolchain_operator_enabled": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "bool"
+      },
       "automatic_upgrade_channel": {
         "description_kind": "plain",
         "optional": true,
