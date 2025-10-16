@@ -6,10 +6,15 @@ import (
 	tfjson "github.com/hashicorp/terraform-json"
 )
 
-const azurermDataProtectionBackupVault = `{
+const azurermGraphServicesAccount = `{
   "block": {
     "attributes": {
-      "datastore_type": {
+      "application_id": {
+        "computed": true,
+        "description_kind": "plain",
+        "type": "string"
+      },
+      "billing_plan_id": {
         "computed": true,
         "description_kind": "plain",
         "type": "string"
@@ -20,38 +25,9 @@ const azurermDataProtectionBackupVault = `{
         "optional": true,
         "type": "string"
       },
-      "identity": {
-        "computed": true,
-        "description_kind": "plain",
-        "type": [
-          "list",
-          [
-            "object",
-            {
-              "identity_ids": [
-                "list",
-                "string"
-              ],
-              "principal_id": "string",
-              "tenant_id": "string",
-              "type": "string"
-            }
-          ]
-        ]
-      },
-      "location": {
-        "computed": true,
-        "description_kind": "plain",
-        "type": "string"
-      },
       "name": {
         "description_kind": "plain",
         "required": true,
-        "type": "string"
-      },
-      "redundancy": {
-        "computed": true,
-        "description_kind": "plain",
         "type": "string"
       },
       "resource_group_name": {
@@ -88,8 +64,8 @@ const azurermDataProtectionBackupVault = `{
   "version": 0
 }`
 
-func AzurermDataProtectionBackupVaultSchema() *tfjson.Schema {
+func AzurermGraphServicesAccountSchema() *tfjson.Schema {
 	var result tfjson.Schema
-	_ = json.Unmarshal([]byte(azurermDataProtectionBackupVault), &result)
+	_ = json.Unmarshal([]byte(azurermGraphServicesAccount), &result)
 	return &result
 }

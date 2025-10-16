@@ -6,21 +6,25 @@ import (
 	tfjson "github.com/hashicorp/terraform-json"
 )
 
-const azurermDataProtectionBackupVault = `{
+const azurermOracleExascaleDatabaseStorageVault = `{
   "block": {
     "attributes": {
-      "datastore_type": {
+      "additional_flash_cache_percentage": {
+        "computed": true,
+        "description_kind": "plain",
+        "type": "number"
+      },
+      "description": {
         "computed": true,
         "description_kind": "plain",
         "type": "string"
       },
-      "id": {
+      "display_name": {
         "computed": true,
         "description_kind": "plain",
-        "optional": true,
         "type": "string"
       },
-      "identity": {
+      "high_capacity_database_storage": {
         "computed": true,
         "description_kind": "plain",
         "type": [
@@ -28,16 +32,27 @@ const azurermDataProtectionBackupVault = `{
           [
             "object",
             {
-              "identity_ids": [
-                "list",
-                "string"
-              ],
-              "principal_id": "string",
-              "tenant_id": "string",
-              "type": "string"
+              "available_size_in_gb": "number",
+              "total_size_in_gb": "number"
             }
           ]
         ]
+      },
+      "id": {
+        "computed": true,
+        "description_kind": "plain",
+        "optional": true,
+        "type": "string"
+      },
+      "lifecycle_details": {
+        "computed": true,
+        "description_kind": "plain",
+        "type": "string"
+      },
+      "lifecycle_state": {
+        "computed": true,
+        "description_kind": "plain",
+        "type": "string"
       },
       "location": {
         "computed": true,
@@ -49,7 +64,12 @@ const azurermDataProtectionBackupVault = `{
         "required": true,
         "type": "string"
       },
-      "redundancy": {
+      "oci_url": {
+        "computed": true,
+        "description_kind": "plain",
+        "type": "string"
+      },
+      "ocid": {
         "computed": true,
         "description_kind": "plain",
         "type": "string"
@@ -59,11 +79,21 @@ const azurermDataProtectionBackupVault = `{
         "required": true,
         "type": "string"
       },
-      "tags": {
+      "time_zone": {
+        "computed": true,
+        "description_kind": "plain",
+        "type": "string"
+      },
+      "virtual_machine_cluster_count": {
+        "computed": true,
+        "description_kind": "plain",
+        "type": "number"
+      },
+      "zones": {
         "computed": true,
         "description_kind": "plain",
         "type": [
-          "map",
+          "list",
           "string"
         ]
       }
@@ -88,8 +118,8 @@ const azurermDataProtectionBackupVault = `{
   "version": 0
 }`
 
-func AzurermDataProtectionBackupVaultSchema() *tfjson.Schema {
+func AzurermOracleExascaleDatabaseStorageVaultSchema() *tfjson.Schema {
 	var result tfjson.Schema
-	_ = json.Unmarshal([]byte(azurermDataProtectionBackupVault), &result)
+	_ = json.Unmarshal([]byte(azurermOracleExascaleDatabaseStorageVault), &result)
 	return &result
 }

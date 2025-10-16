@@ -154,7 +154,6 @@ const azurermConsumptionBudgetSubscription = `{
           },
           "description_kind": "plain"
         },
-        "max_items": 5,
         "min_items": 1,
         "nesting_mode": "set"
       },
