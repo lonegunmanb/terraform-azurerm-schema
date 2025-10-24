@@ -99,6 +99,13 @@ const azurermContainerAppEnvironment = `{
         "description_kind": "plain",
         "type": "string"
       },
+      "public_network_access": {
+        "computed": true,
+        "description": "The public network access setting for the Container App Environment.",
+        "description_kind": "plain",
+        "optional": true,
+        "type": "string"
+      },
       "resource_group_name": {
         "description_kind": "plain",
         "required": true,

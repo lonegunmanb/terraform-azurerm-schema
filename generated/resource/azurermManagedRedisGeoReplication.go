@@ -1,4 +1,4 @@
-package data
+package resource
 
 import (
 	"encoding/json"
@@ -6,48 +6,26 @@ import (
 	tfjson "github.com/hashicorp/terraform-json"
 )
 
-const azurermRedisEnterpriseDatabase = `{
+const azurermManagedRedisGeoReplication = `{
   "block": {
     "attributes": {
-      "cluster_id": {
-        "description_kind": "plain",
-        "required": true,
-        "type": "string"
-      },
       "id": {
         "computed": true,
         "description_kind": "plain",
         "optional": true,
         "type": "string"
       },
-      "linked_database_group_nickname": {
-        "computed": true,
+      "linked_managed_redis_ids": {
         "description_kind": "plain",
-        "type": "string"
-      },
-      "linked_database_id": {
-        "computed": true,
-        "description_kind": "plain",
+        "required": true,
         "type": [
-          "list",
+          "set",
           "string"
         ]
       },
-      "name": {
+      "managed_redis_id": {
         "description_kind": "plain",
         "required": true,
-        "type": "string"
-      },
-      "primary_access_key": {
-        "computed": true,
-        "description_kind": "plain",
-        "sensitive": true,
-        "type": "string"
-      },
-      "secondary_access_key": {
-        "computed": true,
-        "description_kind": "plain",
-        "sensitive": true,
         "type": "string"
       }
     },
@@ -55,7 +33,22 @@ const azurermRedisEnterpriseDatabase = `{
       "timeouts": {
         "block": {
           "attributes": {
+            "create": {
+              "description_kind": "plain",
+              "optional": true,
+              "type": "string"
+            },
+            "delete": {
+              "description_kind": "plain",
+              "optional": true,
+              "type": "string"
+            },
             "read": {
+              "description_kind": "plain",
+              "optional": true,
+              "type": "string"
+            },
+            "update": {
               "description_kind": "plain",
               "optional": true,
               "type": "string"
@@ -66,14 +59,13 @@ const azurermRedisEnterpriseDatabase = `{
         "nesting_mode": "single"
       }
     },
-    "deprecated": true,
     "description_kind": "plain"
   },
   "version": 0
 }`
 
-func AzurermRedisEnterpriseDatabaseSchema() *tfjson.Schema {
+func AzurermManagedRedisGeoReplicationSchema() *tfjson.Schema {
 	var result tfjson.Schema
-	_ = json.Unmarshal([]byte(azurermRedisEnterpriseDatabase), &result)
+	_ = json.Unmarshal([]byte(azurermManagedRedisGeoReplication), &result)
 	return &result
 }
