@@ -6,45 +6,26 @@ import (
 	tfjson "github.com/hashicorp/terraform-json"
 )
 
-const azurermBotChannelMsTeams = `{
+const azurermOracleResourceAnchor = `{
   "block": {
     "attributes": {
-      "bot_name": {
-        "description_kind": "plain",
-        "required": true,
-        "type": "string"
-      },
-      "calling_enabled": {
-        "computed": true,
-        "description_kind": "plain",
-        "optional": true,
-        "type": "bool"
-      },
-      "calling_web_hook": {
-        "computed": true,
-        "description_kind": "plain",
-        "optional": true,
-        "type": "string"
-      },
-      "deployment_environment": {
-        "description_kind": "plain",
-        "optional": true,
-        "type": "string"
-      },
-      "enable_calling": {
-        "computed": true,
-        "deprecated": true,
-        "description_kind": "plain",
-        "optional": true,
-        "type": "bool"
-      },
       "id": {
         "computed": true,
         "description_kind": "plain",
         "optional": true,
         "type": "string"
       },
+      "linked_compartment_id": {
+        "computed": true,
+        "description_kind": "plain",
+        "type": "string"
+      },
       "location": {
+        "computed": true,
+        "description_kind": "plain",
+        "type": "string"
+      },
+      "name": {
         "description_kind": "plain",
         "required": true,
         "type": "string"
@@ -53,6 +34,14 @@ const azurermBotChannelMsTeams = `{
         "description_kind": "plain",
         "required": true,
         "type": "string"
+      },
+      "tags": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": [
+          "map",
+          "string"
+        ]
       }
     },
     "block_types": {
@@ -90,8 +79,8 @@ const azurermBotChannelMsTeams = `{
   "version": 0
 }`
 
-func AzurermBotChannelMsTeamsSchema() *tfjson.Schema {
+func AzurermOracleResourceAnchorSchema() *tfjson.Schema {
 	var result tfjson.Schema
-	_ = json.Unmarshal([]byte(azurermBotChannelMsTeams), &result)
+	_ = json.Unmarshal([]byte(azurermOracleResourceAnchor), &result)
 	return &result
 }

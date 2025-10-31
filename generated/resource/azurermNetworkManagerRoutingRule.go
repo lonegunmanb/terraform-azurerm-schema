@@ -6,37 +6,13 @@ import (
 	tfjson "github.com/hashicorp/terraform-json"
 )
 
-const azurermBotChannelMsTeams = `{
+const azurermNetworkManagerRoutingRule = `{
   "block": {
     "attributes": {
-      "bot_name": {
-        "description_kind": "plain",
-        "required": true,
-        "type": "string"
-      },
-      "calling_enabled": {
-        "computed": true,
-        "description_kind": "plain",
-        "optional": true,
-        "type": "bool"
-      },
-      "calling_web_hook": {
-        "computed": true,
+      "description": {
         "description_kind": "plain",
         "optional": true,
         "type": "string"
-      },
-      "deployment_environment": {
-        "description_kind": "plain",
-        "optional": true,
-        "type": "string"
-      },
-      "enable_calling": {
-        "computed": true,
-        "deprecated": true,
-        "description_kind": "plain",
-        "optional": true,
-        "type": "bool"
       },
       "id": {
         "computed": true,
@@ -44,18 +20,58 @@ const azurermBotChannelMsTeams = `{
         "optional": true,
         "type": "string"
       },
-      "location": {
+      "name": {
         "description_kind": "plain",
         "required": true,
         "type": "string"
       },
-      "resource_group_name": {
+      "rule_collection_id": {
         "description_kind": "plain",
         "required": true,
         "type": "string"
       }
     },
     "block_types": {
+      "destination": {
+        "block": {
+          "attributes": {
+            "address": {
+              "description_kind": "plain",
+              "required": true,
+              "type": "string"
+            },
+            "type": {
+              "description_kind": "plain",
+              "required": true,
+              "type": "string"
+            }
+          },
+          "description_kind": "plain"
+        },
+        "max_items": 1,
+        "min_items": 1,
+        "nesting_mode": "list"
+      },
+      "next_hop": {
+        "block": {
+          "attributes": {
+            "address": {
+              "description_kind": "plain",
+              "optional": true,
+              "type": "string"
+            },
+            "type": {
+              "description_kind": "plain",
+              "required": true,
+              "type": "string"
+            }
+          },
+          "description_kind": "plain"
+        },
+        "max_items": 1,
+        "min_items": 1,
+        "nesting_mode": "list"
+      },
       "timeouts": {
         "block": {
           "attributes": {
@@ -90,8 +106,8 @@ const azurermBotChannelMsTeams = `{
   "version": 0
 }`
 
-func AzurermBotChannelMsTeamsSchema() *tfjson.Schema {
+func AzurermNetworkManagerRoutingRuleSchema() *tfjson.Schema {
 	var result tfjson.Schema
-	_ = json.Unmarshal([]byte(azurermBotChannelMsTeams), &result)
+	_ = json.Unmarshal([]byte(azurermNetworkManagerRoutingRule), &result)
 	return &result
 }
