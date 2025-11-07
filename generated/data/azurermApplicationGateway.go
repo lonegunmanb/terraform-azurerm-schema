@@ -89,6 +89,7 @@ const azurermApplicationGateway = `{
                 ]
               ],
               "cookie_based_affinity": "string",
+              "dedicated_backend_connection_enabled": "bool",
               "host_name": "string",
               "id": "string",
               "name": "string",

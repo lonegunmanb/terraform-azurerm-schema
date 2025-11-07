@@ -165,6 +165,12 @@ const azurermWindowsWebApp = `{
         "optional": true,
         "type": "bool"
       },
+      "virtual_network_image_pull_enabled": {
+        "computed": true,
+        "description_kind": "plain",
+        "optional": true,
+        "type": "bool"
+      },
       "virtual_network_subnet_id": {
         "description_kind": "plain",
         "optional": true,

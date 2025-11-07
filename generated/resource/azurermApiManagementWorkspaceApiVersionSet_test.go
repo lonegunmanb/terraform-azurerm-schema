@@ -8,9 +8,9 @@ import (
 	"github.com/stretchr/testify/assert"
 )
 
-func TestAzurermSpatialAnchorsAccountSchema(t *testing.T) {
+func TestAzurermApiManagementWorkspaceApiVersionSetSchema(t *testing.T) {
 	defaultSchema := &tfjson.Schema{}
-	s := resource.AzurermSpatialAnchorsAccountSchema()
+	s := resource.AzurermApiManagementWorkspaceApiVersionSetSchema()
 	assert.NotNil(t, s)
 	assert.NotEqual(t, defaultSchema, s)
 }

@@ -173,6 +173,11 @@ const azurermApplicationGateway = `{
               "required": true,
               "type": "string"
             },
+            "dedicated_backend_connection_enabled": {
+              "description_kind": "plain",
+              "optional": true,
+              "type": "bool"
+            },
             "host_name": {
               "description_kind": "plain",
               "optional": true,
