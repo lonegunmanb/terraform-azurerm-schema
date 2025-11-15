@@ -565,13 +565,23 @@ const azurermKubernetesClusterNodePool = `{
             },
             "max_surge": {
               "description_kind": "plain",
-              "required": true,
+              "optional": true,
+              "type": "string"
+            },
+            "max_unavailable": {
+              "description_kind": "plain",
+              "optional": true,
               "type": "string"
             },
             "node_soak_duration_in_minutes": {
               "description_kind": "plain",
               "optional": true,
               "type": "number"
+            },
+            "undrainable_node_behavior": {
+              "description_kind": "plain",
+              "optional": true,
+              "type": "string"
             }
           },
           "description_kind": "plain"

@@ -160,7 +160,7 @@ const azurermDynatraceMonitor = `{
           "attributes": {
             "country": {
               "description_kind": "plain",
-              "required": true,
+              "optional": true,
               "type": "string"
             },
             "email": {
@@ -180,7 +180,7 @@ const azurermDynatraceMonitor = `{
             },
             "phone_number": {
               "description_kind": "plain",
-              "required": true,
+              "optional": true,
               "type": "string"
             }
           },

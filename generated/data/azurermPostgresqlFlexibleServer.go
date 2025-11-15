@@ -34,6 +34,20 @@ const azurermPostgresqlFlexibleServer = `{
         "description_kind": "plain",
         "type": "string"
       },
+      "high_availability": {
+        "computed": true,
+        "description_kind": "plain",
+        "type": [
+          "list",
+          [
+            "object",
+            {
+              "mode": "string",
+              "standby_availability_zone": "string"
+            }
+          ]
+        ]
+      },
       "id": {
         "computed": true,
         "description_kind": "plain",
@@ -79,6 +93,11 @@ const azurermPostgresqlFlexibleServer = `{
         ]
       },
       "version": {
+        "computed": true,
+        "description_kind": "plain",
+        "type": "string"
+      },
+      "zone": {
         "computed": true,
         "description_kind": "plain",
         "type": "string"

@@ -1002,6 +1002,11 @@ const azurermKubernetesCluster = `{
                     "description_kind": "plain",
                     "optional": true,
                     "type": "number"
+                  },
+                  "undrainable_node_behavior": {
+                    "description_kind": "plain",
+                    "optional": true,
+                    "type": "string"
                   }
                 },
                 "description_kind": "plain"

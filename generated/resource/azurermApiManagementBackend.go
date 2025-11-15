@@ -57,6 +57,86 @@ const azurermApiManagementBackend = `{
       }
     },
     "block_types": {
+      "circuit_breaker_rule": {
+        "block": {
+          "attributes": {
+            "accept_retry_after_enabled": {
+              "description_kind": "plain",
+              "optional": true,
+              "type": "bool"
+            },
+            "name": {
+              "description_kind": "plain",
+              "required": true,
+              "type": "string"
+            },
+            "trip_duration": {
+              "description_kind": "plain",
+              "required": true,
+              "type": "string"
+            }
+          },
+          "block_types": {
+            "failure_condition": {
+              "block": {
+                "attributes": {
+                  "count": {
+                    "description_kind": "plain",
+                    "optional": true,
+                    "type": "number"
+                  },
+                  "error_reasons": {
+                    "description_kind": "plain",
+                    "optional": true,
+                    "type": [
+                      "list",
+                      "string"
+                    ]
+                  },
+                  "interval_duration": {
+                    "description_kind": "plain",
+                    "required": true,
+                    "type": "string"
+                  },
+                  "percentage": {
+                    "description_kind": "plain",
+                    "optional": true,
+                    "type": "number"
+                  }
+                },
+                "block_types": {
+                  "status_code_range": {
+                    "block": {
+                      "attributes": {
+                        "max": {
+                          "description_kind": "plain",
+                          "required": true,
+                          "type": "number"
+                        },
+                        "min": {
+                          "description_kind": "plain",
+                          "required": true,
+                          "type": "number"
+                        }
+                      },
+                      "description_kind": "plain"
+                    },
+                    "max_items": 10,
+                    "nesting_mode": "list"
+                  }
+                },
+                "description_kind": "plain"
+              },
+              "max_items": 1,
+              "min_items": 1,
+              "nesting_mode": "list"
+            }
+          },
+          "description_kind": "plain"
+        },
+        "max_items": 1,
+        "nesting_mode": "list"
+      },
       "credentials": {
         "block": {
           "attributes": {

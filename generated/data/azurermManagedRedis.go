@@ -103,6 +103,11 @@ const azurermManagedRedis = `{
         "required": true,
         "type": "string"
       },
+      "public_network_access": {
+        "computed": true,
+        "description_kind": "plain",
+        "type": "string"
+      },
       "resource_group_name": {
         "description_kind": "plain",
         "required": true,
