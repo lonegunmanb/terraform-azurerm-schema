@@ -380,6 +380,7 @@ const azurermContainerApp = `{
                   }
                 ]
               ],
+              "cooldown_period_in_seconds": "number",
               "custom_scale_rule": [
                 "list",
                 [
@@ -469,6 +470,7 @@ const azurermContainerApp = `{
               ],
               "max_replicas": "number",
               "min_replicas": "number",
+              "polling_interval_in_seconds": "number",
               "revision_suffix": "string",
               "tcp_scale_rule": [
                 "list",

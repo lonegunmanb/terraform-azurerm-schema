@@ -30,6 +30,11 @@ const azurermDataProtectionBackupInstanceBlobStorage = `{
         "required": true,
         "type": "string"
       },
+      "protection_state": {
+        "computed": true,
+        "description_kind": "plain",
+        "type": "string"
+      },
       "storage_account_container_names": {
         "description_kind": "plain",
         "optional": true,

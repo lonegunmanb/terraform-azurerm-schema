@@ -107,6 +107,21 @@ const azurermManagedRedis = `{
               "optional": true,
               "type": "string"
             },
+            "id": {
+              "computed": true,
+              "description_kind": "plain",
+              "type": "string"
+            },
+            "persistence_append_only_file_backup_frequency": {
+              "description_kind": "plain",
+              "optional": true,
+              "type": "string"
+            },
+            "persistence_redis_database_backup_frequency": {
+              "description_kind": "plain",
+              "optional": true,
+              "type": "string"
+            },
             "port": {
               "computed": true,
               "description_kind": "plain",

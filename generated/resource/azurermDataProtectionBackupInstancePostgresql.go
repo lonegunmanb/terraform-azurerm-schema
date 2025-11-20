@@ -40,6 +40,11 @@ const azurermDataProtectionBackupInstancePostgresql = `{
         "required": true,
         "type": "string"
       },
+      "protection_state": {
+        "computed": true,
+        "description_kind": "plain",
+        "type": "string"
+      },
       "vault_id": {
         "description_kind": "plain",
         "required": true,

@@ -400,6 +400,12 @@ const azurermContainerApp = `{
       "template": {
         "block": {
           "attributes": {
+            "cooldown_period_in_seconds": {
+              "description": "The number of seconds to wait before scaling down the number of instances again.",
+              "description_kind": "plain",
+              "optional": true,
+              "type": "number"
+            },
             "max_replicas": {
               "description": "The maximum number of replicas for this container.",
               "description_kind": "plain",
@@ -408,6 +414,12 @@ const azurermContainerApp = `{
             },
             "min_replicas": {
               "description": "The minimum number of replicas for this container.",
+              "description_kind": "plain",
+              "optional": true,
+              "type": "number"
+            },
+            "polling_interval_in_seconds": {
+              "description": "The interval in seconds used for polling KEDA.",
               "description_kind": "plain",
               "optional": true,
               "type": "number"

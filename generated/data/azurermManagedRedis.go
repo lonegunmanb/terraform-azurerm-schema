@@ -40,6 +40,7 @@ const azurermManagedRedis = `{
                 "set",
                 "string"
               ],
+              "id": "string",
               "module": [
                 "list",
                 [
@@ -51,6 +52,8 @@ const azurermManagedRedis = `{
                   }
                 ]
               ],
+              "persistence_append_only_file_backup_frequency": "string",
+              "persistence_redis_database_backup_frequency": "string",
               "port": "number",
               "primary_access_key": "string",
               "secondary_access_key": "string"

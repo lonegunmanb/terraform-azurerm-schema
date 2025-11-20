@@ -35,6 +35,11 @@ const azurermDataProtectionBackupInstanceDisk = `{
         "required": true,
         "type": "string"
       },
+      "protection_state": {
+        "computed": true,
+        "description_kind": "plain",
+        "type": "string"
+      },
       "snapshot_resource_group_name": {
         "description_kind": "plain",
         "required": true,

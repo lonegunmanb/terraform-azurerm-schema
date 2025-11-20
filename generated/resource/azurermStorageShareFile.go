@@ -64,8 +64,16 @@ const azurermStorageShareFile = `{
         "type": "string"
       },
       "storage_share_id": {
+        "computed": true,
+        "deprecated": true,
         "description_kind": "plain",
-        "required": true,
+        "optional": true,
+        "type": "string"
+      },
+      "storage_share_url": {
+        "computed": true,
+        "description_kind": "plain",
+        "optional": true,
         "type": "string"
       }
     },

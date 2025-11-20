@@ -30,6 +30,11 @@ const azurermDataProtectionBackupInstanceMysqlFlexibleServer = `{
         "required": true,
         "type": "string"
       },
+      "protection_state": {
+        "computed": true,
+        "description_kind": "plain",
+        "type": "string"
+      },
       "server_id": {
         "description_kind": "plain",
         "required": true,
