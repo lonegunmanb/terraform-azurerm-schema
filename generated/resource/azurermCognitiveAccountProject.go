@@ -6,30 +6,36 @@ import (
 	tfjson "github.com/hashicorp/terraform-json"
 )
 
-const azurermContainerAppEnvironmentCertificate = `{
+const azurermCognitiveAccountProject = `{
   "block": {
     "attributes": {
-      "certificate_blob_base64": {
-        "description_kind": "plain",
-        "optional": true,
-        "type": "string"
-      },
-      "certificate_password": {
-        "description_kind": "plain",
-        "optional": true,
-        "sensitive": true,
-        "type": "string"
-      },
-      "container_app_environment_id": {
+      "cognitive_account_id": {
         "description_kind": "plain",
         "required": true,
         "type": "string"
       },
-      "expiration_date": {
+      "default": {
         "computed": true,
-        "description": "The expiration date for the Certificate.",
         "description_kind": "plain",
+        "type": "bool"
+      },
+      "description": {
+        "description_kind": "plain",
+        "optional": true,
         "type": "string"
+      },
+      "display_name": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "string"
+      },
+      "endpoints": {
+        "computed": true,
+        "description_kind": "plain",
+        "type": [
+          "map",
+          "string"
+        ]
       },
       "id": {
         "computed": true,
@@ -37,27 +43,14 @@ const azurermContainerAppEnvironmentCertificate = `{
         "optional": true,
         "type": "string"
       },
-      "issue_date": {
-        "computed": true,
-        "description": "The date of issue for the Certificate.",
+      "location": {
         "description_kind": "plain",
-        "type": "string"
-      },
-      "issuer": {
-        "computed": true,
-        "description": "The Certificate Issuer.",
-        "description_kind": "plain",
+        "required": true,
         "type": "string"
       },
       "name": {
         "description_kind": "plain",
         "required": true,
-        "type": "string"
-      },
-      "subject_name": {
-        "computed": true,
-        "description": "The Subject Name for the Certificate.",
-        "description_kind": "plain",
         "type": "string"
       },
       "tags": {
@@ -67,24 +60,31 @@ const azurermContainerAppEnvironmentCertificate = `{
           "map",
           "string"
         ]
-      },
-      "thumbprint": {
-        "computed": true,
-        "description": "The Thumbprint of the Certificate.",
-        "description_kind": "plain",
-        "type": "string"
       }
     },
     "block_types": {
-      "certificate_key_vault": {
+      "identity": {
         "block": {
           "attributes": {
-            "identity": {
+            "identity_ids": {
               "description_kind": "plain",
               "optional": true,
+              "type": [
+                "set",
+                "string"
+              ]
+            },
+            "principal_id": {
+              "computed": true,
+              "description_kind": "plain",
               "type": "string"
             },
-            "key_vault_secret_id": {
+            "tenant_id": {
+              "computed": true,
+              "description_kind": "plain",
+              "type": "string"
+            },
+            "type": {
               "description_kind": "plain",
               "required": true,
               "type": "string"
@@ -93,6 +93,7 @@ const azurermContainerAppEnvironmentCertificate = `{
           "description_kind": "plain"
         },
         "max_items": 1,
+        "min_items": 1,
         "nesting_mode": "list"
       },
       "timeouts": {
@@ -129,8 +130,8 @@ const azurermContainerAppEnvironmentCertificate = `{
   "version": 0
 }`
 
-func AzurermContainerAppEnvironmentCertificateSchema() *tfjson.Schema {
+func AzurermCognitiveAccountProjectSchema() *tfjson.Schema {
 	var result tfjson.Schema
-	_ = json.Unmarshal([]byte(azurermContainerAppEnvironmentCertificate), &result)
+	_ = json.Unmarshal([]byte(azurermCognitiveAccountProject), &result)
 	return &result
 }

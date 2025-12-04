@@ -20,6 +20,15 @@ const azurermMongoCluster = `{
         "optional": true,
         "type": "string"
       },
+      "authentication_methods": {
+        "computed": true,
+        "description_kind": "plain",
+        "optional": true,
+        "type": [
+          "set",
+          "string"
+        ]
+      },
       "compute_tier": {
         "description_kind": "plain",
         "optional": true,
@@ -45,6 +54,11 @@ const azurermMongoCluster = `{
         "description_kind": "plain",
         "optional": true,
         "type": "string"
+      },
+      "data_api_mode_enabled": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "bool"
       },
       "high_availability_mode": {
         "description_kind": "plain",
@@ -105,6 +119,11 @@ const azurermMongoCluster = `{
         "optional": true,
         "type": "number"
       },
+      "storage_type": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "string"
+      },
       "tags": {
         "description_kind": "plain",
         "optional": true,
@@ -120,6 +139,66 @@ const azurermMongoCluster = `{
       }
     },
     "block_types": {
+      "customer_managed_key": {
+        "block": {
+          "attributes": {
+            "key_vault_key_id": {
+              "description_kind": "plain",
+              "required": true,
+              "type": "string"
+            },
+            "user_assigned_identity_id": {
+              "description_kind": "plain",
+              "required": true,
+              "type": "string"
+            }
+          },
+          "description_kind": "plain"
+        },
+        "max_items": 1,
+        "nesting_mode": "list"
+      },
+      "identity": {
+        "block": {
+          "attributes": {
+            "identity_ids": {
+              "description_kind": "plain",
+              "required": true,
+              "type": [
+                "set",
+                "string"
+              ]
+            },
+            "type": {
+              "description_kind": "plain",
+              "required": true,
+              "type": "string"
+            }
+          },
+          "description_kind": "plain"
+        },
+        "max_items": 1,
+        "nesting_mode": "list"
+      },
+      "restore": {
+        "block": {
+          "attributes": {
+            "point_in_time_utc": {
+              "description_kind": "plain",
+              "required": true,
+              "type": "string"
+            },
+            "source_id": {
+              "description_kind": "plain",
+              "required": true,
+              "type": "string"
+            }
+          },
+          "description_kind": "plain"
+        },
+        "max_items": 1,
+        "nesting_mode": "list"
+      },
       "timeouts": {
         "block": {
           "attributes": {
