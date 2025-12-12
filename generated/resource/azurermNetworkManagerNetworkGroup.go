@@ -20,6 +20,11 @@ const azurermNetworkManagerNetworkGroup = `{
         "optional": true,
         "type": "string"
       },
+      "member_type": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "string"
+      },
       "name": {
         "description_kind": "plain",
         "required": true,
