@@ -1,4 +1,4 @@
-package data
+package resource
 
 import (
 	"encoding/json"
@@ -6,12 +6,17 @@ import (
 	tfjson "github.com/hashicorp/terraform-json"
 )
 
-const azurermMobileNetworkSim = `{
+const azurermAutomationRuntimeEnvironment = `{
   "block": {
     "attributes": {
-      "device_type": {
-        "computed": true,
+      "automation_account_id": {
         "description_kind": "plain",
+        "required": true,
+        "type": "string"
+      },
+      "description": {
+        "description_kind": "plain",
+        "optional": true,
         "type": "string"
       },
       "id": {
@@ -20,17 +25,7 @@ const azurermMobileNetworkSim = `{
         "optional": true,
         "type": "string"
       },
-      "integrated_circuit_card_identifier": {
-        "computed": true,
-        "description_kind": "plain",
-        "type": "string"
-      },
-      "international_mobile_subscriber_identity": {
-        "computed": true,
-        "description_kind": "plain",
-        "type": "string"
-      },
-      "mobile_network_sim_group_id": {
+      "location": {
         "description_kind": "plain",
         "required": true,
         "type": "string"
@@ -40,47 +35,53 @@ const azurermMobileNetworkSim = `{
         "required": true,
         "type": "string"
       },
-      "sim_policy_id": {
-        "computed": true,
+      "runtime_default_packages": {
         "description_kind": "plain",
-        "type": "string"
-      },
-      "sim_state": {
-        "computed": true,
-        "description_kind": "plain",
-        "type": "string"
-      },
-      "static_ip_configuration": {
-        "computed": true,
-        "description_kind": "plain",
+        "optional": true,
         "type": [
-          "list",
-          [
-            "object",
-            {
-              "attached_data_network_id": "string",
-              "slice_id": "string",
-              "static_ipv4_address": "string"
-            }
-          ]
+          "map",
+          "string"
         ]
       },
-      "vendor_key_fingerprint": {
-        "computed": true,
+      "runtime_language": {
         "description_kind": "plain",
+        "required": true,
         "type": "string"
       },
-      "vendor_name": {
-        "computed": true,
+      "runtime_version": {
         "description_kind": "plain",
+        "required": true,
         "type": "string"
+      },
+      "tags": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": [
+          "map",
+          "string"
+        ]
       }
     },
     "block_types": {
       "timeouts": {
         "block": {
           "attributes": {
+            "create": {
+              "description_kind": "plain",
+              "optional": true,
+              "type": "string"
+            },
+            "delete": {
+              "description_kind": "plain",
+              "optional": true,
+              "type": "string"
+            },
             "read": {
+              "description_kind": "plain",
+              "optional": true,
+              "type": "string"
+            },
+            "update": {
               "description_kind": "plain",
               "optional": true,
               "type": "string"
@@ -96,8 +97,8 @@ const azurermMobileNetworkSim = `{
   "version": 0
 }`
 
-func AzurermMobileNetworkSimSchema() *tfjson.Schema {
+func AzurermAutomationRuntimeEnvironmentSchema() *tfjson.Schema {
 	var result tfjson.Schema
-	_ = json.Unmarshal([]byte(azurermMobileNetworkSim), &result)
+	_ = json.Unmarshal([]byte(azurermAutomationRuntimeEnvironment), &result)
 	return &result
 }

@@ -1677,6 +1677,25 @@ const azurermKubernetesCluster = `{
         "max_items": 1,
         "nesting_mode": "list"
       },
+      "node_provisioning_profile": {
+        "block": {
+          "attributes": {
+            "default_node_pools": {
+              "description_kind": "plain",
+              "optional": true,
+              "type": "string"
+            },
+            "mode": {
+              "description_kind": "plain",
+              "optional": true,
+              "type": "string"
+            }
+          },
+          "description_kind": "plain"
+        },
+        "max_items": 1,
+        "nesting_mode": "list"
+      },
       "oms_agent": {
         "block": {
           "attributes": {
