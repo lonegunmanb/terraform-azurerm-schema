@@ -1,8 +1,6 @@
 module github.com/lonegunmanb/terraform-azurerm-schema/v4
 
-go 1.23.0
-
-toolchain go1.23.3
+go 1.24.0
 
 require (
 	github.com/ahmetb/go-linq/v3 v3.2.0
@@ -15,7 +13,7 @@ require (
 	github.com/iancoleman/strcase v0.3.0
 	github.com/stretchr/testify v1.10.0
 	golang.org/x/mod v0.26.0
-	golang.org/x/oauth2 v0.30.0
+	golang.org/x/oauth2 v0.32.0
 )
 
 require (
