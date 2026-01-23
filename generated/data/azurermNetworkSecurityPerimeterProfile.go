@@ -6,19 +6,9 @@ import (
 	tfjson "github.com/hashicorp/terraform-json"
 )
 
-const azurermBatchCertificate = `{
+const azurermNetworkSecurityPerimeterProfile = `{
   "block": {
     "attributes": {
-      "account_name": {
-        "description_kind": "plain",
-        "required": true,
-        "type": "string"
-      },
-      "format": {
-        "computed": true,
-        "description_kind": "plain",
-        "type": "string"
-      },
       "id": {
         "computed": true,
         "description_kind": "plain",
@@ -30,24 +20,9 @@ const azurermBatchCertificate = `{
         "required": true,
         "type": "string"
       },
-      "public_data": {
-        "computed": true,
-        "description_kind": "plain",
-        "type": "string"
-      },
-      "resource_group_name": {
+      "network_security_perimeter_id": {
         "description_kind": "plain",
         "required": true,
-        "type": "string"
-      },
-      "thumbprint": {
-        "computed": true,
-        "description_kind": "plain",
-        "type": "string"
-      },
-      "thumbprint_algorithm": {
-        "computed": true,
-        "description_kind": "plain",
         "type": "string"
       }
     },
@@ -66,14 +41,13 @@ const azurermBatchCertificate = `{
         "nesting_mode": "single"
       }
     },
-    "deprecated": true,
     "description_kind": "plain"
   },
   "version": 0
 }`
 
-func AzurermBatchCertificateSchema() *tfjson.Schema {
+func AzurermNetworkSecurityPerimeterProfileSchema() *tfjson.Schema {
 	var result tfjson.Schema
-	_ = json.Unmarshal([]byte(azurermBatchCertificate), &result)
+	_ = json.Unmarshal([]byte(azurermNetworkSecurityPerimeterProfile), &result)
 	return &result
 }

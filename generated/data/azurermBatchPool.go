@@ -30,6 +30,7 @@ const azurermBatchPool = `{
       },
       "certificate": {
         "computed": true,
+        "deprecated": true,
         "description_kind": "plain",
         "type": [
           "list",

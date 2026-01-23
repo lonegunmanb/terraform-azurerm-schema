@@ -1463,7 +1463,7 @@ const azurermLinuxFunctionAppSlot = `{
                     "type": "string"
                   },
                   "node_version": {
-                    "description": "The version of Node to use. Possible values include ` + "`" + `12` + "`" + `, ` + "`" + `14` + "`" + `, ` + "`" + `16` + "`" + `, ` + "`" + `18` + "`" + `, ` + "`" + `20` + "`" + ` and ` + "`" + `22` + "`" + `",
+                    "description": "The version of Node to use. Possible values include ` + "`" + `12` + "`" + `, ` + "`" + `14` + "`" + `, ` + "`" + `16` + "`" + `, ` + "`" + `18` + "`" + `, ` + "`" + `20` + "`" + `, ` + "`" + `22` + "`" + ` and ` + "`" + `24` + "`" + `",
                     "description_kind": "plain",
                     "optional": true,
                     "type": "string"

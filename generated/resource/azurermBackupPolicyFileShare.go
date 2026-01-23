@@ -9,6 +9,11 @@ import (
 const azurermBackupPolicyFileShare = `{
   "block": {
     "attributes": {
+      "backup_tier": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "string"
+      },
       "id": {
         "computed": true,
         "description_kind": "plain",
@@ -29,6 +34,11 @@ const azurermBackupPolicyFileShare = `{
         "description_kind": "plain",
         "required": true,
         "type": "string"
+      },
+      "snapshot_retention_in_days": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "number"
       },
       "timezone": {
         "description_kind": "plain",

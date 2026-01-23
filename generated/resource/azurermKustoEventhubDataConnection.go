@@ -84,6 +84,12 @@ const azurermKustoEventhubDataConnection = `{
         "required": true,
         "type": "string"
       },
+      "retrieval_start_date": {
+        "computed": true,
+        "description_kind": "plain",
+        "optional": true,
+        "type": "string"
+      },
       "table_name": {
         "description_kind": "plain",
         "optional": true,

@@ -73,6 +73,12 @@ const azurermKustoIothubDataConnection = `{
         "required": true,
         "type": "string"
       },
+      "retrieval_start_date": {
+        "computed": true,
+        "description_kind": "plain",
+        "optional": true,
+        "type": "string"
+      },
       "shared_access_policy_name": {
         "description_kind": "plain",
         "required": true,
@@ -99,6 +105,11 @@ const azurermKustoIothubDataConnection = `{
               "type": "string"
             },
             "read": {
+              "description_kind": "plain",
+              "optional": true,
+              "type": "string"
+            },
+            "update": {
               "description_kind": "plain",
               "optional": true,
               "type": "string"

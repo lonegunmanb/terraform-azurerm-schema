@@ -36,6 +36,11 @@ const azurermKustoScript = `{
         "required": true,
         "type": "string"
       },
+      "principal_permissions_action": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "string"
+      },
       "sas_token": {
         "description_kind": "plain",
         "optional": true,
@@ -46,6 +51,11 @@ const azurermKustoScript = `{
         "description_kind": "plain",
         "optional": true,
         "sensitive": true,
+        "type": "string"
+      },
+      "script_level": {
+        "description_kind": "plain",
+        "optional": true,
         "type": "string"
       },
       "url": {

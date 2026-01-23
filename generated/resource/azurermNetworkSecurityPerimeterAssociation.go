@@ -6,21 +6,10 @@ import (
 	tfjson "github.com/hashicorp/terraform-json"
 )
 
-const azurermBatchCertificate = `{
+const azurermNetworkSecurityPerimeterAssociation = `{
   "block": {
     "attributes": {
-      "account_name": {
-        "description_kind": "plain",
-        "required": true,
-        "type": "string"
-      },
-      "certificate": {
-        "description_kind": "plain",
-        "required": true,
-        "sensitive": true,
-        "type": "string"
-      },
-      "format": {
+      "access_mode": {
         "description_kind": "plain",
         "required": true,
         "type": "string"
@@ -32,32 +21,16 @@ const azurermBatchCertificate = `{
         "type": "string"
       },
       "name": {
-        "computed": true,
-        "description_kind": "plain",
-        "type": "string"
-      },
-      "password": {
-        "description_kind": "plain",
-        "optional": true,
-        "sensitive": true,
-        "type": "string"
-      },
-      "public_data": {
-        "computed": true,
-        "description_kind": "plain",
-        "type": "string"
-      },
-      "resource_group_name": {
         "description_kind": "plain",
         "required": true,
         "type": "string"
       },
-      "thumbprint": {
+      "network_security_perimeter_profile_id": {
         "description_kind": "plain",
         "required": true,
         "type": "string"
       },
-      "thumbprint_algorithm": {
+      "resource_id": {
         "description_kind": "plain",
         "required": true,
         "type": "string"
@@ -93,14 +66,13 @@ const azurermBatchCertificate = `{
         "nesting_mode": "single"
       }
     },
-    "deprecated": true,
     "description_kind": "plain"
   },
   "version": 0
 }`
 
-func AzurermBatchCertificateSchema() *tfjson.Schema {
+func AzurermNetworkSecurityPerimeterAssociationSchema() *tfjson.Schema {
 	var result tfjson.Schema
-	_ = json.Unmarshal([]byte(azurermBatchCertificate), &result)
+	_ = json.Unmarshal([]byte(azurermNetworkSecurityPerimeterAssociation), &result)
 	return &result
 }

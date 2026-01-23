@@ -1,4 +1,4 @@
-package data
+package resource
 
 import (
 	"encoding/json"
@@ -6,38 +6,9 @@ import (
 	tfjson "github.com/hashicorp/terraform-json"
 )
 
-const azurermContainerRegistry = `{
+const azurermNetworkSecurityPerimeter = `{
   "block": {
     "attributes": {
-      "admin_enabled": {
-        "computed": true,
-        "description_kind": "plain",
-        "type": "bool"
-      },
-      "admin_password": {
-        "computed": true,
-        "description_kind": "plain",
-        "sensitive": true,
-        "type": "string"
-      },
-      "admin_username": {
-        "computed": true,
-        "description_kind": "plain",
-        "type": "string"
-      },
-      "data_endpoint_enabled": {
-        "computed": true,
-        "description_kind": "plain",
-        "type": "bool"
-      },
-      "data_endpoint_host_names": {
-        "computed": true,
-        "description_kind": "plain",
-        "type": [
-          "set",
-          "string"
-        ]
-      },
       "id": {
         "computed": true,
         "description_kind": "plain",
@@ -45,13 +16,8 @@ const azurermContainerRegistry = `{
         "type": "string"
       },
       "location": {
-        "computed": true,
         "description_kind": "plain",
-        "type": "string"
-      },
-      "login_server": {
-        "computed": true,
-        "description_kind": "plain",
+        "required": true,
         "type": "string"
       },
       "name": {
@@ -64,14 +30,9 @@ const azurermContainerRegistry = `{
         "required": true,
         "type": "string"
       },
-      "sku": {
-        "computed": true,
-        "description_kind": "plain",
-        "type": "string"
-      },
       "tags": {
-        "computed": true,
         "description_kind": "plain",
+        "optional": true,
         "type": [
           "map",
           "string"
@@ -82,7 +43,22 @@ const azurermContainerRegistry = `{
       "timeouts": {
         "block": {
           "attributes": {
+            "create": {
+              "description_kind": "plain",
+              "optional": true,
+              "type": "string"
+            },
+            "delete": {
+              "description_kind": "plain",
+              "optional": true,
+              "type": "string"
+            },
             "read": {
+              "description_kind": "plain",
+              "optional": true,
+              "type": "string"
+            },
+            "update": {
               "description_kind": "plain",
               "optional": true,
               "type": "string"
@@ -98,8 +74,8 @@ const azurermContainerRegistry = `{
   "version": 0
 }`
 
-func AzurermContainerRegistrySchema() *tfjson.Schema {
+func AzurermNetworkSecurityPerimeterSchema() *tfjson.Schema {
 	var result tfjson.Schema
-	_ = json.Unmarshal([]byte(azurermContainerRegistry), &result)
+	_ = json.Unmarshal([]byte(azurermNetworkSecurityPerimeter), &result)
 	return &result
 }

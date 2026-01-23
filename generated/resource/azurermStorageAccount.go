@@ -736,11 +736,14 @@ const azurermStorageAccount = `{
         "block": {
           "attributes": {
             "key_vault_key_id": {
+              "computed": true,
               "description_kind": "plain",
               "optional": true,
               "type": "string"
             },
             "managed_hsm_key_id": {
+              "computed": true,
+              "deprecated": true,
               "description_kind": "plain",
               "optional": true,
               "type": "string"

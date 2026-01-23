@@ -131,6 +131,7 @@ const azurermBatchPool = `{
               ]
             }
           },
+          "deprecated": true,
           "description_kind": "plain"
         },
         "nesting_mode": "list"

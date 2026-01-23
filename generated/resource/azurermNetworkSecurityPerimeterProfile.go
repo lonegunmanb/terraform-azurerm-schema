@@ -6,14 +6,9 @@ import (
 	tfjson "github.com/hashicorp/terraform-json"
 )
 
-const azurermNetworkManagerRoutingConfiguration = `{
+const azurermNetworkSecurityPerimeterProfile = `{
   "block": {
     "attributes": {
-      "description": {
-        "description_kind": "plain",
-        "optional": true,
-        "type": "string"
-      },
       "id": {
         "computed": true,
         "description_kind": "plain",
@@ -25,14 +20,9 @@ const azurermNetworkManagerRoutingConfiguration = `{
         "required": true,
         "type": "string"
       },
-      "network_manager_id": {
+      "network_security_perimeter_id": {
         "description_kind": "plain",
         "required": true,
-        "type": "string"
-      },
-      "route_table_usage_mode": {
-        "description_kind": "plain",
-        "optional": true,
         "type": "string"
       }
     },
@@ -54,11 +44,6 @@ const azurermNetworkManagerRoutingConfiguration = `{
               "description_kind": "plain",
               "optional": true,
               "type": "string"
-            },
-            "update": {
-              "description_kind": "plain",
-              "optional": true,
-              "type": "string"
             }
           },
           "description_kind": "plain"
@@ -71,8 +56,8 @@ const azurermNetworkManagerRoutingConfiguration = `{
   "version": 0
 }`
 
-func AzurermNetworkManagerRoutingConfigurationSchema() *tfjson.Schema {
+func AzurermNetworkSecurityPerimeterProfileSchema() *tfjson.Schema {
 	var result tfjson.Schema
-	_ = json.Unmarshal([]byte(azurermNetworkManagerRoutingConfiguration), &result)
+	_ = json.Unmarshal([]byte(azurermNetworkSecurityPerimeterProfile), &result)
 	return &result
 }

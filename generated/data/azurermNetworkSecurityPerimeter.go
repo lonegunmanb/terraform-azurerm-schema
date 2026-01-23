@@ -6,38 +6,9 @@ import (
 	tfjson "github.com/hashicorp/terraform-json"
 )
 
-const azurermContainerRegistry = `{
+const azurermNetworkSecurityPerimeter = `{
   "block": {
     "attributes": {
-      "admin_enabled": {
-        "computed": true,
-        "description_kind": "plain",
-        "type": "bool"
-      },
-      "admin_password": {
-        "computed": true,
-        "description_kind": "plain",
-        "sensitive": true,
-        "type": "string"
-      },
-      "admin_username": {
-        "computed": true,
-        "description_kind": "plain",
-        "type": "string"
-      },
-      "data_endpoint_enabled": {
-        "computed": true,
-        "description_kind": "plain",
-        "type": "bool"
-      },
-      "data_endpoint_host_names": {
-        "computed": true,
-        "description_kind": "plain",
-        "type": [
-          "set",
-          "string"
-        ]
-      },
       "id": {
         "computed": true,
         "description_kind": "plain",
@@ -45,11 +16,6 @@ const azurermContainerRegistry = `{
         "type": "string"
       },
       "location": {
-        "computed": true,
-        "description_kind": "plain",
-        "type": "string"
-      },
-      "login_server": {
         "computed": true,
         "description_kind": "plain",
         "type": "string"
@@ -62,11 +28,6 @@ const azurermContainerRegistry = `{
       "resource_group_name": {
         "description_kind": "plain",
         "required": true,
-        "type": "string"
-      },
-      "sku": {
-        "computed": true,
-        "description_kind": "plain",
         "type": "string"
       },
       "tags": {
@@ -98,8 +59,8 @@ const azurermContainerRegistry = `{
   "version": 0
 }`
 
-func AzurermContainerRegistrySchema() *tfjson.Schema {
+func AzurermNetworkSecurityPerimeterSchema() *tfjson.Schema {
 	var result tfjson.Schema
-	_ = json.Unmarshal([]byte(azurermContainerRegistry), &result)
+	_ = json.Unmarshal([]byte(azurermNetworkSecurityPerimeter), &result)
 	return &result
 }
