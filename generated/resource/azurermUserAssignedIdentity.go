@@ -20,6 +20,11 @@ const azurermUserAssignedIdentity = `{
         "optional": true,
         "type": "string"
       },
+      "isolation_scope": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "string"
+      },
       "location": {
         "description_kind": "plain",
         "required": true,

@@ -83,6 +83,7 @@ const azurermMssqlManagedInstance = `{
         "type": "string"
       },
       "proxy_override": {
+        "computed": true,
         "description_kind": "plain",
         "optional": true,
         "type": "string"

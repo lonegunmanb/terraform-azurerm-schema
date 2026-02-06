@@ -75,6 +75,7 @@ const azurermNetappVolumeGroupSapHana = `{
                   }
                 ]
               ],
+              "encryption_key_source": "string",
               "export_policy_rule": [
                 "list",
                 [
@@ -91,11 +92,13 @@ const azurermNetappVolumeGroupSapHana = `{
                 ]
               ],
               "id": "string",
+              "key_vault_private_endpoint_id": "string",
               "mount_ip_addresses": [
                 "list",
                 "string"
               ],
               "name": "string",
+              "network_features": "string",
               "protocols": [
                 "list",
                 "string"
@@ -112,7 +115,8 @@ const azurermNetappVolumeGroupSapHana = `{
               ],
               "throughput_in_mibps": "number",
               "volume_path": "string",
-              "volume_spec_name": "string"
+              "volume_spec_name": "string",
+              "zone": "string"
             }
           ]
         ]

@@ -83,9 +83,21 @@ const azurermNetappVolumeGroupSapHana = `{
               "required": true,
               "type": "string"
             },
+            "encryption_key_source": {
+              "computed": true,
+              "description_kind": "plain",
+              "optional": true,
+              "type": "string"
+            },
             "id": {
               "computed": true,
               "description_kind": "plain",
+              "type": "string"
+            },
+            "key_vault_private_endpoint_id": {
+              "computed": true,
+              "description_kind": "plain",
+              "optional": true,
               "type": "string"
             },
             "mount_ip_addresses": {
@@ -99,6 +111,12 @@ const azurermNetappVolumeGroupSapHana = `{
             "name": {
               "description_kind": "plain",
               "required": true,
+              "type": "string"
+            },
+            "network_features": {
+              "computed": true,
+              "description_kind": "plain",
+              "optional": true,
               "type": "string"
             },
             "protocols": {
@@ -160,6 +178,11 @@ const azurermNetappVolumeGroupSapHana = `{
             "volume_spec_name": {
               "description_kind": "plain",
               "required": true,
+              "type": "string"
+            },
+            "zone": {
+              "description_kind": "plain",
+              "optional": true,
               "type": "string"
             }
           },

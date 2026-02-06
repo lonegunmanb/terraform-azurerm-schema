@@ -86,6 +86,11 @@ const azurermAutomationRunbook = `{
         "required": true,
         "type": "string"
       },
+      "runtime_environment_name": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "string"
+      },
       "tags": {
         "description_kind": "plain",
         "optional": true,
