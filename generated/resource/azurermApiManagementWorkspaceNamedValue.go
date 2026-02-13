@@ -6,16 +6,18 @@ import (
 	tfjson "github.com/hashicorp/terraform-json"
 )
 
-const azurermFederatedIdentityCredential = `{
+const azurermApiManagementWorkspaceNamedValue = `{
   "block": {
     "attributes": {
-      "audience": {
+      "api_management_workspace_id": {
         "description_kind": "plain",
         "required": true,
-        "type": [
-          "list",
-          "string"
-        ]
+        "type": "string"
+      },
+      "display_name": {
+        "description_kind": "plain",
+        "required": true,
+        "type": "string"
       },
       "id": {
         "computed": true,
@@ -23,31 +25,28 @@ const azurermFederatedIdentityCredential = `{
         "optional": true,
         "type": "string"
       },
-      "issuer": {
-        "description_kind": "plain",
-        "required": true,
-        "type": "string"
-      },
       "name": {
         "description_kind": "plain",
         "required": true,
         "type": "string"
       },
-      "parent_id": {
-        "description_kind": "plain",
-        "required": true,
-        "type": "string"
-      },
-      "resource_group_name": {
-        "computed": true,
-        "deprecated": true,
+      "secret": {
         "description_kind": "plain",
         "optional": true,
-        "type": "string"
+        "type": "bool"
       },
-      "subject": {
+      "tags": {
         "description_kind": "plain",
-        "required": true,
+        "optional": true,
+        "type": [
+          "list",
+          "string"
+        ]
+      },
+      "value": {
+        "description_kind": "plain",
+        "optional": true,
+        "sensitive": true,
         "type": "string"
       }
     },
@@ -79,6 +78,25 @@ const azurermFederatedIdentityCredential = `{
           "description_kind": "plain"
         },
         "nesting_mode": "single"
+      },
+      "value_from_key_vault": {
+        "block": {
+          "attributes": {
+            "identity_client_id": {
+              "description_kind": "plain",
+              "optional": true,
+              "type": "string"
+            },
+            "secret_id": {
+              "description_kind": "plain",
+              "required": true,
+              "type": "string"
+            }
+          },
+          "description_kind": "plain"
+        },
+        "max_items": 1,
+        "nesting_mode": "list"
       }
     },
     "description_kind": "plain"
@@ -86,8 +104,8 @@ const azurermFederatedIdentityCredential = `{
   "version": 0
 }`
 
-func AzurermFederatedIdentityCredentialSchema() *tfjson.Schema {
+func AzurermApiManagementWorkspaceNamedValueSchema() *tfjson.Schema {
 	var result tfjson.Schema
-	_ = json.Unmarshal([]byte(azurermFederatedIdentityCredential), &result)
+	_ = json.Unmarshal([]byte(azurermApiManagementWorkspaceNamedValue), &result)
 	return &result
 }

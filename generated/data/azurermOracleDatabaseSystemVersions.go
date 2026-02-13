@@ -1,4 +1,4 @@
-package resource
+package data
 
 import (
 	"encoding/json"
@@ -6,16 +6,18 @@ import (
 	tfjson "github.com/hashicorp/terraform-json"
 )
 
-const azurermFederatedIdentityCredential = `{
+const azurermOracleDatabaseSystemVersions = `{
   "block": {
     "attributes": {
-      "audience": {
+      "database_software_image_supported": {
         "description_kind": "plain",
-        "required": true,
-        "type": [
-          "list",
-          "string"
-        ]
+        "optional": true,
+        "type": "bool"
+      },
+      "database_system_shape": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "string"
       },
       "id": {
         "computed": true,
@@ -23,54 +25,49 @@ const azurermFederatedIdentityCredential = `{
         "optional": true,
         "type": "string"
       },
-      "issuer": {
+      "location": {
         "description_kind": "plain",
         "required": true,
         "type": "string"
       },
-      "name": {
-        "description_kind": "plain",
-        "required": true,
-        "type": "string"
-      },
-      "parent_id": {
-        "description_kind": "plain",
-        "required": true,
-        "type": "string"
-      },
-      "resource_group_name": {
-        "computed": true,
-        "deprecated": true,
+      "shape_family": {
         "description_kind": "plain",
         "optional": true,
         "type": "string"
       },
-      "subject": {
+      "storage_management": {
         "description_kind": "plain",
-        "required": true,
+        "optional": true,
         "type": "string"
+      },
+      "upgrade_supported": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "bool"
+      },
+      "versions": {
+        "computed": true,
+        "description": "A list of available Oracle Database versions and their properties.",
+        "description_kind": "plain",
+        "type": [
+          "list",
+          [
+            "object",
+            {
+              "latest_version": "bool",
+              "name": "string",
+              "pluggable_database_supported": "bool",
+              "version": "string"
+            }
+          ]
+        ]
       }
     },
     "block_types": {
       "timeouts": {
         "block": {
           "attributes": {
-            "create": {
-              "description_kind": "plain",
-              "optional": true,
-              "type": "string"
-            },
-            "delete": {
-              "description_kind": "plain",
-              "optional": true,
-              "type": "string"
-            },
             "read": {
-              "description_kind": "plain",
-              "optional": true,
-              "type": "string"
-            },
-            "update": {
               "description_kind": "plain",
               "optional": true,
               "type": "string"
@@ -86,8 +83,8 @@ const azurermFederatedIdentityCredential = `{
   "version": 0
 }`
 
-func AzurermFederatedIdentityCredentialSchema() *tfjson.Schema {
+func AzurermOracleDatabaseSystemVersionsSchema() *tfjson.Schema {
 	var result tfjson.Schema
-	_ = json.Unmarshal([]byte(azurermFederatedIdentityCredential), &result)
+	_ = json.Unmarshal([]byte(azurermOracleDatabaseSystemVersions), &result)
 	return &result
 }

@@ -173,6 +173,25 @@ const azurermPostgresqlFlexibleServer = `{
         "max_items": 1,
         "nesting_mode": "list"
       },
+      "cluster": {
+        "block": {
+          "attributes": {
+            "default_database_name": {
+              "description_kind": "plain",
+              "optional": true,
+              "type": "string"
+            },
+            "size": {
+              "description_kind": "plain",
+              "required": true,
+              "type": "number"
+            }
+          },
+          "description_kind": "plain"
+        },
+        "max_items": 1,
+        "nesting_mode": "list"
+      },
       "customer_managed_key": {
         "block": {
           "attributes": {

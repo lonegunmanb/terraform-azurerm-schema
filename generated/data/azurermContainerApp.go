@@ -176,6 +176,11 @@ const azurermContainerApp = `{
           "string"
         ]
       },
+      "read_secrets": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "bool"
+      },
       "registry": {
         "computed": true,
         "description_kind": "plain",

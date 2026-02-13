@@ -26,6 +26,7 @@ const azurermMssqlServerTransparentDataEncryption = `{
         "type": "string"
       },
       "managed_hsm_key_id": {
+        "deprecated": true,
         "description_kind": "plain",
         "optional": true,
         "type": "string"

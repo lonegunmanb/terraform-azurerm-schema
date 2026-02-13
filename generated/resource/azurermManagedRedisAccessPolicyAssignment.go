@@ -6,46 +6,21 @@ import (
 	tfjson "github.com/hashicorp/terraform-json"
 )
 
-const azurermFederatedIdentityCredential = `{
+const azurermManagedRedisAccessPolicyAssignment = `{
   "block": {
     "attributes": {
-      "audience": {
-        "description_kind": "plain",
-        "required": true,
-        "type": [
-          "list",
-          "string"
-        ]
-      },
       "id": {
         "computed": true,
         "description_kind": "plain",
         "optional": true,
         "type": "string"
       },
-      "issuer": {
+      "managed_redis_id": {
         "description_kind": "plain",
         "required": true,
         "type": "string"
       },
-      "name": {
-        "description_kind": "plain",
-        "required": true,
-        "type": "string"
-      },
-      "parent_id": {
-        "description_kind": "plain",
-        "required": true,
-        "type": "string"
-      },
-      "resource_group_name": {
-        "computed": true,
-        "deprecated": true,
-        "description_kind": "plain",
-        "optional": true,
-        "type": "string"
-      },
-      "subject": {
+      "object_id": {
         "description_kind": "plain",
         "required": true,
         "type": "string"
@@ -69,11 +44,6 @@ const azurermFederatedIdentityCredential = `{
               "description_kind": "plain",
               "optional": true,
               "type": "string"
-            },
-            "update": {
-              "description_kind": "plain",
-              "optional": true,
-              "type": "string"
             }
           },
           "description_kind": "plain"
@@ -86,8 +56,8 @@ const azurermFederatedIdentityCredential = `{
   "version": 0
 }`
 
-func AzurermFederatedIdentityCredentialSchema() *tfjson.Schema {
+func AzurermManagedRedisAccessPolicyAssignmentSchema() *tfjson.Schema {
 	var result tfjson.Schema
-	_ = json.Unmarshal([]byte(azurermFederatedIdentityCredential), &result)
+	_ = json.Unmarshal([]byte(azurermManagedRedisAccessPolicyAssignment), &result)
 	return &result
 }
