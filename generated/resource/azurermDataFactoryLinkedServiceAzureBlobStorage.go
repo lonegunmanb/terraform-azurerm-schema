@@ -123,6 +123,26 @@ const azurermDataFactoryLinkedServiceAzureBlobStorage = `{
               "type": "string"
             }
           },
+          "deprecated": true,
+          "description_kind": "plain"
+        },
+        "max_items": 1,
+        "nesting_mode": "list"
+      },
+      "sas_token_linked_key_vault_key": {
+        "block": {
+          "attributes": {
+            "linked_service_name": {
+              "description_kind": "plain",
+              "required": true,
+              "type": "string"
+            },
+            "secret_name": {
+              "description_kind": "plain",
+              "required": true,
+              "type": "string"
+            }
+          },
           "description_kind": "plain"
         },
         "max_items": 1,

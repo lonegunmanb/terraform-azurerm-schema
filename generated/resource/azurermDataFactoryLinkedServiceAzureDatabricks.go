@@ -63,6 +63,14 @@ const azurermDataFactoryLinkedServiceAzureDatabricks = `{
         "type": "string"
       },
       "msi_work_space_resource_id": {
+        "computed": true,
+        "deprecated": true,
+        "description_kind": "plain",
+        "optional": true,
+        "type": "string"
+      },
+      "msi_workspace_id": {
+        "computed": true,
         "description_kind": "plain",
         "optional": true,
         "type": "string"
