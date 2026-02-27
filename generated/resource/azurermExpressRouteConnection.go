@@ -15,6 +15,8 @@ const azurermExpressRouteConnection = `{
         "type": "string"
       },
       "enable_internet_security": {
+        "computed": true,
+        "deprecated": true,
         "description_kind": "plain",
         "optional": true,
         "type": "bool"
@@ -39,6 +41,12 @@ const azurermExpressRouteConnection = `{
         "description_kind": "plain",
         "optional": true,
         "type": "string"
+      },
+      "internet_security_enabled": {
+        "computed": true,
+        "description_kind": "plain",
+        "optional": true,
+        "type": "bool"
       },
       "name": {
         "description_kind": "plain",

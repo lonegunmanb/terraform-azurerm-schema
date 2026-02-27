@@ -15,6 +15,12 @@ const azurermVirtualNetworkGatewayConnection = `{
         "sensitive": true,
         "type": "string"
       },
+      "bgp_enabled": {
+        "computed": true,
+        "description_kind": "plain",
+        "optional": true,
+        "type": "bool"
+      },
       "connection_mode": {
         "description_kind": "plain",
         "optional": true,
@@ -41,6 +47,7 @@ const azurermVirtualNetworkGatewayConnection = `{
       },
       "enable_bgp": {
         "computed": true,
+        "deprecated": true,
         "description_kind": "plain",
         "optional": true,
         "type": "bool"

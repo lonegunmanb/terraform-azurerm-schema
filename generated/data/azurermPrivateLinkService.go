@@ -24,6 +24,7 @@ const azurermPrivateLinkService = `{
       },
       "enable_proxy_protocol": {
         "computed": true,
+        "deprecated": true,
         "description_kind": "plain",
         "type": "bool"
       },
@@ -67,6 +68,11 @@ const azurermPrivateLinkService = `{
             }
           ]
         ]
+      },
+      "proxy_protocol_enabled": {
+        "computed": true,
+        "description_kind": "plain",
+        "type": "bool"
       },
       "resource_group_name": {
         "description_kind": "plain",

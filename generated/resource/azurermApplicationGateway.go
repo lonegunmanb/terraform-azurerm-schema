@@ -10,6 +10,8 @@ const azurermApplicationGateway = `{
   "block": {
     "attributes": {
       "enable_http2": {
+        "computed": true,
+        "deprecated": true,
         "description_kind": "plain",
         "optional": true,
         "type": "bool"
@@ -25,6 +27,12 @@ const azurermApplicationGateway = `{
         "type": "string"
       },
       "force_firewall_policy_association": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "bool"
+      },
+      "http2_enabled": {
+        "computed": true,
         "description_kind": "plain",
         "optional": true,
         "type": "bool"
@@ -1105,6 +1113,14 @@ const azurermApplicationGateway = `{
               ]
             },
             "verify_client_cert_issuer_dn": {
+              "computed": true,
+              "deprecated": true,
+              "description_kind": "plain",
+              "optional": true,
+              "type": "bool"
+            },
+            "verify_client_certificate_issuer_dn": {
+              "computed": true,
               "description_kind": "plain",
               "optional": true,
               "type": "bool"

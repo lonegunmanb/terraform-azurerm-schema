@@ -1464,7 +1464,7 @@ const azurermLinuxFunctionApp = `{
                     "type": "string"
                   },
                   "java_version": {
-                    "description": "The version of Java to use. Possible values are ` + "`" + `8` + "`" + `, ` + "`" + `11` + "`" + `, ` + "`" + `17` + "`" + `, and ` + "`" + `21` + "`" + `",
+                    "description": "The version of Java to use. Possible values are ` + "`" + `8` + "`" + `, ` + "`" + `11` + "`" + `, ` + "`" + `17` + "`" + `, ` + "`" + `21` + "`" + ` and ` + "`" + `25` + "`" + `",
                     "description_kind": "plain",
                     "optional": true,
                     "type": "string"

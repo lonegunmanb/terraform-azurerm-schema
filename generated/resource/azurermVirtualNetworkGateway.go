@@ -15,6 +15,12 @@ const azurermVirtualNetworkGateway = `{
         "optional": true,
         "type": "bool"
       },
+      "bgp_enabled": {
+        "computed": true,
+        "description_kind": "plain",
+        "optional": true,
+        "type": "bool"
+      },
       "bgp_route_translation_for_nat_enabled": {
         "description_kind": "plain",
         "optional": true,
@@ -37,6 +43,7 @@ const azurermVirtualNetworkGateway = `{
       },
       "enable_bgp": {
         "computed": true,
+        "deprecated": true,
         "description_kind": "plain",
         "optional": true,
         "type": "bool"
