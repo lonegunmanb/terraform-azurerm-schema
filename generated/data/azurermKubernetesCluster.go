@@ -108,6 +108,20 @@ const azurermKubernetesCluster = `{
         "description_kind": "plain",
         "type": "bool"
       },
+      "bootstrap_profile": {
+        "computed": true,
+        "description_kind": "plain",
+        "type": [
+          "list",
+          [
+            "object",
+            {
+              "artifact_source": "string",
+              "container_registry_id": "string"
+            }
+          ]
+        ]
+      },
       "current_kubernetes_version": {
         "computed": true,
         "description_kind": "plain",
@@ -358,6 +372,7 @@ const azurermKubernetesCluster = `{
               "load_balancer_sku": "string",
               "network_plugin": "string",
               "network_policy": "string",
+              "outbound_type": "string",
               "pod_cidr": "string",
               "service_cidr": "string"
             }
