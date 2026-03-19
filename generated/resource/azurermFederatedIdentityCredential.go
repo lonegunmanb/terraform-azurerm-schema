@@ -34,8 +34,10 @@ const azurermFederatedIdentityCredential = `{
         "type": "string"
       },
       "parent_id": {
+        "computed": true,
+        "deprecated": true,
         "description_kind": "plain",
-        "required": true,
+        "optional": true,
         "type": "string"
       },
       "resource_group_name": {
@@ -48,6 +50,12 @@ const azurermFederatedIdentityCredential = `{
       "subject": {
         "description_kind": "plain",
         "required": true,
+        "type": "string"
+      },
+      "user_assigned_identity_id": {
+        "computed": true,
+        "description_kind": "plain",
+        "optional": true,
         "type": "string"
       }
     },
