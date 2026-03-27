@@ -651,7 +651,7 @@ const azurermContainerApp = `{
                     "block": {
                       "attributes": {
                         "failure_count_threshold": {
-                          "description": "The number of consecutive failures required to consider this probe as failed. Possible values are between ` + "`" + `1` + "`" + ` and ` + "`" + `30` + "`" + `. Defaults to ` + "`" + `3` + "`" + `.",
+                          "description": "The number of consecutive failures required to consider this probe as failed. Possible values are between ` + "`" + `1` + "`" + ` and ` + "`" + `48` + "`" + `. Defaults to ` + "`" + `3` + "`" + `.",
                           "description_kind": "plain",
                           "optional": true,
                           "type": "number"
@@ -736,7 +736,7 @@ const azurermContainerApp = `{
                     "block": {
                       "attributes": {
                         "failure_count_threshold": {
-                          "description": "The number of consecutive failures required to consider this probe as failed. Possible values are between ` + "`" + `1` + "`" + ` and ` + "`" + `30` + "`" + `. Defaults to ` + "`" + `3` + "`" + `.",
+                          "description": "The number of consecutive failures required to consider this probe as failed. Possible values are between ` + "`" + `1` + "`" + ` and ` + "`" + `240` + "`" + `. Defaults to ` + "`" + `3` + "`" + `.",
                           "description_kind": "plain",
                           "optional": true,
                           "type": "number"

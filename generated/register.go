@@ -1206,6 +1206,7 @@ func init() {
 	dataSources["azurerm_container_app"] = data.AzurermContainerAppSchema()  
 	dataSources["azurerm_container_app_environment"] = data.AzurermContainerAppEnvironmentSchema()  
 	dataSources["azurerm_container_app_environment_certificate"] = data.AzurermContainerAppEnvironmentCertificateSchema()  
+	dataSources["azurerm_container_app_environment_storage"] = data.AzurermContainerAppEnvironmentStorageSchema()  
 	dataSources["azurerm_container_group"] = data.AzurermContainerGroupSchema()  
 	dataSources["azurerm_container_registry"] = data.AzurermContainerRegistrySchema()  
 	dataSources["azurerm_container_registry_cache_rule"] = data.AzurermContainerRegistryCacheRuleSchema()  

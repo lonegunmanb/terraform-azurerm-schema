@@ -32,6 +32,11 @@ const azurermSearchService = `{
         "optional": true,
         "type": "bool"
       },
+      "endpoint": {
+        "computed": true,
+        "description_kind": "plain",
+        "type": "string"
+      },
       "hosting_mode": {
         "description_kind": "plain",
         "optional": true,
