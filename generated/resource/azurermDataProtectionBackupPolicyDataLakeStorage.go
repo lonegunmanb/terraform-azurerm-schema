@@ -6,53 +6,25 @@ import (
 	tfjson "github.com/hashicorp/terraform-json"
 )
 
-const azurermKustoAttachedDatabaseConfiguration = `{
+const azurermDataProtectionBackupPolicyDataLakeStorage = `{
   "block": {
     "attributes": {
-      "attached_database_names": {
-        "computed": true,
+      "backup_schedule": {
         "description_kind": "plain",
+        "required": true,
         "type": [
           "list",
           "string"
         ]
       },
-      "cluster_id": {
-        "computed": true,
-        "description_kind": "plain",
-        "optional": true,
-        "type": "string"
-      },
-      "cluster_name": {
+      "data_protection_backup_vault_id": {
         "description_kind": "plain",
         "required": true,
         "type": "string"
       },
-      "cluster_resource_id": {
-        "computed": true,
-        "deprecated": true,
-        "description_kind": "plain",
-        "optional": true,
-        "type": "string"
-      },
-      "database_name": {
+      "default_retention_duration": {
         "description_kind": "plain",
         "required": true,
-        "type": "string"
-      },
-      "database_name_override": {
-        "description_kind": "plain",
-        "optional": true,
-        "type": "string"
-      },
-      "database_name_prefix": {
-        "description_kind": "plain",
-        "optional": true,
-        "type": "string"
-      },
-      "default_principal_modification_kind": {
-        "description_kind": "plain",
-        "optional": true,
         "type": "string"
       },
       "id": {
@@ -61,27 +33,27 @@ const azurermKustoAttachedDatabaseConfiguration = `{
         "optional": true,
         "type": "string"
       },
-      "location": {
-        "description_kind": "plain",
-        "required": true,
-        "type": "string"
-      },
       "name": {
         "description_kind": "plain",
         "required": true,
         "type": "string"
       },
-      "resource_group_name": {
+      "time_zone": {
         "description_kind": "plain",
-        "required": true,
+        "optional": true,
         "type": "string"
       }
     },
     "block_types": {
-      "sharing": {
+      "retention_rule": {
         "block": {
           "attributes": {
-            "external_tables_to_exclude": {
+            "absolute_criteria": {
+              "description_kind": "plain",
+              "optional": true,
+              "type": "string"
+            },
+            "days_of_week": {
               "description_kind": "plain",
               "optional": true,
               "type": [
@@ -89,7 +61,12 @@ const azurermKustoAttachedDatabaseConfiguration = `{
                 "string"
               ]
             },
-            "external_tables_to_include": {
+            "duration": {
+              "description_kind": "plain",
+              "required": true,
+              "type": "string"
+            },
+            "months_of_year": {
               "description_kind": "plain",
               "optional": true,
               "type": [
@@ -97,7 +74,12 @@ const azurermKustoAttachedDatabaseConfiguration = `{
                 "string"
               ]
             },
-            "functions_to_exclude": {
+            "name": {
+              "description_kind": "plain",
+              "required": true,
+              "type": "string"
+            },
+            "scheduled_backup_times": {
               "description_kind": "plain",
               "optional": true,
               "type": [
@@ -105,39 +87,7 @@ const azurermKustoAttachedDatabaseConfiguration = `{
                 "string"
               ]
             },
-            "functions_to_include": {
-              "description_kind": "plain",
-              "optional": true,
-              "type": [
-                "set",
-                "string"
-              ]
-            },
-            "materialized_views_to_exclude": {
-              "description_kind": "plain",
-              "optional": true,
-              "type": [
-                "set",
-                "string"
-              ]
-            },
-            "materialized_views_to_include": {
-              "description_kind": "plain",
-              "optional": true,
-              "type": [
-                "set",
-                "string"
-              ]
-            },
-            "tables_to_exclude": {
-              "description_kind": "plain",
-              "optional": true,
-              "type": [
-                "set",
-                "string"
-              ]
-            },
-            "tables_to_include": {
+            "weeks_of_month": {
               "description_kind": "plain",
               "optional": true,
               "type": [
@@ -148,7 +98,6 @@ const azurermKustoAttachedDatabaseConfiguration = `{
           },
           "description_kind": "plain"
         },
-        "max_items": 1,
         "nesting_mode": "list"
       },
       "timeouts": {
@@ -168,11 +117,6 @@ const azurermKustoAttachedDatabaseConfiguration = `{
               "description_kind": "plain",
               "optional": true,
               "type": "string"
-            },
-            "update": {
-              "description_kind": "plain",
-              "optional": true,
-              "type": "string"
             }
           },
           "description_kind": "plain"
@@ -182,11 +126,11 @@ const azurermKustoAttachedDatabaseConfiguration = `{
     },
     "description_kind": "plain"
   },
-  "version": 1
+  "version": 0
 }`
 
-func AzurermKustoAttachedDatabaseConfigurationSchema() *tfjson.Schema {
+func AzurermDataProtectionBackupPolicyDataLakeStorageSchema() *tfjson.Schema {
 	var result tfjson.Schema
-	_ = json.Unmarshal([]byte(azurermKustoAttachedDatabaseConfiguration), &result)
+	_ = json.Unmarshal([]byte(azurermDataProtectionBackupPolicyDataLakeStorage), &result)
 	return &result
 }

@@ -209,6 +209,7 @@ const azurermLogicAppStandard = `{
                   }
                 ]
               ],
+              "ip_restriction_default_action": "string",
               "linux_fx_version": "string",
               "min_tls_version": "string",
               "pre_warmed_instance_count": "number",
@@ -252,6 +253,7 @@ const azurermLogicAppStandard = `{
                   }
                 ]
               ],
+              "scm_ip_restriction_default_action": "string",
               "scm_min_tls_version": "string",
               "scm_type": "string",
               "scm_use_main_ip_restriction": "bool",

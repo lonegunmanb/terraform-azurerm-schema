@@ -133,6 +133,67 @@ const azurermApplicationGateway = `{
         "max_items": 1,
         "nesting_mode": "list"
       },
+      "backend": {
+        "block": {
+          "attributes": {
+            "client_ip_preservation_enabled": {
+              "description_kind": "plain",
+              "optional": true,
+              "type": "bool"
+            },
+            "host_name": {
+              "description_kind": "plain",
+              "optional": true,
+              "type": "string"
+            },
+            "id": {
+              "computed": true,
+              "description_kind": "plain",
+              "type": "string"
+            },
+            "name": {
+              "description_kind": "plain",
+              "required": true,
+              "type": "string"
+            },
+            "port": {
+              "description_kind": "plain",
+              "required": true,
+              "type": "number"
+            },
+            "probe_id": {
+              "computed": true,
+              "description_kind": "plain",
+              "type": "string"
+            },
+            "probe_name": {
+              "description_kind": "plain",
+              "optional": true,
+              "type": "string"
+            },
+            "protocol": {
+              "description_kind": "plain",
+              "required": true,
+              "type": "string"
+            },
+            "timeout_in_seconds": {
+              "description_kind": "plain",
+              "optional": true,
+              "type": "number"
+            },
+            "trusted_root_certificate_names": {
+              "description_kind": "plain",
+              "optional": true,
+              "type": [
+                "list",
+                "string"
+              ]
+            }
+          },
+          "description_kind": "plain"
+        },
+        "nesting_mode": "list"
+      },
       "backend_address_pool": {
         "block": {
           "attributes": {
@@ -286,7 +347,6 @@ const azurermApplicationGateway = `{
           },
           "description_kind": "plain"
         },
-        "min_items": 1,
         "nesting_mode": "set"
       },
       "custom_error_configuration": {
@@ -539,7 +599,6 @@ const azurermApplicationGateway = `{
           },
           "description_kind": "plain"
         },
-        "min_items": 1,
         "nesting_mode": "set"
       },
       "identity": {
@@ -573,6 +632,77 @@ const azurermApplicationGateway = `{
         },
         "max_items": 1,
         "nesting_mode": "list"
+      },
+      "listener": {
+        "block": {
+          "attributes": {
+            "frontend_ip_configuration_id": {
+              "computed": true,
+              "description_kind": "plain",
+              "type": "string"
+            },
+            "frontend_ip_configuration_name": {
+              "description_kind": "plain",
+              "required": true,
+              "type": "string"
+            },
+            "frontend_port_id": {
+              "computed": true,
+              "description_kind": "plain",
+              "type": "string"
+            },
+            "frontend_port_name": {
+              "description_kind": "plain",
+              "required": true,
+              "type": "string"
+            },
+            "host_names": {
+              "description_kind": "plain",
+              "optional": true,
+              "type": [
+                "set",
+                "string"
+              ]
+            },
+            "id": {
+              "computed": true,
+              "description_kind": "plain",
+              "type": "string"
+            },
+            "name": {
+              "description_kind": "plain",
+              "required": true,
+              "type": "string"
+            },
+            "protocol": {
+              "description_kind": "plain",
+              "required": true,
+              "type": "string"
+            },
+            "ssl_certificate_id": {
+              "computed": true,
+              "description_kind": "plain",
+              "type": "string"
+            },
+            "ssl_certificate_name": {
+              "description_kind": "plain",
+              "optional": true,
+              "type": "string"
+            },
+            "ssl_profile_id": {
+              "computed": true,
+              "description_kind": "plain",
+              "type": "string"
+            },
+            "ssl_profile_name": {
+              "description_kind": "plain",
+              "optional": true,
+              "type": "string"
+            }
+          },
+          "description_kind": "plain"
+        },
+        "nesting_mode": "set"
       },
       "private_link_configuration": {
         "block": {
@@ -659,7 +789,7 @@ const azurermApplicationGateway = `{
             },
             "path": {
               "description_kind": "plain",
-              "required": true,
+              "optional": true,
               "type": "string"
             },
             "pick_host_name_from_backend_http_settings": {
@@ -676,6 +806,11 @@ const azurermApplicationGateway = `{
               "description_kind": "plain",
               "required": true,
               "type": "string"
+            },
+            "proxy_protocol_header_enabled": {
+              "description_kind": "plain",
+              "optional": true,
+              "type": "bool"
             },
             "timeout": {
               "description_kind": "plain",
@@ -850,7 +985,6 @@ const azurermApplicationGateway = `{
           },
           "description_kind": "plain"
         },
-        "min_items": 1,
         "nesting_mode": "set"
       },
       "rewrite_rule_set": {
@@ -985,6 +1119,59 @@ const azurermApplicationGateway = `{
           "description_kind": "plain"
         },
         "nesting_mode": "list"
+      },
+      "routing_rule": {
+        "block": {
+          "attributes": {
+            "backend_address_pool_id": {
+              "computed": true,
+              "description_kind": "plain",
+              "type": "string"
+            },
+            "backend_address_pool_name": {
+              "description_kind": "plain",
+              "required": true,
+              "type": "string"
+            },
+            "backend_id": {
+              "computed": true,
+              "description_kind": "plain",
+              "type": "string"
+            },
+            "backend_name": {
+              "description_kind": "plain",
+              "required": true,
+              "type": "string"
+            },
+            "id": {
+              "computed": true,
+              "description_kind": "plain",
+              "type": "string"
+            },
+            "listener_id": {
+              "computed": true,
+              "description_kind": "plain",
+              "type": "string"
+            },
+            "listener_name": {
+              "description_kind": "plain",
+              "required": true,
+              "type": "string"
+            },
+            "name": {
+              "description_kind": "plain",
+              "required": true,
+              "type": "string"
+            },
+            "priority": {
+              "description_kind": "plain",
+              "required": true,
+              "type": "number"
+            }
+          },
+          "description_kind": "plain"
+        },
+        "nesting_mode": "set"
       },
       "sku": {
         "block": {

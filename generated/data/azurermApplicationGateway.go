@@ -37,6 +37,31 @@ const azurermApplicationGateway = `{
           ]
         ]
       },
+      "backend": {
+        "computed": true,
+        "description_kind": "plain",
+        "type": [
+          "list",
+          [
+            "object",
+            {
+              "client_ip_preservation_enabled": "bool",
+              "host_name": "string",
+              "id": "string",
+              "name": "string",
+              "port": "number",
+              "probe_id": "string",
+              "probe_name": "string",
+              "protocol": "string",
+              "timeout_in_seconds": "number",
+              "trusted_root_certificate_names": [
+                "list",
+                "string"
+              ]
+            }
+          ]
+        ]
+      },
       "backend_address_pool": {
         "computed": true,
         "description_kind": "plain",
@@ -273,6 +298,33 @@ const azurermApplicationGateway = `{
           ]
         ]
       },
+      "listener": {
+        "computed": true,
+        "description_kind": "plain",
+        "type": [
+          "list",
+          [
+            "object",
+            {
+              "frontend_ip_configuration_id": "string",
+              "frontend_ip_configuration_name": "string",
+              "frontend_port_id": "string",
+              "frontend_port_name": "string",
+              "host_names": [
+                "list",
+                "string"
+              ],
+              "id": "string",
+              "name": "string",
+              "protocol": "string",
+              "ssl_certificate_id": "string",
+              "ssl_certificate_name": "string",
+              "ssl_profile_id": "string",
+              "ssl_profile_name": "string"
+            }
+          ]
+        ]
+      },
       "location": {
         "computed": true,
         "description_kind": "plain",
@@ -354,6 +406,7 @@ const azurermApplicationGateway = `{
               "pick_host_name_from_backend_http_settings": "bool",
               "port": "number",
               "protocol": "string",
+              "proxy_protocol_header_enabled": "bool",
               "timeout": "number",
               "unhealthy_threshold": "number"
             }
@@ -477,6 +530,27 @@ const azurermApplicationGateway = `{
                   }
                 ]
               ]
+            }
+          ]
+        ]
+      },
+      "routing_rule": {
+        "computed": true,
+        "description_kind": "plain",
+        "type": [
+          "list",
+          [
+            "object",
+            {
+              "backend_address_pool_id": "string",
+              "backend_address_pool_name": "string",
+              "backend_id": "string",
+              "backend_name": "string",
+              "id": "string",
+              "listener_id": "string",
+              "listener_name": "string",
+              "name": "string",
+              "priority": "number"
             }
           ]
         ]

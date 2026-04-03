@@ -14,6 +14,11 @@ const azurermMssqlElasticpool = `{
         "description_kind": "plain",
         "type": "string"
       },
+      "high_availability_replica_count": {
+        "computed": true,
+        "description_kind": "plain",
+        "type": "number"
+      },
       "id": {
         "computed": true,
         "description_kind": "plain",

@@ -41,6 +41,7 @@ const azurermNginxDeployment = `{
       },
       "diagnose_support_enabled": {
         "computed": true,
+        "deprecated": true,
         "description_kind": "plain",
         "type": "bool"
       },

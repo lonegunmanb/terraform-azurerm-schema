@@ -274,6 +274,11 @@ const azurermLogicAppStandard = `{
               "optional": true,
               "type": "bool"
             },
+            "ip_restriction_default_action": {
+              "description_kind": "plain",
+              "optional": true,
+              "type": "string"
+            },
             "linux_fx_version": {
               "computed": true,
               "description_kind": "plain",
@@ -303,6 +308,11 @@ const azurermLogicAppStandard = `{
               "description_kind": "plain",
               "optional": true,
               "type": "bool"
+            },
+            "scm_ip_restriction_default_action": {
+              "description_kind": "plain",
+              "optional": true,
+              "type": "string"
             },
             "scm_min_tls_version": {
               "computed": true,
