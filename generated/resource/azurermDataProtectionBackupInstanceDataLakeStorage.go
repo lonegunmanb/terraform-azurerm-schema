@@ -6,13 +6,28 @@ import (
 	tfjson "github.com/hashicorp/terraform-json"
 )
 
-const azurermVirtualHubBgpConnection = `{
+const azurermDataProtectionBackupInstanceDataLakeStorage = `{
   "block": {
     "attributes": {
+      "backup_policy_data_lake_storage_id": {
+        "description_kind": "plain",
+        "required": true,
+        "type": "string"
+      },
+      "data_protection_backup_vault_id": {
+        "description_kind": "plain",
+        "required": true,
+        "type": "string"
+      },
       "id": {
         "computed": true,
         "description_kind": "plain",
         "optional": true,
+        "type": "string"
+      },
+      "location": {
+        "description_kind": "plain",
+        "required": true,
         "type": "string"
       },
       "name": {
@@ -20,25 +35,23 @@ const azurermVirtualHubBgpConnection = `{
         "required": true,
         "type": "string"
       },
-      "peer_asn": {
+      "protection_state": {
+        "computed": true,
         "description_kind": "plain",
-        "required": true,
-        "type": "number"
-      },
-      "peer_ip": {
-        "description_kind": "plain",
-        "required": true,
         "type": "string"
       },
-      "virtual_hub_id": {
+      "storage_account_id": {
         "description_kind": "plain",
         "required": true,
         "type": "string"
       },
-      "virtual_network_connection_id": {
+      "storage_container_names": {
         "description_kind": "plain",
-        "optional": true,
-        "type": "string"
+        "required": true,
+        "type": [
+          "set",
+          "string"
+        ]
       }
     },
     "block_types": {
@@ -59,6 +72,11 @@ const azurermVirtualHubBgpConnection = `{
               "description_kind": "plain",
               "optional": true,
               "type": "string"
+            },
+            "update": {
+              "description_kind": "plain",
+              "optional": true,
+              "type": "string"
             }
           },
           "description_kind": "plain"
@@ -71,8 +89,8 @@ const azurermVirtualHubBgpConnection = `{
   "version": 0
 }`
 
-func AzurermVirtualHubBgpConnectionSchema() *tfjson.Schema {
+func AzurermDataProtectionBackupInstanceDataLakeStorageSchema() *tfjson.Schema {
 	var result tfjson.Schema
-	_ = json.Unmarshal([]byte(azurermVirtualHubBgpConnection), &result)
+	_ = json.Unmarshal([]byte(azurermDataProtectionBackupInstanceDataLakeStorage), &result)
 	return &result
 }

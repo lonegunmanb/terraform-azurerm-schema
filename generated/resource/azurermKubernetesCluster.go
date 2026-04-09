@@ -181,6 +181,7 @@ const azurermKubernetesCluster = `{
         "type": "string"
       },
       "oidc_issuer_enabled": {
+        "computed": true,
         "description_kind": "plain",
         "optional": true,
         "type": "bool"

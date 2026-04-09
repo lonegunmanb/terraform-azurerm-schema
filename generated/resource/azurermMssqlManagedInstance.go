@@ -46,6 +46,11 @@ const azurermMssqlManagedInstance = `{
         "description_kind": "plain",
         "type": "string"
       },
+      "general_purpose_v2_enabled": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "bool"
+      },
       "hybrid_secondary_usage": {
         "description_kind": "plain",
         "optional": true,

@@ -20,6 +20,19 @@ const azurermNetappVolume = `{
         "required": true,
         "type": "string"
       },
+      "data_protection_advanced_ransomware": {
+        "computed": true,
+        "description_kind": "plain",
+        "type": [
+          "list",
+          [
+            "object",
+            {
+              "protection_enabled": "bool"
+            }
+          ]
+        ]
+      },
       "data_protection_backup_policy": {
         "computed": true,
         "description_kind": "plain",

@@ -50,6 +50,11 @@ const azurermBastionHost = `{
         "required": true,
         "type": "string"
       },
+      "private_only_enabled": {
+        "computed": true,
+        "description_kind": "plain",
+        "type": "bool"
+      },
       "resource_group_name": {
         "description_kind": "plain",
         "required": true,
@@ -113,7 +118,7 @@ const azurermBastionHost = `{
             },
             "public_ip_address_id": {
               "description_kind": "plain",
-              "required": true,
+              "optional": true,
               "type": "string"
             },
             "subnet_id": {

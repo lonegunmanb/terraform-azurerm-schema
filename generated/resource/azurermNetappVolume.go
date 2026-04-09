@@ -203,6 +203,21 @@ const azurermNetappVolume = `{
         "max_items": 1,
         "nesting_mode": "list"
       },
+      "data_protection_advanced_ransomware": {
+        "block": {
+          "attributes": {
+            "protection_enabled": {
+              "description": "Enable or disable the Advanced Ransomware Protection feature.",
+              "description_kind": "plain",
+              "required": true,
+              "type": "bool"
+            }
+          },
+          "description_kind": "plain"
+        },
+        "max_items": 1,
+        "nesting_mode": "list"
+      },
       "data_protection_backup_policy": {
         "block": {
           "attributes": {

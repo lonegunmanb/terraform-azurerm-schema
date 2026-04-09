@@ -72,6 +72,27 @@ const azurermAppConfigurationFeature = `{
       }
     },
     "block_types": {
+      "custom_filter": {
+        "block": {
+          "attributes": {
+            "name": {
+              "description_kind": "plain",
+              "required": true,
+              "type": "string"
+            },
+            "parameters": {
+              "description_kind": "plain",
+              "optional": true,
+              "type": [
+                "map",
+                "string"
+              ]
+            }
+          },
+          "description_kind": "plain"
+        },
+        "nesting_mode": "list"
+      },
       "targeting_filter": {
         "block": {
           "attributes": {
