@@ -29,7 +29,7 @@ const azurermCdnFrontdoorRoute = `{
       },
       "cdn_frontdoor_origin_ids": {
         "description_kind": "plain",
-        "required": true,
+        "optional": true,
         "type": [
           "list",
           "string"

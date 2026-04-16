@@ -98,6 +98,11 @@ const azurermKubernetesClusterNodePool = `{
         "optional": true,
         "type": "number"
       },
+      "node_image_version": {
+        "computed": true,
+        "description_kind": "plain",
+        "type": "string"
+      },
       "node_labels": {
         "computed": true,
         "description_kind": "plain",

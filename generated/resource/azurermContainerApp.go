@@ -857,6 +857,12 @@ const azurermContainerApp = `{
                     "required": true,
                     "type": "string"
                   },
+                  "identity_id": {
+                    "description": "ID of the System or User Managed Identity used to execute scale rule.",
+                    "description_kind": "plain",
+                    "optional": true,
+                    "type": "string"
+                  },
                   "metadata": {
                     "description_kind": "plain",
                     "required": true,

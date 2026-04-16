@@ -92,6 +92,7 @@ const azurermBotServiceAzureBot = `{
         "type": "string"
       },
       "microsoft_app_type": {
+        "computed": true,
         "description_kind": "plain",
         "optional": true,
         "type": "string"

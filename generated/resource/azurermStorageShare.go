@@ -45,6 +45,11 @@ const azurermStorageShare = `{
         "required": true,
         "type": "number"
       },
+      "rbac_scope_id": {
+        "computed": true,
+        "description_kind": "plain",
+        "type": "string"
+      },
       "resource_manager_id": {
         "computed": true,
         "deprecated": true,

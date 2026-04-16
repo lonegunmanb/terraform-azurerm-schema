@@ -31,6 +31,7 @@ const azurermCognitiveDeployment = `{
         "type": "string"
       },
       "rai_policy_name": {
+        "computed": true,
         "description_kind": "plain",
         "optional": true,
         "type": "string"

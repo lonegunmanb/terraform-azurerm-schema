@@ -84,39 +84,78 @@ const azurermStorageAccountBlobContainerSas = `{
           "attributes": {
             "add": {
               "description_kind": "plain",
-              "required": true,
+              "optional": true,
               "type": "bool"
             },
             "create": {
               "description_kind": "plain",
-              "required": true,
+              "optional": true,
               "type": "bool"
             },
             "delete": {
               "description_kind": "plain",
-              "required": true,
+              "optional": true,
+              "type": "bool"
+            },
+            "delete_version": {
+              "description_kind": "plain",
+              "optional": true,
+              "type": "bool"
+            },
+            "execute": {
+              "description_kind": "plain",
+              "optional": true,
+              "type": "bool"
+            },
+            "find": {
+              "description_kind": "plain",
+              "optional": true,
               "type": "bool"
             },
             "list": {
               "description_kind": "plain",
-              "required": true,
+              "optional": true,
+              "type": "bool"
+            },
+            "move": {
+              "description_kind": "plain",
+              "optional": true,
+              "type": "bool"
+            },
+            "ownership": {
+              "description_kind": "plain",
+              "optional": true,
+              "type": "bool"
+            },
+            "permissions": {
+              "description_kind": "plain",
+              "optional": true,
               "type": "bool"
             },
             "read": {
               "description_kind": "plain",
-              "required": true,
+              "optional": true,
+              "type": "bool"
+            },
+            "set_immutability_policy": {
+              "description_kind": "plain",
+              "optional": true,
+              "type": "bool"
+            },
+            "tags": {
+              "description_kind": "plain",
+              "optional": true,
               "type": "bool"
             },
             "write": {
               "description_kind": "plain",
-              "required": true,
+              "optional": true,
               "type": "bool"
             }
           },
           "description_kind": "plain"
         },
         "max_items": 1,
-        "min_items": 1,
         "nesting_mode": "list"
       },
       "timeouts": {

@@ -402,6 +402,7 @@ const azurermContainerApp = `{
                       ]
                     ],
                     "custom_rule_type": "string",
+                    "identity_id": "string",
                     "metadata": [
                       "map",
                       "string"

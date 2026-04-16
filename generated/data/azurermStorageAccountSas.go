@@ -59,59 +59,58 @@ const azurermStorageAccountSas = `{
           "attributes": {
             "add": {
               "description_kind": "plain",
-              "required": true,
+              "optional": true,
               "type": "bool"
             },
             "create": {
               "description_kind": "plain",
-              "required": true,
+              "optional": true,
               "type": "bool"
             },
             "delete": {
               "description_kind": "plain",
-              "required": true,
+              "optional": true,
               "type": "bool"
             },
             "filter": {
               "description_kind": "plain",
-              "required": true,
+              "optional": true,
               "type": "bool"
             },
             "list": {
               "description_kind": "plain",
-              "required": true,
+              "optional": true,
               "type": "bool"
             },
             "process": {
               "description_kind": "plain",
-              "required": true,
+              "optional": true,
               "type": "bool"
             },
             "read": {
               "description_kind": "plain",
-              "required": true,
+              "optional": true,
               "type": "bool"
             },
             "tag": {
               "description_kind": "plain",
-              "required": true,
+              "optional": true,
               "type": "bool"
             },
             "update": {
               "description_kind": "plain",
-              "required": true,
+              "optional": true,
               "type": "bool"
             },
             "write": {
               "description_kind": "plain",
-              "required": true,
+              "optional": true,
               "type": "bool"
             }
           },
           "description_kind": "plain"
         },
         "max_items": 1,
-        "min_items": 1,
         "nesting_mode": "list"
       },
       "resource_types": {

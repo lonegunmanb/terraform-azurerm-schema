@@ -144,6 +144,11 @@ const azurermMonitorScheduledQueryRulesAlertV2 = `{
                 "map",
                 "string"
               ]
+            },
+            "email_subject": {
+              "description_kind": "plain",
+              "optional": true,
+              "type": "string"
             }
           },
           "description_kind": "plain"
