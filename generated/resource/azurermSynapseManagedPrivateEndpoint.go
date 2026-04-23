@@ -9,6 +9,14 @@ import (
 const azurermSynapseManagedPrivateEndpoint = `{
   "block": {
     "attributes": {
+      "fully_qualified_domain_names": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": [
+          "list",
+          "string"
+        ]
+      },
       "id": {
         "computed": true,
         "description_kind": "plain",

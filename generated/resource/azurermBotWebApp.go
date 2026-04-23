@@ -66,6 +66,22 @@ const azurermBotWebApp = `{
         "required": true,
         "type": "string"
       },
+      "microsoft_app_tenant_id": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "string"
+      },
+      "microsoft_app_type": {
+        "computed": true,
+        "description_kind": "plain",
+        "optional": true,
+        "type": "string"
+      },
+      "microsoft_app_user_assigned_identity_id": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "string"
+      },
       "name": {
         "description_kind": "plain",
         "required": true,

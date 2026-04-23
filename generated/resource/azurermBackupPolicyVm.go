@@ -9,6 +9,11 @@ import (
 const azurermBackupPolicyVm = `{
   "block": {
     "attributes": {
+      "consistency_type": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "string"
+      },
       "id": {
         "computed": true,
         "description_kind": "plain",

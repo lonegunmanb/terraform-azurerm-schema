@@ -14,6 +14,18 @@ const azurermBotChannelDirectline = `{
         "required": true,
         "type": "string"
       },
+      "extension_key_1": {
+        "computed": true,
+        "description_kind": "plain",
+        "sensitive": true,
+        "type": "string"
+      },
+      "extension_key_2": {
+        "computed": true,
+        "description_kind": "plain",
+        "sensitive": true,
+        "type": "string"
+      },
       "id": {
         "computed": true,
         "description_kind": "plain",

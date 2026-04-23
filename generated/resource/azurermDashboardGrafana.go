@@ -78,6 +78,11 @@ const azurermDashboardGrafana = `{
         "optional": true,
         "type": "string"
       },
+      "sku_size": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "string"
+      },
       "tags": {
         "description_kind": "plain",
         "optional": true,
