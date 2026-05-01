@@ -697,7 +697,15 @@ const azurermKubernetesCluster = `{
                       "string"
                     ]
                   },
+                  "container_log_max_files": {
+                    "computed": true,
+                    "description_kind": "plain",
+                    "optional": true,
+                    "type": "number"
+                  },
                   "container_log_max_line": {
+                    "computed": true,
+                    "deprecated": true,
                     "description_kind": "plain",
                     "optional": true,
                     "type": "number"

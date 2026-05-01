@@ -44,6 +44,7 @@ const azurermMssqlManagedDatabase = `{
         "block": {
           "attributes": {
             "immutable_backups_enabled": {
+              "deprecated": true,
               "description_kind": "plain",
               "optional": true,
               "type": "bool"

@@ -118,6 +118,16 @@ const azurermEventhub = `{
                     "description_kind": "plain",
                     "required": true,
                     "type": "string"
+                  },
+                  "storage_authentication_id": {
+                    "description_kind": "plain",
+                    "optional": true,
+                    "type": "string"
+                  },
+                  "storage_authentication_type": {
+                    "description_kind": "plain",
+                    "optional": true,
+                    "type": "string"
                   }
                 },
                 "description_kind": "plain"

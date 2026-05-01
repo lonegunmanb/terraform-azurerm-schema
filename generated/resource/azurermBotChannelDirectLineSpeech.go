@@ -21,13 +21,13 @@ const azurermBotChannelDirectLineSpeech = `{
       },
       "cognitive_service_access_key": {
         "description_kind": "plain",
-        "required": true,
+        "optional": true,
         "sensitive": true,
         "type": "string"
       },
       "cognitive_service_location": {
         "description_kind": "plain",
-        "required": true,
+        "optional": true,
         "type": "string"
       },
       "custom_speech_model_id": {

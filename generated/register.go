@@ -1203,6 +1203,7 @@ func init() {
 	dataSources["azurerm_cdn_frontdoor_profile"] = data.AzurermCdnFrontdoorProfileSchema()  
 	dataSources["azurerm_cdn_frontdoor_rule_set"] = data.AzurermCdnFrontdoorRuleSetSchema()  
 	dataSources["azurerm_cdn_frontdoor_secret"] = data.AzurermCdnFrontdoorSecretSchema()  
+	dataSources["azurerm_cdn_frontdoor_security_policy"] = data.AzurermCdnFrontdoorSecurityPolicySchema()  
 	dataSources["azurerm_cdn_profile"] = data.AzurermCdnProfileSchema()  
 	dataSources["azurerm_client_config"] = data.AzurermClientConfigSchema()  
 	dataSources["azurerm_cognitive_account"] = data.AzurermCognitiveAccountSchema()  
