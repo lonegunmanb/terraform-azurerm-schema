@@ -90,10 +90,61 @@ const azurermCdnFrontdoorCustomDomain = `{
               "type": "string"
             },
             "minimum_tls_version": {
+              "computed": true,
               "deprecated": true,
               "description_kind": "plain",
               "optional": true,
               "type": "string"
+            },
+            "minimum_version": {
+              "computed": true,
+              "description_kind": "plain",
+              "optional": true,
+              "type": "string"
+            }
+          },
+          "block_types": {
+            "cipher_suite": {
+              "block": {
+                "attributes": {
+                  "type": {
+                    "description_kind": "plain",
+                    "required": true,
+                    "type": "string"
+                  }
+                },
+                "block_types": {
+                  "custom_ciphers": {
+                    "block": {
+                      "attributes": {
+                        "tls12": {
+                          "description_kind": "plain",
+                          "optional": true,
+                          "type": [
+                            "set",
+                            "string"
+                          ]
+                        },
+                        "tls13": {
+                          "computed": true,
+                          "description_kind": "plain",
+                          "optional": true,
+                          "type": [
+                            "set",
+                            "string"
+                          ]
+                        }
+                      },
+                      "description_kind": "plain"
+                    },
+                    "max_items": 1,
+                    "nesting_mode": "list"
+                  }
+                },
+                "description_kind": "plain"
+              },
+              "max_items": 1,
+              "nesting_mode": "list"
             }
           },
           "description_kind": "plain"

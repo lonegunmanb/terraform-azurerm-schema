@@ -139,6 +139,7 @@ const azurermMachineLearningComputeCluster = `{
             "admin_password": {
               "description_kind": "plain",
               "optional": true,
+              "sensitive": true,
               "type": "string"
             },
             "admin_username": {

@@ -67,11 +67,13 @@ const azurermDataFactoryLinkedServiceDataLakeStorageGen2 = `{
       "service_principal_key": {
         "description_kind": "plain",
         "optional": true,
+        "sensitive": true,
         "type": "string"
       },
       "storage_account_key": {
         "description_kind": "plain",
         "optional": true,
+        "sensitive": true,
         "type": "string"
       },
       "tenant": {

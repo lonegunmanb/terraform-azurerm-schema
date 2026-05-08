@@ -60,7 +60,33 @@ const azurermCdnFrontdoorCustomDomain = `{
             {
               "cdn_frontdoor_secret_id": "string",
               "certificate_type": "string",
-              "minimum_tls_version": "string"
+              "cipher_suite": [
+                "list",
+                [
+                  "object",
+                  {
+                    "custom_ciphers": [
+                      "list",
+                      [
+                        "object",
+                        {
+                          "tls12": [
+                            "set",
+                            "string"
+                          ],
+                          "tls13": [
+                            "set",
+                            "string"
+                          ]
+                        }
+                      ]
+                    ],
+                    "type": "string"
+                  }
+                ]
+              ],
+              "minimum_tls_version": "string",
+              "minimum_version": "string"
             }
           ]
         ]
