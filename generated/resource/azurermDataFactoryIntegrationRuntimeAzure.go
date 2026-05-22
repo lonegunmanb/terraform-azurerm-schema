@@ -40,6 +40,11 @@ const azurermDataFactoryIntegrationRuntimeAzure = `{
         "optional": true,
         "type": "string"
       },
+      "interactive_authoring_time_to_live_in_minutes": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "number"
+      },
       "location": {
         "description_kind": "plain",
         "required": true,

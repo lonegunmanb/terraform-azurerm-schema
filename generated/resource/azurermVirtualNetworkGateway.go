@@ -338,6 +338,7 @@ const azurermVirtualNetworkGateway = `{
             "radius_server_secret": {
               "description_kind": "plain",
               "optional": true,
+              "sensitive": true,
               "type": "string"
             },
             "vpn_auth_types": {

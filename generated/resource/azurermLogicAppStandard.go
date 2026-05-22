@@ -70,6 +70,11 @@ const azurermLogicAppStandard = `{
         "optional": true,
         "type": "string"
       },
+      "key_vault_reference_identity_id": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "string"
+      },
       "kind": {
         "computed": true,
         "description_kind": "plain",

@@ -1377,6 +1377,12 @@ const azurermLinuxWebAppSlot = `{
               "optional": true,
               "type": "string"
             },
+            "minimum_tls_cipher_suite": {
+              "description": "Configures the minimum TLS cipher suite for the incoming requests to the Site.",
+              "description_kind": "plain",
+              "optional": true,
+              "type": "string"
+            },
             "minimum_tls_version": {
               "description_kind": "plain",
               "optional": true,

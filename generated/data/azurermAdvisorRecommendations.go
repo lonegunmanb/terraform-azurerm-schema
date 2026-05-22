@@ -17,7 +17,23 @@ const azurermAdvisorRecommendations = `{
           "string"
         ]
       },
+      "filter_by_recommendation_type_guids": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": [
+          "set",
+          "string"
+        ]
+      },
       "filter_by_resource_groups": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": [
+          "set",
+          "string"
+        ]
+      },
+      "filter_by_resource_ids": {
         "description_kind": "plain",
         "optional": true,
         "type": [
@@ -41,6 +57,7 @@ const azurermAdvisorRecommendations = `{
             {
               "category": "string",
               "description": "string",
+              "id": "string",
               "impact": "string",
               "recommendation_name": "string",
               "recommendation_type_id": "string",

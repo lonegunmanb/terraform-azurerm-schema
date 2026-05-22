@@ -777,6 +777,7 @@ const azurermWindowsWebApp = `{
               "load_balancing_mode": "string",
               "local_mysql_enabled": "bool",
               "managed_pipeline_mode": "string",
+              "minimum_tls_cipher_suite": "string",
               "minimum_tls_version": "string",
               "remote_debugging_enabled": "bool",
               "remote_debugging_version": "string",
