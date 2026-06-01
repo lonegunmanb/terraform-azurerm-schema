@@ -237,6 +237,11 @@ const azurermApplicationGateway = `{
               "optional": true,
               "type": "string"
             },
+            "certificate_chain_validation_enabled": {
+              "description_kind": "plain",
+              "optional": true,
+              "type": "bool"
+            },
             "cookie_based_affinity": {
               "description_kind": "plain",
               "required": true,
@@ -296,6 +301,16 @@ const azurermApplicationGateway = `{
               "description_kind": "plain",
               "optional": true,
               "type": "number"
+            },
+            "sni_name": {
+              "description_kind": "plain",
+              "optional": true,
+              "type": "string"
+            },
+            "sni_validation_enabled": {
+              "description_kind": "plain",
+              "optional": true,
+              "type": "bool"
             },
             "trusted_root_certificate_names": {
               "description_kind": "plain",

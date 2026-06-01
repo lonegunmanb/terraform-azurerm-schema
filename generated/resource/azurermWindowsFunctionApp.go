@@ -1471,7 +1471,7 @@ const azurermWindowsFunctionApp = `{
                     "type": "string"
                   },
                   "powershell_core_version": {
-                    "description": "The PowerShell Core version to use. Possible values are ` + "`" + `7` + "`" + `, ` + "`" + `7.2` + "`" + `, and ` + "`" + `7.4` + "`" + `",
+                    "description": "The PowerShell Core version to use. Possible values are ` + "`" + `7` + "`" + `, ` + "`" + `7.2` + "`" + `, ` + "`" + `7.4` + "`" + `, and ` + "`" + `7.6` + "`" + `",
                     "description_kind": "plain",
                     "optional": true,
                     "type": "string"

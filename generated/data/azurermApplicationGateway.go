@@ -103,6 +103,7 @@ const azurermApplicationGateway = `{
                   }
                 ]
               ],
+              "certificate_chain_validation_enabled": "bool",
               "connection_draining": [
                 "list",
                 [
@@ -125,6 +126,8 @@ const azurermApplicationGateway = `{
               "probe_name": "string",
               "protocol": "string",
               "request_timeout": "number",
+              "sni_name": "string",
+              "sni_validation_enabled": "bool",
               "trusted_root_certificate_names": [
                 "list",
                 "string"

@@ -922,12 +922,35 @@ const azurermOrchestratedVirtualMachineScaleSet = `{
               "type": "string"
             },
             "vm_sizes": {
+              "computed": true,
+              "deprecated": true,
               "description_kind": "plain",
-              "required": true,
+              "optional": true,
               "type": [
                 "set",
                 "string"
               ]
+            }
+          },
+          "block_types": {
+            "virtual_machine_size": {
+              "block": {
+                "attributes": {
+                  "name": {
+                    "description_kind": "plain",
+                    "required": true,
+                    "type": "string"
+                  },
+                  "rank": {
+                    "description_kind": "plain",
+                    "optional": true,
+                    "type": "number"
+                  }
+                },
+                "description_kind": "plain"
+              },
+              "max_items": 5,
+              "nesting_mode": "set"
             }
           },
           "description_kind": "plain"

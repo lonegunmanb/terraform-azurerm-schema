@@ -141,12 +141,27 @@ const azurermRecoveryServicesVault = `{
       "monitoring": {
         "block": {
           "attributes": {
+            "alerts_for_all_failover_issues_enabled": {
+              "description_kind": "plain",
+              "optional": true,
+              "type": "bool"
+            },
             "alerts_for_all_job_failures_enabled": {
               "description_kind": "plain",
               "optional": true,
               "type": "bool"
             },
+            "alerts_for_all_replication_issues_enabled": {
+              "description_kind": "plain",
+              "optional": true,
+              "type": "bool"
+            },
             "alerts_for_critical_operation_failures_enabled": {
+              "description_kind": "plain",
+              "optional": true,
+              "type": "bool"
+            },
+            "email_notifications_for_site_recovery_enabled": {
               "description_kind": "plain",
               "optional": true,
               "type": "bool"

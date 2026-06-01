@@ -120,6 +120,29 @@ const azurermOrchestratedVirtualMachineScaleSet = `{
         "description_kind": "plain",
         "required": true,
         "type": "string"
+      },
+      "sku_profile": {
+        "computed": true,
+        "description_kind": "plain",
+        "type": [
+          "list",
+          [
+            "object",
+            {
+              "allocation_strategy": "string",
+              "virtual_machine_size": [
+                "set",
+                [
+                  "object",
+                  {
+                    "name": "string",
+                    "rank": "number"
+                  }
+                ]
+              ]
+            }
+          ]
+        ]
       }
     },
     "block_types": {
