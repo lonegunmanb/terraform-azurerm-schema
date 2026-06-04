@@ -119,6 +119,25 @@ const azurermKeyVaultKey = `{
       }
     },
     "block_types": {
+      "release_policy": {
+        "block": {
+          "attributes": {
+            "immutable": {
+              "description_kind": "plain",
+              "optional": true,
+              "type": "bool"
+            },
+            "json": {
+              "description_kind": "plain",
+              "required": true,
+              "type": "string"
+            }
+          },
+          "description_kind": "plain"
+        },
+        "max_items": 1,
+        "nesting_mode": "list"
+      },
       "rotation_policy": {
         "block": {
           "attributes": {
