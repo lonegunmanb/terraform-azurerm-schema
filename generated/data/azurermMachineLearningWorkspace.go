@@ -49,6 +49,11 @@ const azurermMachineLearningWorkspace = `{
         "required": true,
         "type": "string"
       },
+      "storage_account_access_type": {
+        "computed": true,
+        "description_kind": "plain",
+        "type": "string"
+      },
       "tags": {
         "computed": true,
         "description_kind": "plain",

@@ -1120,8 +1120,6 @@ func init() {
 	resources["azurerm_vmware_express_route_authorization"] = resource.AzurermVmwareExpressRouteAuthorizationSchema()  
 	resources["azurerm_vmware_netapp_volume_attachment"] = resource.AzurermVmwareNetappVolumeAttachmentSchema()  
 	resources["azurerm_vmware_private_cloud"] = resource.AzurermVmwarePrivateCloudSchema()  
-	resources["azurerm_voice_services_communications_gateway"] = resource.AzurermVoiceServicesCommunicationsGatewaySchema()  
-	resources["azurerm_voice_services_communications_gateway_test_line"] = resource.AzurermVoiceServicesCommunicationsGatewayTestLineSchema()  
 	resources["azurerm_vpn_gateway"] = resource.AzurermVpnGatewaySchema()  
 	resources["azurerm_vpn_gateway_connection"] = resource.AzurermVpnGatewayConnectionSchema()  
 	resources["azurerm_vpn_gateway_nat_rule"] = resource.AzurermVpnGatewayNatRuleSchema()  

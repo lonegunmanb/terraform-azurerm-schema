@@ -25,6 +25,11 @@ const azurermStorageObjectReplication = `{
         "optional": true,
         "type": "string"
       },
+      "metrics_enabled": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "bool"
+      },
       "source_object_replication_id": {
         "computed": true,
         "description_kind": "plain",
