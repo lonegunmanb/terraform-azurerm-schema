@@ -9,6 +9,16 @@ import (
 const azurermNetworkManagerConnectivityConfiguration = `{
   "block": {
     "attributes": {
+      "connected_group_address_overlap_enabled": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "bool"
+      },
+      "connected_group_private_endpoints_scale": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "string"
+      },
       "connectivity_topology": {
         "description_kind": "plain",
         "required": true,
@@ -44,6 +54,11 @@ const azurermNetworkManagerConnectivityConfiguration = `{
         "description_kind": "plain",
         "required": true,
         "type": "string"
+      },
+      "peering_enforcement_enabled": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "bool"
       }
     },
     "block_types": {

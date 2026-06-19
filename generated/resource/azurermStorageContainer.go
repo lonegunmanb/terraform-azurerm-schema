@@ -71,6 +71,11 @@ const azurermStorageContainer = `{
         "description_kind": "plain",
         "optional": true,
         "type": "string"
+      },
+      "url": {
+        "computed": true,
+        "description_kind": "plain",
+        "type": "string"
       }
     },
     "block_types": {

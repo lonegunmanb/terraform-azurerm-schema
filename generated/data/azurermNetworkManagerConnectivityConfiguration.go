@@ -25,6 +25,16 @@ const azurermNetworkManagerConnectivityConfiguration = `{
           ]
         ]
       },
+      "connected_group_address_overlap_enabled": {
+        "computed": true,
+        "description_kind": "plain",
+        "type": "bool"
+      },
+      "connected_group_private_endpoints_scale": {
+        "computed": true,
+        "description_kind": "plain",
+        "type": "string"
+      },
       "connectivity_topology": {
         "computed": true,
         "description_kind": "plain",
@@ -74,6 +84,11 @@ const azurermNetworkManagerConnectivityConfiguration = `{
         "description_kind": "plain",
         "required": true,
         "type": "string"
+      },
+      "peering_enforcement_enabled": {
+        "computed": true,
+        "description_kind": "plain",
+        "type": "bool"
       }
     },
     "block_types": {

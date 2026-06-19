@@ -31,11 +31,21 @@ const azurermApplicationInsights = `{
         "type": "number"
       },
       "daily_data_cap_notifications_disabled": {
+        "computed": true,
+        "deprecated": true,
+        "description_kind": "plain",
+        "optional": true,
+        "type": "bool"
+      },
+      "daily_data_cap_notifications_enabled": {
+        "computed": true,
         "description_kind": "plain",
         "optional": true,
         "type": "bool"
       },
       "disable_ip_masking": {
+        "computed": true,
+        "deprecated": true,
         "description_kind": "plain",
         "optional": true,
         "type": "bool"
@@ -67,7 +77,21 @@ const azurermApplicationInsights = `{
         "optional": true,
         "type": "bool"
       },
+      "ip_masking_enabled": {
+        "computed": true,
+        "description_kind": "plain",
+        "optional": true,
+        "type": "bool"
+      },
       "local_authentication_disabled": {
+        "computed": true,
+        "deprecated": true,
+        "description_kind": "plain",
+        "optional": true,
+        "type": "bool"
+      },
+      "local_authentication_enabled": {
+        "computed": true,
         "description_kind": "plain",
         "optional": true,
         "type": "bool"

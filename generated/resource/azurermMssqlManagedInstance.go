@@ -118,6 +118,12 @@ const azurermMssqlManagedInstance = `{
         "optional": true,
         "type": "string"
       },
+      "storage_iops": {
+        "computed": true,
+        "description_kind": "plain",
+        "optional": true,
+        "type": "number"
+      },
       "storage_size_in_gb": {
         "description_kind": "plain",
         "required": true,
