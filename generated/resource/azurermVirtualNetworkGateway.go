@@ -70,6 +70,18 @@ const azurermVirtualNetworkGateway = `{
         "required": true,
         "type": "string"
       },
+      "maximum_scale_unit": {
+        "computed": true,
+        "description_kind": "plain",
+        "optional": true,
+        "type": "number"
+      },
+      "minimum_scale_unit": {
+        "computed": true,
+        "description_kind": "plain",
+        "optional": true,
+        "type": "number"
+      },
       "name": {
         "description_kind": "plain",
         "required": true,

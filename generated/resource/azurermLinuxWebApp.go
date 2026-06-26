@@ -1500,6 +1500,7 @@ const azurermLinuxWebApp = `{
                     "type": "string"
                   },
                   "ruby_version": {
+                    "deprecated": true,
                     "description_kind": "plain",
                     "optional": true,
                     "type": "string"
