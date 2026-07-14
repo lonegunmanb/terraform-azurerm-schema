@@ -407,6 +407,14 @@ const azurermOrchestratedVirtualMachineScaleSet = `{
               "description_kind": "plain",
               "optional": true,
               "type": "bool"
+            },
+            "tags": {
+              "description_kind": "plain",
+              "optional": true,
+              "type": [
+                "map",
+                "string"
+              ]
             }
           },
           "block_types": {

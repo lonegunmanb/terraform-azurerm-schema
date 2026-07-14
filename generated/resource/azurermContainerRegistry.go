@@ -30,6 +30,11 @@ const azurermContainerRegistry = `{
         "optional": true,
         "type": "bool"
       },
+      "azuread_authentication_as_arm_policy_enabled": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "bool"
+      },
       "data_endpoint_enabled": {
         "description_kind": "plain",
         "optional": true,
@@ -84,6 +89,11 @@ const azurermContainerRegistry = `{
         "required": true,
         "type": "string"
       },
+      "network_rule_bypass_for_tasks_enabled": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "bool"
+      },
       "network_rule_bypass_option": {
         "description_kind": "plain",
         "optional": true,
@@ -132,6 +142,11 @@ const azurermContainerRegistry = `{
         "description_kind": "plain",
         "optional": true,
         "type": "number"
+      },
+      "role_assignment_mode": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "string"
       },
       "sku": {
         "description_kind": "plain",

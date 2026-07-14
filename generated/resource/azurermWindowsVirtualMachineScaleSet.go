@@ -332,6 +332,18 @@ const azurermWindowsVirtualMachineScaleSet = `{
               "optional": true,
               "type": "string"
             },
+            "disk_iops_read_write": {
+              "computed": true,
+              "description_kind": "plain",
+              "optional": true,
+              "type": "number"
+            },
+            "disk_mbps_read_write": {
+              "computed": true,
+              "description_kind": "plain",
+              "optional": true,
+              "type": "number"
+            },
             "disk_size_gb": {
               "description_kind": "plain",
               "required": true,
@@ -354,12 +366,14 @@ const azurermWindowsVirtualMachineScaleSet = `{
             },
             "ultra_ssd_disk_iops_read_write": {
               "computed": true,
+              "deprecated": true,
               "description_kind": "plain",
               "optional": true,
               "type": "number"
             },
             "ultra_ssd_disk_mbps_read_write": {
               "computed": true,
+              "deprecated": true,
               "description_kind": "plain",
               "optional": true,
               "type": "number"

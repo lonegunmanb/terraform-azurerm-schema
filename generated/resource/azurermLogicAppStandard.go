@@ -132,17 +132,22 @@ const azurermLogicAppStandard = `{
       },
       "storage_account_access_key": {
         "description_kind": "plain",
-        "required": true,
+        "optional": true,
         "sensitive": true,
         "type": "string"
       },
       "storage_account_name": {
         "description_kind": "plain",
-        "required": true,
+        "optional": true,
         "type": "string"
       },
       "storage_account_share_name": {
         "computed": true,
+        "description_kind": "plain",
+        "optional": true,
+        "type": "string"
+      },
+      "storage_key_vault_secret_id": {
         "description_kind": "plain",
         "optional": true,
         "type": "string"

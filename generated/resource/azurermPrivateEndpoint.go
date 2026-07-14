@@ -31,6 +31,11 @@ const azurermPrivateEndpoint = `{
         "optional": true,
         "type": "string"
       },
+      "edge_zone": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "string"
+      },
       "id": {
         "computed": true,
         "description_kind": "plain",

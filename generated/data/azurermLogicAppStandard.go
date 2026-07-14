@@ -294,6 +294,12 @@ const azurermLogicAppStandard = `{
         "description_kind": "plain",
         "type": "string"
       },
+      "storage_key_vault_secret_id": {
+        "computed": true,
+        "description": "The Key Vault Secret ID, optionally including version, that contains the connection string to the backend storage account for the Logic App.",
+        "description_kind": "plain",
+        "type": "string"
+      },
       "tags": {
         "computed": true,
         "description_kind": "plain",

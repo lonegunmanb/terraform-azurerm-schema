@@ -6,20 +6,15 @@ import (
 	tfjson "github.com/hashicorp/terraform-json"
 )
 
-const azurermApiManagementLogger = `{
+const azurermLogAnalyticsWorkspaceTableMicrosoft = `{
   "block": {
     "attributes": {
-      "api_management_name": {
-        "description_kind": "plain",
-        "required": true,
-        "type": "string"
-      },
-      "buffered": {
+      "description": {
         "description_kind": "plain",
         "optional": true,
-        "type": "bool"
+        "type": "string"
       },
-      "description": {
+      "display_name": {
         "description_kind": "plain",
         "optional": true,
         "type": "string"
@@ -30,77 +25,99 @@ const azurermApiManagementLogger = `{
         "optional": true,
         "type": "string"
       },
+      "labels": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": [
+          "set",
+          "string"
+        ]
+      },
       "name": {
         "description_kind": "plain",
         "required": true,
         "type": "string"
       },
-      "resource_group_name": {
-        "description_kind": "plain",
-        "required": true,
-        "type": "string"
-      },
-      "resource_id": {
+      "retention_in_days": {
         "description_kind": "plain",
         "optional": true,
+        "type": "number"
+      },
+      "solutions": {
+        "computed": true,
+        "description_kind": "plain",
+        "type": [
+          "set",
+          "string"
+        ]
+      },
+      "standard_column": {
+        "computed": true,
+        "description_kind": "plain",
+        "type": [
+          "list",
+          [
+            "object",
+            {
+              "description": "string",
+              "display_by_default": "bool",
+              "display_name": "string",
+              "hidden": "bool",
+              "name": "string",
+              "type": "string",
+              "type_hint": "string"
+            }
+          ]
+        ]
+      },
+      "total_retention_in_days": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "number"
+      },
+      "workspace_id": {
+        "description_kind": "plain",
+        "required": true,
         "type": "string"
       }
     },
     "block_types": {
-      "application_insights": {
+      "column": {
         "block": {
           "attributes": {
-            "connection_string": {
-              "description_kind": "plain",
-              "optional": true,
-              "sensitive": true,
-              "type": "string"
-            },
-            "identity_client_id": {
+            "description": {
               "description_kind": "plain",
               "optional": true,
               "type": "string"
             },
-            "instrumentation_key": {
+            "display_by_default": {
               "description_kind": "plain",
               "optional": true,
-              "sensitive": true,
-              "type": "string"
-            }
-          },
-          "description_kind": "plain"
-        },
-        "max_items": 1,
-        "nesting_mode": "list"
-      },
-      "eventhub": {
-        "block": {
-          "attributes": {
-            "connection_string": {
+              "type": "bool"
+            },
+            "display_name": {
               "description_kind": "plain",
               "optional": true,
-              "sensitive": true,
               "type": "string"
             },
-            "endpoint_uri": {
+            "hidden": {
               "description_kind": "plain",
               "optional": true,
-              "type": "string"
+              "type": "bool"
             },
             "name": {
               "description_kind": "plain",
               "required": true,
               "type": "string"
             },
-            "user_assigned_identity_client_id": {
+            "type": {
               "description_kind": "plain",
-              "optional": true,
+              "required": true,
               "type": "string"
             }
           },
           "description_kind": "plain"
         },
-        "max_items": 1,
         "nesting_mode": "list"
       },
       "timeouts": {
@@ -137,8 +154,8 @@ const azurermApiManagementLogger = `{
   "version": 0
 }`
 
-func AzurermApiManagementLoggerSchema() *tfjson.Schema {
+func AzurermLogAnalyticsWorkspaceTableMicrosoftSchema() *tfjson.Schema {
 	var result tfjson.Schema
-	_ = json.Unmarshal([]byte(azurermApiManagementLogger), &result)
+	_ = json.Unmarshal([]byte(azurermLogAnalyticsWorkspaceTableMicrosoft), &result)
 	return &result
 }
